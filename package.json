@@ -1,0 +1,22 @@
+{
+  "name": "darksouls",
+  "version": "0.1.0",
+  "description": "Foundry VTT system for Dark Souls TRPG",
+  "main": "module/darksouls.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NekohimeMusou/darksouls.git"
+  },
+  "author": "Nekohime Musou",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NekohimeMusou/darksouls/issues"
+  },
+  "homepage": "https://github.com/NekohimeMusou/darksouls#readme",
+  "devDependencies": {
+    "eslint": "^8.41.0"
+  }
+}
