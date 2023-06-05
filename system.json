@@ -1,0 +1,30 @@
+{
+    "id": "darksouls",
+    "title": "Dark Souls TRPG",
+    "description": "Unofficial implementation of the Dark Souls TRPG, as translated by Matara",
+    "version": "0.1.0",
+    "compatibility": {
+        "verified": 11
+    },
+    "authors": [
+        {
+            "name": "Nekohime Musou"
+        }
+    ],
+    "esmodules": [
+        "scripts/darksouls.mjs"
+    ],
+    "styles": [
+        "styles/darksouls.css"
+    ],
+    "languages": [
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "lang/en.json"
+        }
+    ],
+    "primaryTokenAttribute": "resources.hp",
+    "secondaryTokenAttribute": "resources.fp",
+    "url": "https://github.com/NekohimeMusou/darksouls"
+}

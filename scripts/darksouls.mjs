@@ -11,6 +11,11 @@ import preloadHandlebarsTemplates from "./helpers/templates.mjs";
 Hooks.once('init', async function() {
     console.log("DARKSOULS | Initializing Dark Souls Game System");
 
+    // Add utility classes/functions to the global game object(?)
+
+    // Add custom constants for configuration
+    // CONFIG.DARKSOULS = DARKSOULS;
+
     // Define custom Document classes
     CONFIG.Actor.documentClass = DarkSoulsActor;
     CONFIG.Item.documentClass = DarkSoulsItem;
