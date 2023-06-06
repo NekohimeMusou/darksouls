@@ -1,3 +1,10 @@
 {
-    "DARKSOULS.Example": "Example"
+    "DARKSOULS.HitPoints": "Hit Points",
+    "DARKSOULS.Hp": "HP",
+    "DARKSOULS.FocusPoints": "Focus Points",
+    "DARKSOULS.Fp": "FP",
+    "DARKSOULS.Class": "Class",
+    "DARKSOULS.Level": "Level",
+    
+    "DARKSOULS.DescriptionTab": "Description"
 }
