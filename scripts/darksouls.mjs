@@ -5,7 +5,7 @@ import DarkSoulsItem from "./documents/item.mjs";
 import DarkSoulsActorSheet from "./sheets/actor-sheet.mjs";
 import DarkSoulsItemSheet from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants
-import { DARKSOULS } from "./helpers/config.mjs";
+// import { DARKSOULS } from "./helpers/config.mjs";
 import preloadHandlebarsTemplates from "./helpers/templates.mjs";
 
 Hooks.once('init', async function() {
