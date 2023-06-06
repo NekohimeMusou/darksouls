@@ -27,6 +27,8 @@ export class DarkSoulsActor extends Actor {
     const data = actorData.data;
     const flags = actorData.flags.darksouls || {};
 
+    data.level = 1;
+
     // this._prepareCharacterData(actorData);
     // this._prepareMonsterData(actorData);
   }

@@ -1,46 +1,6 @@
 <form class="flexcol {{cssClass}} {{actor.type}}" autocomplete="off">
     {{!-- Sheet Header --}}
-    <header class="sheet-header">
-        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
-        <div class="header-fields">
-            <h1 class="charname">
-                <input name="name" type="text" value="{{actor.name}}" placeholder="Name">
-            </h1>
-            <div class="resources grid grid-4col">
-                <div class="resource flex-group-center">
-                    <label for="data.hp.value" class="resource-label">{{localize "DARKSOULS.Hp"}}</label>
-                    <div class="resource-content flexrow flex-center flex-between">
-                        <input type="text" name="data.hp.value" value="{{data.hp.value}}" data-dtype="Number" />
-                        <span> / </span>
-                        <input type="text" name="data.hp.max" value="{{data.hp.max}}" data-dtype="Number" />
-                    </div>
-                </div>
-
-                <div class="resource flex-group-center">
-                    <label for="data.fp.value" class="resource-label">{{localize "DARKSOULS.Fp"}}</label>
-                    <div class="resource-content flexrow flex-center flex-between">
-                        <input type="text" name="data.fp.value" value="{{data.fp.value}}" data-dtype="Number" />
-                        <span> / </span>
-                        <input type="text" name="data.fp.max" value="{{data.fp.max}}" data-dtype="Number" />
-                    </div>
-                </div>
-
-                <div class="resource flex-group-center">
-                    <label for="data.class" class="resource-label">{{localize "DARKSOULS.Class"}}</label>
-                    <div class="resource-content flexrow flex-center flex-between">
-                        <input type="text" name="data.class" value="{{data.class}}" />
-                    </div>
-                </div>
-
-                <div class="resource flex-group-center">
-                    <label for="data.level" class="resource-label">{{localize "DARKSOULS.Level"}}</label>
-                    <div class="resource-content flexrow flex-center flex-between">
-                        <input type="text" name="data.level" value="{{data.level}}" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+    {{> "systems/darksouls/templates/actor/parts/header.html"}}
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
