@@ -9,22 +9,22 @@ import { DARKSOULS } from "./helpers/config.mjs";
 import preloadHandlebarsTemplates from "./helpers/templates.mjs";
 
 Hooks.once('init', async function() {
-    console.log("DARKSOULS | Initializing Dark Souls Game System");
+  console.log("DARKSOULS | Initializing Dark Souls Game System");
 
-    // Add utility classes/functions to the global game object(?)
+  // Add utility classes/functions to the global game object(?)
 
-    // Add custom constants for configuration
-    // CONFIG.DARKSOULS = DARKSOULS;
+  // Add custom constants for configuration
+  // CONFIG.DARKSOULS = DARKSOULS;
 
-    // Define custom Document classes
-    CONFIG.Actor.documentClass = DarkSoulsActor;
-    CONFIG.Item.documentClass = DarkSoulsItem;
+  // Define custom Document classes
+  CONFIG.Actor.documentClass = DarkSoulsActor;
+  CONFIG.Item.documentClass = DarkSoulsItem;
 
-    // Register sheet application classes
-    Actors.unregisterSheet('core', ActorSheet);
-    Actors.registerSheet('darksouls', DarkSoulsActorSheet, { makeDefault: true });
-    Items.unregisterSheet('core', ItemSheet);
-    Items.registerSheet('darksouls', DarkSoulsItemSheet, { makeDefault: true });
+  // Register sheet application classes
+  Actors.unregisterSheet('core', ActorSheet);
+  Actors.registerSheet('darksouls', DarkSoulsActorSheet, { makeDefault: true });
+  Items.unregisterSheet('core', ItemSheet);
+  Items.registerSheet('darksouls', DarkSoulsItemSheet, { makeDefault: true });
 
-    preloadHandlebarsTemplates();
+  preloadHandlebarsTemplates();
 });
