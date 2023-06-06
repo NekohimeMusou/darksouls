@@ -1,0 +1,80 @@
+{
+    "Actor": {
+        "types": ["pc"],
+        "templates": {
+            "base": {
+                "description": "",
+                "hp": {
+                    "min": 0,
+                    "value": 5,
+                    "max": 5
+                }
+            }
+        },
+        "character": {
+            "templates": ["base"],
+            "age": 0,
+            "gender": "",
+            "origin": "",
+            "class": "",
+            "fp": {
+                "min": 0,
+                "value": 5,
+                "max": 5
+            },
+            "luckPoints": {
+                "min": -5,
+                "max": 0,
+                "value": 0
+            },
+            "stats": {
+                "vigor": {
+                    "base": 0,
+                    "growth": 0
+                },
+                "attunement": {
+                    "base": 0,
+                    "growth": 0
+                },
+                "vitality": {
+                    "base": 0,
+                    "growth": 0
+                },
+                "strength": {
+                    "base": 0,
+                    "growth": 0
+                },
+                "dexterity": {
+                    "base": 0,
+                    "growth": 0
+                },
+                "intelligence": {
+                    "base": 0,
+                    "growth": 0
+                },
+                "faith": {
+                    "base": 0,
+                    "growth": 0
+                },
+                "luck": {
+                    "base": 0,
+                    "growth": 0
+                }
+            },
+            "estus": {
+                "total": 4,
+                "amount": 3,
+                "hp": {
+                    "min": 0,
+                    "max": 4,
+                    "value": 4
+                },
+                "fp": {
+                    "min": 0,
+                    "max": 4,
+                    "value": 4
+                }
+            }
+        }
+    }
+}
