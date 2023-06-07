@@ -1,4 +1,4 @@
-export class DarkSoulsActor extends Actor {
+export default class DarkSoulsActor extends Actor {
   /** @override */
   prepareData() {
     // Prepare data for the actor. Calling the super version of this executes

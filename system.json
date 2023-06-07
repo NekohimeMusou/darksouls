@@ -24,7 +24,6 @@
             "path": "lang/en.json"
         }
     ],
-    "primaryTokenAttribute": "resources.hp",
-    "secondaryTokenAttribute": "resources.fp",
+    "primaryTokenAttribute": "hp",
     "url": "https://github.com/NekohimeMusou/darksouls"
 }

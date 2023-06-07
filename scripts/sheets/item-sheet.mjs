@@ -1,4 +1,4 @@
-export class DarkSoulsItemSheet extends ItemSheet {
+export default class DarkSoulsItemSheet extends ItemSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {

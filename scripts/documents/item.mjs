@@ -1,4 +1,4 @@
-export class DarkSoulsItem extends Item {
+export default class DarkSoulsItem extends Item {
   /** @override */
   prepareData() {
     // As with the actor class, items are documents that can have their data

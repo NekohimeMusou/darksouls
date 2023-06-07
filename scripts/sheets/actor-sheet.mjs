@@ -1,4 +1,4 @@
-export class DarkSoulsActorSheet extends ActorSheet {
+export default class DarkSoulsActorSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
