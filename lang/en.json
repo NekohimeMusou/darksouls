@@ -6,5 +6,22 @@
     "DARKSOULS.Class": "Class",
     "DARKSOULS.Level": "Level",
     
-    "DARKSOULS.DescriptionTab": "Description"
+    "DARKSOULS.DescriptionTab": "Description",
+
+    "DARKSOULS.Vigor": "Vigor",
+    "DARKSOULS.VigorShort": "VIG",
+    "DARKSOULS.Attunement": "Attunement",
+    "DARKSOULS.AttunementShort": "ATN",
+    "DARKSOULS.Vitality": "Vitality",
+    "DARKSOULS.VitalityShort": "VIT",
+    "DARKSOULS.Strength": "Strength",
+    "DARKSOULS.StrengthShort": "STR",
+    "DARKSOULS.Dexterity": "Dexterity",
+    "DARKSOULS.DexterityShort": "DEX",
+    "DARKSOULS.Intelligence": "Intelligence",
+    "DARKSOULS.IntelligenceShort": "INT",
+    "DARKSOULS.Faith": "Faith",
+    "DARKSOULS.FaithShort": "FTH",
+    "DARKSOULS.Luck": "Luck",
+    "DARKSOULS.LuckShort": "LUC"
 }
