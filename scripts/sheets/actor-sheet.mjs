@@ -21,16 +21,15 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     context.flags = actorData.flags;
 
     context.isGM = game.user.isGM;
-        
+
     // Prepare character data and items; use if statements here when we have more than one type (e.g. `if (actorData.type == 'character') {})
-    this._prepareItems(context);
-        
-    if (actorData.type == 'character') {
-      this._prepareCharacterData(context);
-    } 
-    if (actorData.type == 'monster') {
-      this._prepareMonsterData(context);
-    }
+
+    // if (actorData.type == 'character') {
+    //   this._prepareCharacterData(context);
+    // } 
+    // if (actorData.type == 'monster') {
+    //   this._prepareMonsterData(context);
+    // }
 
     // Add roll data for TinyMCE editors
     context.rollData = context.actor.getRollData();
