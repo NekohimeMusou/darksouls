@@ -11,12 +11,13 @@
                 }
             }
         },
-        "character": {
+        "pc": {
             "templates": ["base"],
             "age": 0,
             "gender": "",
             "origin": "",
             "class": "",
+            "souls": 0,
             "fp": {
                 "min": 0,
                 "value": 5,
@@ -62,8 +63,8 @@
                 }
             },
             "estus": {
-                "total": 4,
-                "amount": 3,
+                "uses": 4,
+                "recovery": 3,
                 "hp": {
                     "min": 0,
                     "max": 4,
