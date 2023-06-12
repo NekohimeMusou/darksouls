@@ -4,6 +4,7 @@
         <h1 class="charname">
             <input name="name" type="text" value="{{actor.name}}" placeholder="Name">
         </h1>
+        {{!-- Vital statistics --}}
         <div class="resources grid grid-4col">
             <div class="resource flex-group-center">
                 <label for="data.hp.value" class="resource-label">{{localize "DARKSOULS.Hp"}}</label>
@@ -37,5 +38,7 @@
                 </div>
             </div>
         </div>
+
+        {{!-- HP/FP/Luck --}}
     </div>
 </header>
