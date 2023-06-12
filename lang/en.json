@@ -3,9 +3,12 @@
     "DARKSOULS.Hp": "HP",
     "DARKSOULS.FocusPoints": "Focus Points",
     "DARKSOULS.Fp": "FP",
+
     "DARKSOULS.Class": "Class",
     "DARKSOULS.Level": "Level",
-    
+    "DARKSOULS.Souls": "Souls",
+
+    "DARKSOULS.StatsTab": "Stats",
     "DARKSOULS.DescriptionTab": "Description",
 
     "DARKSOULS.Vigor": "Vigor",
@@ -23,5 +26,7 @@
     "DARKSOULS.Faith": "Faith",
     "DARKSOULS.FaithShort": "FTH",
     "DARKSOULS.Luck": "Luck",
-    "DARKSOULS.LuckShort": "LUC"
+    "DARKSOULS.LuckShort": "LUC",
+
+    "DARKSOULS.ModifierShort": "Mod"
 }

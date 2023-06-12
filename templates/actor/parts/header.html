@@ -4,8 +4,33 @@
         <h1 class="charname">
             <input name="name" type="text" value="{{actor.name}}" placeholder="Name">
         </h1>
-        {{!-- Vital statistics --}}
-        <div class="resources grid grid-4col">
+        {{!-- Vital statistics: Level, class, souls --}}
+        <div class="resources grid grid-3col">
+            {{!-- Column 1 --}}
+            <div class="resource flex-group-center">
+                <label for="data.class" class="resource-label">{{localize "DARKSOULS.Class"}}</label>
+                <div class="resource-content flexrow flex-center flex-between">
+                    <input type="text" name="data.class" value="{{data.class}}" />
+                </div>
+            </div>
+
+            <div class="resource flex-group-center">
+                <label for="data.level" class="resource-label">{{localize "DARKSOULS.Level"}}</label>
+                <div class="resource-content flexrow flex-center flex-between">
+                    <input type="text" name="data.level" value="{{data.level}}" readonly />
+                    <label for="data.levelMod">{{localize "DARKSOULS.ModifierShort"}}</label>
+                    <input type="text" name="data.levelMod" value="{{data.levelMod}}" readonly />
+                </div>
+            </div>
+
+            <div class="resource flex-group-center">
+                <label for="data.souls" class="resource-label">{{localize "DARKSOULS.Souls"}}</label>
+                <div class="resource-content flexrow flex-center flex-between">
+                    <input type="text" name="data.souls" value="{{data.souls}}" readonly />
+                </div>
+            </div>
+
+            {{!-- Column 2 --}}
             <div class="resource flex-group-center">
                 <label for="data.hp.value" class="resource-label">{{localize "DARKSOULS.Hp"}}</label>
                 <div class="resource-content flexrow flex-center flex-between">
@@ -23,22 +48,6 @@
                     <input type="text" name="data.fp.max" value="{{data.fp.max}}" data-dtype="Number" />
                 </div>
             </div>
-
-            <div class="resource flex-group-center">
-                <label for="data.class" class="resource-label">{{localize "DARKSOULS.Class"}}</label>
-                <div class="resource-content flexrow flex-center flex-between">
-                    <input type="text" name="data.class" value="{{data.class}}" />
-                </div>
-            </div>
-
-            <div class="resource flex-group-center">
-                <label for="data.level" class="resource-label">{{localize "DARKSOULS.Level"}}</label>
-                <div class="resource-content flexrow flex-center flex-between">
-                    <input type="text" name="data.level" value="{{data.level}}" readonly />
-                </div>
-            </div>
         </div>
-
-        {{!-- HP/FP/Luck --}}
     </div>
 </header>

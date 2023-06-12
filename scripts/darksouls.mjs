@@ -5,13 +5,21 @@ import DarkSoulsItem from "./documents/item.mjs";
 import DarkSoulsActorSheet from "./sheets/actor-sheet.mjs";
 import DarkSoulsItemSheet from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants
-// import { DARKSOULS } from "./helpers/config.mjs";
+import { DARKSOULS } from "./helpers/config.mjs";
 import preloadHandlebarsTemplates from "./helpers/templates.mjs";
 
 Hooks.once('init', async function() {
   console.log("DARKSOULS | Initializing Dark Souls Game System");
 
-  // Add utility classes/functions to the global game object(?)
+  // Add utility classes/functions to the global game object
+  // So they're more easily accessible in global contexts
+  game.darksouls = {
+    DarkSoulsActor,
+    DarkSoulsItem
+  }
+
+  // Add custom config constants
+  CONFIG.DARKSOULS = DARKSOULS;
 
   // Add custom constants for configuration
   // CONFIG.DARKSOULS = DARKSOULS;
@@ -27,4 +35,22 @@ Hooks.once('init', async function() {
   Items.registerSheet('darksouls', DarkSoulsItemSheet, { makeDefault: true });
 
   preloadHandlebarsTemplates();
+});
+
+/**
+ * Handlebars Helpers
+ */
+
+Handlebars.registerHelper('concat', function() {
+  var outStr = '';
+  for (var arg in arguments) {
+    if (typeof arguments[arg] != 'object') {
+      outStr += arguments[arg];
+    }
+  }
+  return outStr;
+});
+
+Handlebars.registerHelper('toLowerCase', function(str) {
+  return str.toLowerCase();
 });
