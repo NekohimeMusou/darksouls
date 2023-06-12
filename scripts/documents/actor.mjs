@@ -11,11 +11,6 @@ export default class DarkSoulsActor extends Actor {
   /** @override */
   prepareBaseData() {
     // Data modifications in this step occur before processing embedded documents or derived data
-    const data = this.data.data;
-
-    // if (this.data.type === 'monster' && typeof(data.move) === 'string') {
-    //     data.move = {normal: 120};
-    // }
   }
 
   /**
@@ -23,23 +18,51 @@ export default class DarkSoulsActor extends Actor {
      * Augment actor data with additional dynamic data.
      */
   prepareDerivedData() {
-    const actorData = this.data;
-    const data = actorData.data;
+    const actorData = this;
+    const systemData = actorData.system;
     const flags = actorData.flags.darksouls || {};
 
-    data.level = 1;
+    this.#preparePcData(actorData);
+    this.#prepareMonsterData(actorData);
+  }
 
-    // this._prepareCharacterData(actorData);
-    // this._prepareMonsterData(actorData);
+  static #preparePcData(actorData) {
+    if (actorData.type !== "pc") return;
+
+    const systemData = actorData.system;
+
+    for (let [_, stat] of Object.entries(systemData.stats)) {
+      // Calculate the modifier
+      stat.mod = Math.floor(stat.value / 4);
+    }
+  }
+
+  static #prepareMonsterData(actorData) {
+    if (actorData.type !== "monster") return;
   }
 
   /** @override */
   getRollData() {
     const data = foundry.utils.deepClone(super.getRollData());
 
-    // this._getCharacterRollData(data);
-    // this._getMonsterRollData(data);
+    this.#getPcRollData(data);
+    this.#getMonsterRollData(data);
 
     return data;
+  }
+
+  static #getPcRollData(data) {
+    if (data.type !== "pc") return;
+
+    // Copy stats to top level
+    if (data.stats) {
+      for (let [k, v] of Object.entries(data.stats)) {
+        data[k] = foundry.utils.deepClone(v);
+      }
+    }
+  }
+
+  static #getMonsterRollData(data) {
+    if (data.type !== "monster") return;
   }
 }

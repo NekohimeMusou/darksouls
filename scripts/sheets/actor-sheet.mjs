@@ -14,19 +14,22 @@ export default class DarkSoulsActorSheet extends ActorSheet {
   getData() {
     const context = super.getData();
 
-    const actorData = context.actor.data;
+    const actorData = this.actor.toObject(false);
+    // Use this if the above causes problems
+    // const actorData = context.actor;
 
     // Add the actor's data to context.data for easier access, as well as flags
-    context.data = actorData.data;
+    context.system = actorData.system;
     context.flags = actorData.flags;
 
-    context.isGM = game.user.isGM;
+    // context.isGM = game.user.isGM;
 
     // Prepare character data and items; use if statements here when we have more than one type (e.g. `if (actorData.type == 'character') {})
 
-    // if (actorData.type == 'character') {
-    //   this._prepareCharacterData(context);
-    // } 
+    if (actorData.type == 'pc') {
+      this.#preparePcData(context);
+      // this.#prepareItems(context);
+    } 
     // if (actorData.type == 'monster') {
     //   this._prepareMonsterData(context);
     // }
@@ -40,6 +43,22 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     return context;
   }
 
+  static #preparePcData(context) {
+    // Add labels for ability scores
+    for (let [k, v] of Object.entries(context.system.stats)) {
+      // TODO: Add stuff to config so this will work
+      v.label = game.i18n.localize(CONFIG.DARKSOULS.stats[k]) ?? k;
+    }
+  }
+
+  static #prepareItems(context) {
+
+  }
+
+  static #prepareMonsterData(context) {
+
+  }
+
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
@@ -51,6 +70,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
       item.sheet.render(true);
     });
 
+    // Everything below here is only needed if the sheet is editable
     if (!this.isEditable) return;
 
     // Add Inventory Item
@@ -64,13 +84,10 @@ export default class DarkSoulsActorSheet extends ActorSheet {
       li.slideUp(200, () => this.render(false));
     });
 
-    // Equip Inventory Item
-    // html.find('.item-toggle').click(this._onItemToggle.bind(this));
-
     // Drag events for macros.
-    if (this.actor.owner) {
+    if (this.actor.isOwner) {
       let handler = ev => this._onDragStart(ev);
-      html.find('li.item').each((i, li) => {
+      html.find('li.item').each((_, li) => {
         if (li.classList.contains("inventory-header")) return;
         li.setAttribute("draggable", true);
         li.addEventListener("dragstart", handler, false);
@@ -89,47 +106,19 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     // Get the type of item to create.
     const type = header.dataset.type;
     // Grab any data associated with this control.
-    const data = duplicate(header.dataset);
+    const system = duplicate(header.dataset);
     // Initialize a default name.
-    const itemName = `New ${type.capitalize()}`;
+    const name = `New ${type.capitalize()}`;
     // Prepare the item object.
     const itemData = {
-      name: itemName,
-      type: type,
-      data: data
+      name,
+      type,
+      system
     };
     // Remove the type from the dataset since it's in the itemData.type prop.
-    delete itemData.data.type;
+    delete itemData.system["type"];
 
     // Finally, create the item!
     return await Item.create(itemData, {parent: this.actor});
-  }
-
-  async _onItemRoll(event) {
-    event.preventDefault();
-    const element = event.currentTarget;
-    const dataset = element.dataset;
-
-    if (dataset.rollType && dataset.rollType == 'item') {
-      const itemId = element.closest('.item').dataset.itemId;
-      const item = this.actor.items.get(itemId);
-      if (item) return await item.showItemCard(game.settings.get("core", "rollMode"));
-    }
-  }
-
-  // Might have to change for Dark Souls
-  async _onItemToggle(event) {
-    event.preventDefault();
-    const itemId = event.currentTarget.closest(".item").dataset.itemId;
-    const item = this.actor.items.get(itemId);
-
-    const itemData = item.data.data;
-
-    if (item.type === 'weapon' && this.actor.equippedWeapon && !itemData.isEquipped) {
-      ui.notifications.warn(`You already have a ${this.actor.equippedWeapon.name} equipped!`)
-      return null;
-    }
-
-    return item.update({"data.isEquipped": !item.data.data.isEquipped});
   }
 }
