@@ -1,6 +1,6 @@
 {
     "Actor": {
-        "types": ["pc"],
+        "types": ["pc", "monster"],
         "templates": {
             "base": {
                 "description": "",
@@ -13,9 +13,6 @@
         },
         "pc": {
             "templates": ["base"],
-            "age": 0,
-            "gender": "",
-            "origin": "",
             "class": "",
             "souls": 0,
             "fp": {
@@ -29,35 +26,35 @@
                 "value": 0
             },
             "stats": {
-                "vigor": {
+                "vig": {
                     "base": 0,
                     "growth": 0
                 },
-                "attunement": {
+                "atn": {
                     "base": 0,
                     "growth": 0
                 },
-                "vitality": {
+                "vit": {
                     "base": 0,
                     "growth": 0
                 },
-                "strength": {
+                "str": {
                     "base": 0,
                     "growth": 0
                 },
-                "dexterity": {
+                "dex": {
                     "base": 0,
                     "growth": 0
                 },
-                "intelligence": {
+                "int": {
                     "base": 0,
                     "growth": 0
                 },
-                "faith": {
+                "fth": {
                     "base": 0,
                     "growth": 0
                 },
-                "luck": {
+                "luc": {
                     "base": 0,
                     "growth": 0
                 }
@@ -76,6 +73,11 @@
                     "value": 4
                 }
             }
+        },
+        "monster": {
+            "templates": ["base"],
+            "physDef": 0,
+            "magDef": 0
         }
     }
 }
