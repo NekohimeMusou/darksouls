@@ -46,7 +46,6 @@ export default class DarkSoulsActorSheet extends ActorSheet {
   _preparePcData(context) {
     // Add labels for ability scores
     for (let [k, v] of Object.entries(context.system.stats)) {
-      // TODO: Add stuff to config so this will work
       v.label = game.i18n.localize(CONFIG.DARKSOULS.stats[k]) ?? k;
       v.labelShort = game.i18n.localize(`${CONFIG.DARKSOULS.stats[k]}Short`)
     }
@@ -94,6 +93,9 @@ export default class DarkSoulsActorSheet extends ActorSheet {
         li.addEventListener("dragstart", handler, false);
       });
     }
+
+    // Ability checks
+    html.find('.click-stat-roll').click(this._onStatRoll.bind(this));
   }
 
   /**
@@ -121,5 +123,9 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
     // Finally, create the item!
     return await Item.create(itemData, {parent: this.actor});
+  }
+
+  async _onStatRoll(event) {
+    event.preventDefault();
   }
 }

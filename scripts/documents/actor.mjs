@@ -34,11 +34,16 @@ export default class DarkSoulsActor extends Actor {
     let statTotal = 0
 
     for (let [_, stat] of Object.entries(systemData.stats)) {
+      // TODO: Change this to base/growth format
       // Calculate the total value
-      stat.value = stat.base + stat.growth;
-      statTotal += stat.value;
+      // stat.value = stat.base + stat.growth;
+      // statTotal += stat.value;
+
+      // For now, just use the base directly as the value
+      statTotal += stat.base;
+
       // Calculate the modifier
-      stat.mod = Math.floor(stat.value / 4);
+      stat.mod = Math.floor(stat.base / 4);
     }
 
     // Level is (totalStats - 80)
@@ -66,7 +71,7 @@ export default class DarkSoulsActor extends Actor {
   }
 
   _getPcRollData(data) {
-    if (data.type !== "pc") return;
+    if (this.type !== "pc") return;
 
     // Copy stats to top level
     if (data.stats) {
@@ -77,6 +82,6 @@ export default class DarkSoulsActor extends Actor {
   }
 
   _getMonsterRollData(data) {
-    if (data.type !== "monster") return;
+    if (this.type !== "monster") return;
   }
 }
