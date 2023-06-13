@@ -95,7 +95,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     }
 
     // Ability checks
-    html.find('.click-stat-roll').click(this._onStatRoll.bind(this));
+    html.find('.rollable').click(this._onStatRoll.bind(this));
   }
 
   /**
@@ -127,5 +127,19 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
   async _onStatRoll(event) {
     event.preventDefault();
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+
+    if (dataset.roll) {
+      const label = dataset.label ? `${dataset.label} Check:` : '';
+      const roll = await new Roll(dataset.roll, this.actor.getRollData()).roll({async: true});
+      roll.toMessage({
+        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+        flavor: label,
+        rollMode: game.settings.get('core', 'rollMode')
+      });
+
+      return roll;
+    }
   }
 }

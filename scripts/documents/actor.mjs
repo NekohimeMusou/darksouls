@@ -76,7 +76,9 @@ export default class DarkSoulsActor extends Actor {
     // Copy stats to top level
     if (data.stats) {
       for (let [k, v] of Object.entries(data.stats)) {
-        data[k] = foundry.utils.deepClone(v);
+        // Fix this to use the base + growth value too
+        data[k] = v.base;
+        data[`${k}Mod`] = v.mod;
       }
     }
   }
