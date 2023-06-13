@@ -8,7 +8,7 @@
     "DARKSOULS.Level": "Level",
     "DARKSOULS.Souls": "Souls",
 
-    "DARKSOULS.StatsTab": "Stats",
+    "DARKSOULS.Stats": "Stats",
     "DARKSOULS.DescriptionTab": "Description",
 
     "DARKSOULS.Vigor": "Vigor",
@@ -28,5 +28,15 @@
     "DARKSOULS.Luck": "Luck",
     "DARKSOULS.LuckShort": "LUC",
 
-    "DARKSOULS.ModifierShort": "Mod"
+    "DARKSOULS.ModifierShort": "Mod",
+
+    "DARKSOULS.Weapons": "Weapons",
+    "DARKSOULS.Armor": "Armor",
+
+    "DARKSOULS.DamageValue": "Damage Value",
+    "DARKSOULS.PhysicalDefense": "Physical Defense",
+    "DARKSOULS.MagicDefense": "Magic Defense",
+
+    "DARKSOULS.ButtonAttack": "Attack",
+    "DARKSOULS.CalculateDamage": "Calculate Damage"
 }
