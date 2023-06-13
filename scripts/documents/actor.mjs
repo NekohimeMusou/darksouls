@@ -31,18 +31,24 @@ export default class DarkSoulsActor extends Actor {
 
     const systemData = actorData.system;
 
-    // Level is (totalStats - 80)
-    systemData.level.value = -80;
+    let statTotal = 0
 
     for (let [_, stat] of Object.entries(systemData.stats)) {
       // Calculate the total value
       stat.value = stat.base + stat.growth;
-      systemData.level.value += stat.value;
+      statTotal += stat.value;
       // Calculate the modifier
       stat.mod = Math.floor(stat.value / 4);
     }
 
-    systemData.level.mod = Math.floor(systemData.level.value / 4);
+    // Level is (totalStats - 80)
+
+    const level = statTotal - 80
+
+    systemData.level = {
+      value: level,
+      mod: Math.floor(level / 4)
+    };
   }
 
   _prepareMonsterData(actorData) {
