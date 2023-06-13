@@ -27,11 +27,11 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     // Prepare character data and items; use if statements here when we have more than one type (e.g. `if (actorData.type == 'character') {})
 
     if (actorData.type == 'pc') {
-      this.#preparePcData(context);
-      // this.#prepareItems(context);
+      this._preparePcData(context);
+      // _prepareItems(context);
     } 
     // if (actorData.type == 'monster') {
-    //   this._prepareMonsterData(context);
+    //   _prepareMonsterData(context);
     // }
 
     // Add roll data for TinyMCE editors
@@ -43,19 +43,20 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     return context;
   }
 
-  static #preparePcData(context) {
+  _preparePcData(context) {
     // Add labels for ability scores
     for (let [k, v] of Object.entries(context.system.stats)) {
       // TODO: Add stuff to config so this will work
       v.label = game.i18n.localize(CONFIG.DARKSOULS.stats[k]) ?? k;
+      v.labelShort = game.i18n.localize(`${CONFIG.DARKSOULS.stats[k]}Short`)
     }
   }
 
-  static #prepareItems(context) {
+  static _prepareItems(context) {
 
   }
 
-  static #prepareMonsterData(context) {
+  static _prepareMonsterData(context) {
 
   }
 

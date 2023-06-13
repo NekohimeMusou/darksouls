@@ -22,22 +22,30 @@ export default class DarkSoulsActor extends Actor {
     const systemData = actorData.system;
     const flags = actorData.flags.darksouls || {};
 
-    this.#preparePcData(actorData);
-    this.#prepareMonsterData(actorData);
+    this._preparePcData(actorData);
+    this._prepareMonsterData(actorData);
   }
 
-  static #preparePcData(actorData) {
+  _preparePcData(actorData) {
     if (actorData.type !== "pc") return;
 
     const systemData = actorData.system;
 
+    // Level is (totalStats - 80)
+    systemData.level.value = -80;
+
     for (let [_, stat] of Object.entries(systemData.stats)) {
+      // Calculate the total value
+      stat.value = stat.base + stat.growth;
+      systemData.level.value += stat.value;
       // Calculate the modifier
       stat.mod = Math.floor(stat.value / 4);
     }
+
+    systemData.level.mod = Math.floor(systemData.level.value / 4);
   }
 
-  static #prepareMonsterData(actorData) {
+  _prepareMonsterData(actorData) {
     if (actorData.type !== "monster") return;
   }
 
@@ -45,13 +53,13 @@ export default class DarkSoulsActor extends Actor {
   getRollData() {
     const data = foundry.utils.deepClone(super.getRollData());
 
-    this.#getPcRollData(data);
-    this.#getMonsterRollData(data);
+    this._getPcRollData(data);
+    this._getMonsterRollData(data);
 
     return data;
   }
 
-  static #getPcRollData(data) {
+  _getPcRollData(data) {
     if (data.type !== "pc") return;
 
     // Copy stats to top level
@@ -62,7 +70,7 @@ export default class DarkSoulsActor extends Actor {
     }
   }
 
-  static #getMonsterRollData(data) {
+  _getMonsterRollData(data) {
     if (data.type !== "monster") return;
   }
 }

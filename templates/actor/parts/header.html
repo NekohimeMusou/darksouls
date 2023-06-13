@@ -8,44 +8,44 @@
         <div class="resources grid grid-3col">
             {{!-- Column 1 --}}
             <div class="resource flex-group-center">
-                <label for="data.class" class="resource-label">{{localize "DARKSOULS.Class"}}</label>
+                <label for="system.class" class="resource-label">{{localize "DARKSOULS.Class"}}</label>
                 <div class="resource-content flexrow flex-center flex-between">
-                    <input type="text" name="data.class" value="{{data.class}}" />
+                    <input type="text" name="system.class" value="{{system.class}}" />
                 </div>
             </div>
 
             <div class="resource flex-group-center">
-                <label for="data.level" class="resource-label">{{localize "DARKSOULS.Level"}}</label>
+                <label for="system.level.value" class="resource-label">{{localize "DARKSOULS.Level"}} / {{localize "DARKSOULS.ModifierShort"}}</label>
                 <div class="resource-content flexrow flex-center flex-between">
-                    <input type="text" name="data.level" value="{{data.level}}" readonly />
-                    <label for="data.levelMod">{{localize "DARKSOULS.ModifierShort"}}</label>
-                    <input type="text" name="data.levelMod" value="{{data.levelMod}}" readonly />
+                    <input type="text" name="system.level.value" value="{{system.level.value}}" data-dtype="Number" readonly />
+                    <span> / </span>
+                    <input type="text" name="system.level.mod" value="{{system.level.mod}}" data-dtype="Number" readonly />
                 </div>
             </div>
 
             <div class="resource flex-group-center">
-                <label for="data.souls" class="resource-label">{{localize "DARKSOULS.Souls"}}</label>
+                <label for="system.souls" class="resource-label">{{localize "DARKSOULS.Souls"}}</label>
                 <div class="resource-content flexrow flex-center flex-between">
-                    <input type="text" name="data.souls" value="{{data.souls}}" readonly />
+                    <input type="text" name="system.souls" value="{{system.souls}}" readonly />
                 </div>
             </div>
 
             {{!-- Column 2 --}}
             <div class="resource flex-group-center">
-                <label for="data.hp.value" class="resource-label">{{localize "DARKSOULS.Hp"}}</label>
+                <label for="system.hp.value" class="resource-label">{{localize "DARKSOULS.Hp"}}</label>
                 <div class="resource-content flexrow flex-center flex-between">
-                    <input type="text" name="data.hp.value" value="{{data.hp.value}}" data-dtype="Number" />
+                    <input type="text" name="system.hp.value" value="{{system.hp.value}}" data-dtype="Number" />
                     <span> / </span>
-                    <input type="text" name="data.hp.max" value="{{data.hp.max}}" data-dtype="Number" />
+                    <input type="text" name="system.hp.max" value="{{system.hp.max}}" data-dtype="Number" />
                 </div>
             </div>
 
             <div class="resource flex-group-center">
-                <label for="data.fp.value" class="resource-label">{{localize "DARKSOULS.Fp"}}</label>
+                <label for="system.fp.value" class="resource-label">{{localize "DARKSOULS.Fp"}}</label>
                 <div class="resource-content flexrow flex-center flex-between">
-                    <input type="text" name="data.fp.value" value="{{data.fp.value}}" data-dtype="Number" />
+                    <input type="text" name="system.fp.value" value="{{system.fp.value}}" data-dtype="Number" />
                     <span> / </span>
-                    <input type="text" name="data.fp.max" value="{{data.fp.max}}" data-dtype="Number" />
+                    <input type="text" name="system.fp.max" value="{{system.fp.max}}" data-dtype="Number" />
                 </div>
             </div>
         </div>
