@@ -1,20 +1,20 @@
 <div class="tab stats" data-group="primary" data-tab="stats">
-    <section class="grid grid-3col">
-        <aside class="sidebar">
-            <div class="stats flexcol">
-                {{#each system.stats as |stat key|}}
-                <div class="stat flexrow flex-group-center">
-                    <label for="system.stats.{{key}}.base" class="resource-label flexlarge align-left rollable" data-label="{{stat.label}}" data-roll="2d6+@{{key}}Mod">{{stat.label}}</label>
-                    <input type="text" name="system.stats.{{key}}.base" value="{{stat.base}}" data-dtype="Number" />
-                    <span class="stat-mod rollable" data-label="{{stat.label}}" data-roll="2d6+@{{key}}Mod">{{numberFormat stat.mod decimals=0 sign=true}}</span>
-                </div>
-                {{/each}}
-            </div>
-        </aside>
+  <section class="grid grid-3col">
+    <aside class="sidebar">
+      <div class="stats flexcol">
+        {{#each system.stats as |stat key|}}
+        <div class="stat flexrow flex-group-center">
+          <label for="system.stats.{{key}}.base" class="resource-label flexlarge align-left rollable" data-label="{{stat.label}}" data-roll="2d6+@{{key}}Mod">{{stat.label}}</label>
+          <input type="text" name="system.stats.{{key}}.base" value="{{stat.base}}" data-dtype="Number" />
+          <span class="stat-mod rollable" data-label="{{stat.label}}" data-roll="2d6+@{{key}}Mod">{{numberFormat stat.mod decimals=0 sign=true}}</span>
+        </div>
+        {{/each}}
+      </div>
+    </aside>
 
-        {{!-- Span the right two columns for main features display (might change later) --}}
-        <section class="main grid-span-2">
-            {{!-- Features pane goes here --}}
-        </section>
+    {{!-- Span the right two columns for main features display (might change later) --}}
+    <section class="main grid-span-2">
+      {{!-- Features pane goes here --}}
     </section>
+  </section>
 </div>

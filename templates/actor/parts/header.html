@@ -1,53 +1,53 @@
 <header class="sheet-header">
-    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
-    <div class="header-fields">
-        <h1 class="charname">
-            <input name="name" type="text" value="{{actor.name}}" placeholder="Name">
-        </h1>
-        {{!-- Vital statistics: Level, class, souls --}}
-        <div class="resources grid grid-3col">
-            {{!-- Column 1 --}}
-            <div class="resource flex-group-center">
-                <label for="system.class" class="resource-label">{{localize "DARKSOULS.Class"}}</label>
-                <div class="resource-content flexrow flex-center flex-between">
-                    <input type="text" name="system.class" value="{{system.class}}" />
-                </div>
-            </div>
-
-            <div class="resource flex-group-center">
-                <label for="system.level.value" class="resource-label">{{localize "DARKSOULS.Level"}} / {{localize "DARKSOULS.ModifierShort"}}</label>
-                <div class="resource-content flexrow flex-center flex-between">
-                    <input type="text" name="system.level.value" value="{{system.level.value}}" data-dtype="Number" readonly />
-                    <span> / </span>
-                    <input type="text" name="system.level.mod" value="{{system.level.mod}}" data-dtype="Number" readonly />
-                </div>
-            </div>
-
-            <div class="resource flex-group-center">
-                <label for="system.souls" class="resource-label">{{localize "DARKSOULS.Souls"}}</label>
-                <div class="resource-content flexrow flex-center flex-between">
-                    <input type="text" name="system.souls" value="{{system.souls}}" readonly />
-                </div>
-            </div>
-
-            {{!-- Column 2 --}}
-            <div class="resource flex-group-center">
-                <label for="system.hp.value" class="resource-label">{{localize "DARKSOULS.Hp"}}</label>
-                <div class="resource-content flexrow flex-center flex-between">
-                    <input type="text" name="system.hp.value" value="{{system.hp.value}}" data-dtype="Number" />
-                    <span> / </span>
-                    <input type="text" name="system.hp.max" value="{{system.hp.max}}" data-dtype="Number" />
-                </div>
-            </div>
-
-            <div class="resource flex-group-center">
-                <label for="system.fp.value" class="resource-label">{{localize "DARKSOULS.Fp"}}</label>
-                <div class="resource-content flexrow flex-center flex-between">
-                    <input type="text" name="system.fp.value" value="{{system.fp.value}}" data-dtype="Number" />
-                    <span> / </span>
-                    <input type="text" name="system.fp.max" value="{{system.fp.max}}" data-dtype="Number" />
-                </div>
-            </div>
+  <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
+  <div class="header-fields">
+    <h1 class="charname">
+        <input name="name" type="text" value="{{actor.name}}" placeholder="Name">
+    </h1>
+    {{!-- Vital statistics: Level, class, souls --}}
+    <div class="resources grid grid-3col">
+      {{!-- Column 1 --}}
+      <div class="resource flex-group-center">
+        <label for="system.class" class="resource-label">{{localize "DARKSOULS.Class"}}</label>
+        <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.class" value="{{system.class}}" />
         </div>
+      </div>
+
+      <div class="resource flex-group-center">
+        <label for="system.level.value" class="resource-label">{{localize "DARKSOULS.Level"}} / {{localize "DARKSOULS.ModifierShort"}}</label>
+        <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.level.value" value="{{system.level.value}}" data-dtype="Number" readonly />
+          <span> / </span>
+          <input type="text" name="system.level.mod" value="{{system.level.mod}}" data-dtype="Number" readonly />
+        </div>
+      </div>
+
+      <div class="resource flex-group-center">
+        <label for="system.souls" class="resource-label">{{localize "DARKSOULS.Souls"}}</label>
+        <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.souls" value="{{system.souls}}" readonly />
+        </div>
+      </div>
+
+      {{!-- Column 2 --}}
+      <div class="resource flex-group-center">
+        <label for="system.hp.value" class="resource-label">{{localize "DARKSOULS.Hp"}}</label>
+        <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.hp.value" value="{{system.hp.value}}" data-dtype="Number" />
+          <span> / </span>
+          <input type="text" name="system.hp.max" value="{{system.hp.max}}" data-dtype="Number" />
+        </div>
+      </div>
+
+      <div class="resource flex-group-center">
+        <label for="system.fp.value" class="resource-label">{{localize "DARKSOULS.Fp"}}</label>
+        <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.fp.value" value="{{system.fp.value}}" data-dtype="Number" />
+          <span> / </span>
+          <input type="text" name="system.fp.max" value="{{system.fp.max}}" data-dtype="Number" />
+        </div>
+      </div>
     </div>
+  </div>
 </header>
