@@ -79,5 +79,44 @@
             "physDef": 0,
             "magDef": 0
         }
+    },
+    "Item" : {
+        "types": ["weapon", "armor", "ring", "consumable"],
+        "templates": {
+            "base": {
+                "description": "",
+                "quantity": 1,
+                "value": 0
+            },
+            "equipment": {
+                "isEquipped": false,
+                "weight": 0
+            }
+        },
+        "weapon": {
+            "templates": ["base", "equipment"],
+            "isChain": false,
+            "attackCost": 0,
+            "damage": 0,
+            "damageStat1": "",
+            "damageStat2": "",
+            "damageStat3": "",
+            "guardCost": 0,
+            "physBlock": 0,
+            "magBlock": 0
+        },
+        "armor": {
+            "templates": ["base", "equipment"],
+            "slot": "",
+            "physDef": 0,
+            "magDef": 0
+        },
+        "ring": {
+            "templates": ["base", "equipment"],
+            "hpMod": 0
+        },
+        "consumable": {
+            "templates": ["base", "equipment"]
+        }
     }
 }
