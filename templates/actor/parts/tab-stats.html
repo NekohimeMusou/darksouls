@@ -21,9 +21,9 @@
         <div class="resource-label flex-group-center flex0">{{localize "DARKSOULS.Weapons"}}</div>
 
         <div class="weapon flexrow flex-group-center">
-          <label for="system.damage" class="resource-label flexlarge align-left">{{localize "DARKSOULS.DamageValue"}}</label>
+          <label for="system.damage" class="flexlarge align-left">{{localize "DARKSOULS.DamageValue"}}</label>
           <input type="text" name="system.damage" value="{{system.damage}}" data-dtype="Number" />
-          <label for="system.attackIsMagical" class="resource-label flexlarge align-left">Magical?</label>
+          <label for="system.attackIsMagical" class="flexlarge">Magical?</label>
           <input type="checkbox" name="system.attackIsMagical" {{checked system.attackIsMagical}} />
           <button class="click-damage-calc" type="button">{{localize "DARKSOULS.CalculateDamage"}}</button>
         </div>

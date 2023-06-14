@@ -3,6 +3,7 @@
     "DARKSOULS.Hp": "HP",
     "DARKSOULS.FocusPoints": "Focus Points",
     "DARKSOULS.Fp": "FP",
+    "DARKSOULS.LuckPoints": "Luck Points",
 
     "DARKSOULS.Class": "Class",
     "DARKSOULS.Level": "Level",
@@ -38,5 +39,5 @@
     "DARKSOULS.MagicDefense": "Magic Defense",
 
     "DARKSOULS.ButtonAttack": "Attack",
-    "DARKSOULS.CalculateDamage": "Calculate Damage"
+    "DARKSOULS.CalculateDamage": "Damage"
 }
