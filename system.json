@@ -25,5 +25,6 @@
         }
     ],
     "primaryTokenAttribute": "hp",
+    "secondaryTokenAttribute": "fp",
     "url": "https://github.com/NekohimeMusou/darksouls"
 }
