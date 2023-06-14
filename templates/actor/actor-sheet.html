@@ -6,19 +6,12 @@
   <nav class="sheet-tabs tabs" data-group="primary">
     {{!-- Default tab is defined in actor-sheet.mjs --}}
     <a class="item" data-tab="stats">{{localize "DARKSOULS.Stats"}}</a>
-    <a class="item" data-tab="description">{{localize "DARKSOULS.DescriptionTab"}}</a>
   </nav>
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
     {{!-- Stats Tab --}}
     {{> "systems/darksouls/templates/actor/parts/tab-stats.html"}}
-
-    {{!-- Description Tab --}}
-    <div class="tab description" data-group="primary" data-tab="description">
-      {{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to the rollData property. --}}
-      {{editor system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
-    </div>
   </section>
 </form>
 

@@ -5,6 +5,9 @@
     "DARKSOULS.Fp": "FP",
     "DARKSOULS.LuckPoints": "Luck Points",
 
+    "DARKSOULS.Estus": "Estus",
+    "DARKSOULS.AshenEstus": "Ashen Estus",
+
     "DARKSOULS.Class": "Class",
     "DARKSOULS.Level": "Level",
     "DARKSOULS.Souls": "Souls",
@@ -35,8 +38,8 @@
     "DARKSOULS.Armor": "Armor",
 
     "DARKSOULS.DamageValue": "Damage Value",
-    "DARKSOULS.PhysicalDefense": "Physical Defense",
-    "DARKSOULS.MagicDefense": "Magic Defense",
+    "DARKSOULS.PhysicalDefense": "Phys Defense",
+    "DARKSOULS.MagicDefense": "Mag Defense",
 
     "DARKSOULS.ButtonAttack": "Attack",
     "DARKSOULS.CalculateDamage": "Damage"

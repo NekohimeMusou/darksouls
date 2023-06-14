@@ -17,6 +17,28 @@
     {{!-- Span the right two columns for main features display (might change later) --}}
     <section class="main grid-span-2">
       {{!-- Weapon/armor panes go here --}}
+      <div class="estus flexcol">
+        <div class="grid grid-2col">
+          <div class="resource flex-group-center">
+            <label for="system.estus.hp.value" class="resource-label">{{localize "DARKSOULS.Estus"}}</label>
+            <div class="resource-content flexrow flex-center flex-between">
+              <input type="text" name="system.estus.hp.value" value="{{system.estus.hp.value}}" data-dtype="Number" />
+              <span> / </span>
+              <input type="text" name="system.estus.hp.max" value="{{system.estus.hp.max}}" data-dtype="Number" />
+            </div>
+          </div>
+
+          <div class="resource flex-group-center">
+            <label for="system.estus.fp.value" class="resource-label">{{localize "DARKSOULS.AshenEstus"}}</label>
+            <div class="resource-content flexrow flex-center flex-between">
+              <input type="text" name="system.estus.fp.value" value="{{system.estus.fp.value}}" data-dtype="Number" />
+              <span> / </span>
+              <input type="text" name="system.estus.fp.max" value="{{system.estus.fp.max}}" data-dtype="Number" />
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="weapons flexcol">
         <div class="resource-label flex-group-center flex0">{{localize "DARKSOULS.Weapons"}}</div>
 
@@ -29,9 +51,17 @@
         </div>
       </div>
       <div class="armor flexcol">
-        <div class="resource-label flex-group-center flex0">{{localize "DARKSOULS.Armor"}}</div>
+        <div class="grid grid-2col">
+          <div class="resource flex-group-center">
+            <label for="system.physDef" class="resource-label">{{localize "DARKSOULS.PhysicalDefense"}}</label>
+            <input type="text" name="system.physDef" value="{{system.physDef}}" data-dtype="Number" />
+          </div>
 
-        {{!-- Add place for phys and magical defense and weight --}}
+          <div class="resource flex-group-center">
+            <label for="system.magDef" class="resource-label">{{localize "DARKSOULS.MagicDefense"}}</label>
+            <input type="text" name="system.magDef" value="{{system.magDef}}" data-dtype="Number" />
+          </div>
+        </div>
       </div>
     </section>
   </section>
