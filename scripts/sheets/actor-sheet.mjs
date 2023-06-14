@@ -96,6 +96,8 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
     // Ability checks
     html.find('.rollable').click(this._onStatRoll.bind(this));
+    // Damage calculation
+    html.find('.click-damage-calc').click(this._onDamageCalc.bind(this));
   }
 
   /**
@@ -141,5 +143,13 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
       return roll;
     }
+  }
+
+  async _onDamageCalc(event) {
+    event.preventDefault();
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+
+    
   }
 }
