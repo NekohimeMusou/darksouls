@@ -45,7 +45,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
   _preparePcData(context) {
     // Add labels for ability scores
-    for (let [k, v] of Object.entries(context.system.stats)) {
+    for (const [k, v] of Object.entries(context.system.stats)) {
       v.label = game.i18n.localize(CONFIG.DARKSOULS.stats[k]) ?? k;
       v.labelShort = game.i18n.localize(`${CONFIG.DARKSOULS.stats[k]}Short`)
     }
@@ -147,9 +147,48 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
   async _onDamageCalc(event) {
     event.preventDefault();
-    const element = event.currentTarget;
-    const dataset = element.dataset;
 
-    
+    if (game.user.targets.size < 1) {
+      ui.notifications.info("No target selected.");
+      return;
+    }
+
+    const actorData = this.actor.system;
+
+    const attackPower = actorData.damage;
+    const attackIsMagical = actorData.attackIsMagical;
+
+    const damageStrings = [];
+
+    for (const targetToken of game.user.targets) {
+      if (Object.is(targetToken.actor, this.actor)) {
+        ui.notifications.info("Why are you hitting yourself?!");
+      }
+
+      const targetName = targetToken.actor.name;
+      const targetData = targetToken.actor.system;
+
+      const defensePower = (attackIsMagical ? (targetData.magDef) : (targetData.physDef)) || 0;
+
+      const damage = Math.min(Math.ceil((attackPower - defensePower) / 10), 7);
+
+      damageStrings.push(`<div>Damage to ${targetName}: ${damage}</div>`);
+    }
+
+    if (damageStrings.length < 1) return;
+
+    // Build chat card
+
+    const speaker = ChatMessage.getSpeaker();
+    const type = CONST.CHAT_MESSAGE_TYPES.OTHER;
+    const flavor = `Attack Power: ${attackPower} (${attackIsMagical ? "Magical" : "Physical"})`;
+    const content = `${this.actor.name} attacks!\n${damageStrings.join('\n')}`;
+
+    return ChatMessage.create({
+      speaker,
+      type,
+      flavor,
+      content
+    });
   }
 }
