@@ -1,0 +1,11 @@
+<div class="stats flexcol">
+  <div class="resource-label flex-group-center flex0">{{localize "DARKSOULS.Stats"}}</div>
+
+  {{#each system.stats as |stat key|}}
+  <div class="stat flexrow flex-group-center">
+    <label for="system.stats.{{key}}.base" class="resource-label flexlarge align-left rollable" data-label="{{stat.label}}" data-roll="2d6+@{{key}}Mod">{{stat.label}}</label>
+    <input type="text" name="system.stats.{{key}}.base" value="{{stat.base}}" data-dtype="Number" />
+    <span class="stat-mod rollable" data-label="{{stat.label}}" data-roll="2d6+@{{key}}Mod">{{numberFormat stat.mod decimals=0 sign=true}}</span>
+  </div>
+  {{/each}}
+</div>
