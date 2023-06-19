@@ -27,11 +27,11 @@ export default class DarkSoulsActor extends Actor {
   }
 
   _preparePcData(actorData) {
-    if (actorData.type !== "pc") return;
+    if (actorData.type !== 'pc') return;
 
     const systemData = actorData.system;
 
-    let statTotal = 0
+    let statTotal = 0;
 
     for (let [_, stat] of Object.entries(systemData.stats)) {
       // TODO: Change this to base/growth format
@@ -48,7 +48,7 @@ export default class DarkSoulsActor extends Actor {
 
     // Level is (totalStats - 80)
 
-    const level = statTotal - 80
+    const level = statTotal - 80;
 
     systemData.level = {
       value: level,
@@ -57,7 +57,7 @@ export default class DarkSoulsActor extends Actor {
   }
 
   _prepareMonsterData(actorData) {
-    if (actorData.type !== "monster") return;
+    if (actorData.type !== 'monster') return;
   }
 
   /** @override */
@@ -71,7 +71,7 @@ export default class DarkSoulsActor extends Actor {
   }
 
   _getPcRollData(data) {
-    if (this.type !== "pc") return;
+    if (this.type !== 'pc') return;
 
     // Copy stats to top level
     if (data.stats) {
@@ -84,6 +84,6 @@ export default class DarkSoulsActor extends Actor {
   }
 
   _getMonsterRollData(data) {
-    if (this.type !== "monster") return;
+    if (this.type !== 'monster') return;
   }
 }

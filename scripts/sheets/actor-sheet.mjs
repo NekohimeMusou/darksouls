@@ -2,11 +2,11 @@ export default class DarkSoulsActorSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["darksouls", "sheet", "actor"],
-      template: "systems/darksouls/templates/actor/actor-sheet.html",
+      classes: ['darksouls', 'sheet', 'actor'],
+      template: 'systems/darksouls/templates/actor/actor-sheet.html',
       width: 600,
       height: 600,
-      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "stats" }]
+      tabs: [{navSelector: '.sheet-tabs', contentSelector: '.sheet-body', initial: 'stats' }]
     });
   }
 
@@ -85,8 +85,8 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
     // Render the item sheet for viewing/editing prior to the editable check.
     html.find('.item-edit').click(ev => {
-      const li = $(ev.currentTarget).parents(".item");
-      const item = this.actor.items.get(li.data("itemId"));
+      const li = $(ev.currentTarget).parents('.item');
+      const item = this.actor.items.get(li.data('itemId'));
       item.sheet.render(true);
     });
 
@@ -98,8 +98,8 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
     // Delete Inventory Item
     html.find('.item-delete').click(ev => {
-      const li = $(ev.currentTarget).parents(".item");
-      const item = this.actor.items.get(li.data("itemId"));
+      const li = $(ev.currentTarget).parents('.item');
+      const item = this.actor.items.get(li.data('itemId'));
       item.delete();
       li.slideUp(200, () => this.render(false));
     });
@@ -108,9 +108,9 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     if (this.actor.isOwner) {
       let handler = ev => this._onDragStart(ev);
       html.find('li.item').each((_, li) => {
-        if (li.classList.contains("inventory-header")) return;
-        li.setAttribute("draggable", true);
-        li.addEventListener("dragstart", handler, false);
+        if (li.classList.contains('inventory-header')) return;
+        li.setAttribute('draggable', true);
+        li.addEventListener('dragstart', handler, false);
       });
     }
 
@@ -141,7 +141,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
       system
     };
     // Remove the type from the dataset since it's in the itemData.type prop.
-    delete itemData.system["type"];
+    delete itemData.system['type'];
 
     // Finally, create the item!
     return await Item.create(itemData, {parent: this.actor});
@@ -169,7 +169,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     event.preventDefault();
 
     if (game.user.targets.size < 1) {
-      ui.notifications.info("No target selected.");
+      ui.notifications.info('No target selected.');
       return;
     }
 
@@ -182,7 +182,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
     for (const targetToken of game.user.targets) {
       if (Object.is(targetToken.actor, this.actor)) {
-        ui.notifications.info("Why are you hitting yourself?!");
+        ui.notifications.info('Why are you hitting yourself?!');
       }
 
       const targetName = targetToken.actor.name;
@@ -201,7 +201,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
     const speaker = ChatMessage.getSpeaker();
     const type = CONST.CHAT_MESSAGE_TYPES.OTHER;
-    const flavor = `Attack Power: ${attackPower} (${attackIsMagical ? "Magical" : "Physical"})`;
+    const flavor = `Attack Power: ${attackPower} (${attackIsMagical ? 'Magical' : 'Physical'})`;
     const content = `${this.actor.name} attacks!\n${damageStrings.join('\n')}`;
 
     return ChatMessage.create({
