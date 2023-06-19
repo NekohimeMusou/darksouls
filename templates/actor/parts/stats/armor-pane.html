@@ -1,13 +1,17 @@
-<div class="armor flexcol">
-  <div class="grid grid-2col">
-    <div class="resource flex-group-center">
-      <label for="system.physDef" class="resource-label">{{localize "DARKSOULS.PhysicalDefense"}}</label>
-      <input type="text" name="system.physDef" value="{{system.physDef}}" data-dtype="Number" />
-    </div>
-
-    <div class="resource flex-group-center">
-      <label for="system.magDef" class="resource-label">{{localize "DARKSOULS.MagicDefense"}}</label>
-      <input type="text" name="system.magDef" value="{{system.magDef}}" data-dtype="Number" />
-    </div>
-  </div>
+<div class="items-list flexcol">
+  {{!-- header row, 3 armor rows --}}
+  <div class="resource-label flex-group-center flex0">{{localize "DARKSOULS.Armor"}}</div>
+  <ol class="items-list">
+    <li class="item flexrow items-header">
+      <div class="armor-slot">{{localize "DARKSOULS.ArmorSlot"}}</div>
+      <div class="item-name">{{localize "DARKSOULS.Name"}}</div>
+      <div class="armor-physdef">{{localize "DARKSOULS.PhysicalDefenseShort"}}</div>
+      <div class="armor-magdef">{{localize "DARKSOULS.MagicDefenseShort"}}</div>
+      <div class="item-weight">{{localize "DARKSOULS.WeightShort"}}</div>
+      <div class="item-controls">
+        <a class="item-control item-create" title="Create item" data-type="armor"><i class="fas fa-plus"></i> Add item</a>
+      </div>
+    </li>
+    {{!-- List all armor using #each --}}
+  </ol>
 </div>

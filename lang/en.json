@@ -4,6 +4,7 @@
     "DARKSOULS.FocusPoints": "Focus Points",
     "DARKSOULS.Fp": "FP",
     "DARKSOULS.LuckPoints": "Luck Points",
+    "DARKSOULS.Name": "Name",
 
     "DARKSOULS.Estus": "Estus",
     "DARKSOULS.AshenEstus": "Ashen Estus",
@@ -36,11 +37,17 @@
 
     "DARKSOULS.Weapons": "Weapons",
     "DARKSOULS.Armor": "Armor",
+    "DARKSOULS.Weight": "Weight",
+    "DARKSOULS.WeightShort": "Wgt",
 
     "DARKSOULS.DamageValue": "Damage Value",
-    "DARKSOULS.PhysicalDefense": "Phys Defense",
-    "DARKSOULS.MagicDefense": "Mag Defense",
+    "DARKSOULS.PhysicalDefense": "Physical Defense",
+    "DARKSOULS.PhysicalDefenseShort": "Phys",
+    "DARKSOULS.MagicDefense": "Magic Defense",
+    "DARKSOULS.MagicDefenseShort": "Mag",
 
     "DARKSOULS.ButtonAttack": "Attack",
-    "DARKSOULS.CalculateDamage": "Damage"
+    "DARKSOULS.CalculateDamage": "Damage",
+
+    "DARKSOULS.ArmorSlot": "Slot"
 }

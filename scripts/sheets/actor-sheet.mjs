@@ -15,20 +15,16 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     const context = super.getData();
 
     const actorData = this.actor.toObject(false);
-    // Use this if the above causes problems
-    // const actorData = context.actor;
 
     // Add the actor's data to context.data for easier access, as well as flags
     context.system = actorData.system;
     context.flags = actorData.flags;
 
-    // context.isGM = game.user.isGM;
-
     // Prepare character data and items; use if statements here when we have more than one type (e.g. `if (actorData.type == 'character') {})
 
     if (actorData.type == 'pc') {
+      this._prepareItems(context);
       this._preparePcData(context);
-      // _prepareItems(context);
     } 
     // if (actorData.type == 'monster') {
     //   _prepareMonsterData(context);
@@ -47,12 +43,36 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     // Add labels for ability scores
     for (const [k, v] of Object.entries(context.system.stats)) {
       v.label = game.i18n.localize(CONFIG.DARKSOULS.stats[k]) ?? k;
-      v.labelShort = game.i18n.localize(`${CONFIG.DARKSOULS.stats[k]}Short`)
+      v.short = k.toLocaleUpperCase();
     }
+
+    // Handle armor
+    const equippedArmor = context.armor.filter(armor => armor.isEquipped);
+    const physDef = equippedArmor.reduce((physDef, armor) => physDef += armor.physDef, 0);
+    const magDef = equippedArmor.reduce((magDef, armor) => magDef += armor.magDef, 0);
+
+    // Add up weapon and armor weight
+    // Remember to do weapons too
+    const totalWeight = equippedArmor.reduce((weight, armor) => weight += armor.weight, 0);
+
+    // Add to context
+    context.physDef = physDef;
+    context.magDef = magDef;
+    context.weight = totalWeight;
   }
 
-  static _prepareItems(context) {
+  _prepareItems(context) {
+    const armor = [];
 
+    for (let i of context.items) {
+      i.img = i.img || DEFAULT_TOKEN;
+
+      if (i.type === 'armor') {
+        armor.push(i);
+      }
+    }
+
+    context.armor = armor;
   }
 
   static _prepareMonsterData(context) {
