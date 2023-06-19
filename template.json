@@ -83,5 +83,22 @@
         "monster": {
             "templates": ["base", "monster"]
         }
+    },
+    "Item":
+    {
+        "types": ["armor"],
+        "templates": {
+            "base": {
+                "description": ""
+            }
+        },
+        "armor": {
+            "templates": ["base"],
+            "slot": "",
+            "physDef": 0,
+            "magDef": 0,
+            "weight": 0,
+            "isEquipped": false
+        }
     }
 }
