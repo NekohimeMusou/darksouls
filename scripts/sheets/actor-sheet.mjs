@@ -53,7 +53,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
     context.equippedArmor = {};
 
-    for (slot of ['head', 'torso', 'legs']) {
+    for (let slot of ['head', 'torso', 'legs']) {
       context.equippedArmor[slot] = currentArmor.find(armor => armor.slot === slot);
     }
 
