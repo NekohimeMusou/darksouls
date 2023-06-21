@@ -47,13 +47,19 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     }
 
     // Handle armor
-    const equippedArmor = context.armor.filter(armor => armor.isEquipped);
-    const physDef = equippedArmor.reduce((physDef, armor) => physDef += armor.physDef, 0);
-    const magDef = equippedArmor.reduce((magDef, armor) => magDef += armor.magDef, 0);
+    const currentArmor = context.armor.filter(armor => armor.isEquipped);
+    const physDef = currentArmor.reduce((physDef, armor) => physDef += armor.physDef || 0, 0);
+    const magDef = currentArmor.reduce((magDef, armor) => magDef += armor.magDef || 0, 0);
+
+    context.equippedArmor = {};
+
+    for (slot of ['head', 'torso', 'legs']) {
+      context.equippedArmor[slot] = currentArmor.find(armor => armor.slot === slot);
+    }
 
     // Add up weapon and armor weight
     // Remember to do weapons too
-    const totalWeight = equippedArmor.reduce((weight, armor) => weight += armor.weight, 0);
+    const totalWeight = currentArmor.reduce((weight, armor) => weight += armor.weight || 0, 0);
 
     // Add to context
     context.physDef = physDef;
