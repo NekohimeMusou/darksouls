@@ -39,6 +39,7 @@
     "DARKSOULS.Armor": "Armor",
     "DARKSOULS.Weight": "Weight",
     "DARKSOULS.WeightShort": "Wgt",
+    "DARKSOULS.SetBonus": "Set Bonus",
 
     "DARKSOULS.DamageValue": "Damage Value",
     "DARKSOULS.PhysicalDefense": "Physical Defense",

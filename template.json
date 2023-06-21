@@ -98,6 +98,7 @@
             "physDef": 0,
             "magDef": 0,
             "weight": 0,
+            "setBonus": "",
             "isEquipped": false
         }
     }
