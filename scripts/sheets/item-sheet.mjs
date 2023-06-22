@@ -25,8 +25,10 @@ export default class DarkSoulsItemSheet extends ItemSheet {
     // Retrieve base data structure.
     const context = super.getData();
 
-    // Use a safe clone of the item data for further operations.
-    const itemData = context.item.data;
+    const itemData = this.item.toObject(false);
+
+    context.system = itemData.system;
+    context.flags = itemData.flags;
 
     // Retrieve the roll data for TinyMCE editors.
     context.rollData = {};
@@ -35,9 +37,8 @@ export default class DarkSoulsItemSheet extends ItemSheet {
       context.rollData = actor.getRollData();
     }
 
-    // Add the item's data to context.data for easier access, as well as flags.
-    context.data = itemData.data;
-    context.flags = itemData.flags;
+    // Add armor slot options for select box
+    context.armorSlots = CONFIG.DARKSOULS.armorSlots;
 
     return context;
   }

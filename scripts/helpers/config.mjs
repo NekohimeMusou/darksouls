@@ -10,3 +10,9 @@ DARKSOULS.stats = {
   fth: 'DARKSOULS.Faith',
   luc: 'DARKSOULS.Luck',
 };
+
+DARKSOULS.armorSlots = {
+  head: 'DARKSOULS.HeadSlot',
+  torso: 'DARKSOULS.TorsoSlot',
+  legs: 'DARKSOULS.LegSlot'
+};

@@ -50,5 +50,11 @@
       <label class="resource-label">{{localize "DARKSOULS.SetBonus"}}</label>
       <input type="text" name="system.setBonus" value="{{system.setBonus}}" data-dtype="String"/>
     </div>
+    <div class="resource">
+      <label class="resource-label">{{localize "DARKSOULS.ArmorSlot"}}</label>
+      <select name="system.slot">
+        {{selectOptions armorSlots selected=system.slot localize=true}}
+      </select>
+    </div>
   </div>
 </form>

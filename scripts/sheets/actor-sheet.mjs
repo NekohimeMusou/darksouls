@@ -39,6 +39,25 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     return context;
   }
 
+  _prepareItems(context) {
+    const armor = {
+      head: [],
+      torso: [],
+      legs: []
+    };
+
+    for (let i of context.items) {
+      i.img = i.img || DEFAULT_TOKEN;
+
+      if (i.type === 'armor') {
+        // armor.push(i);
+        armor[i.system.slot].push(i);
+      }
+    }
+
+    context.armor = armor;
+  }
+
   _preparePcData(context) {
     // Add labels for ability scores
     for (const [k, v] of Object.entries(context.system.stats)) {
@@ -53,7 +72,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
     context.equippedArmor = {};
 
-    for (let slot of ['head', 'torso', 'legs']) {
+    for (const slot of ['head', 'torso', 'legs']) {
       context.equippedArmor[slot] = currentArmor.find(armor => armor.slot === slot);
     }
 
@@ -65,20 +84,6 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     context.physDef = physDef;
     context.magDef = magDef;
     context.weight = totalWeight;
-  }
-
-  _prepareItems(context) {
-    const armor = [];
-
-    for (let i of context.items) {
-      i.img = i.img || DEFAULT_TOKEN;
-
-      if (i.type === 'armor') {
-        armor.push(i);
-      }
-    }
-
-    context.armor = armor;
   }
 
   static _prepareMonsterData(context) {

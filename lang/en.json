@@ -50,5 +50,8 @@
     "DARKSOULS.ButtonAttack": "Attack",
     "DARKSOULS.CalculateDamage": "Damage",
 
-    "DARKSOULS.ArmorSlot": "Slot"
+    "DARKSOULS.ArmorSlot": "Slot",
+    "DARKSOULS.HeadSlot": "Head",
+    "DARKSOULS.TorsoSlot": "Torso",
+    "DARKSOULS.LegSlot": "Legs"
 }
