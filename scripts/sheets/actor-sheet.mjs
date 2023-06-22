@@ -46,15 +46,26 @@ export default class DarkSoulsActorSheet extends ActorSheet {
       legs: []
     };
 
+    const equippedArmor = {};
+
     for (let i of context.items) {
       i.img = i.img || DEFAULT_TOKEN;
 
       if (i.type === 'armor') {
-        armor[i.system.slot].push(i);
+        const slot = i.system.slot;
+
+        if (slot) {
+          armor[slot].push(i);
+
+          if (i.system.equipped) {
+            equippedArmor[slot] = i;
+          }
+        }
       }
     }
 
     context.armor = armor;
+    context.equippedArmor = equippedArmor;
   }
 
   _preparePcData(context) {
@@ -65,8 +76,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     }
 
     // Handle armor
-    // BUG: The next line throws an error
-    const currentArmor = context.armor.filter(armor => armor.equipped);
+    // FIXTHIS: Make this work
     const physDef = currentArmor.reduce((physDef, armor) => physDef += armor.physDef || 0, 0);
     const magDef = currentArmor.reduce((magDef, armor) => magDef += armor.magDef || 0, 0);
 
