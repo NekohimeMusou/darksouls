@@ -46,7 +46,11 @@ export default class DarkSoulsActorSheet extends ActorSheet {
       legs: []
     };
 
-    context.equippedArmor = [];
+    context.equippedArmor = {
+      head: null,
+      torso: null,
+      legs: null
+    };
 
     context.physDef = 0;
     context.magDef = 0;
@@ -66,7 +70,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
         if (equipped) {
           context.physDef += physDef;
           context.magDef += magDef;
-          context.equippedArmor.push(i);
+          context.equippedArmor[slot] = i;
         }
       }
     }
@@ -84,11 +88,11 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     const levelMod = context.system.level.mod;
 
     const physDef = equippedArmor.reduce(
-      (physDef, armor) => physDef + armor.physDef || 0, 0
+      (physDef, armor) => physDef + armor?.physDef || 0, 0
     ) + levelMod;
 
     const magDef = equippedArmor.reduce(
-      (magDef, armor) => magDef + armor.magDef || 0, 0
+      (magDef, armor) => magDef + armor?.magDef || 0, 0
     ) + levelMod;
 
     if (context.equippedArmor.head) {

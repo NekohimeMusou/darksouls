@@ -22,27 +22,29 @@ export default class DarkSoulsActor extends Actor {
     const systemData = actorData.system;
     const flags = actorData.flags.darksouls || {};
 
-    this._preparePcData(actorData);
-    this._prepareMonsterData(actorData);
+    DarkSoulsActor.#preparePcData(actorData);
+    DarkSoulsActor.#prepareMonsterData(actorData);
   }
 
-  _preparePcData(actorData) {
+  static #preparePcData(actorData) {
     if (actorData.type !== 'pc') return;
 
     const systemData = actorData.system;
 
+    DarkSoulsActor.#calculatePcStats(systemData);
+  }
+
+  static #calculatePcStats (systemData) {
+    // Calculate stat totals and modifiers
     const stats = Object.values(systemData.stats);
 
     for (const stat of stats) {
-      // TODO: Change this to base/growth format
-
-      // Calculate stat totals
       stat.value = stat.base + stat.growth;
 
-      // Calculate the modifier
       stat.mod = Math.floor(stat.value / 4);
     }
 
+    // Calculate level and level mod
     // Level is (totalStats - 80)
 
     const statTotal = stats.reduce(
@@ -58,7 +60,11 @@ export default class DarkSoulsActor extends Actor {
     };
   }
 
-  _prepareMonsterData(actorData) {
+  static #prepareDefenses(actorData) {
+    
+  }
+
+  static #prepareMonsterData(actorData) {
     if (actorData.type !== 'monster') return;
   }
 
