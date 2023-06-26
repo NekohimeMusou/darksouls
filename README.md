@@ -6,4 +6,4 @@ Much CSS and code borrowed from <https://gitlab.com/asacolips-projects/foundry-m
 
 ## To-do List
 
-Fix armor calculations in actor-sheet.mjs so the sheet doesn't break
+Fix spurious empty armor entry on armor-pane.html

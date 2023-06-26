@@ -40,32 +40,36 @@ export default class DarkSoulsActorSheet extends ActorSheet {
   }
 
   _prepareItems(context) {
-    const armor = {
+    context.armor = {
       head: [],
       torso: [],
       legs: []
     };
 
-    const equippedArmor = {};
+    context.equippedArmor = [];
+
+    context.physDef = 0;
+    context.magDef = 0;
 
     for (let i of context.items) {
       i.img = i.img || DEFAULT_TOKEN;
 
       if (i.type === 'armor') {
-        const slot = i.system.slot;
+        const itemData = i.system;
+        const slot = itemData.slot;
+        const equipped = itemData.equipped;
+        const physDef = itemData.physDef;
+        const magDef = itemData.magDef;
 
-        if (slot) {
-          armor[slot].push(i);
+        context.armor[slot].push(i);
 
-          if (i.system.equipped) {
-            equippedArmor[slot] = i;
-          }
+        if (equipped) {
+          context.physDef += physDef;
+          context.magDef += magDef;
+          context.equippedArmor.push(i);
         }
       }
     }
-
-    context.armor = armor;
-    context.equippedArmor = equippedArmor;
   }
 
   _preparePcData(context) {
@@ -76,24 +80,23 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     }
 
     // Handle armor
-    // FIXTHIS: Make this work
-    const physDef = currentArmor.reduce((physDef, armor) => physDef += armor.physDef || 0, 0);
-    const magDef = currentArmor.reduce((magDef, armor) => magDef += armor.magDef || 0, 0);
+    const equippedArmor = Object.values(context.equippedArmor);
+    const levelMod = context.system.level.mod;
 
-    context.equippedArmor = {};
+    const physDef = equippedArmor.reduce(
+      (physDef, armor) => physDef + armor.physDef || 0, 0
+    ) + levelMod;
 
-    for (const slot of ['head', 'torso', 'legs']) {
-      context.equippedArmor[slot] = currentArmor.find(armor => armor.slot === slot);
+    const magDef = equippedArmor.reduce(
+      (magDef, armor) => magDef + armor.magDef || 0, 0
+    ) + levelMod;
+
+    if (context.equippedArmor.head) {
+      console.log(context.equippedArmor.head);
     }
-
-    // Add up weapon and armor weight
-    // Remember to do weapons too
-    const totalWeight = currentArmor.reduce((weight, armor) => weight += armor.weight || 0, 0);
-
     // Add to context
     context.physDef = physDef;
     context.magDef = magDef;
-    context.weight = totalWeight;
   }
 
   static _prepareMonsterData(context) {

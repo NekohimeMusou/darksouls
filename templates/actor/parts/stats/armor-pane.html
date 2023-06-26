@@ -28,6 +28,7 @@
     </li>
     {{!-- end #each --}}
     {{!-- Real one; FIX THIS TO MATCH REFACTORED ITEM SHEET --}}
+    {{#if equippedArmor.head}}
     {{#with equippedArmor.head as | armor |}}
     <li class="item flexrow" data-item-id="{{armor._id}}">
       <div class="item-name">
@@ -42,5 +43,6 @@
       
     </li>
     {{/with}}
+    {{/if}}
   </ol>
 </div>

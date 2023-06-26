@@ -31,22 +31,24 @@ export default class DarkSoulsActor extends Actor {
 
     const systemData = actorData.system;
 
-    let statTotal = 0;
+    const stats = Object.values(systemData.stats);
 
-    for (let [_, stat] of Object.entries(systemData.stats)) {
+    for (const stat of stats) {
       // TODO: Change this to base/growth format
-      // Calculate the total value
-      // stat.value = stat.base + stat.growth;
-      // statTotal += stat.value;
 
-      // For now, just use the base directly as the value
-      statTotal += stat.base;
+      // Calculate stat totals
+      stat.value = stat.base + stat.growth;
 
       // Calculate the modifier
-      stat.mod = Math.floor(stat.base / 4);
+      stat.mod = Math.floor(stat.value / 4);
     }
 
     // Level is (totalStats - 80)
+
+    const statTotal = stats.reduce(
+      (total, stat) => total + stat.value || 0,
+      0
+    );
 
     const level = statTotal - 80;
 
