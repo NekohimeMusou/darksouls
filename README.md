@@ -7,3 +7,4 @@ Much CSS and code borrowed from <https://gitlab.com/asacolips-projects/foundry-m
 ## To-do List
 
 Fix spurious empty armor entry on armor-pane.html
+Creating armor doesn't pull up a dialog
