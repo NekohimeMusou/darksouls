@@ -72,9 +72,10 @@ export default class DarkSoulsActor extends Actor {
 
     // Calculate physical and magical defense and weight
     // Assumes level bonus has been calculated already in #calculatePcStats
-    systemData.physDef = equippedArmor.reduce((totalDef, armor) => totalDef + (armor?.physDef || 0), 0) + systemData.level.mod;
-    systemData.magDef = equippedArmor.reduce((totalDef, armor) => totalDef + (armor?.magDef || 0), 0) + systemData.level.mod;
-    systemData.weight += equippedArmor.reduce((totalWeight, armor) => totalWeight + (armor?.weight || 0), 0);
+    // UNCOMMENT WHEN ARMOR IS WORKING
+    // systemData.physDef = equippedArmor.reduce((totalDef, armor) => totalDef + (armor?.physDef || 0), 0) + systemData.level.mod;
+    // systemData.magDef = equippedArmor.reduce((totalDef, armor) => totalDef + (armor?.magDef || 0), 0) + systemData.level.mod;
+    // systemData.weight += equippedArmor.reduce((totalWeight, armor) => totalWeight + (armor?.weight || 0), 0);
   }
 
   static #prepareMonsterData(actorData) {

@@ -6,12 +6,14 @@
   <nav class="sheet-tabs tabs" data-group="primary">
     {{!-- Default tab is defined in actor-sheet.mjs --}}
     <a class="item" data-tab="stats">{{localize "DARKSOULS.Stats"}}</a>
+    <a class="item" data-tab="armor">{{localize "DARKSOULS.Armor"}}</a>
   </nav>
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
     {{!-- Stats Tab --}}
     {{> "systems/darksouls/templates/actor/parts/tab-stats.html"}}
+    {{> "systems/darksouls/templates/actor/parts/tab-armor.html"}}
   </section>
 </form>
 
