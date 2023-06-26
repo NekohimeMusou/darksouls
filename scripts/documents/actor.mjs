@@ -28,7 +28,12 @@ export default class DarkSoulsActor extends Actor {
   static #preparePcData(actorData) {
     if (actorData.type !== 'pc') return;
 
+    const systemData = actorData.system;
+
+    systemData.weight = 0;
+
     DarkSoulsActor.#calculatePcStats(actorData);
+    DarkSoulsActor.#prepareArmor(actorData);
   }
 
   static #calculatePcStats (actorData) {
@@ -57,15 +62,19 @@ export default class DarkSoulsActor extends Actor {
     };
   }
 
-  static #prepareDefenses(actorData) {
+  static #prepareArmor(actorData) {
+    const systemData = actorData.system;
+
+    // Filter out all unequipped armor
     const equippedArmor = actorData.items.filter(
       item => item.type === 'armor' && item.equipped
     );
 
-    const systemData = actorData.system;
-
-    systemData.physDef = equippedArmor.reduce((totalDef, armor) => totalDef + (armor?.physDef || 0), 0);
-    systemData.magDef = equippedArmor.reduce((totalDef, armor) => totalDef + (armor?.magDef || 0), 0);
+    // Calculate physical and magical defense and weight
+    // Assumes level bonus has been calculated already in #calculatePcStats
+    systemData.physDef = equippedArmor.reduce((totalDef, armor) => totalDef + (armor?.physDef || 0), 0) + systemData.level.mod;
+    systemData.magDef = equippedArmor.reduce((totalDef, armor) => totalDef + (armor?.magDef || 0), 0) + systemData.level.mod;
+    systemData.weight += equippedArmor.reduce((totalWeight, armor) => totalWeight + (armor?.weight || 0), 0);
   }
 
   static #prepareMonsterData(actorData) {
