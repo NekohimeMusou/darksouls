@@ -82,25 +82,6 @@ export default class DarkSoulsActorSheet extends ActorSheet {
       v.label = game.i18n.localize(CONFIG.DARKSOULS.stats[k]) ?? k;
       v.short = k.toLocaleUpperCase();
     }
-
-    // Handle armor
-    const equippedArmor = Object.values(context.equippedArmor);
-    const levelMod = context.system.level.mod;
-
-    const physDef = equippedArmor.reduce(
-      (physDef, armor) => physDef + armor?.physDef || 0, 0
-    ) + levelMod;
-
-    const magDef = equippedArmor.reduce(
-      (magDef, armor) => magDef + armor?.magDef || 0, 0
-    ) + levelMod;
-
-    if (context.equippedArmor.head) {
-      console.log(context.equippedArmor.head);
-    }
-    // Add to context
-    context.physDef = physDef;
-    context.magDef = magDef;
   }
 
   static _prepareMonsterData(context) {

@@ -19,7 +19,6 @@ export default class DarkSoulsActor extends Actor {
      */
   prepareDerivedData() {
     const actorData = this;
-    const systemData = actorData.system;
     const flags = actorData.flags.darksouls || {};
 
     DarkSoulsActor.#preparePcData(actorData);
@@ -29,14 +28,12 @@ export default class DarkSoulsActor extends Actor {
   static #preparePcData(actorData) {
     if (actorData.type !== 'pc') return;
 
-    const systemData = actorData.system;
-
-    DarkSoulsActor.#calculatePcStats(systemData);
+    DarkSoulsActor.#calculatePcStats(actorData);
   }
 
-  static #calculatePcStats (systemData) {
+  static #calculatePcStats (actorData) {
     // Calculate stat totals and modifiers
-    const stats = Object.values(systemData.stats);
+    const stats = Object.values(actorData.system.stats);
 
     for (const stat of stats) {
       stat.value = stat.base + stat.growth;
@@ -54,14 +51,21 @@ export default class DarkSoulsActor extends Actor {
 
     const level = statTotal - 80;
 
-    systemData.level = {
+    actorData.system.level = {
       value: level,
       mod: Math.floor(level / 4)
     };
   }
 
   static #prepareDefenses(actorData) {
-    
+    const equippedArmor = actorData.items.filter(
+      item => item.type === 'armor' && item.equipped
+    );
+
+    const systemData = actorData.system;
+
+    systemData.physDef = equippedArmor.reduce((totalDef, armor) => totalDef + (armor?.physDef || 0), 0);
+    systemData.magDef = equippedArmor.reduce((totalDef, armor) => totalDef + (armor?.magDef || 0), 0);
   }
 
   static #prepareMonsterData(actorData) {
