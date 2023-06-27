@@ -11,7 +11,7 @@ export default class DarkSoulsItemSheet extends ItemSheet {
 
   /** @override */
   get template() {
-    const path = 'systems/dndbasic/templates/item';
+    const path = 'systems/darksouls/templates/item';
     // Return a single sheet for all item types.
     // return `${path}/item-sheet.html`;
 
