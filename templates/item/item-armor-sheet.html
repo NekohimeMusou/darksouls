@@ -24,40 +24,33 @@
     <div class="tab" data-group="primary" data-tab="description">
       {{editor system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
     </div>
+    {{!-- Attributes Tab --}}
+    <div class="tab attributes" data-group="primary" data-tab="attributes">
+      <div class="grid grid-2col">
+        {{!-- Attributes: slot, physDef, magDef, weight, setBonus, equipped --}}
+        <div class="resource">
+          <label class="resource-label">{{localize "DARKSOULS.ArmorSlot"}}</label>
+          <select name="system.slot">
+            {{selectOptions armorSlots selected=system.slot localize=true}}
+          </select>
+        </div>
+        <div class="resource">
+          <label class="resource-label">{{localize "DARKSOULS.Weight"}}</label>
+          <input type="text" name="system.weight" value="{{system.weight}}" data-dtype="Number"/>
+        </div>
+        <div class="resource">
+          <label class="resource-label">{{localize "DARKSOULS.PhysicalDefense"}}</label>
+          <input type="text" name="system.physDef" value="{{system.physDef}}" data-dtype="Number"/>
+        </div>
+        <div class="resource">
+          <label class="resource-label">{{localize "DARKSOULS.MagicDefense"}}</label>
+          <input type="text" name="system.magDef" value="{{system.magDef}}" data-dtype="Number"/>
+        </div>
+      </div>
+      <div class="resource">
+        <label class="resource-label">{{localize "DARKSOULS.SetBonus"}}</label>
+        <input type="text" name="system.setBonus" value="{{system.setBonus}}" data-dtype="String"/>
+      </div>
+    </div>
   </section>
-
-  {{!-- Attributes Tab --}}
-  <div class="tab attributes" data-group="primary" data-tab="attributes">
-    <div class="grid grid-2col">
-      {{!-- Attributes: slot, physDef, magDef, weight, setBonus, equipped --}}
-      <div class="resource">
-        <label class="resource-label">{{localize "DARKSOULS.ArmorSlot"}}</label>
-        <select name="system.slot">
-          {{selectOptions armorSlots selected=system.slot localize=true}}
-        </select>
-      </div>
-      <div class="resource">
-        <label class="resource-label">{{localize "DARKSOULS.Weight"}}</label>
-        <input type="text" name="system.weight" value="{{system.weight}}" data-dtype="Number"/>
-      </div>
-      <div class="resource">
-        <label class="resource-label">{{localize "DARKSOULS.PhysicalDefense"}}</label>
-        <input type="text" name="system.physDef" value="{{system.physDef}}" data-dtype="Number"/>
-      </div>
-      <div class="resource">
-        <label class="resource-label">{{localize "DARKSOULS.MagicDefense"}}</label>
-        <input type="text" name="system.magDef" value="{{system.magDef}}" data-dtype="Number"/>
-      </div>
-    </div>
-    <div class="resource">
-      <label class="resource-label">{{localize "DARKSOULS.SetBonus"}}</label>
-      <input type="text" name="system.setBonus" value="{{system.setBonus}}" data-dtype="String"/>
-    </div>
-    <div class="resource">
-      <label class="resource-label">{{localize "DARKSOULS.ArmorSlot"}}</label>
-      <select name="system.slot">
-        {{selectOptions armorSlots selected=system.slot localize=true}}
-      </select>
-    </div>
-  </div>
 </form>
