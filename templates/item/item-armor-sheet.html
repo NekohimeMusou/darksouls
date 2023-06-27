@@ -31,7 +31,10 @@
     <div class="grid grid-2col">
       {{!-- Attributes: slot, physDef, magDef, weight, setBonus, equipped --}}
       <div class="resource">
-        {{!-- SLOT PICKER GOES HERE --}}
+        <label class="resource-label">{{localize "DARKSOULS.ArmorSlot"}}</label>
+        <select name="system.slot">
+          {{selectOptions armorSlots selected=system.slot localize=true}}
+        </select>
       </div>
       <div class="resource">
         <label class="resource-label">{{localize "DARKSOULS.Weight"}}</label>

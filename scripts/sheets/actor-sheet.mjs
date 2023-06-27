@@ -30,6 +30,8 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     //   _prepareMonsterData(context);
     // }
 
+    context.armorSlots = CONFIG.DARKSOULS.armorSlots;
+    
     // Add roll data for TinyMCE editors
     context.rollData = context.actor.getRollData();
 
