@@ -54,5 +54,6 @@
     "DARKSOULS.ArmorSlot": "Slot",
     "DARKSOULS.HeadSlot": "Head",
     "DARKSOULS.TorsoSlot": "Torso",
-    "DARKSOULS.LegSlot": "Legs"
+    "DARKSOULS.LegSlot": "Legs",
+    "DARKSOULS.ItemEquippedHeader": "Eq?"
 }
