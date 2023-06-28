@@ -1,0 +1,4 @@
+{
+    "include": ["fvtt", "scripts"],
+    "exclude": ["node_modules"]
+}
