@@ -105,7 +105,9 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     // Ability checks
     html.find('.rollable').click(this._onStatRoll.bind(this));
     // Damage calculation
-    html.find('.click-damage-calc').click(this._onDamageCalc.bind(this));
+    html.find('.click-damage').click(this._onDamageCalc.bind(this));
+    // Equip/unequip armor
+    html.find('.item-equipped').change(this._onArmorEquip.bind(this));
   }
 
   /**
@@ -198,5 +200,11 @@ export default class DarkSoulsActorSheet extends ActorSheet {
       flavor,
       content
     });
+  }
+
+  async _onArmorEquip(event) {
+    event.preventDefault(); // Do I even want this for a checkbox?
+
+    
   }
 }
