@@ -37,6 +37,11 @@ Hooks.once('init', async function() {
   preloadHandlebarsTemplates();
 });
 
+// Register debug flag for Dev Mode
+Hooks.once('devModeReady', ({ registerPackageDebugFlag }) => {
+  registerPackageDebugFlag('darksouls');
+});
+
 /**
  * Handlebars Helpers
  */

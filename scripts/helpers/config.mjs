@@ -1,5 +1,7 @@
 export const DARKSOULS = {};
 
+DARKSOULS.moduleID = 'DARKSOULS',
+
 DARKSOULS.stats = {
   vig: 'DARKSOULS.Vigor',
   atn: 'DARKSOULS.Attunement',
