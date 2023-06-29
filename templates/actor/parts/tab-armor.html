@@ -16,7 +16,7 @@
       </li>
       {{#each armor as |item|}}
       <li class="item flexrow" data-item-id="{{item._id}}">
-        <div class="equip-checkbox item-prop" data-equipment-type="armor" data-equipped="{{item.system.equipped}}">
+        <div class="equip-checkbox item-prop">
           <label for="item.system.equipped">{{localize "DARKSOULS.ItemEquippedHeader"}}</label>
           <input type="checkbox" name="item.system.equipped" {{checked item.system.equipped}}/>
         </div>

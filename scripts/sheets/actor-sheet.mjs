@@ -203,7 +203,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
   }
 
   async _onItemEquipToggle(event) {
-    event.preventDefault(); // Do I even want this for a checkbox?
+    event.preventDefault();
 
     // Get the item this event is attached to
     const element = event.currentTarget;
@@ -219,10 +219,20 @@ export default class DarkSoulsActorSheet extends ActorSheet {
       return;
     }
 
+    const systemData = item.system;
+
     // Detect item type and perform appropriate action
     if (item.type === 'armor') {
       // If it's equipped, just unequip it
-      // If not, unequip everything else in that slot
+      if (systemData.equipped) {
+        await item.update({equipped: false});
+      } else {
+        // Unequip everything else for this slot before equipping the new thing
+        this.actor.items.filter(item => item.type === 'armor' && item.system.slot === systemData.slot)
+          .forEach(async item => await item.update({equipped: false}));
+
+        await item.update({equipped: true});
+      }
     }
   }
 }
