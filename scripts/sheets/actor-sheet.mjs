@@ -107,7 +107,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     // Damage calculation
     html.find('.click-damage').click(this._onDamageCalc.bind(this));
     // Equip/unequip armor
-    html.find('.item-equipped').change(this._onArmorEquip.bind(this));
+    html.find('.equip-checkbox').change(this._onItemEquipToggle.bind(this));
   }
 
   /**
@@ -202,9 +202,27 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     });
   }
 
-  async _onArmorEquip(event) {
+  async _onItemEquipToggle(event) {
     event.preventDefault(); // Do I even want this for a checkbox?
 
-    
+    // Get the item this event is attached to
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+
+    // Get the item object by ID
+    const itemId = element.closest('.item').dataset.itemId;
+    const item = this.actor.items.get(itemId);
+
+    // If the item doesn't exist, return with a warning
+    if (!item) {
+      ui.notifications.warn('DARKSOULS: Missing item reference');
+      return;
+    }
+
+    // Detect item type and perform appropriate action
+    if (item.type === 'armor') {
+      // If it's equipped, just unequip it
+      // If not, unequip everything else in that slot
+    }
   }
 }
