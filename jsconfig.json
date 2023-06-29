@@ -1,4 +1,9 @@
 {
+    "compilerOptions": {
+        "module": "ES2022",
+        "target": "ES2022",
+        "moduleResolution": "node"
+    },
     "include": ["fvtt", "scripts"],
-    "exclude": ["node_modules"]
+    "exclude": ["**/node_modules", "**/dist"]
 }
