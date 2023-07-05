@@ -5,7 +5,7 @@ export default class DarkSoulsItemSheet extends ItemSheet {
       classes: ['darksouls', 'sheet', 'item'],
       width: 520,
       height: 480,
-      tabs: [{ navSelector: '.sheet-tabs', contentSelector: '.sheet-body', initial: 'description' }]
+      tabs: [{ navSelector: '.sheet-tabs', contentSelector: '.sheet-body', initial: 'attributes' }]
     });
   }
 
@@ -17,7 +17,7 @@ export default class DarkSoulsItemSheet extends ItemSheet {
 
     // Alternatively, you could use the following return statement to do a
     // unique item sheet by type, like `weapon-sheet.html`.
-    return `${path}/item-${this.item.data.type}-sheet.html`;
+    return `${path}/item-${this.item.type}-sheet.html`;
   }
 
   /** @override */
