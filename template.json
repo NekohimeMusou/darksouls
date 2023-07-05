@@ -91,7 +91,8 @@
         "types": ["armor"],
         "templates": {
             "base": {
-                "description": ""
+                "description": "",
+                "soulValue": 0
             }
         },
         "armor": {
