@@ -40,6 +40,7 @@
     "DARKSOULS.Armor": "Armor",
     "DARKSOULS.Weight": "Weight",
     "DARKSOULS.WeightShort": "Wgt",
+    "DARKSOULS.TotalWeight": "Total Weight",
     "DARKSOULS.SetBonus": "Set Bonus",
 
     "DARKSOULS.DamageValue": "Damage Value",
@@ -48,6 +49,12 @@
     "DARKSOULS.MagicDefense": "Magic Defense",
     "DARKSOULS.MagicDefenseShort": "Mag",
 
+    "DARKSOULS.EquipLoadLevel": "Equip Load",
+    "DARKSOULS.EquipLoadLight": "Light",
+    "DARKSOULS.EquipLoadMedium": "Medium",
+    "DARKSOULS.EquipLoadHeavy": "Heavy",
+    "DARKSOULS.EquipLoadOver": "Over",
+    "DARKSOULS.EvadeCost": "Evasion Cost",
     "DARKSOULS.ButtonAttack": "Attack",
     "DARKSOULS.CalculateDamage": "Damage",
 

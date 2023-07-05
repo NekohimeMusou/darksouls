@@ -28,19 +28,21 @@ export default class DarkSoulsActor extends Actor {
   static #preparePcData(actorData) {
     if (actorData.type !== 'pc') return;
 
-    DarkSoulsActor.#calculatePcStats(actorData);
+    DarkSoulsActor.#preparePcStats(actorData);
     DarkSoulsActor.#prepareArmor(actorData);
+    DarkSoulsActor.#prepareEquipLoad(actorData);
   }
 
-  static #calculatePcStats (actorData) {
+  static #preparePcStats (actorData) {
     // Calculate stat totals and modifiers
     const stats = Object.values(actorData.system.stats);
 
-    for (const stat of stats) {
-      stat.value = stat.base + stat.growth;
-
-      stat.mod = Math.floor(stat.value / 4);
-    }
+    stats.forEach(
+      stat => {
+        stat.value = stat.base + stat.growth;
+        stat.mod = Math.floor(stat.value / 4);
+      }
+    );
 
     // Calculate level and level mod
     // Level is (totalStats - 80)
@@ -65,9 +67,25 @@ export default class DarkSoulsActor extends Actor {
 
     // Calculate physical and magical defense and weight
     // Level bonus has been calculated in #calculatePcStats
-    systemData.physDef = equippedArmor.reduce((totalPhys, armor) => totalPhys + (armor?.system.physDef || 0), 0) + systemData.level.mod;
-    systemData.magDef = equippedArmor.reduce((totalMag, armor) => totalMag + (armor?.system.magDef || 0), 0) + systemData.level.mod;
-    systemData.weight += equippedArmor.reduce((totalWeight, armor) => totalWeight + (armor?.system.weight || 0), 0);
+    systemData.physDef = equippedArmor.reduce((phys, armor) => phys + (armor?.system.physDef || 0), 0) + systemData.level.mod;
+    systemData.magDef = equippedArmor.reduce((mag, armor) => mag + (armor?.system.magDef || 0), 0) + systemData.level.mod;
+  }
+
+  static #prepareEquipLoad(actorData) {
+    const systemData = actorData.system;
+
+    // Get a list of everything that contributes to equip load
+    const equipment = actorData.items.filter(i => (i.type ==='armor' || i.type === 'weapon') && i.system.equipped);
+
+    // Calculate total weight and add to system data
+    const totalWeight = equipment.reduce((wgt, i) => wgt + (i?.system.weight || 0), 0);
+    systemData.totalWeight = totalWeight;
+
+    const vit = systemData.stats[CONFIG.DARKSOULS.equipLoadStat].value;
+
+    const evadeIndex = Math.min(Math.max(Math.floor((totalWeight-1)/vit), 0), 3);
+
+    [systemData.equipLoadLevel, systemData.evadeCost] = CONFIG.DARKSOULS.evasion[evadeIndex];
   }
 
   static #prepareMonsterData(actorData) {

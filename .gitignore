@@ -166,6 +166,6 @@ dist
 
 fvtt/
 
-# Don't ignore compendium pack logs, just in case
+# Ignore packs until I figure out how to serialize them
 
-!packs/**/*.log
+packs/

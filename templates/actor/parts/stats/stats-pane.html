@@ -3,9 +3,9 @@
 
   {{#each system.stats as |stat key|}}
   <div class="stat flexrow flex-group-center">
-    <label for="system.stats.{{key}}.base" class="resource-label flexlarge align-left rollable" data-label="{{stat.label}}" data-roll="2d6+@{{key}}Mod">{{stat.label}}</label>
+    <label for="system.stats.{{key}}.base" class="resource-label flexlarge align-left roll-stat" data-label="{{stat.label}}" data-roll="2d6+@{{key}}Mod">{{stat.label}}</label>
     <input type="text" name="system.stats.{{key}}.base" value="{{stat.base}}" data-dtype="Number" />
-    <span class="stat-mod rollable" data-label="{{stat.label}}" data-roll="2d6+@{{key}}Mod">{{numberFormat stat.mod decimals=0 sign=true}}</span>
+    <span class="stat-mod roll-stat" data-label="{{stat.label}}" data-roll="2d6+@{{key}}Mod">{{numberFormat stat.mod decimals=0 sign=true}}</span>
   </div>
   {{/each}}
 </div>

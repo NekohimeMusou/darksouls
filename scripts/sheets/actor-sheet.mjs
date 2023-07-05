@@ -103,7 +103,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     }
 
     // Ability checks
-    html.find('.rollable').click(this._onStatRoll.bind(this));
+    html.find('.roll-stat').click(this._onStatRoll.bind(this));
     // Damage calculation
     html.find('.click-damage').click(this._onDamageCalc.bind(this));
     // Equip/unequip armor
@@ -144,7 +144,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
     if (dataset.roll) {
       const label = dataset.label ? `${dataset.label} Check:` : '';
-      const roll = await new Roll(dataset.roll, this.actor.getRollData()).roll({async: true});
+      const roll = await new Roll(dataset.roll, this.actor.getRollData()).roll();
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label,

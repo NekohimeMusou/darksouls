@@ -18,3 +18,12 @@ DARKSOULS.armorSlots = {
   torso: 'DARKSOULS.TorsoSlot',
   legs: 'DARKSOULS.LegSlot'
 };
+
+DARKSOULS.equipLoadStat = 'vit';
+
+DARKSOULS.evasion = [
+  ['DARKSOULS.EquipLoadLight', 6],
+  ['DARKSOULS.EquipLoadMedium', 8],
+  ['DARKSOULS.EquipLoadHeavy', 10],
+  ['DARKSOULS.EquipLoadOver', 'N/A']
+];
