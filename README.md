@@ -4,6 +4,10 @@ Unofficial system for the Dark Souls TRPG by Hironori Katou and published by Gro
 
 CSS and some code borrowed from <https://gitlab.com/asacolips-projects/foundry-mods/boilerplate>
 
+## Installation
+
+Paste the following manifest URL into Foundry: <https://raw.githubusercontent.com/NekohimeMusou/darksouls/v0.2.1/system.json>
+>
 ## To-do List
 
 - Add weapon functionality
