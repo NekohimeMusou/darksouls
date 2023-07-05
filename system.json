@@ -34,7 +34,7 @@
             "name": "armor",
             "label": "Armor",
             "system": "darksouls",
-            "path": "packs/armor.db",
+            "path": "packs/armor",
             "type": "Item",
             "private": false,
             "flags": {}
