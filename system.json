@@ -29,17 +29,6 @@
             "path": "lang/en.json"
         }
     ],
-    "packs": [
-        {
-            "name": "armor",
-            "label": "Armor",
-            "system": "darksouls",
-            "path": "packs/armor",
-            "type": "Item",
-            "private": false,
-            "flags": {}
-        }
-    ],
     "primaryTokenAttribute": "hp",
     "secondaryTokenAttribute": "fp"
 }
