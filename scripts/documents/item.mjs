@@ -14,17 +14,11 @@ export default class DarkSoulsItem extends Item {
     const itemData = this;
     const systemData = itemData.system;
     const flags = itemData.flags.darksouls || {};
-  
-    // this._prepareItemData(itemData);
-    // this._prepareArmorData(itemData);
-    // this._prepareWeaponData(itemData);
-    // this._prepareSpellData(itemData);
-    // this._prepareJewelryData(itemData);
   }
 
   /**
      * Prepare a data object which is passed to any Roll formulas which are created related to this Item
-     * @private
+     * @override
      */
   getRollData() {
     // If present, return the actor's roll data.

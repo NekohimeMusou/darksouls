@@ -23,11 +23,11 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     // Prepare character data and items; use if statements here when we have more than one type (e.g. `if (actorData.type == 'character') {})
 
     if (actorData.type == 'pc') {
-      this._prepareItems(context);
-      this._preparePcData(context);
+      DarkSoulsActorSheet.#prepareItems(context);
+      DarkSoulsActorSheet.#preparePcData(context);
     } 
     // if (actorData.type == 'monster') {
-    //   _prepareMonsterData(context);
+    //   DarkSoulsActorSheet.#prepareMonsterData(context);
     // }
 
     context.armorSlots = CONFIG.DARKSOULS.armorSlots;
@@ -41,7 +41,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     return context;
   }
 
-  _prepareItems(context) {
+  static #prepareItems(context) {
     const items = context.items;
 
     // Collect each item type for convenience
@@ -55,7 +55,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     };
   }
 
-  _preparePcData(context) {
+  static #preparePcData(context) {
     // Add labels for ability scores
     for (const [k, v] of Object.entries(context.system.stats)) {
       v.label = game.i18n.localize(CONFIG.DARKSOULS.stats[k]) ?? k;
@@ -63,7 +63,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     }
   }
 
-  static _prepareMonsterData(context) {
+  static #prepareMonsterData(context) {
 
   }
 
@@ -207,17 +207,10 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
     // Get the item this event is attached to
     const element = event.currentTarget;
-    const dataset = element.dataset;
 
     // Get the item object by ID
     const itemId = element.closest('.item').dataset.itemId;
     const item = this.actor.items.get(itemId);
-
-    // If the item doesn't exist, return with a warning
-    if (!item) {
-      ui.notifications.warn('DARKSOULS: Missing item reference');
-      return;
-    }
 
     const systemData = item.system;
 
@@ -225,13 +218,13 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     if (item.type === 'armor') {
       // If it's equipped, just unequip it
       if (systemData.equipped) {
-        await item.update({equipped: false});
+        await item.update({'system.equipped': false});
       } else {
         // Unequip everything else for this slot before equipping the new thing
-        this.actor.items.filter(item => item.type === 'armor' && item.system.slot === systemData.slot)
-          .forEach(async item => await item.update({equipped: false}));
+        this.actor.items.filter(i => i.type === 'armor' && i.system.slot === systemData.slot)
+          .forEach(async i => await i.update({'system.equipped': false}));
 
-        await item.update({equipped: true});
+        await item.update({'system.equipped': true});
       }
     }
   }

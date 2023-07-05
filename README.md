@@ -6,5 +6,6 @@ Much CSS and code borrowed from <https://gitlab.com/asacolips-projects/foundry-m
 
 ## To-do List
 
-Fix armor sheet
-Temporarily commented out defense calculations so the half-assed version will still work
+- Add weapon functionality
+- Clean up UI
+- Automate stat increases etc?

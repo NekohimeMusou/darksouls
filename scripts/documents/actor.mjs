@@ -28,10 +28,6 @@ export default class DarkSoulsActor extends Actor {
   static #preparePcData(actorData) {
     if (actorData.type !== 'pc') return;
 
-    const systemData = actorData.system;
-
-    systemData.weight = 0;
-
     DarkSoulsActor.#calculatePcStats(actorData);
     DarkSoulsActor.#prepareArmor(actorData);
   }
@@ -49,10 +45,7 @@ export default class DarkSoulsActor extends Actor {
     // Calculate level and level mod
     // Level is (totalStats - 80)
 
-    const statTotal = stats.reduce(
-      (total, stat) => total + stat.value || 0,
-      0
-    );
+    const statTotal = stats.reduce((total, stat) => total + stat.value || 0, 0);
 
     const level = statTotal - 80;
 
@@ -67,15 +60,14 @@ export default class DarkSoulsActor extends Actor {
 
     // Filter out all unequipped armor
     const equippedArmor = actorData.items.filter(
-      item => item.type === 'armor' && item.equipped
+      item => item.type === 'armor' && item.system.equipped
     );
 
     // Calculate physical and magical defense and weight
-    // Assumes level bonus has been calculated already in #calculatePcStats
-    // UNCOMMENT WHEN ARMOR IS WORKING
-    // systemData.physDef = equippedArmor.reduce((totalDef, armor) => totalDef + (armor?.physDef || 0), 0) + systemData.level.mod;
-    // systemData.magDef = equippedArmor.reduce((totalDef, armor) => totalDef + (armor?.magDef || 0), 0) + systemData.level.mod;
-    // systemData.weight += equippedArmor.reduce((totalWeight, armor) => totalWeight + (armor?.weight || 0), 0);
+    // Level bonus has been calculated in #calculatePcStats
+    systemData.physDef = equippedArmor.reduce((totalPhys, armor) => totalPhys + (armor?.system.physDef || 0), 0) + systemData.level.mod;
+    systemData.magDef = equippedArmor.reduce((totalMag, armor) => totalMag + (armor?.system.magDef || 0), 0) + systemData.level.mod;
+    systemData.weight += equippedArmor.reduce((totalWeight, armor) => totalWeight + (armor?.system.weight || 0), 0);
   }
 
   static #prepareMonsterData(actorData) {
@@ -86,26 +78,26 @@ export default class DarkSoulsActor extends Actor {
   getRollData() {
     const data = foundry.utils.deepClone(super.getRollData());
 
-    this._getPcRollData(data);
-    this._getMonsterRollData(data);
+    this.#getPcRollData(data);
+    this.#getMonsterRollData(data);
 
     return data;
   }
 
-  _getPcRollData(data) {
+  #getPcRollData(data) {
     if (this.type !== 'pc') return;
 
     // Copy stats to top level
     if (data.stats) {
       for (let [k, v] of Object.entries(data.stats)) {
         // Fix this to use the base + growth value too
-        data[k] = v.base;
+        data[k] = v.base + v.growth;
         data[`${k}Mod`] = v.mod;
       }
     }
   }
 
-  _getMonsterRollData(data) {
+  #getMonsterRollData(data) {
     if (this.type !== 'monster') return;
   }
 }

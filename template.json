@@ -10,15 +10,17 @@
                     "max": 5
                 }
             },
-            "monster": {
+            "fixedAtk": {
                 "damage": 0,
-                "physDef": 0,
-                "magDef": 0,
                 "attackIsMagical": false
+            },
+            "fixedDef": {
+                "physDef": 0,
+                "magDef": 0
             }
         },
         "pc": {
-            "templates": ["base", "monster"],
+            "templates": ["base", "fixedAtk"],
             "class": "",
             "souls": 0,
             "fp": {
@@ -81,7 +83,7 @@
             }
         },
         "monster": {
-            "templates": ["base", "monster"]
+            "templates": ["base", "fixedAtk", "fixedDef"]
         }
     },
     "Item":
