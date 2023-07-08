@@ -13,10 +13,6 @@
             "fixedAtk": {
                 "damage": 0,
                 "attackIsMagical": false
-            },
-            "fixedDef": {
-                "physDef": 0,
-                "magDef": 0
             }
         },
         "pc": {
@@ -81,9 +77,6 @@
                     "value": 4
                 }
             }
-        },
-        "monster": {
-            "templates": ["base", "fixedAtk", "fixedDef"]
         }
     },
     "Item":
