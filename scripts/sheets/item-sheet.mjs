@@ -37,10 +37,15 @@ export default class DarkSoulsItemSheet extends ItemSheet {
       context.rollData = actor.getRollData();
     }
 
-    // Add armor slot options for select box
-    context.armorSlots = CONFIG.DARKSOULS.armorSlots;
+    DarkSoulsItemSheet.#addLabels(context);
 
     return context;
+  }
+
+  /** Add labels to context */
+  static #addLabels(context) {
+    // Add armor slot options for select box
+    context.armorSlots = CONFIG.DARKSOULS.armorSlots;
   }
 
   /** @override */

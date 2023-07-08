@@ -12,7 +12,6 @@ export default class DarkSoulsItem extends Item {
      */
   prepareDerivedData() {
     const itemData = this;
-    const systemData = itemData.system;
     const flags = itemData.flags.darksouls || {};
   }
 
