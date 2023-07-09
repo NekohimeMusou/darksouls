@@ -8,7 +8,7 @@
     },
     "url": "https://github.com/NekohimeMusou/darksouls",
     "manifest": "https://raw.githubusercontent.com/NekohimeMusou/darksouls/trunk/system.json",
-    "download": "https://github.com/NekohimeMusou/darksouls/releases/download/v0.2.3-alpha/darksouls-v0.2.3-alpha.zip",
+    "download": "https://github.com/NekohimeMusou/darksouls/releases/download/v0.2.3/darksouls-v0.2.3.zip",
     "authors": [
         {
             "name": "Nekohime Musou",
