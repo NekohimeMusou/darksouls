@@ -31,35 +31,35 @@
             },
             "stats": {
                 "vig": {
-                    "base": 0,
+                    "base": 10,
                     "growth": 0
                 },
                 "atn": {
-                    "base": 0,
+                    "base": 10,
                     "growth": 0
                 },
                 "vit": {
-                    "base": 0,
+                    "base": 10,
                     "growth": 0
                 },
                 "str": {
-                    "base": 0,
+                    "base": 10,
                     "growth": 0
                 },
                 "dex": {
-                    "base": 0,
+                    "base": 10,
                     "growth": 0
                 },
                 "int": {
-                    "base": 0,
+                    "base": 10,
                     "growth": 0
                 },
                 "fth": {
-                    "base": 0,
+                    "base": 10,
                     "growth": 0
                 },
                 "luc": {
-                    "base": 0,
+                    "base": 10,
                     "growth": 0
                 }
             },
