@@ -1,6 +1,6 @@
 {
     "Actor": {
-        "types": ["pc", "monster"],
+        "types": ["pc"],
         "templates": {
             "base": {
                 "description": "",
