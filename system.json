@@ -2,13 +2,13 @@
     "id": "darksouls",
     "title": "Dark Souls TRPG",
     "description": "Unofficial implementation of the Dark Souls TRPG by Hironori Katou, published by Group SNE. A huge thank you to matara (https://mataramakesgames.carrd.co/) for the English translation!",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "compatibility": {
         "verified": 11
     },
     "url": "https://github.com/NekohimeMusou/darksouls",
     "manifest": "https://raw.githubusercontent.com/NekohimeMusou/darksouls/trunk/system.json",
-    "download": "https://github.com/NekohimeMusou/darksouls/releases/download/v0.2.2/darksouls-v0.2.2.zip",
+    "download": "https://github.com/NekohimeMusou/darksouls/releases/download/v0.2.3/darksouls-v0.2.3.zip",
     "authors": [
         {
             "name": "Nekohime Musou",
