@@ -53,5 +53,13 @@
     "DARKSOULS.LegSlot": "Legs",
     "DARKSOULS.ItemEquippedHeader": "Eq?",
 
-    "DARKSOULS.SoulValue": "Value"
+    "DARKSOULS.SoulValue": "Value",
+
+    "DARKSOULS.PoisonType": "Poison",
+    "DARKSOULS.BleedingType": "Bleeding",
+    "DARKSOULS.DarkType": "Dark",
+    "DARKSOULS.ColdType": "Cold",
+    "DARKSOULS.MagicType": "Magic",
+    "DARKSOULS.FireType": "Fire",
+    "DARKSOULS.LightningType": "Lightning"
 }

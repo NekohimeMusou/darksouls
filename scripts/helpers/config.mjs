@@ -27,3 +27,13 @@ DARKSOULS.evasion = [
   ['DARKSOULS.EquipLoadHeavy', 10],
   ['DARKSOULS.EquipLoadOver', 'N/A']
 ];
+
+DARKSOULS.damageTypes = {
+  poison: 'DARKSOULS.PoisonType',
+  bleeding: 'DARKSOULS.BleedingType',
+  dark: 'DARKSOULS.DarkType',
+  cold: 'DARKSOULS.ColdType',
+  magic: 'DARKSOULS.MagicType',
+  fire: 'DARKSOULS.FireType',
+  lightning: 'DARKSOULS.LightningType'
+};

@@ -13,10 +13,30 @@
             "fixedAtk": {
                 "damage": 0,
                 "attackIsMagical": false
+            },
+            "resist": {
+                "resistances": {
+                    "poison": 0,
+                    "bleeding": 0,
+                    "dark": 0,
+                    "cold": 0,
+                    "magic": 0,
+                    "fire": 0,
+                    "lightning": 0
+                },
+                "weaknesses": {
+                    "poison": 0,
+                    "bleeding": 0,
+                    "dark": 0,
+                    "cold": 0,
+                    "magic": 0,
+                    "fire": 0,
+                    "lightning": 0
+                }
             }
         },
         "pc": {
-            "templates": ["base", "fixedAtk"],
+            "templates": ["base", "resist", "fixedAtk"],
             "class": "",
             "souls": 0,
             "fp": {
