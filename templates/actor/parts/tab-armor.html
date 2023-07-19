@@ -1,15 +1,13 @@
 <div class="tab armor" data-group="primary" data-tab="armor">
   <div class="items-list flexcol">
-    {{!-- header row, 3 armor rows --}}
-    <div class="resource-label flex-group-center flex0">{{localize "DARKSOULS.Armor"}}</div>
     <ol class="items-list">
       <li class="item flexrow items-header">
         <div class="item-equipped">{{localize "DARKSOULS.ItemEquippedHeader"}}</div>
         <div class="item-name">{{localize "DARKSOULS.Name"}}</div>
         <div class="armor-slot">{{localize "DARKSOULS.ArmorSlot"}}</div>
-        <div class="armor-physdef">{{localize "DARKSOULS.PhysicalDefenseShort"}}</div>
-        <div class="armor-magdef">{{localize "DARKSOULS.MagicDefenseShort"}}</div>
-        <div class="item-weight">{{localize "DARKSOULS.WeightShort"}}</div>
+        <div class="armor-physdef">{{localize "DARKSOULS.PhysicalDefenseAbbrev"}}</div>
+        <div class="armor-magdef">{{localize "DARKSOULS.MagicDefenseAbbrev"}}</div>
+        <div class="item-weight">{{localize "DARKSOULS.WeightAbbrev"}}</div>
         <div class="item-controls">
           <a class="item-control item-create" title="Create item" data-type="armor"><i class="fas fa-plus"></i> Add item</a>
         </div>
@@ -22,11 +20,11 @@
         </div>
         <div class="item-name">
           <div class="item-image">
-            <a class="" data-roll-type="item"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></a>
+            <a data-roll-type="item"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></a>
           </div>
           <h4>{{name}}</h4>
         </div>
-        <div class="armor-slot item-prop">{{localize (lookup ../armorSlots item.system.slot)}}</div>
+        <div class="armor-slot item-prop">{{localize (lookup ../DARKSOULS.armorSlots item.system.slot)}}</div>
         <div class="armor-physdef item-prop">{{system.physDef}}</div>
         <div class="armor-magdef item-prop">{{system.magDef}}</div>
         <div class="item-weight item-prop">{{system.weight}}</div>

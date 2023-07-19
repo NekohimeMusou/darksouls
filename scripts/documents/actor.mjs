@@ -21,21 +21,14 @@ export default class DarkSoulsActor extends Actor {
     const actorData = this;
     const flags = actorData.flags.darksouls || {};
 
-    DarkSoulsActor.#preparePcData(actorData);
-    DarkSoulsActor.#prepareMonsterData(actorData);
+    this.#prepareStats(actorData);
+    this.#prepareArmor(actorData);
+    this.#prepareEquipLoad(actorData);
   }
 
-  static #preparePcData(actorData) {
-    if (actorData.type !== 'pc') return;
-
-    DarkSoulsActor.#preparePcStats(actorData);
-    DarkSoulsActor.#prepareArmor(actorData);
-    DarkSoulsActor.#prepareEquipLoad(actorData);
-  }
-
-  static #preparePcStats (actorData) {
+  #prepareStats () {
     // Calculate stat totals and modifiers
-    const stats = Object.values(actorData.system.stats);
+    const stats = Object.values(this.system.stats);
 
     stats.forEach(
       stat => {
@@ -51,17 +44,17 @@ export default class DarkSoulsActor extends Actor {
 
     const level = statTotal - 80;
 
-    actorData.system.level = {
+    this.system.level = {
       value: level,
       mod: Math.floor(level / 4)
     };
   }
 
-  static #prepareArmor(actorData) {
-    const systemData = actorData.system;
+  #prepareArmor() {
+    const systemData = this.system;
 
     // Filter out all unequipped armor
-    const equippedArmor = actorData.items.filter(
+    const equippedArmor = this.items.filter(
       item => item.type === 'armor' && item.system.equipped
     );
 
@@ -71,11 +64,11 @@ export default class DarkSoulsActor extends Actor {
     systemData.magDef = equippedArmor.reduce((mag, armor) => mag + (armor?.system.magDef || 0), 0) + systemData.level.mod;
   }
 
-  static #prepareEquipLoad(actorData) {
-    const systemData = actorData.system;
+  #prepareEquipLoad() {
+    const systemData = this.system;
 
     // Get a list of everything that contributes to equip load
-    const equipment = actorData.items.filter(i => (i.type ==='armor' || i.type === 'weapon') && i.system.equipped);
+    const equipment = this.items.filter(i => (i.type ==='armor' || i.type === 'weapon') && i.system.equipped);
 
     // Calculate total weight and add to system data
     const totalWeight = equipment.reduce((wgt, i) => wgt + (i?.system.weight || 0), 0);
@@ -88,22 +81,9 @@ export default class DarkSoulsActor extends Actor {
     [systemData.equipLoadLevel, systemData.evadeCost] = CONFIG.DARKSOULS.evasion[evadeIndex];
   }
 
-  static #prepareMonsterData(actorData) {
-    if (actorData.type !== 'monster') return;
-  }
-
   /** @override */
   getRollData() {
     const data = foundry.utils.deepClone(super.getRollData());
-
-    this.#getPcRollData(data);
-    this.#getMonsterRollData(data);
-
-    return data;
-  }
-
-  #getPcRollData(data) {
-    if (this.type !== 'pc') return;
 
     // Copy stats to top level
     if (data.stats) {
@@ -113,9 +93,7 @@ export default class DarkSoulsActor extends Actor {
         data[`${k}Mod`] = v.mod;
       }
     }
-  }
 
-  #getMonsterRollData(data) {
-    if (this.type !== 'monster') return;
+    return data;
   }
 }

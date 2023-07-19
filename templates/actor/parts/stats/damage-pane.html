@@ -1,0 +1,11 @@
+<div class="weapons flexcol">
+  <div class="resource-label flex-group-center flex0">{{localize "DARKSOULS.DamagePaneHeader"}}</div>
+
+  <div class="weapon flexrow flex-group-center">
+    <label for="system.damage" class="flexlarge align-left">{{localize "DARKSOULS.DamageValue"}}</label>
+    <input type="number" name="system.damage" value="{{system.damage}}" data-dtype="Number" />
+    <label for="system.attackIsMagical" class="flexlarge">{{localize "DARKSOULS.AttackIsMagical"}}</label>
+    <input type="checkbox" name="system.attackIsMagical" {{checked system.attackIsMagical}} />
+    <button class="click-damage" type="button">{{localize "DARKSOULS.Attack"}}</button>
+  </div>
+</div>

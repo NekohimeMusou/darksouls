@@ -32,20 +32,16 @@ export default class DarkSoulsItemSheet extends ItemSheet {
 
     // Retrieve the roll data for TinyMCE editors.
     context.rollData = {};
+
     const actor = this.object?.parent ?? null;
+
     if (actor) {
       context.rollData = actor.getRollData();
     }
 
-    DarkSoulsItemSheet.#addLabels(context);
+    context.DARKSOULS = CONFIG.DARKSOULS;
 
     return context;
-  }
-
-  /** Add labels to context */
-  static #addLabels(context) {
-    // Add armor slot options for select box
-    context.armorSlots = CONFIG.DARKSOULS.armorSlots;
   }
 
   /** @override */

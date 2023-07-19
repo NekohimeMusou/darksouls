@@ -4,9 +4,8 @@
     <h1 class="charname">
         <input name="name" type="text" value="{{actor.name}}" placeholder="Name">
     </h1>
-    {{!-- Vital statistics: Level, class, souls --}}
     <div class="resources grid grid-3col">
-      {{!-- Column 1 --}}
+      {{!-- Row 1 --}}
       <div class="resource flex-group-center">
         <label for="system.class" class="resource-label">{{localize "DARKSOULS.Class"}}</label>
         <div class="resource-content flexrow flex-center flex-between">
@@ -15,7 +14,7 @@
       </div>
 
       <div class="resource flex-group-center">
-        <label for="system.level.value" class="resource-label">{{localize "DARKSOULS.Level"}} / {{localize "DARKSOULS.ModifierShort"}}</label>
+        <label for="system.level.value" class="resource-label">{{localize "DARKSOULS.Level"}} / {{localize "DARKSOULS.ModifierAbbrev"}}</label>
         <div class="resource-content flexrow flex-center flex-between">
           <input type="text" name="system.level.value" value="{{system.level.value}}" data-dtype="Number" readonly />
           <span> / </span>
@@ -30,7 +29,7 @@
         </div>
       </div>
 
-      {{!-- Column 2 --}}
+      {{!-- Row 2 --}}
       <div class="resource flex-group-center">
         <label for="system.hp.value" class="resource-label">{{localize "DARKSOULS.Hp"}}</label>
         <div class="resource-content flexrow flex-center flex-between">
@@ -50,11 +49,11 @@
       </div>
 
       <div class="resource flex-group-center">
-        <label for="system.luckPoints.value" class="resource-label">{{localize "DARKSOULS.LuckPoints"}}</label>
+        <label for="system.luckPts.value" class="resource-label">{{localize "DARKSOULS.LuckPoints"}}</label>
         <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="system.luckPoints.value" value="{{system.luckPoints.value}}" data-dtype="Number" />
+          <input type="text" name="system.luckPts.value" value="{{system.luckPts.value}}" data-dtype="Number" />
           <span> / </span>
-          <input type="text" name="system.luckPoints.max" value="{{system.luckPoints.max}}" data-dtype="Number" />
+          <input type="text" name="system.luckPts.max" value="{{system.luckPts.max}}" data-dtype="Number" />
         </div>
       </div>
     </div>

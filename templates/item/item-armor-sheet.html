@@ -21,7 +21,7 @@
         <div class="resource">
           <label class="resource-label">{{localize "DARKSOULS.ArmorSlot"}}</label>
           <select name="system.slot">
-            {{selectOptions armorSlots selected=system.slot localize=true}}
+            {{selectOptions DARKSOULS.armorSlots selected=system.slot localize=true}}
           </select>
         </div>
         <div class="resource">
@@ -38,12 +38,12 @@
         </div>
       </div>
       <div class="resource">
-        <label class="resource-label">{{localize "DARKSOULS.SetBonus"}}</label>
+        <label class="resource-label">{{localize "DARKSOULS.ArmorSetBonus"}}</label>
         <input type="text" name="system.setBonus" value="{{system.setBonus}}" data-dtype="String"/>
       </div>
       <div class="resource">
         <label class="resource-label">{{localize "DARKSOULS.SoulValue"}}</label>
-        <input type="text" name="system.soulValue" value="{{system.soulValue}}" data-dtype="String"/>
+        <input type="text" name="system.value" value="{{system.value}}" data-dtype="String"/>
       </div>
     </div>
     {{!-- Description Tab --}}

@@ -1,68 +1,67 @@
 {
-    "DARKSOULS.HitPoints": "Hit Points",
-    "DARKSOULS.Hp": "HP",
-    "DARKSOULS.FocusPoints": "Focus Points",
-    "DARKSOULS.Fp": "FP",
-    "DARKSOULS.LuckPoints": "Luck Points",
     "DARKSOULS.Name": "Name",
-
-    "DARKSOULS.Estus": "Estus",
-    "DARKSOULS.AshenEstus": "Ashen Estus",
-
     "DARKSOULS.Class": "Class",
     "DARKSOULS.Level": "Level",
     "DARKSOULS.Souls": "Souls",
+    "DARKSOULS.Hp": "HP",
+    "DARKSOULS.Fp": "FP",
+    "DARKSOULS.LuckPoints": "Luck Points",
 
-    "DARKSOULS.Stats": "Stats",
-    "DARKSOULS.DescriptionTab": "Description",
+    "DARKSOULS.ModifierAbbrev": "Mod",
+
+    "DARKSOULS.StatsTab": "Stats",
     "DARKSOULS.AttributesTab": "Attributes",
+    "DARKSOULS.ArmorTab": "Armor",
+    "DARKSOULS.DescriptionTab": "Description",
+
+    "DARKSOULS.Estus": "Estus Flasks",
+    "DARKSOULS.AshenEstus": "Ashen Estus Flasks",
 
     "DARKSOULS.Vigor": "Vigor",
-    "DARKSOULS.VigorShort": "VIG",
     "DARKSOULS.Attunement": "Attunement",
-    "DARKSOULS.AttunementShort": "ATN",
     "DARKSOULS.Vitality": "Vitality",
-    "DARKSOULS.VitalityShort": "VIT",
     "DARKSOULS.Strength": "Strength",
-    "DARKSOULS.StrengthShort": "STR",
     "DARKSOULS.Dexterity": "Dexterity",
-    "DARKSOULS.DexterityShort": "DEX",
     "DARKSOULS.Intelligence": "Intelligence",
-    "DARKSOULS.IntelligenceShort": "INT",
     "DARKSOULS.Faith": "Faith",
-    "DARKSOULS.FaithShort": "FTH",
     "DARKSOULS.Luck": "Luck",
-    "DARKSOULS.LuckShort": "LUC",
 
-    "DARKSOULS.ModifierShort": "Mod",
+    "DARKSOULS.PoisonType": "Poison",
+    "DARKSOULS.BleedingType": "Bleeding",
+    "DARKSOULS.DarkType": "Dark",
+    "DARKSOULS.ColdType": "Cold",
+    "DARKSOULS.MagicType": "Magic",
+    "DARKSOULS.FireType": "Fire",
+    "DARKSOULS.LightningType": "Lightning",
 
-    "DARKSOULS.Weapons": "Weapons",
-    "DARKSOULS.Armor": "Armor",
-    "DARKSOULS.Weight": "Weight",
-    "DARKSOULS.WeightShort": "Wgt",
-    "DARKSOULS.TotalWeight": "Total Weight",
-    "DARKSOULS.SetBonus": "Set Bonus",
-
+    "DARKSOULS.DamagePaneHeader": "Damage Calculator",
     "DARKSOULS.DamageValue": "Damage Value",
-    "DARKSOULS.PhysicalDefense": "Physical Defense",
-    "DARKSOULS.PhysicalDefenseShort": "Phys",
-    "DARKSOULS.MagicDefense": "Magic Defense",
-    "DARKSOULS.MagicDefenseShort": "Mag",
+    "DARKSOULS.AttackIsMagical": "Magical?",
+    "DARKSOULS.Attack": "Attack",
 
-    "DARKSOULS.EquipLoadLevel": "Equip Load",
+    "DARKSOULS.PhysicalDefense": "Physical Defense",
+    "DARKSOULS.PhysicalDefenseAbbrev": "Phys",
+    "DARKSOULS.MagicDefense": "Magic Defense",
+    "DARKSOULS.MagicDefenseAbbrev": "Mag",
+
+    "DARKSOULS.Weight": "Weight",
+    "DARKSOULS.WeightAbbrev": "Wgt",
+    "DARKSOULS.TotalWeight": "Total Weight",
+
+    "DARKSOULS.EquipLoad": "Equip Load",
     "DARKSOULS.EquipLoadLight": "Light",
     "DARKSOULS.EquipLoadMedium": "Medium",
     "DARKSOULS.EquipLoadHeavy": "Heavy",
     "DARKSOULS.EquipLoadOver": "Over",
     "DARKSOULS.EvadeCost": "Evasion Cost",
-    "DARKSOULS.ButtonAttack": "Attack",
-    "DARKSOULS.CalculateDamage": "Damage",
 
+    "DARKSOULS.SoulValue": "Value",
+
+    "DARKSOULS.Armor": "Armor",
     "DARKSOULS.ArmorSlot": "Slot",
     "DARKSOULS.HeadSlot": "Head",
     "DARKSOULS.TorsoSlot": "Torso",
     "DARKSOULS.LegSlot": "Legs",
     "DARKSOULS.ItemEquippedHeader": "Eq?",
-
-    "DARKSOULS.SoulValue": "Value"
+    "DARKSOULS.ArmorSetBonus": "Set Bonus"
 }

@@ -13,10 +13,30 @@
             "fixedAtk": {
                 "damage": 0,
                 "attackIsMagical": false
+            },
+            "resist": {
+                "resistances": {
+                    "poison": 0,
+                    "bleeding": 0,
+                    "dark": 0,
+                    "cold": 0,
+                    "magic": 0,
+                    "fire": 0,
+                    "lightning": 0
+                },
+                "weaknesses": {
+                    "poison": 0,
+                    "bleeding": 0,
+                    "dark": 0,
+                    "cold": 0,
+                    "magic": 0,
+                    "fire": 0,
+                    "lightning": 0
+                }
             }
         },
         "pc": {
-            "templates": ["base", "fixedAtk"],
+            "templates": ["base", "resist", "fixedAtk"],
             "class": "",
             "souls": 0,
             "fp": {
@@ -24,7 +44,7 @@
                 "value": 5,
                 "max": 5
             },
-            "luckPoints": {
+            "luckPts": {
                 "min": -5,
                 "max": 0,
                 "value": 0
@@ -64,7 +84,7 @@
                 }
             },
             "estus": {
-                "uses": 4,
+                "totalUses": 4,
                 "recovery": 3,
                 "hp": {
                     "min": 0,
@@ -73,8 +93,8 @@
                 },
                 "fp": {
                     "min": 0,
-                    "max": 4,
-                    "value": 4
+                    "max": 0,
+                    "value": 0
                 }
             }
         }
@@ -84,18 +104,24 @@
         "types": ["armor"],
         "templates": {
             "base": {
-                "description": "",
-                "soulValue": 0
+                "description": ""
+            },
+            "equippable": {
+                "equipped": false
+            },
+            "weight": {
+                "weight": 0
+            },
+            "value": {
+                "value": 0
             }
         },
         "armor": {
-            "templates": ["base"],
-            "slot": "torso",
+            "templates": ["base", "equippable", "weight", "value"],
+            "slot": "head",
             "physDef": 0,
             "magDef": 0,
-            "weight": 0,
-            "setBonus": "",
-            "equipped": false
+            "setBonus": ""
         }
     }
 }

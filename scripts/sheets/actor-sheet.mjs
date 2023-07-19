@@ -20,18 +20,13 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     context.system = actorData.system;
     context.flags = actorData.flags;
 
-    // Prepare character data and items; use if statements here when we have more than one type (e.g. `if (actorData.type == 'character') {})
+    // Prepare character data and items
 
-    if (actorData.type == 'pc') {
-      DarkSoulsActorSheet.#prepareItems(context);
-      DarkSoulsActorSheet.#preparePcData(context);
-    } 
-    // if (actorData.type == 'monster') {
-    //   DarkSoulsActorSheet.#prepareMonsterData(context);
-    // }
+    DarkSoulsActorSheet.#prepareItems(context);
+    DarkSoulsActorSheet.#addStatLabels(context);
 
-    context.armorSlots = CONFIG.DARKSOULS.armorSlots;
-    
+    context.DARKSOULS = CONFIG.DARKSOULS;
+
     // Add roll data for TinyMCE editors
     context.rollData = context.actor.getRollData();
 
@@ -55,16 +50,12 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     };
   }
 
-  static #preparePcData(context) {
+  static #addStatLabels(context) {
     // Add labels for ability scores
+    // There's probably a smoother way to do this
     for (const [k, v] of Object.entries(context.system.stats)) {
       v.label = game.i18n.localize(CONFIG.DARKSOULS.stats[k]) ?? k;
-      v.short = k.toLocaleUpperCase();
     }
-  }
-
-  static #prepareMonsterData(context) {
-
   }
 
   /** @override */
@@ -82,7 +73,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     if (!this.isEditable) return;
 
     // Add Inventory Item
-    html.find('.item-create').click(this._onItemCreate.bind(this));
+    html.find('.item-create').click(this.#onItemCreate.bind(this));
 
     // Delete Inventory Item
     html.find('.item-delete').click(ev => {
@@ -103,11 +94,11 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     }
 
     // Ability checks
-    html.find('.roll-stat').click(this._onStatRoll.bind(this));
+    html.find('.roll-stat').click(this.#onStatRoll.bind(this));
     // Damage calculation
-    html.find('.click-damage').click(this._onDamageCalc.bind(this));
+    html.find('.click-damage').click(this.#onDamageCalc.bind(this));
     // Equip/unequip armor
-    html.find('.equip-checkbox').change(this._onItemEquipToggle.bind(this));
+    html.find('.equip-checkbox').change(this.#onItemEquipToggle.bind(this));
   }
 
   /**
@@ -115,7 +106,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
    * @param {Event} event   The originating click event
    * @private
    */
-  async _onItemCreate(event) {
+  async #onItemCreate(event) {
     event.preventDefault();
     const header = event.currentTarget;
     // Get the type of item to create.
@@ -137,7 +128,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     return await Item.create(itemData, {parent: this.actor});
   }
 
-  async _onStatRoll(event) {
+  async #onStatRoll(event) {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
@@ -155,7 +146,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     }
   }
 
-  async _onDamageCalc(event) {
+  async #onDamageCalc(event) {
     event.preventDefault();
 
     if (game.user.targets.size < 1) {
@@ -202,7 +193,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     });
   }
 
-  async _onItemEquipToggle(event) {
+  async #onItemEquipToggle(event) {
     event.preventDefault();
 
     // Get the item this event is attached to
