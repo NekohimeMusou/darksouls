@@ -84,7 +84,7 @@
                 }
             },
             "estus": {
-                "uses": 4,
+                "totalUses": 4,
                 "recovery": 3,
                 "hp": {
                     "min": 0,
@@ -93,8 +93,8 @@
                 },
                 "fp": {
                     "min": 0,
-                    "max": 4,
-                    "value": 4
+                    "max": 0,
+                    "value": 0
                 }
             }
         }
@@ -104,18 +104,24 @@
         "types": ["armor"],
         "templates": {
             "base": {
-                "description": "",
-                "soulValue": 0
+                "description": ""
+            },
+            "equippable": {
+                "equipped": false
+            },
+            "weight": {
+                "weight": 0
+            },
+            "value": {
+                "value": 0
             }
         },
         "armor": {
-            "templates": ["base"],
-            "slot": "torso",
+            "templates": ["base", "equippable", "weight", "value"],
+            "slot": "head",
             "physDef": 0,
             "magDef": 0,
-            "weight": 0,
-            "setBonus": "",
-            "equipped": false
+            "setBonus": ""
         }
     }
 }
