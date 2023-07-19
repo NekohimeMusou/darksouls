@@ -21,9 +21,6 @@ Hooks.once('init', async function() {
   // Add custom config constants
   CONFIG.DARKSOULS = DARKSOULS;
 
-  // Add custom constants for configuration
-  // CONFIG.DARKSOULS = DARKSOULS;
-
   // Define custom Document classes
   CONFIG.Actor.documentClass = DarkSoulsActor;
   CONFIG.Item.documentClass = DarkSoulsItem;
@@ -35,27 +32,4 @@ Hooks.once('init', async function() {
   Items.registerSheet('darksouls', DarkSoulsItemSheet, { makeDefault: true });
 
   preloadHandlebarsTemplates();
-});
-
-// Register debug flag for Dev Mode
-Hooks.once('devModeReady', ({ registerPackageDebugFlag }) => {
-  registerPackageDebugFlag('darksouls');
-});
-
-/**
- * Handlebars Helpers
- */
-
-Handlebars.registerHelper('concat', function() {
-  var outStr = '';
-  for (var arg in arguments) {
-    if (typeof arguments[arg] != 'object') {
-      outStr += arguments[arg];
-    }
-  }
-  return outStr;
-});
-
-Handlebars.registerHelper('toLowerCase', function(str) {
-  return str.toLowerCase();
 });

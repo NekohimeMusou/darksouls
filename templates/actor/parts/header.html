@@ -4,9 +4,8 @@
     <h1 class="charname">
         <input name="name" type="text" value="{{actor.name}}" placeholder="Name">
     </h1>
-    {{!-- Vital statistics: Level, class, souls --}}
     <div class="resources grid grid-3col">
-      {{!-- Column 1 --}}
+      {{!-- Row 1 --}}
       <div class="resource flex-group-center">
         <label for="system.class" class="resource-label">{{localize "DARKSOULS.Class"}}</label>
         <div class="resource-content flexrow flex-center flex-between">
@@ -30,7 +29,7 @@
         </div>
       </div>
 
-      {{!-- Column 2 --}}
+      {{!-- Row 2 --}}
       <div class="resource flex-group-center">
         <label for="system.hp.value" class="resource-label">{{localize "DARKSOULS.Hp"}}</label>
         <div class="resource-content flexrow flex-center flex-between">
