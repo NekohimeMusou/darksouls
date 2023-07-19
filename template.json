@@ -24,7 +24,7 @@
                 "value": 5,
                 "max": 5
             },
-            "luckPoints": {
+            "luckPts": {
                 "min": -5,
                 "max": 0,
                 "value": 0
