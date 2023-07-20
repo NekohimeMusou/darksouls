@@ -7,11 +7,18 @@
     {{!-- Span the right two columns for main features display (might change later) --}}
     <section class="main grid-span-2">
       {{!-- Individual panes go here --}}
+      <div class="flexrow">
+        {{> "systems/darksouls/templates/actor/parts/stats/damage-pane.html"}}
+
+        {{> "systems/darksouls/templates/actor/parts/stats/defense-pane.html"}}
+      </div>
+
+      {{> "systems/darksouls/templates/actor/parts/stats/weight-pane.html"}}
+
       {{> "systems/darksouls/templates/actor/parts/stats/estus-pane.html"}}
 
-      {{> "systems/darksouls/templates/actor/parts/stats/damage-pane.html"}}
-
       {{> "systems/darksouls/templates/actor/parts/stats/armor-pane.html"}}
+
     </section>
   </section>
 </div>

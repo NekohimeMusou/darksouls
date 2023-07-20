@@ -22,7 +22,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
     // Prepare character data and items
 
-    DarkSoulsActorSheet.#prepareItems(context);
+    DarkSoulsActorSheet.#prepareArmor(context);
     DarkSoulsActorSheet.#addStatLabels(context);
 
     context.DARKSOULS = CONFIG.DARKSOULS;
@@ -36,18 +36,17 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     return context;
   }
 
-  static #prepareItems(context) {
-    const items = context.items;
+  static #prepareArmor(context) {
+    const armor = context.items.filter(item => item.type === 'armor');
 
-    // Collect each item type for convenience
-    context.armor = items.filter(item => item.type === 'armor');
-
-    // Add equipped armor for convenience
-    context.equippedArmor = {
-      head: context.armor.find(i => i.equipped && i.slot === 'head') || null,
-      torso: context.armor.find(i => i.equipped && i.slot === 'torso') || null,
-      legs: context.armor.find(i => i.equipped && i.slot === 'legs') || null
+    const armorBySlot = {
+      head: armor.filter(item => item.system.slot === 'head'),
+      torso: armor.filter(item => item.system.slot === 'torso'),
+      legs: armor.filter(item => item.system.slot === 'legs')
     };
+
+    context.armor = armor;
+    context.armorBySlot = armorBySlot;
   }
 
   static #addStatLabels(context) {
@@ -97,8 +96,8 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     html.find('.roll-stat').click(this.#onStatRoll.bind(this));
     // Damage calculation
     html.find('.click-damage').click(this.#onDamageCalc.bind(this));
-    // Equip/unequip armor
-    html.find('.equip-checkbox').change(this.#onItemEquipToggle.bind(this));
+    // Equip armor
+    html.find('.armor-select').change(this.#onArmorEquip.bind(this));
   }
 
   /**
@@ -193,30 +192,25 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     });
   }
 
-  async #onItemEquipToggle(event) {
+  async #onArmorEquip(event) {
     event.preventDefault();
 
     // Get the item this event is attached to
     const element = event.currentTarget;
+    
 
-    // Get the item object by ID
-    const itemId = element.closest('.item').dataset.itemId;
-    const item = this.actor.items.get(itemId);
+    // Get the item objects by ID
+    const oldItemId = element.closest('.item').dataset.itemId;
+    const oldItem = this.actor.items.get(oldItemId) || null;
+    const newItem = this.actor.items.get(element.value) || null;
 
-    const systemData = item.system;
+    // Toggle equip attributes if necessary
+    if (oldItem) {
+      await oldItem.update({'system.equipped': false});
+    }
 
-    // Detect item type and perform appropriate action
-    if (item.type === 'armor') {
-      // If it's equipped, just unequip it
-      if (systemData.equipped) {
-        await item.update({'system.equipped': false});
-      } else {
-        // Unequip everything else for this slot before equipping the new thing
-        this.actor.items.filter(i => i.type === 'armor' && i.system.slot === systemData.slot)
-          .forEach(async i => await i.update({'system.equipped': false}));
-
-        await item.update({'system.equipped': true});
-      }
+    if (newItem) {
+      await newItem.update({'system.equipped': true});
     }
   }
 }
