@@ -22,7 +22,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
     // Prepare character data and items
 
-    DarkSoulsActorSheet.#prepareItems(context);
+    DarkSoulsActorSheet.#prepareArmor(context);
     DarkSoulsActorSheet.#addStatLabels(context);
 
     context.DARKSOULS = CONFIG.DARKSOULS;
@@ -36,10 +36,8 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     return context;
   }
 
-  static #prepareItems(context) {
-    const items = context.items;
-
-    const armor = items.filter(item => item.type === 'armor');
+  static #prepareArmor(context) {
+    const armor = context.items.filter(item => item.type === 'armor');
 
     const armorBySlot = {
       head: armor.filter(item => item.system.slot === 'head'),
@@ -100,6 +98,8 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     html.find('.click-damage').click(this.#onDamageCalc.bind(this));
     // Equip/unequip armor
     html.find('.equip-checkbox').change(this.#onItemEquipToggle.bind(this));
+    // Equip armor via dropdown
+    html.find('.armor-select').change(this.#onArmorSelect.bind(this));
   }
 
   /**
@@ -218,6 +218,28 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
         await item.update({'system.equipped': true});
       }
+    }
+  }
+
+  async #onArmorSelect(event) {
+    event.preventDefault();
+
+    // Get the item this event is attached to
+    const element = event.currentTarget;
+    
+
+    // Get the item objects by ID
+    const oldItemId = element.closest('.item').dataset.itemId;
+    const oldItem = this.actor.items.get(oldItemId) || null;
+    const newItem = this.actor.items.get(element.value) || null;
+
+    // Toggle equip attributes if necessary
+    if (oldItem) {
+      await oldItem.update({'system.equipped': false});
+    }
+
+    if (newItem) {
+      await newItem.update({'system.equipped': true});
     }
   }
 }
