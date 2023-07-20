@@ -54,14 +54,24 @@ export default class DarkSoulsActor extends Actor {
     const systemData = this.system;
 
     // Filter out all unequipped armor
-    const equippedArmor = this.items.filter(
+    const equipped = this.items.filter(
       item => item.type === 'armor' && item.system.equipped
     );
 
+    const equippedArmor = {
+      head: equipped.find(i => i.system.slot === 'head') || null,
+      torso: equipped.find(i => i.system.slot === 'torso') || null,
+      legs: equipped.find(i => i.system.slot === 'legs') || null
+    };
+
     // Calculate physical and magical defense and weight
     // Level bonus has been calculated in #calculatePcStats
-    systemData.physDef = equippedArmor.reduce((phys, armor) => phys + (armor?.system.physDef || 0), 0) + systemData.level.mod;
-    systemData.magDef = equippedArmor.reduce((mag, armor) => mag + (armor?.system.magDef || 0), 0) + systemData.level.mod;
+    systemData.physDef = Object.values(equippedArmor)
+      .reduce((phys, armor) => phys + (armor?.system.physDef || 0), 0) + systemData.level.mod;
+    systemData.magDef = Object.values(equippedArmor)
+      .reduce((mag, armor) => mag + (armor?.system.magDef || 0), 0) + systemData.level.mod;
+
+    systemData.equippedArmor = equippedArmor;
   }
 
   #prepareEquipLoad() {

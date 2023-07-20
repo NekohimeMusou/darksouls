@@ -39,15 +39,16 @@ export default class DarkSoulsActorSheet extends ActorSheet {
   static #prepareItems(context) {
     const items = context.items;
 
-    // Collect each item type for convenience
-    context.armor = items.filter(item => item.type === 'armor');
+    const armor = items.filter(item => item.type === 'armor');
 
-    // Add equipped armor for convenience
-    context.equippedArmor = {
-      head: context.armor.find(i => i.equipped && i.slot === 'head') || null,
-      torso: context.armor.find(i => i.equipped && i.slot === 'torso') || null,
-      legs: context.armor.find(i => i.equipped && i.slot === 'legs') || null
+    const armorBySlot = {
+      head: armor.filter(item => item.system.slot === 'head'),
+      torso: armor.filter(item => item.system.slot === 'torso'),
+      legs: armor.filter(item => item.system.slot === 'legs')
     };
+
+    context.armor = armor;
+    context.armorBySlot = armorBySlot;
   }
 
   static #addStatLabels(context) {

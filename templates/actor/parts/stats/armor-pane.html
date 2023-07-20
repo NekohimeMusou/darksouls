@@ -1,4 +1,29 @@
-<div class="armor">
+<div class="armor-pane">
+  <div class="items-list flexcol">
+    <ol class="items-list">
+      <li class="item flexrow items-header">
+        <div class="item-name">{{localize "DARKSOULS.Name"}}</div>
+        <div class="armor-slot">{{localize "DARKSOULS.ArmorSlot"}}</div>
+        <div class="armor-physdef">{{localize "DARKSOULS.PhysicalDefenseAbbrev"}}</div>
+        <div class="armor-magdef">{{localize "DARKSOULS.MagicDefenseAbbrev"}}</div>
+        <div class="item-weight">{{localize "DARKSOULS.WeightAbbrev"}}</div>
+      </li>
+      {{#each system.equippedArmor as |item slot|}}
+      <li class="item flexrow" data-item-id="{{item._id}}">
+        <div class="armor-select">
+          <select name="system.equippedArmor.{{slot}}">
+            {{!-- Label should be the item name property. Value should be the NEW item ID. --}}
+            {{selectOptions ../}}
+          </select>
+        </div>
+        <div class="armor-slot item-prop">{{localize (lookup ../DARKSOULS.armorSlots item.system.slot)}}</div>
+        <div class="armor-physdef item-prop">{{system.physDef}}</div>
+        <div class="armor-magdef item-prop">{{system.magDef}}</div>
+        <div class="item-weight item-prop">{{system.weight}}</div>
+      </li>
+      {{/each}}
+    </ol>
+  </div>
   {{!-- Legacy defense display --}}
   <div class="grid grid-2col">
     <div class="resource flex-group-center">
