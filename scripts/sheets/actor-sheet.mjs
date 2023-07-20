@@ -96,10 +96,8 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     html.find('.roll-stat').click(this.#onStatRoll.bind(this));
     // Damage calculation
     html.find('.click-damage').click(this.#onDamageCalc.bind(this));
-    // Equip/unequip armor
-    html.find('.equip-checkbox').change(this.#onItemEquipToggle.bind(this));
-    // Equip armor via dropdown
-    html.find('.armor-select').change(this.#onArmorSelect.bind(this));
+    // Equip armor
+    html.find('.armor-select').change(this.#onArmorEquip.bind(this));
   }
 
   /**
@@ -194,34 +192,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     });
   }
 
-  async #onItemEquipToggle(event) {
-    event.preventDefault();
-
-    // Get the item this event is attached to
-    const element = event.currentTarget;
-
-    // Get the item object by ID
-    const itemId = element.closest('.item').dataset.itemId;
-    const item = this.actor.items.get(itemId);
-
-    const systemData = item.system;
-
-    // Detect item type and perform appropriate action
-    if (item.type === 'armor') {
-      // If it's equipped, just unequip it
-      if (systemData.equipped) {
-        await item.update({'system.equipped': false});
-      } else {
-        // Unequip everything else for this slot before equipping the new thing
-        this.actor.items.filter(i => i.type === 'armor' && i.system.slot === systemData.slot)
-          .forEach(async i => await i.update({'system.equipped': false}));
-
-        await item.update({'system.equipped': true});
-      }
-    }
-  }
-
-  async #onArmorSelect(event) {
+  async #onArmorEquip(event) {
     event.preventDefault();
 
     // Get the item this event is attached to
