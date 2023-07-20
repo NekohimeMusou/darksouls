@@ -1,4 +1,5 @@
 <div class="armor-pane">
+  <div class="resource-label flex-group-center flex0">{{localize "DARKSOULS.Armor"}}</div>
   <div class="items-list flexcol">
     <ol class="items-list">
       <li class="item flexrow items-header">
@@ -22,17 +23,5 @@
       </li>
       {{/each}}
     </ol>
-  </div>
-  {{!-- Legacy defense display --}}
-  <div class="grid grid-2col">
-    <div class="resource flex-group-center">
-      <label for="system.physDef" class="resource-label">{{localize "DARKSOULS.PhysicalDefense"}}</label>
-      <input type="text" name="system.physDef" value="{{system.physDef}}" data-dtype="Number" readonly />
-    </div>
-
-    <div class="resource flex-group-center">
-      <label for="system.magDef" class="resource-label">{{localize "DARKSOULS.MagicDefense"}}</label>
-      <input type="text" name="system.magDef" value="{{system.magDef}}" data-dtype="Number" readonly />
-    </div>
   </div>
 </div>
