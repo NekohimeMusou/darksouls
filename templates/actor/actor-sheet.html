@@ -14,11 +14,20 @@
   {{!-- Sheet Body --}}
   <section class="sheet-body">
     {{!-- Stats Tab --}}
-    {{> "systems/darksouls/templates/actor/parts/tab-stats.html"}}
+    <div class="tab stats" data-group="primary" data-tab="stats">
+      {{> "systems/darksouls/templates/actor/parts/tab-stats.html"}}
+    </div>
+
     {{!-- Armor Tab --}}
-    {{> "systems/darksouls/templates/actor/parts/tab-armor.html"}}
+    <div class="tab armor" data-group="primary" data-tab="armor">
+      {{> "systems/darksouls/templates/actor/parts/tab-armor.html"}}
+    </div>
+
     {{!-- Effects Tab --}}
-    {{> "systems/darksouls/templates/actor/parts/tab-effects.html"}}
+    <div class="tab effects flexcol" data-group="primary" data-tab="effects">
+      {{> "systems/darksouls/templates/actor/parts/tab-effects.html"}}
+    </div>
+
     {{!-- Description Tab --}}
     <div class="tab description" data-group="primary" data-tab="description">
       {{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to the rollData property. --}}
