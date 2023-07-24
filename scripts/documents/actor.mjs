@@ -11,6 +11,7 @@ export default class DarkSoulsActor extends Actor {
   /** @override */
   prepareBaseData() {
     // Data modifications in this step occur before processing embedded documents or derived data
+    this._prepareStats();
   }
 
   /**
@@ -21,12 +22,11 @@ export default class DarkSoulsActor extends Actor {
     const actorData = this;
     const flags = actorData.flags.darksouls || {};
 
-    this.#prepareStats(actorData);
-    this.#prepareArmor(actorData);
-    this.#prepareEquipLoad(actorData);
+    this._prepareArmor();
+    this._prepareEquipLoad();
   }
 
-  #prepareStats () {
+  _prepareStats () {
     // Calculate stat totals and modifiers
     const stats = Object.values(this.system.stats);
 
@@ -50,7 +50,7 @@ export default class DarkSoulsActor extends Actor {
     };
   }
 
-  #prepareArmor() {
+  _prepareArmor() {
     const systemData = this.system;
 
     // Filter out all unequipped armor
@@ -65,7 +65,7 @@ export default class DarkSoulsActor extends Actor {
     };
 
     // Calculate physical and magical defense and weight
-    // Level bonus has been calculated in #calculatePcStats
+    // Level bonus has been calculated in _calculatePcStats
     systemData.physDef = Object.values(equippedArmor)
       .reduce((phys, armor) => phys + (armor?.system.physDef || 0), 0) + systemData.level.mod;
     systemData.magDef = Object.values(equippedArmor)
@@ -74,7 +74,7 @@ export default class DarkSoulsActor extends Actor {
     systemData.equippedArmor = equippedArmor;
   }
 
-  #prepareEquipLoad() {
+  _prepareEquipLoad() {
     const systemData = this.system;
 
     // Get a list of everything that contributes to equip load
