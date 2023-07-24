@@ -7,6 +7,7 @@
     {{!-- Default tab is defined in actor-sheet.mjs --}}
     <a class="item" data-tab="stats">{{localize "DARKSOULS.StatsTab"}}</a>
     <a class="item" data-tab="armor">{{localize "DARKSOULS.ArmorTab"}}</a>
+    <a class="item" data-tab="effects">{{localize "DARKSOULS.EffectsTab"}}</a>
     <a class="item" data-tab="description">{{localize "DARKSOULS.DescriptionTab"}}</a>
   </nav>
 
@@ -16,6 +17,8 @@
     {{> "systems/darksouls/templates/actor/parts/tab-stats.html"}}
     {{!-- Armor Tab --}}
     {{> "systems/darksouls/templates/actor/parts/tab-armor.html"}}
+    {{!-- Effects Tab --}}
+    {{> "systems/darksouls/templates/actor/parts/tab-effects.html"}}
     {{!-- Description Tab --}}
     <div class="tab description" data-group="primary" data-tab="description">
       {{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to the rollData property. --}}
