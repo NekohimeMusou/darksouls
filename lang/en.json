@@ -64,5 +64,10 @@
     "DARKSOULS.TorsoSlot": "Torso",
     "DARKSOULS.LegSlot": "Legs",
     "DARKSOULS.ItemEquippedHeader": "Eq?",
-    "DARKSOULS.ArmorSetBonus": "Set Bonus"
+    "DARKSOULS.ArmorSetBonus": "Set Bonus",
+
+    "DARKSOULS.EffectCreate": "Create Effect",
+    "DARKSOULS.EffectToggle": "Toggle Effect",
+    "DARKSOULS.EffectEdit": "Edit Effect",
+    "DARKSOULS.EffectDelete": "Delete Effect"
 }

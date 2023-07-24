@@ -1,5 +1,6 @@
-<ol class="items-list effects-list">
-  {{#each effects as |section sid|}}
+<div class="tab effects flexcol" data-group="primary" data-tab="effects">
+  <ol class="items-list effects-list">
+    {{#each effects as |section sid|}}
     <li class="items-header flexrow" data-effect-type="{{section.type}}">
       <h3 class="item-name effect-name flexrow">{{localize section.label}}</h3>
       <div class="effect-source">Source</div>
@@ -12,7 +13,7 @@
     </li>
 
     <ol class="item-list">
-    {{#each section.effects as |effect|}}
+      {{#each section.effects as |effect|}}
       <li class="item effect flexrow" data-effect-id="{{effect.id}}">
         <div class="item-name effect-name flexrow">
           <img class="item-image" src="{{effect.icon}}"/>
@@ -32,7 +33,8 @@
           </a>
         </div>
       </li>
-    {{/each}}
+      {{/each}}
     </ol>
-  {{/each}}
-</ol>
+    {{/each}}
+  </ol>
+</div>
