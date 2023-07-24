@@ -1,3 +1,5 @@
+import { onManageActiveEffect, prepareActiveEffectCategories } from '../helpers/effects.mjs';
+
 export default class DarkSoulsActorSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
@@ -31,7 +33,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     context.rollData = context.actor.getRollData();
 
     // Prepare active effects
-    // context.effects = prepareActiveEffectCategories(this.actor.effects);
+    context.effects = prepareActiveEffectCategories(this.actor.effects);
 
     return context;
   }
@@ -81,6 +83,10 @@ export default class DarkSoulsActorSheet extends ActorSheet {
       item.delete();
       li.slideUp(200, () => this.render(false));
     });
+
+    // Active Effect management
+    html.find('.effect-control').click(ev => onManageActiveEffect(ev, this.actor));
+
 
     // Drag events for macros.
     if (this.actor.isOwner) {
