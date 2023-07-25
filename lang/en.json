@@ -69,5 +69,6 @@
     "DARKSOULS.EffectCreate": "Create Effect",
     "DARKSOULS.EffectToggle": "Toggle Effect",
     "DARKSOULS.EffectEdit": "Edit Effect",
-    "DARKSOULS.EffectDelete": "Delete Effect"
+    "DARKSOULS.EffectDelete": "Delete Effect",
+    "DARKSOULS.Add": "Add"
 }
