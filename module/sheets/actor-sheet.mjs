@@ -1,14 +1,14 @@
-import { onManageActiveEffect, prepareActiveEffectCategories } from '../helpers/effects.mjs';
+import { onManageActiveEffect, prepareActiveEffectCategories } from "../helpers/effects.mjs";
 
 export default class DarkSoulsActorSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ['darksouls', 'sheet', 'actor'],
-      template: 'systems/darksouls/templates/actor/actor-sheet.html',
+      classes: ["darksouls", "sheet", "actor"],
+      template: "systems/darksouls/templates/actor/actor-sheet.html",
       width: 600,
       height: 600,
-      tabs: [{navSelector: '.sheet-tabs', contentSelector: '.sheet-body', initial: 'stats' }]
+      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "stats" }]
     });
   }
 
@@ -39,12 +39,12 @@ export default class DarkSoulsActorSheet extends ActorSheet {
   }
 
   static #prepareArmor(context) {
-    const armor = context.items.filter(item => item.type === 'armor');
+    const armor = context.items.filter(item => item.type === "armor");
 
     const armorBySlot = {
-      head: armor.filter(item => item.system.slot === 'head'),
-      torso: armor.filter(item => item.system.slot === 'torso'),
-      legs: armor.filter(item => item.system.slot === 'legs')
+      head: armor.filter(item => item.system.slot === "head"),
+      torso: armor.filter(item => item.system.slot === "torso"),
+      legs: armor.filter(item => item.system.slot === "legs")
     };
 
     context.armor = armor;
@@ -64,9 +64,9 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     super.activateListeners(html);
 
     // Render the item sheet for viewing/editing prior to the editable check.
-    html.find('.item-edit').click(ev => {
-      const li = $(ev.currentTarget).parents('.item');
-      const item = this.actor.items.get(li.data('itemId'));
+    html.find(".item-edit").click(ev => {
+      const li = $(ev.currentTarget).parents(".item");
+      const item = this.actor.items.get(li.data("itemId"));
       item.sheet.render(true);
     });
 
@@ -74,36 +74,36 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     if (!this.isEditable) return;
 
     // Add Inventory Item
-    html.find('.item-create').click(this.#onItemCreate.bind(this));
+    html.find(".item-create").click(this.#onItemCreate.bind(this));
 
     // Delete Inventory Item
-    html.find('.item-delete').click(ev => {
-      const li = $(ev.currentTarget).parents('.item');
-      const item = this.actor.items.get(li.data('itemId'));
+    html.find(".item-delete").click(ev => {
+      const li = $(ev.currentTarget).parents(".item");
+      const item = this.actor.items.get(li.data("itemId"));
       item.delete();
       li.slideUp(200, () => this.render(false));
     });
 
     // Active Effect management
-    html.find('.effect-control').click(ev => onManageActiveEffect(ev, this.actor));
+    html.find(".effect-control").click(ev => onManageActiveEffect(ev, this.actor));
 
 
     // Drag events for macros.
     if (this.actor.isOwner) {
       let handler = ev => this._onDragStart(ev);
-      html.find('li.item').each((_, li) => {
-        if (li.classList.contains('inventory-header')) return;
-        li.setAttribute('draggable', true);
-        li.addEventListener('dragstart', handler, false);
+      html.find("li.item").each((_, li) => {
+        if (li.classList.contains("inventory-header")) return;
+        li.setAttribute("draggable", true);
+        li.addEventListener("dragstart", handler, false);
       });
     }
 
     // Ability checks
-    html.find('.roll-stat').click(this.#onStatRoll.bind(this));
+    html.find(".roll-stat").click(this.#onStatRoll.bind(this));
     // Damage calculation
-    html.find('.click-damage').click(this.#onDamageCalc.bind(this));
+    html.find(".click-damage").click(this.#onDamageCalc.bind(this));
     // Equip armor
-    html.find('.armor-select').change(this.#onArmorEquip.bind(this));
+    html.find(".armor-select").change(this.#onArmorEquip.bind(this));
   }
 
   /**
@@ -127,7 +127,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
       system
     };
     // Remove the type from the dataset since it's in the itemData.type prop.
-    delete itemData.system['type'];
+    delete itemData.system["type"];
 
     // Finally, create the item!
     return await Item.create(itemData, {parent: this.actor});
@@ -139,12 +139,12 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     const dataset = element.dataset;
 
     if (dataset.roll) {
-      const label = dataset.label ? `${dataset.label} Check:` : '';
+      const label = dataset.label ? `${dataset.label} Check:` : "";
       const roll = await new Roll(dataset.roll, this.actor.getRollData()).roll();
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label,
-        rollMode: game.settings.get('core', 'rollMode')
+        rollMode: game.settings.get("core", "rollMode")
       });
 
       return roll;
@@ -155,7 +155,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     event.preventDefault();
 
     if (game.user.targets.size < 1) {
-      ui.notifications.info('No target selected.');
+      ui.notifications.info("No target selected.");
       return;
     }
 
@@ -168,7 +168,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
     for (const targetToken of game.user.targets) {
       if (Object.is(targetToken.actor, this.actor)) {
-        ui.notifications.info('Why are you hitting yourself?!');
+        ui.notifications.info("Why are you hitting yourself?!");
       }
 
       const targetName = targetToken.actor.name;
@@ -187,8 +187,8 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
     const speaker = ChatMessage.getSpeaker();
     const type = CONST.CHAT_MESSAGE_TYPES.OTHER;
-    const flavor = `Attack Power: ${attackPower} (${attackIsMagical ? 'Magical' : 'Physical'})`;
-    const content = `${this.actor.name} attacks!\n${damageStrings.join('\n')}`;
+    const flavor = `Attack Power: ${attackPower} (${attackIsMagical ? "Magical" : "Physical"})`;
+    const content = `${this.actor.name} attacks!\n${damageStrings.join("\n")}`;
 
     return ChatMessage.create({
       speaker,
@@ -206,17 +206,17 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     
 
     // Get the item objects by ID
-    const oldItemId = element.closest('.item').dataset.itemId;
+    const oldItemId = element.closest(".item").dataset.itemId;
     const oldItem = this.actor.items.get(oldItemId) || null;
     const newItem = this.actor.items.get(element.value) || null;
 
     // Toggle equip attributes if necessary
     if (oldItem) {
-      await oldItem.update({'system.equipped': false});
+      await oldItem.update({"system.equipped": false});
     }
 
     if (newItem) {
-      await newItem.update({'system.equipped': true});
+      await newItem.update({"system.equipped": true});
     }
   }
 }

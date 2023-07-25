@@ -2,16 +2,16 @@ export default class DarkSoulsItemSheet extends ItemSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ['darksouls', 'sheet', 'item'],
+      classes: ["darksouls", "sheet", "item"],
       width: 520,
       height: 480,
-      tabs: [{ navSelector: '.sheet-tabs', contentSelector: '.sheet-body', initial: 'attributes' }]
+      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes" }]
     });
   }
 
   /** @override */
   get template() {
-    const path = 'systems/darksouls/templates/item';
+    const path = "systems/darksouls/templates/item";
     // Return a single sheet for all item types.
     // return `${path}/item-sheet.html`;
 

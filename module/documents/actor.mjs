@@ -55,13 +55,13 @@ export default class DarkSoulsActor extends Actor {
 
     // Filter out all unequipped armor
     const equipped = this.items.filter(
-      item => item.type === 'armor' && item.system.equipped
+      item => item.type === "armor" && item.system.equipped
     );
 
     const equippedArmor = {
-      head: equipped.find(i => i.system.slot === 'head') || null,
-      torso: equipped.find(i => i.system.slot === 'torso') || null,
-      legs: equipped.find(i => i.system.slot === 'legs') || null
+      head: equipped.find(i => i.system.slot === "head") || null,
+      torso: equipped.find(i => i.system.slot === "torso") || null,
+      legs: equipped.find(i => i.system.slot === "legs") || null
     };
 
     // Calculate physical and magical defense and weight
@@ -78,7 +78,7 @@ export default class DarkSoulsActor extends Actor {
     const systemData = this.system;
 
     // Get a list of everything that contributes to equip load
-    const equipment = this.items.filter(i => (i.type ==='armor' || i.type === 'weapon') && i.system.equipped);
+    const equipment = this.items.filter(i => (i.type ==="armor" || i.type === "weapon") && i.system.equipped);
 
     // Calculate total weight and add to system data
     const totalWeight = equipment.reduce((wgt, i) => wgt + (i?.system.weight || 0), 0);
