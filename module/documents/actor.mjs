@@ -39,7 +39,6 @@ export default class DarkSoulsActor extends Actor {
 
     // Calculate level and level mod
     // Level is (totalStats - 80)
-
     const statTotal = stats.reduce((total, stat) => total + stat.value || 0, 0);
 
     const level = statTotal - 80;
@@ -48,6 +47,16 @@ export default class DarkSoulsActor extends Actor {
       value: level,
       mod: Math.floor(level / 4)
     };
+
+    // Calculate base spell power
+    this.system.spellPower = {
+      sorcery: stats.int.value,
+      miracle: stats.fth.value,
+      pyromancy: Math.floor((stats.int.value + stats.fth.value) / 2)
+    };
+
+    // Base initiative = DEX mod
+    this.system.initiative = stats.dex.mod;
   }
 
   _prepareArmor() {
