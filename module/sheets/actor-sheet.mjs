@@ -7,7 +7,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
       classes: ["darksouls", "sheet", "actor"],
       template: "systems/darksouls/templates/actor/actor-sheet.html",
       width: 600,
-      height: 600,
+      height: 800,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "stats" }]
     });
   }

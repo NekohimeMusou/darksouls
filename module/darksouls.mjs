@@ -32,4 +32,9 @@ Hooks.once("init", async function() {
   Items.registerSheet("darksouls", DarkSoulsItemSheet, { makeDefault: true });
 
   preloadHandlebarsTemplates();
+  registerHandlebarsHelpers();
 });
+
+function registerHandlebarsHelpers() {
+  Handlebars.registerHelper("upperCase", (str) => str?.toLocaleUpperCase() || "");
+}
