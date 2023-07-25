@@ -4,6 +4,6 @@
         "target": "ES2022",
         "moduleResolution": "node"
     },
-    "include": ["fvtt", "scripts"],
+    "include": ["fvtt", "module"],
     "exclude": ["**/node_modules"]
 }

@@ -17,7 +17,7 @@
         }
     ],
     "esmodules": [
-        "scripts/darksouls.mjs"
+        "module/darksouls.mjs"
     ],
     "styles": [
         "styles/darksouls.css"
