@@ -27,6 +27,10 @@ The main time-saving feature right now is the damage calculator. It's a placehol
 
 It'll compare your damage to the enemy's defense and calculate how much damage each one will take.
 
+### Armor
+
+Create a piece of armor, add it to your character sheet, and a fugly little row will appear on your main stats page allowing you to switch gear with a drop-down for convenience. It looks awful, but someday it won't.
+
 ## Known Issues
 
 - Weapons don't exist yet
@@ -40,7 +44,6 @@ It'll compare your damage to the enemy's defense and calculate how much damage e
 - Add weapon functionality
 - Better flask tracking
 - Clean up UI
-- Automate stat increases etc?
 
 ## Installation
 
