@@ -35,15 +35,19 @@
     "DARKSOULS.FireType": "Fire",
     "DARKSOULS.LightningType": "Lightning",
 
+    "DARKSOULS.Phys": "Phys",
+    "DARKSOULS.Mag": "Mag",
+
     "DARKSOULS.DamagePaneHeader": "Damage Calculator",
     "DARKSOULS.DamageValue": "Damage Value",
     "DARKSOULS.AttackIsMagical": "Magical?",
     "DARKSOULS.Attack": "Attack",
 
     "DARKSOULS.PhysicalDefense": "Physical Defense",
-    "DARKSOULS.PhysicalDefenseAbbrev": "Phys",
     "DARKSOULS.MagicDefense": "Magic Defense",
-    "DARKSOULS.MagicDefenseAbbrev": "Mag",
+
+    "DARKSOULS.Quantity": "Quantity",
+    "DARKSOULS.Qty": "Qty",
 
     "DARKSOULS.Weight": "Weight",
     "DARKSOULS.WeightAbbrev": "Wgt",
@@ -56,7 +60,7 @@
     "DARKSOULS.EquipLoadOver": "Over",
     "DARKSOULS.EvadeCost": "Evasion Cost",
 
-    "DARKSOULS.SoulValue": "Value",
+    "DARKSOULS.Value": "Value",
 
     "DARKSOULS.Armor": "Armor",
     "DARKSOULS.ArmorSlot": "Slot",
@@ -64,7 +68,7 @@
     "DARKSOULS.TorsoSlot": "Torso",
     "DARKSOULS.LegSlot": "Legs",
     "DARKSOULS.ItemEquippedHeader": "Eq?",
-    "DARKSOULS.ArmorSetBonus": "Set Bonus",
+    "DARKSOULS.SetBonus": "Set Bonus",
 
     "DARKSOULS.EffectCreate": "Create Effect",
     "DARKSOULS.EffectToggle": "Toggle Effect",

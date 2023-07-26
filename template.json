@@ -114,10 +114,13 @@
             },
             "value": {
                 "value": 0
+            },
+            "quantity": {
+                "qty": 1
             }
         },
         "armor": {
-            "templates": ["base", "equippable", "weight", "value"],
+            "templates": ["base", "equippable", "weight", "value", "quantity"],
             "slot": "head",
             "physDef": 0,
             "magDef": 0,

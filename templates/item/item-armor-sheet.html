@@ -37,13 +37,19 @@
           <input type="text" name="system.magDef" value="{{system.magDef}}" data-dtype="Number"/>
         </div>
       </div>
-      <div class="resource">
-        <label class="resource-label">{{localize "DARKSOULS.ArmorSetBonus"}}</label>
-        <input type="text" name="system.setBonus" value="{{system.setBonus}}" data-dtype="String"/>
+      <div class="flexrow">
+        <div class="resource">
+          <label class="resource-label">{{localize "DARKSOULS.Value"}}</label>
+          <input type="text" name="system.value" value="{{system.value}}" data-dtype="Number"/>
+        </div>
+        <div class="resource">
+          <label class="resource-label">{{localize "DARKSOULS.Quantity"}}</label>
+          <input type="text" name="system.qty" value="{{system.qty}}" data-dtype="Number"/>
+        </div>
       </div>
       <div class="resource">
-        <label class="resource-label">{{localize "DARKSOULS.SoulValue"}}</label>
-        <input type="text" name="system.value" value="{{system.value}}" data-dtype="String"/>
+        <label class="resource-label">{{localize "DARKSOULS.SetBonus"}}</label>
+        <input type="text" name="system.setBonus" value="{{system.setBonus}}" data-dtype="String"/>
       </div>
     </div>
     {{!-- Description Tab --}}
