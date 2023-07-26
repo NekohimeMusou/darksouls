@@ -37,3 +37,12 @@ DARKSOULS.damageTypes = {
   fire: "DARKSOULS.Fire",
   lightning: "DARKSOULS.Lightning"
 };
+
+DARKSOULS.consumableTypes = {
+  medicine: "DARKSOULS.Medicine",
+  throwingKnives: "DARKSOULS.ThrowingKnives",
+  throwingJar: "DARKSOULS.ThrowingJar",
+  pineResin: "DARKSOULS.PineResin",
+  talisman: "DARKSOULS.Talisman",
+  currency: "DARKSOULS.Currency"
+};

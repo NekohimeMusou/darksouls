@@ -26,6 +26,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
     DarkSoulsActorSheet.#prepareArmor(context);
     DarkSoulsActorSheet.#addStatLabels(context);
+    DarkSoulsActorSheet.#prepareConsumables(context);
 
     context.DARKSOULS = CONFIG.DARKSOULS;
 
@@ -49,6 +50,15 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
     context.armor = armor;
     context.armorBySlot = armorBySlot;
+  }
+
+  static #prepareConsumables(context) {
+    const consumables = context.items.filter(item => item.type === "consumable");
+
+    const equippedConsumables = consumables.filter(item => Boolean(item.system.equipped));
+
+    context.consumables = consumables;
+    context.equippedConsumables = equippedConsumables;
   }
 
   static #addStatLabels(context) {
@@ -104,6 +114,10 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     html.find(".click-damage").click(this.#onDamageCalc.bind(this));
     // Equip armor
     html.find(".armor-select").change(this.#onArmorEquip.bind(this));
+    // Equip consumables
+    html.find(".item-equip-checkbox").change(this.#onConsumableEquip.bind(this));
+    // Update consumable quantity
+    html.find(".qty-field").change(this.#onQuantityUpdate.bind(this));
   }
 
   /**
@@ -203,7 +217,6 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
     // Get the item this event is attached to
     const element = event.currentTarget;
-    
 
     // Get the item objects by ID
     const oldItemId = element.closest(".item").dataset.itemId;
@@ -218,5 +231,48 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     if (newItem) {
       await newItem.update({"system.equipped": true});
     }
+  }
+
+  async #onConsumableEquip(event) {
+    event.preventDefault();
+
+    // Get the item this event is attached to
+    const element = event.currentTarget;
+    const itemId = element.closest(".item").dataset.itemId;
+    const item = this.actor.items.get(itemId) || null;
+
+    // If it's not a valid item, don't do anything else
+    if (!item) return;
+
+    const equippedConsumables = this.actor.system.equippedConsumables;
+
+    if (item.system.equipped) {
+      // If it's equipped, just unequip it
+      await item.update({"system.equipped": false});
+    } else if (equippedConsumables.length >= 3) {
+      // If there are already 3 consumables equipped, notify the user
+      ui.notifications.notify(game.i18n.localize("DARKSOULS.TooManyConsumablesError"), "warning");
+      element.checked = false;
+    } else {
+      // If there's room, equip the item
+      await item.update({"system.equipped": true});
+    }
+  }
+
+  async #onQuantityUpdate(event) {
+    event.preventDefault();
+
+    // Get the item this event is attached to
+    const element = event.currentTarget;
+    const itemId = element.closest(".item").dataset.itemId;
+    const item = this.actor.items.get(itemId) || null;
+
+    // If it's not a valid item, don't do anything else
+    if (!item) return;
+
+    // If it is, update the quantity
+    const qty = element.value;
+
+    await item.update({"system.qty": qty});
   }
 }

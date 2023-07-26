@@ -101,7 +101,7 @@
     },
     "Item":
     {
-        "types": ["armor"],
+        "types": ["armor", "consumable"],
         "templates": {
             "base": {
                 "description": ""
@@ -125,6 +125,11 @@
             "physDef": 0,
             "magDef": 0,
             "setBonus": ""
+        },
+        "consumable": {
+            "templates": ["base", "equippable", "value"],
+            "consumableType": "",
+            "set": 1
         }
     }
 }

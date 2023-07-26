@@ -66,12 +66,25 @@
     "DARKSOULS.Head": "Head",
     "DARKSOULS.Torso": "Torso",
     "DARKSOULS.Legs": "Legs",
-    "DARKSOULS.ItemEquippedHeader": "Eq?",
+    "DARKSOULS.Equipped": "Equipped?",
     "DARKSOULS.SetBonus": "Set Bonus",
+
+    "DARKSOULS.Type": "Type",
+
+    "DARKSOULS.Consumables": "Consumables",
+    "DARKSOULS.Set": "Set",
+    "DARKSOULS.Medicine": "Medicine",
+    "DARKSOULS.ThrowingKnives": "Throwing Knives",
+    "DARKSOULS.ThrowingJar": "Throwing Jar",
+    "DARKSOULS.PineResin": "Pine Resin",
+    "DARKSOULS.Talisman": "Talisman",
+    "DARKSOULS.Currency": "Currency",
 
     "DARKSOULS.EffectCreate": "Create Effect",
     "DARKSOULS.EffectToggle": "Toggle Effect",
     "DARKSOULS.EffectEdit": "Edit Effect",
     "DARKSOULS.EffectDelete": "Delete Effect",
-    "DARKSOULS.Add": "Add"
+    "DARKSOULS.Add": "Add",
+
+    "DARKSOULS.TooManyConsumablesError": "Can't equip more than 3 consumables."
 }

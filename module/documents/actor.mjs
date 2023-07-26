@@ -12,6 +12,8 @@ export default class DarkSoulsActor extends Actor {
   prepareBaseData() {
     // Data modifications in this step occur before processing embedded documents or derived data
     this._prepareStats();
+    this._prepareResources();
+    
   }
 
   /**
@@ -24,6 +26,7 @@ export default class DarkSoulsActor extends Actor {
 
     this._prepareArmor();
     this._prepareEquipLoad();
+    this._prepareConsumables();
   }
 
   _prepareStats () {
@@ -49,14 +52,25 @@ export default class DarkSoulsActor extends Actor {
     };
 
     // Calculate base spell power
+    const int = stats.int?.value || 0;
+    const fth = stats.fth?.value || 0;
+
     this.system.spellPower = {
-      sorcery: stats.int.value,
-      miracle: stats.fth.value,
-      pyromancy: Math.floor((stats.int.value + stats.fth.value) / 2)
+      sorcery: int,
+      miracle: fth,
+      pyromancy: Math.floor((int + fth) / 2)
     };
 
     // Base initiative = DEX mod
-    this.system.initiative = stats.dex.mod;
+    this.system.initiative = stats.dex?.mod || 0;
+  }
+
+  _prepareResources() {
+    const stats = this.system.stats;
+
+    this.system.hp.max = 5 + stats.vig?.mod || 0;
+    this.system.fp.max = 5 + stats.atn?.mod || 0;
+    this.system.luckPts.max = 5 + stats.luc?.mod || 0;
   }
 
   _prepareArmor() {
@@ -98,6 +112,14 @@ export default class DarkSoulsActor extends Actor {
     const evadeIndex = Math.min(Math.max(Math.floor((totalWeight-1)/vit), 0), 3);
 
     [systemData.equipLoadLevel, systemData.evadeCost] = CONFIG.DARKSOULS.evasion[evadeIndex];
+  }
+
+  _prepareConsumables() {
+    const systemData = this.system;
+
+    const equippedConsumables = this.items.filter(item => item.type === "consumable" && item.system.equipped);
+
+    systemData.equippedConsumables = equippedConsumables;
   }
 
   /** @override */
