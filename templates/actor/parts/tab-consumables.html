@@ -4,7 +4,6 @@
       <div class="item-name">{{localize "DARKSOULS.Name"}}</div>
       {{!-- Name, Type (dropdown), Quantity --}}
       <div class="item-consumable-type">{{localize "DARKSOULS.Type"}}</div>
-      <div class="item-set">{{localize "DARKSOULS.Set"}}</div>
       <div class="item-qty">{{localize "DARKSOULS.Qty"}}</div>
       <div class="item-controls">
         <a class="item-control item-create" title="Create item" data-type="consumable"><i class="fas fa-plus"></i> Add item</a>
@@ -18,8 +17,7 @@
         </div>
         <h4>{{name}}</h4>
       </div>
-      <div class="item-consumable-type item-prop">{{localize item.system.consumableType}}</div>
-      <div class="item-set item-prop">{{item.system.set}}</div>
+      <div class="item-consumable-type item-prop">{{localize (lookup ../DARKSOULS.consumableTypes item.system.consumableType)}}</div>
       <div class="consumable-qty item-prop">{{item.system.qty}}</div>
       <div class="item-controls">
         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>

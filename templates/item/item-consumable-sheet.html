@@ -1,0 +1,46 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
+    </div>
+  </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="attributes">{{localize "DARKSOULS.Attributes"}}</a>
+    <a class="item" data-tab="description">{{localize "DARKSOULS.Description"}}</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+    {{!-- Attributes Tab --}}
+    <div class="tab attributes" data-group="primary" data-tab="attributes">
+      <div class="grid grid-2col">
+        {{!-- Attributes: slot, physDef, magDef, weight, setBonus, equipped --}}
+        <div class="resource">
+          <label class="resource-label">{{localize "DARKSOULS.Type"}}</label>
+          <select name="system.consumableType">
+            {{selectOptions DARKSOULS.consumableTypes selected=system.consumableType localize=true}}
+          </select>
+        </div>
+        <div class="resource">
+          <label class="resource-label">{{localize "DARKSOULS.Set"}}</label>
+          <input type="text" name="system.set" value="{{system.set}}" data-dtype="Number"/>
+        </div>
+        <div class="resource">
+          <label class="resource-label">{{localize "DARKSOULS.Value"}}</label>
+          <input type="text" name="system.value" value="{{system.value}}" data-dtype="Number"/>
+        </div>
+        <div class="resource">
+          <label class="resource-label">{{localize "DARKSOULS.Quantity"}}</label>
+          <input type="text" name="system.qty" value="{{system.qty}}" data-dtype="Number"/>
+        </div>
+      </div>
+    </div>
+    {{!-- Description Tab --}}
+    <div class="tab" data-group="primary" data-tab="description">
+      {{editor system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
+    </div>
+  </section>
+</form>
