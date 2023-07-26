@@ -14,9 +14,9 @@ DARKSOULS.stats = {
 };
 
 DARKSOULS.armorSlots = {
-  head: "DARKSOULS.HeadSlot",
-  torso: "DARKSOULS.TorsoSlot",
-  legs: "DARKSOULS.LegSlot"
+  head: "DARKSOULS.Head",
+  torso: "DARKSOULS.Torso",
+  legs: "DARKSOULS.Legs"
 };
 
 DARKSOULS.equipLoadStat = "vit";
@@ -29,11 +29,11 @@ DARKSOULS.evasion = [
 ];
 
 DARKSOULS.damageTypes = {
-  poison: "DARKSOULS.PoisonType",
-  bleeding: "DARKSOULS.BleedingType",
-  dark: "DARKSOULS.DarkType",
-  cold: "DARKSOULS.ColdType",
-  magic: "DARKSOULS.MagicType",
-  fire: "DARKSOULS.FireType",
-  lightning: "DARKSOULS.LightningType"
+  poison: "DARKSOULS.Poison",
+  bleeding: "DARKSOULS.Bleeding",
+  dark: "DARKSOULS.Dark",
+  cold: "DARKSOULS.Cold",
+  magic: "DARKSOULS.Magic",
+  fire: "DARKSOULS.Fire",
+  lightning: "DARKSOULS.Lightning"
 };
