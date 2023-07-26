@@ -10,7 +10,8 @@ export default async function preloadHandlebarsTemplates() {
     "systems/darksouls/templates/actor/parts/stats/weight-pane.html",
     "systems/darksouls/templates/actor/parts/stats/consumables-pane.html",
     "systems/darksouls/templates/actor/parts/tab-armor.html",
-    "systems/darksouls/templates/actor/parts/tab-effects.html"
+    "systems/darksouls/templates/actor/parts/tab-effects.html",
+    "systems/darksouls/templates/actor/parts/tab-consumables.html"
   ];
 
   return loadTemplates(templatePaths);

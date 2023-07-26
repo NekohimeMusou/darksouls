@@ -69,7 +69,10 @@
     "DARKSOULS.ItemEquippedHeader": "Eq?",
     "DARKSOULS.SetBonus": "Set Bonus",
 
+    "DARKSOULS.Type": "Type",
+
     "DARKSOULS.Consumables": "Consumables",
+    "DARKSOULS.Set": "Set",
     "DARKSOULS.Medicine": "Medicine",
     "DARKSOULS.ThrowingKnives": "Throwing Knives",
     "DARKSOULS.ThrowingJar": "Throwing Jar",

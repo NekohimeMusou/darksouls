@@ -128,11 +128,8 @@
         },
         "consumable": {
             "templates": ["base", "equippable", "value"],
-            "uses": {
-                "max": 1,
-                "value": 1
-            },
-            "consumableType": "medicine"
+            "consumableType": "",
+            "set": 1
         }
     }
 }

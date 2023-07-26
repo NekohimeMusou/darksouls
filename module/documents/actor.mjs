@@ -49,14 +49,17 @@ export default class DarkSoulsActor extends Actor {
     };
 
     // Calculate base spell power
+    const int = stats.int?.value || 0;
+    const fth = stats.fth?.value || 0;
+
     this.system.spellPower = {
-      sorcery: stats.int.value,
-      miracle: stats.fth.value,
-      pyromancy: Math.floor((stats.int.value + stats.fth.value) / 2)
+      sorcery: int,
+      miracle: fth,
+      pyromancy: Math.floor((int + fth) / 2)
     };
 
     // Base initiative = DEX mod
-    this.system.initiative = stats.dex.mod;
+    this.system.initiative = stats.dex?.mod || 0;
   }
 
   _prepareArmor() {

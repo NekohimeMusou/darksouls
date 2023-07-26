@@ -26,6 +26,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
     DarkSoulsActorSheet.#prepareArmor(context);
     DarkSoulsActorSheet.#addStatLabels(context);
+    DarkSoulsActorSheet.#prepareConsumables(context);
 
     context.DARKSOULS = CONFIG.DARKSOULS;
 
@@ -51,7 +52,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     context.armorBySlot = armorBySlot;
   }
 
-  static prepareConsumables(context) {
+  static #prepareConsumables(context) {
     const consumables = context.items.filter(item => item.type === "consumable");
 
     context.consumables = consumables;
