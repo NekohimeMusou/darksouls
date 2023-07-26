@@ -22,7 +22,9 @@
         <input type="checkbox" class="item-equip-checkbox" {{checked item.system.equipped}}/>
       </div>
       <div class="item-consumable-type item-prop">{{localize (lookup ../DARKSOULS.consumableTypes item.system.consumableType)}}</div>
-      <div class="consumable-qty item-prop">{{item.system.qty}}</div>
+      <div class="consumable-qty item-prop">
+        <input type="number" class="qty-field" name="item.system.qty" min="0" value="{{item.system.qty}}" data-dtype="Number"/>
+      </div>
       <div class="item-controls">
         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
