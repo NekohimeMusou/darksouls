@@ -55,7 +55,10 @@ export default class DarkSoulsActorSheet extends ActorSheet {
   static #prepareConsumables(context) {
     const consumables = context.items.filter(item => item.type === "consumable");
 
+    const equippedConsumables = consumables.filter(item => Boolean(item.system.equipped));
+
     context.consumables = consumables;
+    context.equippedConsumables = equippedConsumables;
   }
 
   static #addStatLabels(context) {
@@ -113,6 +116,8 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     html.find(".armor-select").change(this.#onArmorEquip.bind(this));
     // Equip consumables
     html.find(".item-equip-checkbox").change(this.#onConsumableEquip.bind(this));
+    // Update consumable quantity
+    html.find(".qty-field").change(this.#onQuantityUpdate.bind(this));
   }
 
   /**
@@ -252,5 +257,22 @@ export default class DarkSoulsActorSheet extends ActorSheet {
       // If there's room, equip the item
       await item.update({"system.equipped": true});
     }
+  }
+
+  async #onQuantityUpdate(event) {
+    event.preventDefault();
+
+    // Get the item this event is attached to
+    const element = event.currentTarget;
+    const itemId = element.closest(".item").dataset.itemId;
+    const item = this.actor.items.get(itemId) || null;
+
+    // If it's not a valid item, don't do anything else
+    if (!item) return;
+
+    // If it is, update the quantity
+    const qty = element.value;
+
+    await item.update({"system.qty": qty});
   }
 }

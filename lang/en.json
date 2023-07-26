@@ -66,7 +66,7 @@
     "DARKSOULS.Head": "Head",
     "DARKSOULS.Torso": "Torso",
     "DARKSOULS.Legs": "Legs",
-    "DARKSOULS.ItemEquippedHeader": "Eq?",
+    "DARKSOULS.Equipped": "Equipped?",
     "DARKSOULS.SetBonus": "Set Bonus",
 
     "DARKSOULS.Type": "Type",
