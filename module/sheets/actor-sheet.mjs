@@ -51,6 +51,12 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     context.armorBySlot = armorBySlot;
   }
 
+  static prepareConsumables(context) {
+    const consumables = context.items.filter(item => item.type === "consumable");
+
+    context.consumables = consumables;
+  }
+
   static #addStatLabels(context) {
     // Add labels for ability scores
     // There's probably a smoother way to do this

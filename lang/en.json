@@ -69,6 +69,14 @@
     "DARKSOULS.ItemEquippedHeader": "Eq?",
     "DARKSOULS.SetBonus": "Set Bonus",
 
+    "DARKSOULS.Consumables": "Consumables",
+    "DARKSOULS.Medicine": "Medicine",
+    "DARKSOULS.ThrowingKnives": "Throwing Knives",
+    "DARKSOULS.ThrowingJar": "Throwing Jar",
+    "DARKSOULS.PineResin": "Pine Resin",
+    "DARKSOULS.Talisman": "Talisman",
+    "DARKSOULS.Currency": "Currency",
+
     "DARKSOULS.EffectCreate": "Create Effect",
     "DARKSOULS.EffectToggle": "Toggle Effect",
     "DARKSOULS.EffectEdit": "Edit Effect",
