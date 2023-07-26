@@ -12,6 +12,8 @@ export default class DarkSoulsActor extends Actor {
   prepareBaseData() {
     // Data modifications in this step occur before processing embedded documents or derived data
     this._prepareStats();
+    this._prepareResources();
+    
   }
 
   /**
@@ -61,6 +63,14 @@ export default class DarkSoulsActor extends Actor {
 
     // Base initiative = DEX mod
     this.system.initiative = stats.dex?.mod || 0;
+  }
+
+  _prepareResources() {
+    const stats = this.system.stats;
+
+    this.system.hp.max = 5 + stats.vig?.mod || 0;
+    this.system.fp.max = 5 + stats.atn?.mod || 0;
+    this.system.luckPts.max = 5 + stats.luc?.mod || 0;
   }
 
   _prepareArmor() {
