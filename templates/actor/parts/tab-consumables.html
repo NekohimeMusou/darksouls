@@ -2,6 +2,7 @@
   <ol class="items-list">
     <li class="item flexrow items-header">
       <div class="item-name">{{localize "DARKSOULS.Name"}}</div>
+      <div class="item-equipped">{{localize "DARKSOULS.ItemEquippedHeader"}}</div>
       {{!-- Name, Type (dropdown), Quantity --}}
       <div class="item-consumable-type">{{localize "DARKSOULS.Type"}}</div>
       <div class="item-qty">{{localize "DARKSOULS.Qty"}}</div>
@@ -16,6 +17,9 @@
           <a data-roll-type="item"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></a>
         </div>
         <h4>{{name}}</h4>
+      </div>
+      <div class="item-equipped item-prop">
+        <input type="checkbox" class="item-equip-checkbox" {{checked item.system.equipped}}/>
       </div>
       <div class="item-consumable-type item-prop">{{localize (lookup ../DARKSOULS.consumableTypes item.system.consumableType)}}</div>
       <div class="consumable-qty item-prop">{{item.system.qty}}</div>

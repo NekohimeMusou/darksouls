@@ -24,6 +24,7 @@ export default class DarkSoulsActor extends Actor {
 
     this._prepareArmor();
     this._prepareEquipLoad();
+    this._prepareConsumables();
   }
 
   _prepareStats () {
@@ -101,6 +102,14 @@ export default class DarkSoulsActor extends Actor {
     const evadeIndex = Math.min(Math.max(Math.floor((totalWeight-1)/vit), 0), 3);
 
     [systemData.equipLoadLevel, systemData.evadeCost] = CONFIG.DARKSOULS.evasion[evadeIndex];
+  }
+
+  _prepareConsumables() {
+    const systemData = this.system;
+
+    const equippedConsumables = this.items.filter(item => item.type === "consumable" && item.system.equipped);
+
+    systemData.equippedConsumables = equippedConsumables;
   }
 
   /** @override */
