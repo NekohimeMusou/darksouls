@@ -273,6 +273,6 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     // If it is, update the quantity
     const qty = element.value;
 
-    await item.update({"system.qty": qty});
+    await item.update({"system.qty": qty || 0});
   }
 }
