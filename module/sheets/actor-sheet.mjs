@@ -112,7 +112,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     // Equip armor
     html.find(".armor-select").change(this.#onArmorEquip.bind(this));
     // Equip consumables
-    html.find(".item-equip-checkbox").addEventListener("beforeinput", this.#onConsumableEquip.bind(this));
+    html.find(".item-equip-checkbox").change(this.#onConsumableEquip.bind(this));
   }
 
   /**
@@ -247,6 +247,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     } else if (equippedConsumables.length >= 3) {
       // If there are already 3 consumables equipped, notify the user
       ui.notifications.notify(game.i18n.localize("DARKSOULS.TooManyConsumablesError"), "warning");
+      element.checked = false;
     } else {
       // If there's room, equip the item
       await item.update({"system.equipped": true});
