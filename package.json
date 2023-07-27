@@ -19,5 +19,6 @@
   "devDependencies": {
     "@typhonjs-fvtt/eslint-config-foundry.js": "^0.8.0",
     "eslint": "^8.42.0"
-  }
+  },
+  "private": true
 }
