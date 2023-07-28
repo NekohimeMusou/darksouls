@@ -1,3 +1,4 @@
+import { onManageActiveEffect, prepareActiveEffectCategories } from "../helpers/effects.mjs";
 export default class DarkSoulsItemSheet extends ItemSheet {
   /** @override */
   static get defaultOptions() {
@@ -39,6 +40,8 @@ export default class DarkSoulsItemSheet extends ItemSheet {
       context.rollData = actor.getRollData();
     }
 
+    context.effects = prepareActiveEffectCategories(this.item.effects);
+
     context.DARKSOULS = CONFIG.DARKSOULS;
 
     return context;
@@ -52,5 +55,8 @@ export default class DarkSoulsItemSheet extends ItemSheet {
     if (!this.isEditable) return;
 
     // Roll handlers, click handlers, etc. would go here.
+
+    // Active Effect management
+    html.find(".effect-control").click(ev => onManageActiveEffect(ev, this.item));
   }
 }

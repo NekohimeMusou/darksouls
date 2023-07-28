@@ -7,7 +7,7 @@
         <div class="item-consumable-type">{{localize "DARKSOULS.Type"}}</div>
         <div class="item-qty">{{localize "DARKSOULS.Qty"}}</div>
       </li>
-      {{#each equippedConsumables as |item|}}
+      {{#each system.equippedConsumables as |item|}}
       <li class="item flexrow" data-item-id="{{item._id}}">
         <div class="item-name">
           <div class="item-image">

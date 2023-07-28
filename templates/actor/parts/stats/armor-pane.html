@@ -12,7 +12,7 @@
       {{#each system.equippedArmor as |item slot|}}
       <li class="item flexrow" data-item-id="{{item._id}}">
         <div class="item-prop">
-          <select class="armor-select" name="system.equippedArmor.{{slot}}">
+          <select class="item-select" name="system.equippedArmor.{{slot}}">
             {{selectOptions (lookup ../armorBySlot slot) selected=item._id nameAttr="_id" labelAttr="name" blank="---"}}
           </select>
         </div>

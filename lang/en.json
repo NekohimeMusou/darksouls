@@ -12,8 +12,11 @@
     "DARKSOULS.Stats": "Stats",
     "DARKSOULS.Attributes": "Attributes",
     "DARKSOULS.Armor": "Armor",
-    "DARKSOULS.Description": "Description",
+    "DARKSOULS.Rings": "Rings",
     "DARKSOULS.Effects": "Effects",
+    "DARKSOULS.Description": "Description",
+
+    "DARKSOULS.Ring": "Ring",
 
     "DARKSOULS.EstusFlasks": "Estus",
     "DARKSOULS.AshenEstusFlasks": "Ashen Estus",

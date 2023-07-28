@@ -20,25 +20,15 @@
       <div class="grid grid-2col">
         {{!-- Attributes: slot, physDef, magDef, weight, setBonus, equipped --}}
         <div class="resource">
-          <label class="resource-label">{{localize "DARKSOULS.ArmorSlot"}}</label>
-          <select name="system.slot">
-            {{selectOptions DARKSOULS.armorSlots selected=system.slot localize=true}}
+          <label class="resource-label">{{localize "DARKSOULS.Type"}}</label>
+          <select name="system.consumableType">
+            {{selectOptions DARKSOULS.consumableTypes selected=system.consumableType localize=true}}
           </select>
         </div>
         <div class="resource">
-          <label class="resource-label">{{localize "DARKSOULS.Weight"}}</label>
-          <input type="text" name="system.weight" value="{{system.weight}}" data-dtype="Number"/>
+          <label class="resource-label">{{localize "DARKSOULS.Set"}}</label>
+          <input type="text" name="system.set" value="{{system.set}}" data-dtype="Number"/>
         </div>
-        <div class="resource">
-          <label class="resource-label">{{localize "DARKSOULS.PhysicalDefense"}}</label>
-          <input type="text" name="system.physDef" value="{{system.physDef}}" data-dtype="Number"/>
-        </div>
-        <div class="resource">
-          <label class="resource-label">{{localize "DARKSOULS.MagicDefense"}}</label>
-          <input type="text" name="system.magDef" value="{{system.magDef}}" data-dtype="Number"/>
-        </div>
-      </div>
-      <div class="flexrow">
         <div class="resource">
           <label class="resource-label">{{localize "DARKSOULS.Value"}}</label>
           <input type="text" name="system.value" value="{{system.value}}" data-dtype="Number"/>
@@ -47,10 +37,6 @@
           <label class="resource-label">{{localize "DARKSOULS.Quantity"}}</label>
           <input type="text" name="system.qty" value="{{system.qty}}" data-dtype="Number"/>
         </div>
-      </div>
-      <div class="resource">
-        <label class="resource-label">{{localize "DARKSOULS.SetBonus"}}</label>
-        <input type="text" name="system.setBonus" value="{{system.setBonus}}" data-dtype="String"/>
       </div>
     </div>
     {{!-- Effects Tab --}}

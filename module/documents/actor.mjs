@@ -27,6 +27,7 @@ export default class DarkSoulsActor extends Actor {
     this._prepareArmor();
     this._prepareEquipLoad();
     this._prepareConsumables();
+    this._prepareRings();
   }
 
   _prepareStats () {
@@ -115,11 +116,15 @@ export default class DarkSoulsActor extends Actor {
   }
 
   _prepareConsumables() {
-    const systemData = this.system;
-
     const equippedConsumables = this.items.filter(item => item.type === "consumable" && item.system.equipped);
 
-    systemData.equippedConsumables = equippedConsumables;
+    this.system.equippedConsumables = equippedConsumables;
+  }
+
+  _prepareRings() {
+    const equippedRings = this.items.filter(item => item.type === "consumable" && item.system.equipped);
+
+    this.system.equippedRings = equippedRings;
   }
 
   /** @override */

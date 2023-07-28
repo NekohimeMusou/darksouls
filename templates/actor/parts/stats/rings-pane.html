@@ -1,0 +1,14 @@
+<div class="rings flexrow">
+  <div class="flexcol">
+    <div class="resource-label flex-group-center flex0">{{concat (localize "DARKSOULS.Ring") " 1"}}</div>
+    <select class="ring-select" name="ring-1">
+      {{selectOptions rings selected=item._id nameAttr="_id" labelAttr="name" blank="---"}}
+    </select>
+  </div>
+  <div class="flexcol">
+    <div class="resource-label flex-group-center flex0">{{concat (localize "DARKSOULS.Ring") " 2"}}</div>
+    <select class="ring-select" name="ring-2">
+      {{selectOptions rings selected=item._id nameAttr="_id" labelAttr="name" blank="---"}}
+    </select>
+  </div>
+</div>

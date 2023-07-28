@@ -25,8 +25,10 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     // Prepare character data and items
 
     DarkSoulsActorSheet.#prepareArmor(context);
-    DarkSoulsActorSheet.#addStatLabels(context);
     DarkSoulsActorSheet.#prepareConsumables(context);
+    DarkSoulsActorSheet.#prepareRings(context);
+
+    DarkSoulsActorSheet.#addStatLabels(context);
 
     context.DARKSOULS = CONFIG.DARKSOULS;
 
@@ -55,10 +57,14 @@ export default class DarkSoulsActorSheet extends ActorSheet {
   static #prepareConsumables(context) {
     const consumables = context.items.filter(item => item.type === "consumable");
 
-    const equippedConsumables = consumables.filter(item => Boolean(item.system.equipped));
-
     context.consumables = consumables;
-    context.equippedConsumables = equippedConsumables;
+  }
+
+  static #prepareRings(context) {
+    const rings = context.items.filter(item => item.type === "ring");
+
+    context.rings = rings;
+    context.equippedRings = context.system.equippedRings;
   }
 
   static #addStatLabels(context) {
@@ -113,7 +119,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     // Damage calculation
     html.find(".click-damage").click(this.#onDamageCalc.bind(this));
     // Equip armor
-    html.find(".armor-select").change(this.#onArmorEquip.bind(this));
+    html.find(".item-select").change(this.#onItemSelect.bind(this));
     // Equip consumables
     html.find(".item-equip-checkbox").change(this.#onConsumableEquip.bind(this));
     // Update consumable quantity
@@ -212,7 +218,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     });
   }
 
-  async #onArmorEquip(event) {
+  async #onItemSelect(event) {
     event.preventDefault();
 
     // Get the item this event is attached to

@@ -101,7 +101,7 @@
     },
     "Item":
     {
-        "types": ["armor", "consumable"],
+        "types": ["armor", "ring", "consumable"],
         "templates": {
             "base": {
                 "description": ""
@@ -130,6 +130,9 @@
             "templates": ["base", "equippable", "value"],
             "consumableType": "",
             "set": 1
+        },
+        "ring": {
+            "templates": ["base", "equippable", "quantity", "value"]
         }
     }
 }

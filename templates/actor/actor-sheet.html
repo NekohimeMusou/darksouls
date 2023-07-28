@@ -8,6 +8,7 @@
     <a class="item" data-tab="stats">{{localize "DARKSOULS.Stats"}}</a>
     <a class="item" data-tab="consumables">{{localize "DARKSOULS.Consumables"}}</a>
     <a class="item" data-tab="armor">{{localize "DARKSOULS.Armor"}}</a>
+    <a class="item" data-tab="rings">{{localize "DARKSOULS.Rings"}}</a>
     <a class="item" data-tab="effects">{{localize "DARKSOULS.Effects"}}</a>
     <a class="item" data-tab="description">{{localize "DARKSOULS.Description"}}</a>
   </nav>
@@ -29,9 +30,14 @@
       {{> "systems/darksouls/templates/actor/parts/tab-armor.html"}}
     </div>
 
+    {{!-- Rings Tab --}}
+    <div class="tab rings" data-group="primary" data-tab="rings">
+      {{> "systems/darksouls/templates/actor/parts/tab-rings.html"}}
+    </div>
+
     {{!-- Effects Tab --}}
     <div class="tab effects flexcol" data-group="primary" data-tab="effects">
-      {{> "systems/darksouls/templates/actor/parts/tab-effects.html"}}
+      {{> "systems/darksouls/templates/shared/tab-effects.html"}}
     </div>
 
     {{!-- Description Tab --}}
