@@ -18,6 +18,9 @@ Hooks.once("init", async function() {
     DarkSoulsItem
   };
 
+  // Disable legacy active effect transferral
+  CONFIG.ActiveEffect.legacyTransferral = false;
+
   // Add custom config constants
   CONFIG.DARKSOULS = DARKSOULS;
 
