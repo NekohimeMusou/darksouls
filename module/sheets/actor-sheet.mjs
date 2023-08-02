@@ -230,12 +230,15 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     const newItem = this.actor.items.get(element.value) || null;
 
     // Toggle equip attributes if necessary
+    // Will need to change this for armor sets
     if (oldItem) {
       await oldItem.update({"system.equipped": false});
+      oldItem.effects.forEach(effect => effect.update({ disabled: true }));
     }
 
     if (newItem) {
       await newItem.update({"system.equipped": true});
+      newItem.effects.forEach(effect => effect.update({ disabled: false }));
     }
   }
 
