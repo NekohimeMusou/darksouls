@@ -233,13 +233,21 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     // Will need to change this for armor sets
     if (oldItem) {
       await oldItem.update({"system.equipped": false});
-      oldItem.effects.forEach(async effect => await effect.update({ disabled: true }));
+
+      const updates = oldItem.effects.map((e) => ({_id: e._id, disabled: true}));
+
+      await oldItem.updateEmbeddedDocuments("ActiveEffect", updates, {parent: this.actor});
     }
 
     if (newItem) {
       await newItem.update({"system.equipped": true});
-      newItem.effects.forEach(async effect => await effect.update({ disabled: false }));
+
+      const updates = newItem.effects.map((e) => ({_id: e._id, disabled: false}));
+
+      await newItem.updateEmbeddedDocuments("ActiveEffect", updates, {parent: this.actor});
     }
+
+    await this.render(false);
   }
 
   async #onConsumableEquip(event) {

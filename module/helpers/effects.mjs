@@ -3,14 +3,15 @@
  * @param {MouseEvent} event      The left-click event on the effect control
  * @param {Actor|Item} owner      The owning document which manages this effect
  */
-export function onManageActiveEffect(event, owner) {
+export async function onManageActiveEffect(event, owner) {
   event.preventDefault();
   const a = event.currentTarget;
   const li = a.closest("li");
   const effect = li.dataset.effectId ? owner.effects.get(li.dataset.effectId) : null;
+  const actor = owner.actor;
   switch ( a.dataset.action ) {
   case "create":
-    return owner.createEmbeddedDocuments("ActiveEffect", [{
+    return await owner.createEmbeddedDocuments("ActiveEffect", [{
       name: "New Effect",
       icon: "icons/svg/aura.svg",
       origin: owner.uuid,
@@ -18,11 +19,15 @@ export function onManageActiveEffect(event, owner) {
       disabled: li.dataset.effectType === "inactive"
     }]);
   case "edit":
-    return effect.sheet.render(true);
+    return await effect.sheet.render(true);
   case "delete":
-    return effect.delete();
+    await owner.deleteEmbeddedDocuments("ActiveEffect", [effect._id]);
+    if (actor) await actor.sheet.render(false);
+    return;
   case "toggle":
-    return effect.update({disabled: !effect.disabled});
+    await owner.updateEmbeddedDocuments("ActiveEffect", [{_id: effect._id, disabled: !effect.disabled}]);
+    if (actor) await actor.sheet.render(false);
+    return;
   }
 }
   
