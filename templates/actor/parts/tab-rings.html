@@ -2,7 +2,8 @@
   <ol class="items-list">
     <li class="item flexrow items-header">
       <div class="item-name">{{localize "DARKSOULS.Name"}}</div>
-      <div class="quantity">{{localize "DARKSOULS.Qty"}}</div>
+      <div class="item-equipped">{{localize "DARKSOULS.Equipped"}}</div>
+      <div class="qty">{{localize "DARKSOULS.Qty"}}</div>
       <div class="item-controls">
         <a class="item-control item-create" title="Create item" data-type="ring"><i class="fas fa-plus"></i> Add item</a>
       </div>
@@ -15,7 +16,10 @@
         </div>
         <h4>{{name}}</h4>
       </div>
-      <div class="quantity item-prop">
+      <div class="item-equipped item-prop">
+        <input type="checkbox" class="item-equip-checkbox" {{checked item.system.equipped}}/>
+      </div>
+      <div class="qty item-prop">
         <input type="number" class="qty-field" name="item.system.qty" min="0" value="{{item.system.qty}}" data-dtype="Number"/>
       </div>
       <div class="item-controls">

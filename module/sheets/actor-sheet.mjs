@@ -23,13 +23,15 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     context.flags = actorData.flags;
 
     // Prepare character data and items
-
     DarkSoulsActorSheet.#prepareArmor(context);
     DarkSoulsActorSheet.#prepareConsumables(context);
     DarkSoulsActorSheet.#prepareRings(context);
 
+    context.equippedItems = actorData.system.equippedItems;
+
     DarkSoulsActorSheet.#addStatLabels(context);
 
+    // Add global data to context
     context.DARKSOULS = CONFIG.DARKSOULS;
 
     // Add roll data for TinyMCE editors
@@ -64,7 +66,6 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     const rings = context.items.filter(item => item.type === "ring");
 
     context.rings = rings;
-    context.equippedRings = context.system.equippedRings;
   }
 
   static #addStatLabels(context) {
@@ -121,9 +122,9 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     // Equip armor
     html.find(".item-select").change(this.#onItemSelect.bind(this));
     // Equip consumables
-    html.find(".item-equip-checkbox").change(this.#onConsumableEquip.bind(this));
+    html.find(".item-equip-checkbox").change(this.#onItemEquip.bind(this));
     // Update consumable quantity
-    html.find(".qty-field").change(this.#onQuantityUpdate.bind(this));
+    html.find(".qty-field").change(this.#onQtyUpdate.bind(this));
   }
 
   /**
@@ -240,7 +241,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     }
   }
 
-  async #onConsumableEquip(event) {
+  async #onItemEquip(event) {
     event.preventDefault();
 
     // Get the item this event is attached to
@@ -251,22 +252,26 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     // If it's not a valid item, don't do anything else
     if (!item) return;
 
-    const equippedConsumables = this.actor.system.equippedConsumables;
-
+    // If it's already equipped, we don't have to check anything
     if (item.system.equipped) {
-      // If it's equipped, just unequip it
-      await item.update({"system.equipped": false});
-    } else if (equippedConsumables.length >= 3) {
-      // If there are already 3 consumables equipped, notify the user
-      ui.notifications.notify(game.i18n.localize("DARKSOULS.TooManyConsumablesError"), "warning");
+      return await item.update({"system.equipped": false});
+    } 
+
+    // Otherwise, check that we haven't exceeded the cap
+    const equippedItems = this.actor.system.equippedItems[item.type];
+    const equipCap = CONFIG.DARKSOULS.equipmentCaps[item.type] || 0;
+
+    if (equipCap && equippedItems.length >= equipCap) {
       element.checked = false;
-    } else {
-      // If there's room, equip the item
-      await item.update({"system.equipped": true});
+      // Maybe change this later
+      const msg = item.type === "consumable" ? "DARKSOULS.TooManyConsumablesError" : "DARKSOULS.TooManyRingsError";
+      return ui.notifications.notify(game.i18n.localize(msg), "warning");
     }
+
+    return await item.update({"system.equipped": true});
   }
 
-  async #onQuantityUpdate(event) {
+  async #onQtyUpdate(event) {
     event.preventDefault();
 
     // Get the item this event is attached to

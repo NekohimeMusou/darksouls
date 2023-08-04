@@ -46,3 +46,8 @@ DARKSOULS.consumableTypes = {
   talisman: "DARKSOULS.Talisman",
   currency: "DARKSOULS.Currency"
 };
+
+DARKSOULS.equipmentCaps = {
+  consumable: 3,
+  ring: 2
+};

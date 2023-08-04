@@ -21,8 +21,9 @@ export default class DarkSoulsActor extends Actor {
      * Augment actor data with additional dynamic data.
      */
   prepareDerivedData() {
-    const actorData = this;
-    const flags = actorData.flags.darksouls || {};
+    const flags = this.flags.darksouls || {};
+
+    this.system.equippedItems = {};
 
     this._prepareArmor();
     this._prepareEquipLoad();
@@ -95,7 +96,19 @@ export default class DarkSoulsActor extends Actor {
     systemData.magDef = Object.values(equippedArmor)
       .reduce((mag, armor) => mag + (armor?.system.magDef || 0), 0) + systemData.level.mod;
 
-    systemData.equippedArmor = equippedArmor;
+    systemData.equippedItems["armor"] = equippedArmor;
+  }
+
+  _prepareConsumables() {
+    const equippedConsumables = this.items.filter(item => item.type === "consumable" && item.system.equipped);
+
+    this.system.equippedItems["consumable"] = equippedConsumables;
+  }
+
+  _prepareRings() {
+    const equippedRings = this.items.filter(item => item.type === "ring" && item.system.equipped);
+
+    this.system.equippedItems["ring"] = equippedRings;
   }
 
   _prepareEquipLoad() {
@@ -113,18 +126,6 @@ export default class DarkSoulsActor extends Actor {
     const evadeIndex = Math.min(Math.max(Math.floor((totalWeight-1)/vit), 0), 3);
 
     [systemData.equipLoadLevel, systemData.evadeCost] = CONFIG.DARKSOULS.evasion[evadeIndex];
-  }
-
-  _prepareConsumables() {
-    const equippedConsumables = this.items.filter(item => item.type === "consumable" && item.system.equipped);
-
-    this.system.equippedConsumables = equippedConsumables;
-  }
-
-  _prepareRings() {
-    const equippedRings = this.items.filter(item => item.type === "ring" && item.system.equipped);
-
-    this.system.equippedRings = equippedRings;
   }
 
   /** @override */

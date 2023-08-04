@@ -10,6 +10,7 @@
     "DARKSOULS.Mod": "Mod",
 
     "DARKSOULS.Stats": "Stats",
+    "DARKSOULS.Consumables": "Consumables",
     "DARKSOULS.Attributes": "Attributes",
     "DARKSOULS.Armor": "Armor",
     "DARKSOULS.Rings": "Rings",
@@ -74,7 +75,6 @@
 
     "DARKSOULS.Type": "Type",
 
-    "DARKSOULS.Consumables": "Consumables",
     "DARKSOULS.Set": "Set",
     "DARKSOULS.Medicine": "Medicine",
     "DARKSOULS.ThrowingKnives": "Throwing Knives",
@@ -89,5 +89,6 @@
     "DARKSOULS.EffectDelete": "Delete Effect",
     "DARKSOULS.Add": "Add",
 
-    "DARKSOULS.TooManyConsumablesError": "Can't equip more than 3 consumables."
+    "DARKSOULS.TooManyConsumablesError": "Can't equip more than 3 consumables.",
+    "DARKSOULS.TooManyRingsError": "Can't equip more than 2 rings."
 }
