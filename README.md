@@ -40,10 +40,6 @@ Create a piece of armor, add it to your character sheet, and a fugly little row 
 
 ## To-do List
 
-- Fix item effect display bug
-- Remember equipped ring ID so their effects can be toggled off
-
-- Consumables UI on main page
 - Add weapon functionality
 - Better flask tracking
 - Clean up UI
