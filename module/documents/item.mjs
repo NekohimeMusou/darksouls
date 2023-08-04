@@ -28,6 +28,14 @@ export default class DarkSoulsItem extends Item {
     return rollData;
   }
 
+  get isEffectSuppressed() {
+    if (!(this.type === "armor")) return !(this.system?.equipped ?? true);
+
+    const equippedArmor = this.parent?.system?.equippedItems?.armor;
+
+    return !(this.system.equipped && (equippedArmor instanceof Object) && Object.values(equippedArmor).map(a => this.parent.items.get(a)).every(a => a?.system?.setId === this.system.setId));
+  }
+
   /**
    * Get the Actor which is the author of a chat card
    * @param {HTMLElement} card    The chat card being used

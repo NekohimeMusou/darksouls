@@ -3,9 +3,8 @@ export default class DarkSoulsActiveEffect extends ActiveEffect {
   get isSuppressed() {
     const parent = this.parent;
 
-    if (parent instanceof Item && Object.hasOwn(parent.system, "equipped")) {
-      return !parent.system.equipped;
-    }
+    if (parent instanceof Item) return Boolean(parent?.isEffectSuppressed);
+
     return false;
   }
 }
