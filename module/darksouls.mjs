@@ -1,6 +1,7 @@
 // Import document classes
 import DarkSoulsActor from "./documents/actor.mjs";
 import DarkSoulsItem from "./documents/item.mjs";
+import DarkSoulsActiveEffect from "./documents/active-effect.mjs";
 // Import sheet classes
 import DarkSoulsActorSheet from "./sheets/actor-sheet.mjs";
 import DarkSoulsItemSheet from "./sheets/item-sheet.mjs";
@@ -27,6 +28,7 @@ Hooks.once("init", async function() {
   // Define custom Document classes
   CONFIG.Actor.documentClass = DarkSoulsActor;
   CONFIG.Item.documentClass = DarkSoulsItem;
+  CONFIG.ActiveEffect.documentClass = DarkSoulsActiveEffect;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
