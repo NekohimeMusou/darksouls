@@ -122,7 +122,7 @@ export default class DarkSoulsActor extends Actor {
   }
 
   _prepareRings() {
-    const equippedRings = this.items.filter(item => item.type === "consumable" && item.system.equipped);
+    const equippedRings = this.items.filter(item => item.type === "ring" && item.system.equipped);
 
     this.system.equippedRings = equippedRings;
   }
