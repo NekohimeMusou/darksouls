@@ -90,5 +90,7 @@
     "DARKSOULS.Add": "Add",
 
     "DARKSOULS.TooManyConsumablesError": "Can't equip more than 3 consumables.",
-    "DARKSOULS.TooManyRingsError": "Can't equip more than 2 rings."
+    "DARKSOULS.TooManyRingsError": "Can't equip more than 2 rings.",
+
+    "DARKSOULS.IsItemLocked": "Locked?"
 }

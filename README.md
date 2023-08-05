@@ -33,6 +33,8 @@ Create a piece of armor, add it to your character sheet, and a fugly little row 
 
 ## Known Issues
 
+- Cleric armor set bonus does nothing as of yet
+- Quantity field for consumable items doesn't update correctly if you close the sheet immediately after changing it. You have to click outside of the box or otherwise make it lose focus
 - Weapons don't exist yet
 - The equip load section is inaccurate because weapons don't exist yet
 - Ugly as hell
