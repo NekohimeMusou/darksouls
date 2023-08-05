@@ -1,0 +1,40 @@
+{
+  "name": "Chain Armor",
+  "type": "armor",
+  "system": {
+    "description": "",
+    "locked": false,
+    "equipped": false,
+    "weight": 4,
+    "value": 800,
+    "qty": 1,
+    "slot": "torso",
+    "physDef": 4,
+    "magDef": 1,
+    "setId": "chain",
+    "setBonus": "None.",
+    "soulValue": 0,
+    "editLocked": true
+  },
+  "img": "icons/svg/item-bag.svg",
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.5.1",
+    "coreVersion": "11.307",
+    "createdTime": 1688528231762,
+    "modifiedTime": 1691217374040,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "_id": "lONGLHYLRgjc8Iw2",
+  "folder": "syrpDiotMWDRwIjS",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "_key": "!items!lONGLHYLRgjc8Iw2"
+}

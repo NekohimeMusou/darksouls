@@ -1,0 +1,23 @@
+{
+  "name": "Miracle Action Cost -1",
+  "icon": "icons/svg/aura.svg",
+  "origin": "Item.z0B4xc21vMv8morC",
+  "duration": {
+    "startTime": null,
+    "seconds": null,
+    "combat": null,
+    "rounds": null,
+    "turns": null,
+    "startRound": null,
+    "startTurn": null
+  },
+  "disabled": false,
+  "_id": "p8K8Z24UWhLa0snk",
+  "changes": [],
+  "description": "<p>NOTE: This currently does nothing but serve as a reminder that this set bonus exists.</p>",
+  "transfer": true,
+  "statuses": [],
+  "flags": {},
+  "tint": null,
+  "_key": "!items.effects!z0B4xc21vMv8morC.p8K8Z24UWhLa0snk"
+}

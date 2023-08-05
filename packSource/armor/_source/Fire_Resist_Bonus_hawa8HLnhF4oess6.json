@@ -1,0 +1,30 @@
+{
+  "name": "Fire Resist Bonus",
+  "icon": "icons/svg/aura.svg",
+  "origin": "Item.Zm1DykVKlcDjGTis",
+  "duration": {
+    "startTime": null,
+    "seconds": null,
+    "combat": null,
+    "rounds": null,
+    "turns": null,
+    "startRound": null,
+    "startTurn": null
+  },
+  "disabled": false,
+  "_id": "hawa8HLnhF4oess6",
+  "changes": [
+    {
+      "key": "system.resist.fire",
+      "mode": 2,
+      "value": "1",
+      "priority": null
+    }
+  ],
+  "description": "",
+  "transfer": true,
+  "statuses": [],
+  "flags": {},
+  "tint": null,
+  "_key": "!items.effects!Zm1DykVKlcDjGTis.hawa8HLnhF4oess6"
+}

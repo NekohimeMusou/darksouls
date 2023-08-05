@@ -1,0 +1,33 @@
+{
+  "folder": null,
+  "name": "Life Ring",
+  "type": "ring",
+  "_id": "DhVAiFeXHwiODrlQ",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Note: Value not given in translation (yet), so I guessed.</p>",
+    "locked": false,
+    "equipped": false,
+    "qty": 1,
+    "value": 1000,
+    "editLocked": true
+  },
+  "effects": [
+    "EDdhbohKLOZ8sP8J"
+  ],
+  "flags": {},
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.5.1",
+    "coreVersion": "11.307",
+    "createdTime": 1691213470540,
+    "modifiedTime": 1691216574559,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "_key": "!items!DhVAiFeXHwiODrlQ"
+}

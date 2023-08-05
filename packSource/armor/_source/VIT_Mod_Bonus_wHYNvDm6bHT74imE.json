@@ -1,0 +1,30 @@
+{
+  "name": "VIT Mod Bonus",
+  "icon": "icons/svg/aura.svg",
+  "origin": "Item.vqd6axfHtMtFF2BH",
+  "duration": {
+    "startTime": null,
+    "seconds": null,
+    "combat": null,
+    "rounds": null,
+    "turns": null,
+    "startRound": null,
+    "startTurn": null
+  },
+  "disabled": false,
+  "_id": "wHYNvDm6bHT74imE",
+  "changes": [
+    {
+      "key": "system.stats.vit.mod",
+      "mode": 2,
+      "value": "1",
+      "priority": null
+    }
+  ],
+  "description": "",
+  "transfer": true,
+  "statuses": [],
+  "flags": {},
+  "tint": null,
+  "_key": "!items.effects!vqd6axfHtMtFF2BH.wHYNvDm6bHT74imE"
+}

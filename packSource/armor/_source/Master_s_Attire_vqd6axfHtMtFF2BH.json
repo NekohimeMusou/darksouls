@@ -1,0 +1,38 @@
+{
+  "folder": "bgTM7gJdQKqQWHWV",
+  "name": "Master's Attire",
+  "type": "armor",
+  "_id": "vqd6axfHtMtFF2BH",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "locked": false,
+    "equipped": false,
+    "weight": 2,
+    "value": 500,
+    "qty": 1,
+    "slot": "torso",
+    "physDef": 2,
+    "magDef": 1,
+    "setId": "master",
+    "editLocked": true
+  },
+  "effects": [
+    "wHYNvDm6bHT74imE"
+  ],
+  "flags": {},
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.5.1",
+    "coreVersion": "11.307",
+    "createdTime": 1691216930382,
+    "modifiedTime": 1691217374040,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "_key": "!items!vqd6axfHtMtFF2BH"
+}

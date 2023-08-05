@@ -1,0 +1,38 @@
+{
+  "folder": "FGh0Hjo4lMDOgcSW",
+  "name": "Grave Warden's Robe",
+  "type": "armor",
+  "_id": "HhWgg9w4EysIG8Z8",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "locked": false,
+    "equipped": false,
+    "weight": 5,
+    "value": 900,
+    "qty": 1,
+    "slot": "torso",
+    "physDef": 3,
+    "magDef": 2,
+    "setId": "graveWarden",
+    "editLocked": true
+  },
+  "effects": [
+    "gnEPLVS8H6xjKxqc"
+  ],
+  "flags": {},
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.5.1",
+    "coreVersion": "11.307",
+    "createdTime": 1691217042454,
+    "modifiedTime": 1691217374040,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "_key": "!items!HhWgg9w4EysIG8Z8"
+}

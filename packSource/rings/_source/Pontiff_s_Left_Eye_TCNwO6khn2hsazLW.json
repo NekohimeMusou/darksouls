@@ -1,0 +1,31 @@
+{
+  "folder": null,
+  "name": "Pontiff's Left Eye",
+  "type": "ring",
+  "_id": "TCNwO6khn2hsazLW",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>When the wearer inflicts 3 HITs or more, they regain 1 HP.</p>\n<p>Obtain: Transpose the Soul of the Boreal Valley Vordt.</p>",
+    "locked": false,
+    "equipped": false,
+    "qty": 1,
+    "value": 1000,
+    "editLocked": true
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.5.1",
+    "coreVersion": "11.307",
+    "createdTime": 1691213639653,
+    "modifiedTime": 1691216541805,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "_key": "!items!TCNwO6khn2hsazLW"
+}

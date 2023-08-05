@@ -23,6 +23,20 @@
     "styles": [
         "styles/darksouls.css"
     ],
+    "packs": [
+        {
+            "name": "armor",
+            "label": "Armor",
+            "system": "darksouls",
+            "type": "Item"
+        },
+        {
+            "name": "rings",
+            "label": "Rings",
+            "system": "darksouls",
+            "type": "Item"
+        }
+    ],
     "languages": [
         {
             "lang": "en",

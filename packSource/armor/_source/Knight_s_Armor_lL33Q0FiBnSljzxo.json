@@ -1,0 +1,36 @@
+{
+  "folder": "MJexsJb5P1B2rweF",
+  "name": "Knight's Armor",
+  "type": "armor",
+  "_id": "lL33Q0FiBnSljzxo",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "locked": false,
+    "equipped": false,
+    "weight": 7,
+    "value": 1000,
+    "qty": 1,
+    "slot": "torso",
+    "physDef": 6,
+    "magDef": 2,
+    "setId": "knight",
+    "editLocked": true
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.5.1",
+    "coreVersion": "11.307",
+    "createdTime": 1691214765181,
+    "modifiedTime": 1691217374040,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "_key": "!items!lL33Q0FiBnSljzxo"
+}
