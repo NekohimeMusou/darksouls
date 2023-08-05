@@ -19,6 +19,16 @@ Hooks.once("init", async function() {
     DarkSoulsItem
   };
 
+  game.settings.register("darksouls", "useConsumableByDefault", {
+    name: "Consume Items By Default",
+    hint: "Bypass the dialog and use up a consumable when clicked from the main tab. Hold Shift for the opposite behavior.",
+    scope: "client",
+    config: true,
+    type: Boolean,
+    default: false,
+    requiresReload: false
+  });
+
   // Disable legacy active effect transferral
   CONFIG.ActiveEffect.legacyTransferral = false;
 

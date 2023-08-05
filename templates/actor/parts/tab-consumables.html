@@ -22,7 +22,7 @@
       </div>
       <div class="item-consumable-type item-prop">{{localize (lookup ../DARKSOULS.consumableTypes item.system.consumableType)}}</div>
       <div class="consumable-qty item-prop">
-        <input type="number" class="qty-field" name="item.system.qty" min="0" value="{{item.system.qty}}" data-dtype="Number"/>
+        <input type="number" value="{{item.system.qty}}" data-dtype="Number" readonly/>
       </div>
       <div class="item-controls">
         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>

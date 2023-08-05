@@ -100,7 +100,7 @@ export default class DarkSoulsActor extends Actor {
   }
 
   _prepareConsumables() {
-    const equippedConsumables = this.items.filter(item => item.type === "consumable" && item.system.equipped);
+    const equippedConsumables = this.items.filter(i => i.type === "consumable" && i.system.equipped && i.system.qty >= 1);
 
     this.system.equippedItems["consumable"] = equippedConsumables;
   }

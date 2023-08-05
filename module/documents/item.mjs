@@ -28,6 +28,10 @@ export default class DarkSoulsItem extends Item {
     return rollData;
   }
 
+  showChatCard(consumeItem=false) {
+
+  }
+
   get isEffectSuppressed() {
     if (!(this.type === "armor")) return !(this.system?.equipped ?? true);
 
