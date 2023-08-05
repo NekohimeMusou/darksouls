@@ -61,6 +61,7 @@ export default class DarkSoulsItemSheet extends ItemSheet {
     html.find(".qty-field").change(this.#onQtyUpdate.bind(this));
   }
 
+  // FIXTHIS: Does not fire if you close the sheet (e.g. click the X button) before clicking outside the input box
   async #onQtyUpdate(event) {
     event.preventDefault();
 

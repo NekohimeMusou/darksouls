@@ -12,6 +12,8 @@ import preloadHandlebarsTemplates from "./helpers/templates.mjs";
 Hooks.once("init", async function() {
   console.log("DARKSOULS | Initializing Dark Souls Game System");
 
+  // CONFIG.debug.hooks = true;
+
   // Add utility classes/functions to the global game object
   // So they're more easily accessible in global contexts
   game.darksouls = {
@@ -19,37 +21,52 @@ Hooks.once("init", async function() {
     DarkSoulsItem
   };
 
-  game.settings.register("darksouls", "useConsumableByDefault", {
-    name: "Consume Items By Default",
-    hint: "Bypass the dialog and use up a consumable when clicked from the main tab. Hold Shift for the opposite behavior.",
+  // Add custom config constants
+  CONFIG.DARKSOULS = DARKSOULS;
+
+  handleLegacyBehavior();
+
+  registerSettings();
+  registerDocumentClasses();
+  registerSheetApplications();
+  registerHandlebarsHelpers();
+  preloadHandlebarsTemplates();
+});
+
+function registerHandlebarsHelpers() {
+  Handlebars.registerHelper("upperCase", (str) => str?.toLocaleUpperCase() || "");
+}
+
+function handleLegacyBehavior() {
+  const foundryMajorVersion = Math.floor(Number(game.version));
+
+  if (foundryMajorVersion <= 11) {
+    // Disable legacy active effect transferral
+    CONFIG.ActiveEffect.legacyTransferral = false;
+  }
+}
+
+function registerSettings() {
+  game.settings.register("darksouls", "consumeItemByDefault", {
+    name: game.i18n.localize("DARKSOULS.ConsumeItemByDefaultName"),
+    hint: game.i18n.localize("DARKSOULS.ConsumeItemByDefaultHint"),
     scope: "client",
     config: true,
     type: Boolean,
     default: false,
     requiresReload: false
   });
+}
 
-  // Disable legacy active effect transferral
-  CONFIG.ActiveEffect.legacyTransferral = false;
-
-  // Add custom config constants
-  CONFIG.DARKSOULS = DARKSOULS;
-
-  // Define custom Document classes
+function registerDocumentClasses() {
   CONFIG.Actor.documentClass = DarkSoulsActor;
   CONFIG.Item.documentClass = DarkSoulsItem;
   CONFIG.ActiveEffect.documentClass = DarkSoulsActiveEffect;
+}
 
-  // Register sheet application classes
+function registerSheetApplications() {
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("darksouls", DarkSoulsActorSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("darksouls", DarkSoulsItemSheet, { makeDefault: true });
-
-  preloadHandlebarsTemplates();
-  registerHandlebarsHelpers();
-});
-
-function registerHandlebarsHelpers() {
-  Handlebars.registerHelper("upperCase", (str) => str?.toLocaleUpperCase() || "");
 }

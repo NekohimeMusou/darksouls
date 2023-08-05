@@ -89,6 +89,11 @@
     "DARKSOULS.EffectDelete": "Delete Effect",
     "DARKSOULS.Add": "Add",
 
-    "DARKSOULS.TooManyConsumablesError": "Can't equip more than 3 consumables.",
-    "DARKSOULS.TooManyRingsError": "Can't equip more than 2 rings."
+    "DARKSOULS.TooManyConsumablesMsg": "Can't equip more than 3 consumables.",
+    "DARKSOULS.TooManyRingsMsg": "Can't equip more than 2 rings.",
+
+    "DARKSOULS.ItemConsumedMsg": "Item consumed.",
+
+    "DARKSOULS.ConsumeItemByDefaultName": "Consume Items By Default",
+    "DARKSOULS.ConsumeItemByDefaultHint": "Normally, holding Shift while clicking a consumable button on your sheet tab will consume the item. This option switches the default: clicking consumes, shift-clicking does not."
 }
