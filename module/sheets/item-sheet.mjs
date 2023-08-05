@@ -58,5 +58,24 @@ export default class DarkSoulsItemSheet extends ItemSheet {
 
     // Active Effect management
     html.find(".effect-control").click(ev => onManageActiveEffect(ev, this.item));
+    html.find(".qty-field").change(this.#onQtyUpdate.bind(this));
+  }
+
+  // FIXTHIS: Does not fire if you close the sheet (e.g. click the X button) before clicking outside the input box
+  async #onQtyUpdate(event) {
+    event.preventDefault();
+
+    const element = event.currentTarget;
+    const item = this.item;
+
+    if (!item) return;
+
+    // If it is, update the quantity
+    const qty = Math.max(element.value, 1);
+    element.value = qty;
+
+    await item.update({"system.qty": qty});
+
+    if (item.parent instanceof Actor) item.parent.sheet.render(false);
   }
 }

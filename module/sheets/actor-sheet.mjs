@@ -104,7 +104,6 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     // Active Effect management
     html.find(".effect-control").click(ev => onManageActiveEffect(ev, this.actor));
 
-
     // Drag events for macros.
     if (this.actor.isOwner) {
       let handler = ev => this._onDragStart(ev);
@@ -123,8 +122,8 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     html.find(".item-select").change(this.#onItemSelect.bind(this));
     // Equip consumables
     html.find(".item-equip-checkbox").change(this.#onItemEquip.bind(this));
-    // Update consumable quantity
-    html.find(".qty-field").change(this.#onQtyUpdate.bind(this));
+    // Use item
+    html.find(".use-item").click(this.#onItemUse.bind(this));
   }
 
   /**
@@ -264,27 +263,41 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     if (equipCap && equippedItems.length >= equipCap) {
       element.checked = false;
       // Maybe change this later
-      const msg = item.type === "consumable" ? "DARKSOULS.TooManyConsumablesError" : "DARKSOULS.TooManyRingsError";
+      const msg = item.type === "consumable" ? "DARKSOULS.TooManyConsumablesMsg" : "DARKSOULS.TooManyRingsMsg";
       return ui.notifications.notify(game.i18n.localize(msg), "warning");
     }
 
     return await item.update({"system.equipped": true});
   }
 
-  async #onQtyUpdate(event) {
+  async #onItemUse(event) {
     event.preventDefault();
 
     // Get the item this event is attached to
     const element = event.currentTarget;
-    const itemId = element.closest(".item").dataset.itemId;
+    const dataset = element.closest(".item").dataset;
+    const itemId = dataset.itemId;
     const item = this.actor.items.get(itemId) || null;
 
     // If it's not a valid item, don't do anything else
     if (!item) return;
 
-    // If it is, update the quantity
-    const qty = element.value;
+    const canConsume = item.type === "consumable" && dataset?.canConsumeItem;
+    const consumeByDefault = game.settings.get("darksouls", "consumeItemByDefault");
+    const isShiftHeld = event.shiftKey;
 
-    await item.update({"system.qty": qty || 0});
+    const itemConsumed = canConsume && consumeByDefault ^ isShiftHeld;
+
+    if (itemConsumed) {
+      const newQty = item.system.qty - 1;
+
+      if (newQty < 1) {
+        await item.delete();
+      } else {
+        await item.update({"system.qty": newQty});
+      }
+    }
+
+    return await item.showChatCard({itemConsumed});
   }
 }

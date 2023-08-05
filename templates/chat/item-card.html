@@ -1,0 +1,15 @@
+<div class="darksouls chat-card item-card" data-actor-id="{{actor._id}}" data-item-id="{{item._id}}">
+  <header class="card-header flexrow">
+    <img class="flex0" src="{{item.img}}" title="{{item.name}}" width="36" height="36"/>
+    <h3 class="item-name">{{item.name}}</h3>
+  </header>
+  {{#if itemConsumed}}
+  <div class="resource-label">
+    {{localize "DARKSOULS.ItemConsumedMsg"}}
+  </div>
+  {{/if}}
+
+  <div class="card-content">
+    {{{item.system.description}}}
+  </div>
+</div>

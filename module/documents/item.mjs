@@ -28,6 +28,30 @@ export default class DarkSoulsItem extends Item {
     return rollData;
   }
 
+  async showChatCard({itemConsumed=false, rollMode=game.settings.get("core", "rollMode"), createMessage=true, template="systems/darksouls/templates/chat/item-card.html"}={}) {
+    const speaker = ChatMessage.getSpeaker({actor: this.actor});
+
+    const templateData = {
+      actor: this.actor,
+      item: this,
+      data: this.getRollData(),
+      itemConsumed
+    };
+
+    const content = await renderTemplate(template, templateData);
+
+    const chatData = {
+      user: game.user.id,
+      type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+      content,
+      speaker,
+      rollMode
+    };
+
+    return createMessage ? ChatMessage.create(chatData) : chatData;
+  }
+
+  // TODO: Fix this so consumable effects aren't auto-activated
   get isEffectSuppressed() {
     if (!(this.type === "armor")) return !(this.system?.equipped ?? true);
 
