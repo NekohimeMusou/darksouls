@@ -9,7 +9,7 @@
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
     <a class="item" data-tab="attributes">{{localize "DARKSOULS.Attributes"}}</a>
-    <a class="item" data-tab="effects">{{localize "DARKSOULS.Effects"}}</a>
+    {{#if isTorsoArmor}}<a class="item" data-tab="effects">{{localize "DARKSOULS.Effects"}}</a>{{/if}}
     <a class="item" data-tab="description">{{localize "DARKSOULS.Description"}}</a>
   </nav>
 

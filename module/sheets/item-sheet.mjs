@@ -42,6 +42,8 @@ export default class DarkSoulsItemSheet extends ItemSheet {
 
     context.effects = prepareActiveEffectCategories(this.item.effects);
 
+    context.isTorsoArmor = itemData.type === "armor" && itemData.system.slot === "torso";
+
     context.DARKSOULS = CONFIG.DARKSOULS;
 
     return context;
