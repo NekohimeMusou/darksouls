@@ -15,7 +15,7 @@
                 "attackIsMagical": false
             },
             "resist": {
-                "resistances": {
+                "resist": {
                     "poison": 0,
                     "bleeding": 0,
                     "dark": 0,
@@ -24,7 +24,7 @@
                     "fire": 0,
                     "lightning": 0
                 },
-                "weaknesses": {
+                "weakness": {
                     "poison": 0,
                     "bleeding": 0,
                     "dark": 0,
