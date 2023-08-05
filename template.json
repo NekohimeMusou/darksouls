@@ -104,7 +104,8 @@
         "types": ["armor", "ring", "consumable"],
         "templates": {
             "base": {
-                "description": ""
+                "description": "",
+                "editLocked": false
             },
             "equippable": {
                 "equipped": false

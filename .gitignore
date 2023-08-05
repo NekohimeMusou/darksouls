@@ -1,3 +1,9 @@
+# FVTT symlinks for intellisense
+
+fvtt/
+
+packs/**
+
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,node
 
@@ -161,11 +167,3 @@ dist
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,node
-
-# FVTT symlinks for intellisense
-
-fvtt/
-
-# Ignore packs until I figure out how to serialize them
-
-packs/

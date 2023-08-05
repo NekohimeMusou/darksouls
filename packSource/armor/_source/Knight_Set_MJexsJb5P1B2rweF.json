@@ -1,0 +1,19 @@
+{
+  "name": "Knight Set",
+  "sorting": "a",
+  "folder": null,
+  "type": "Item",
+  "_id": "MJexsJb5P1B2rweF",
+  "sort": 500000,
+  "color": null,
+  "flags": {},
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.5.1",
+    "coreVersion": "11.307",
+    "createdTime": 1691213326009,
+    "modifiedTime": 1691217374005,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "_key": "!folders!MJexsJb5P1B2rweF"
+}

@@ -18,28 +18,28 @@
     <div class="tab attributes" data-group="primary" data-tab="attributes">
       <div class="grid grid-2col">
         <div class="resource">
+          <label class="resource-label">{{localize "DARKSOULS.Quantity"}}</label>
+          <input type="text" name="system.qty" value="{{system.qty}}" data-dtype="Number"/>
+        </div>
+        <div class="resource">
           <label class="resource-label">{{localize "DARKSOULS.Type"}}</label>
-          <select name="system.consumableType">
+          <select name="system.consumableType" {{disabled editLocked}}>
             {{selectOptions DARKSOULS.consumableTypes selected=system.consumableType localize=true}}
           </select>
         </div>
         <div class="resource">
           <label class="resource-label">{{localize "DARKSOULS.Set"}}</label>
-          <input type="text" name="system.set" value="{{system.set}}" data-dtype="Number"/>
+          <input type="text" name="system.set" value="{{system.set}}" data-dtype="Number" {{disabled editLocked}}/>
         </div>
         <div class="resource">
           <label class="resource-label">{{localize "DARKSOULS.Value"}}</label>
-          <input type="text" name="system.value" value="{{system.value}}" data-dtype="Number"/>
-        </div>
-        <div class="resource">
-          <label class="resource-label">{{localize "DARKSOULS.Quantity"}}</label>
-          <input class="qty-field" type="number" value="{{system.qty}}" data-dtype="Number"/>
+          <input type="text" name="system.value" value="{{system.value}}" data-dtype="Number" {{disabled editLocked}}/>
         </div>
       </div>
     </div>
     {{!-- Description Tab --}}
     <div class="tab" data-group="primary" data-tab="description">
-      {{editor system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
+      {{> "systems/darksouls/templates/item/parts/tab-description.html"}}
     </div>
   </section>
 </form>

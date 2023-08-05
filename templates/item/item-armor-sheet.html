@@ -9,7 +9,7 @@
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
     <a class="item" data-tab="attributes">{{localize "DARKSOULS.Attributes"}}</a>
-    <a class="item" data-tab="effects">{{localize "DARKSOULS.Effects"}}</a>
+    {{#if isTorsoArmor}}<a class="item" data-tab="effects">{{localize "DARKSOULS.Effects"}}</a>{{/if}}
     <a class="item" data-tab="description">{{localize "DARKSOULS.Description"}}</a>
   </nav>
 
@@ -19,38 +19,40 @@
     <div class="tab attributes" data-group="primary" data-tab="attributes">
       <div class="grid grid-2col">
         <div class="resource">
+          <label class="resource-label">{{localize "DARKSOULS.Quantity"}}</label>
+          <input type="text" name="system.qty" value="{{system.qty}}" data-dtype="Number"/>
+        </div>
+        <div class="resource">
           <label class="resource-label">{{localize "DARKSOULS.ArmorSlot"}}</label>
-          <select name="system.slot">
+          <select name="system.slot" {{disabled editLocked}}>
             {{selectOptions DARKSOULS.armorSlots selected=system.slot localize=true}}
           </select>
         </div>
         <div class="resource">
-          <label class="resource-label">{{localize "DARKSOULS.Weight"}}</label>
-          <input type="text" name="system.weight" value="{{system.weight}}" data-dtype="Number"/>
-        </div>
-        <div class="resource">
           <label class="resource-label">{{localize "DARKSOULS.PhysicalDefense"}}</label>
-          <input type="text" name="system.physDef" value="{{system.physDef}}" data-dtype="Number"/>
+          <input type="text" name="system.physDef" value="{{system.physDef}}" data-dtype="Number" {{disabled editLocked}}/>
         </div>
         <div class="resource">
           <label class="resource-label">{{localize "DARKSOULS.MagicDefense"}}</label>
-          <input type="text" name="system.magDef" value="{{system.magDef}}" data-dtype="Number"/>
-        </div>
-      </div>
-      <div class="flexrow">
-        <div class="resource">
-          <label class="resource-label">{{localize "DARKSOULS.Value"}}</label>
-          <input type="text" name="system.value" value="{{system.value}}" data-dtype="Number"/>
+          <input type="text" name="system.magDef" value="{{system.magDef}}" data-dtype="Number" {{disabled editLocked}}/>
         </div>
         <div class="resource">
-          <label class="resource-label">{{localize "DARKSOULS.Quantity"}}</label>
-          <input type="text" name="system.qty" value="{{system.qty}}" data-dtype="Number"/>
+          <label class="resource-label">{{localize "DARKSOULS.Weight"}}</label>
+          <input type="text" name="system.weight" value="{{system.weight}}" data-dtype="Number" {{disabled editLocked}}/>
+        </div>
+        <div class="flexrow">
+          <div class="resource">
+            <label class="resource-label">{{localize "DARKSOULS.Value"}}</label>
+            <input type="text" name="system.value" value="{{system.value}}" data-dtype="Number" {{disabled editLocked}}/>
+          </div>
         </div>
       </div>
+      {{#unless editLocked}}
       <div class="resource">
         <label class="resource-label">{{localize "DARKSOULS.SetId"}}</label>
-        <input type="text" name="system.setId" value="{{system.setId}}" data-dtype="String"/>
+        <input type="text" name="system.setId" value="{{system.setId}}" data-dtype="String" {{disabled editLocked}}/>
       </div>
+      {{/unless}}
     </div>
     {{!-- Effects Tab --}}
     <div class="tab effects" data-group="primary" data-tab="effects">
@@ -58,7 +60,7 @@
     </div>
     {{!-- Description Tab --}}
     <div class="tab" data-group="primary" data-tab="description">
-      {{editor system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
+      {{> "systems/darksouls/templates/item/parts/tab-description.html"}}
     </div>
   </section>
 </form>

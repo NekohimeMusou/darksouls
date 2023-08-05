@@ -1,0 +1,19 @@
+{
+  "name": "Chain Set",
+  "sorting": "a",
+  "folder": null,
+  "type": "Item",
+  "_id": "syrpDiotMWDRwIjS",
+  "sort": 0,
+  "color": null,
+  "flags": {},
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.5.1",
+    "coreVersion": "11.307",
+    "createdTime": 1691212702204,
+    "modifiedTime": 1691217374005,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "_key": "!folders!syrpDiotMWDRwIjS"
+}

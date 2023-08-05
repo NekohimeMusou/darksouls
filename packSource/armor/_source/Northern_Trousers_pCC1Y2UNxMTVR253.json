@@ -1,0 +1,40 @@
+{
+  "name": "Northern Trousers",
+  "type": "armor",
+  "system": {
+    "description": "",
+    "locked": false,
+    "equipped": true,
+    "weight": 6,
+    "value": 600,
+    "qty": 1,
+    "slot": "legs",
+    "physDef": 6,
+    "magDef": 1,
+    "setId": "northern",
+    "setBonus": "Resistance (Cold 1)",
+    "soulValue": 0,
+    "editLocked": true
+  },
+  "img": "icons/svg/item-bag.svg",
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.5.1",
+    "coreVersion": "11.307",
+    "createdTime": 1688528174232,
+    "modifiedTime": 1691217374040,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "_id": "pCC1Y2UNxMTVR253",
+  "folder": "d4BvOXuf4EBsKDOT",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "_key": "!items!pCC1Y2UNxMTVR253"
+}

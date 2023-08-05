@@ -94,6 +94,8 @@
 
     "DARKSOULS.ItemConsumedMsg": "Item consumed.",
 
+    "DARKSOULS.IsItemLocked": "Locked?",
+
     "DARKSOULS.ConsumeItemByDefaultName": "Consume Items By Default",
     "DARKSOULS.ConsumeItemByDefaultHint": "Normally, holding Shift while clicking a consumable button on your sheet tab will consume the item. This option switches the default: clicking consumes, shift-clicking does not."
 }

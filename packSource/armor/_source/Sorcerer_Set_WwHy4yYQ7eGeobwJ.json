@@ -1,0 +1,19 @@
+{
+  "name": "Sorcerer Set",
+  "sorting": "a",
+  "folder": null,
+  "type": "Item",
+  "_id": "WwHy4yYQ7eGeobwJ",
+  "sort": 1100000,
+  "color": null,
+  "flags": {},
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.5.1",
+    "coreVersion": "11.307",
+    "createdTime": 1691213371343,
+    "modifiedTime": 1691217374005,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "_key": "!folders!WwHy4yYQ7eGeobwJ"
+}

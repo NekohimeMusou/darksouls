@@ -1,0 +1,30 @@
+{
+  "name": "Poison Resist Bonus",
+  "icon": "icons/svg/aura.svg",
+  "origin": "Item.HhWgg9w4EysIG8Z8",
+  "duration": {
+    "startTime": null,
+    "seconds": null,
+    "combat": null,
+    "rounds": null,
+    "turns": null,
+    "startRound": null,
+    "startTurn": null
+  },
+  "disabled": false,
+  "_id": "gnEPLVS8H6xjKxqc",
+  "changes": [
+    {
+      "key": "system.resist.poison",
+      "mode": 2,
+      "value": "1",
+      "priority": null
+    }
+  ],
+  "description": "",
+  "transfer": true,
+  "statuses": [],
+  "flags": {},
+  "tint": null,
+  "_key": "!items.effects!HhWgg9w4EysIG8Z8.gnEPLVS8H6xjKxqc"
+}

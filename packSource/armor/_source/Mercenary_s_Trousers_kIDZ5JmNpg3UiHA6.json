@@ -1,0 +1,36 @@
+{
+  "folder": "n1BmXdyRUtX4bySB",
+  "name": "Mercenary's Trousers",
+  "type": "armor",
+  "_id": "kIDZ5JmNpg3UiHA6",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "locked": false,
+    "equipped": false,
+    "weight": 6,
+    "value": 600,
+    "qty": 1,
+    "slot": "legs",
+    "physDef": 5,
+    "magDef": 2,
+    "setId": "mercenary",
+    "editLocked": true
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.5.1",
+    "coreVersion": "11.307",
+    "createdTime": 1691214240539,
+    "modifiedTime": 1691217374040,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "_key": "!items!kIDZ5JmNpg3UiHA6"
+}
