@@ -11,6 +11,7 @@
 
     "DARKSOULS.Stats": "Stats",
     "DARKSOULS.Consumables": "Consumables",
+    "DARKSOULS.Weapons": "Weapons",
     "DARKSOULS.Attributes": "Attributes",
     "DARKSOULS.Armor": "Armor",
     "DARKSOULS.Rings": "Rings",
@@ -111,12 +112,15 @@
     "DARKSOULS.Shield": "Shield",
 
     "DARKSOULS.AttackCost": "Attack Cost",
+    "DARKSOULS.AtkCost": "Atk Cost",
     "DARKSOULS.Damage": "Damage",
     "DARKSOULS.Dmg1H": "1H",
     "DARKSOULS.Dmg2H": "2H",
     "DARKSOULS.Chain": "Chain",
     "DARKSOULS.PowerMods": "Power Mods",
     "DARKSOULS.EnhancementLevel": "Enhancement Level",
+
+    "DARKSOULS.Wielded": "Wielded",
 
     "DARKSOULS.EffectCreate": "Create Effect",
     "DARKSOULS.EffectToggle": "Toggle Effect",
@@ -125,6 +129,7 @@
     "DARKSOULS.Add": "Add",
 
     "DARKSOULS.TooManyConsumablesMsg": "Can't equip more than 3 consumables.",
+    "DARKSOULS.TooManyWeaponsMsg": "Can't equip more than 3 weapons.",
     "DARKSOULS.TooManyRingsMsg": "Can't equip more than 2 rings.",
 
     "DARKSOULS.ItemConsumedMsg": "Item consumed.",

@@ -7,6 +7,7 @@
     {{!-- Default tab is defined in actor-sheet.mjs --}}
     <a class="item" data-tab="stats">{{localize "DARKSOULS.Stats"}}</a>
     <a class="item" data-tab="consumables">{{localize "DARKSOULS.Consumables"}}</a>
+    <a class="item" data-tab="weapons">{{localize "DARKSOULS.Weapons"}}</a>
     <a class="item" data-tab="armor">{{localize "DARKSOULS.Armor"}}</a>
     <a class="item" data-tab="rings">{{localize "DARKSOULS.Rings"}}</a>
     <a class="item" data-tab="effects">{{localize "DARKSOULS.Effects"}}</a>
@@ -23,6 +24,11 @@
     {{!-- Consumables Tab --}}
     <div class="tab consumables" data-group="primary" data-tab="consumables">
       {{> "systems/darksouls/templates/actor/parts/tab-consumables.html"}}
+    </div>
+
+    {{!-- Weapons Tab --}}
+    <div class="tab weapons" data-group="primary" data-tab="weapons">
+      {{> "systems/darksouls/templates/actor/parts/tab-weapons.html"}}
     </div>
 
     {{!-- Armor Tab --}}

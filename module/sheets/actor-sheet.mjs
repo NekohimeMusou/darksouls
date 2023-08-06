@@ -26,6 +26,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     DarkSoulsActorSheet.#prepareArmor(context);
     DarkSoulsActorSheet.#prepareConsumables(context);
     DarkSoulsActorSheet.#prepareRings(context);
+    DarkSoulsActorSheet.#prepareWeapons(context);
 
     context.equippedItems = actorData.system.equippedItems;
 
@@ -44,12 +45,12 @@ export default class DarkSoulsActorSheet extends ActorSheet {
   }
 
   static #prepareArmor(context) {
-    const armor = context.items.filter(item => item.type === "armor");
+    const armor = context.items.filter(i => i.type === "armor");
 
     const armorBySlot = {
-      head: armor.filter(item => item.system.slot === "head"),
-      torso: armor.filter(item => item.system.slot === "torso"),
-      legs: armor.filter(item => item.system.slot === "legs")
+      head: armor.filter(i => i.system.slot === "head"),
+      torso: armor.filter(i => i.system.slot === "torso"),
+      legs: armor.filter(i => i.system.slot === "legs")
     };
 
     context.armor = armor;
@@ -57,15 +58,24 @@ export default class DarkSoulsActorSheet extends ActorSheet {
   }
 
   static #prepareConsumables(context) {
-    const consumables = context.items.filter(item => item.type === "consumable");
+    const consumables = context.items.filter(i => i.type === "consumable");
 
     context.consumables = consumables;
   }
 
   static #prepareRings(context) {
-    const rings = context.items.filter(item => item.type === "ring");
+    const rings = context.items.filter(i => i.type === "ring");
 
     context.rings = rings;
+  }
+
+  static #prepareWeapons(context) {
+    const weapons = context.items.filter(i => i.type === "weapon");
+
+    const wieldedWeapons = weapons.filter(i => i.system.wielded);
+
+    context.weapons = weapons;
+    context.wieldedWeapons = wieldedWeapons;
   }
 
   static #addStatLabels(context) {
@@ -258,12 +268,11 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
     // Otherwise, check that we haven't exceeded the cap
     const equippedItems = this.actor.system.equippedItems[item.type];
-    const equipCap = CONFIG.DARKSOULS.equipmentCaps[item.type] || 0;
+    const equipCap = CONFIG.DARKSOULS.equipmentCaps[item.type]?.cap || 0;
 
     if (equipCap && equippedItems.length >= equipCap) {
       element.checked = false;
-      // Maybe change this later
-      const msg = item.type === "consumable" ? "DARKSOULS.TooManyConsumablesMsg" : "DARKSOULS.TooManyRingsMsg";
+      const msg = CONFIG.DARKSOULS.equipmentCaps[item.type]?.msg || "Unknown Item Equip Error";
       return ui.notifications.notify(game.i18n.localize(msg), "warning");
     }
 

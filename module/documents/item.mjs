@@ -57,7 +57,8 @@ export default class DarkSoulsItem extends Item {
 
     const equippedArmor = this.parent?.system?.equippedItems?.armor;
 
-    return !(this.system.equipped && (equippedArmor instanceof Object) && Object.values(equippedArmor).map(a => this.parent.items.get(a)).every(a => a?.system?.setId === this.system.setId));
+    return !(this.system.equipped && (equippedArmor instanceof Object) && Object.values(equippedArmor)
+      .map(i => this.parent.items.get(i)).every(i => i?.system?.setId === this.system.setId));
   }
 
   /**

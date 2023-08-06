@@ -48,8 +48,18 @@ DARKSOULS.consumableTypes = {
 };
 
 DARKSOULS.equipmentCaps = {
-  consumable: 3,
-  ring: 2
+  consumable: {
+    cap: 3,
+    msg: "DARKSOULS.TooManyConsumablesMsg"
+  },
+  weapon: {
+    cap: 3,
+    msg: "DARKSOULS.TooManyWeaponsMsg"
+  },
+  ring: {
+    cap: 2,
+    msg: "DARKSOULS.TooManyRingsMsg"
+  }
 };
 
 DARKSOULS.weaponSizes = {

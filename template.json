@@ -134,7 +134,8 @@
             "category": "dagger",
             "size": "small",
             "reqs": "",
-            "enhanceLevel": 0
+            "enhanceLevel": 0,
+            "wielded": false
         },
         "armor": {
             "templates": ["base", "equippable", "weight", "value", "quantity"],

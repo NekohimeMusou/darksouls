@@ -25,6 +25,7 @@ export default class DarkSoulsActor extends Actor {
 
     this.system.equippedItems = {};
 
+    this._prepareWeapons();
     this._prepareArmor();
     this._prepareEquipLoad();
     this._prepareConsumables();
@@ -79,9 +80,7 @@ export default class DarkSoulsActor extends Actor {
     const systemData = this.system;
 
     // Filter out all unequipped armor
-    const equipped = this.items.filter(
-      item => item.type === "armor" && item.system.equipped
-    );
+    const equipped = this.items.filter(i => i.type === "armor" && i.system.equipped);
 
     const equippedArmor = {
       head: equipped.find(i => i.system.slot === "head") || null,
@@ -106,9 +105,15 @@ export default class DarkSoulsActor extends Actor {
   }
 
   _prepareRings() {
-    const equippedRings = this.items.filter(item => item.type === "ring" && item.system.equipped);
+    const equippedRings = this.items.filter(i => i.type === "ring" && i.system.equipped);
 
     this.system.equippedItems["ring"] = equippedRings;
+  }
+
+  _prepareWeapons() {
+    const equippedWeapons = this.items.filter(i => i.type === "weapon" && i.system.equipped);
+
+    this.system.equippedItems["weapon"] = equippedWeapons;
   }
 
   _prepareEquipLoad() {
