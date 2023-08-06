@@ -126,7 +126,8 @@
                     "1h": 0,
                     "2h": 0
                 },
-                "powerMods": ["---", "---", "---"]
+                "powerMods": [null, null, null],
+                "enhanceLevel": 0
             }
         },
         "weapon": {
@@ -134,7 +135,6 @@
             "category": "dagger",
             "size": "small",
             "reqs": "",
-            "enhanceLevel": 0,
             "wielded": false
         },
         "armor": {

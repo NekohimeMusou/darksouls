@@ -11,8 +11,46 @@ export default class DarkSoulsItem extends Item {
      * Augment item data with additional dynamic data.
      */
   prepareDerivedData() {
-    const itemData = this;
-    const flags = itemData.flags.darksouls || {};
+    const flags = this.flags.darksouls || {};
+
+    this._prepareWeaponData();
+  }
+
+  _prepareWeaponData() {
+    if (!this.type === "weapon") return;
+
+    const systemData = this.system;
+
+    // Calculate modified damage
+    systemData.totalDmg = {
+      "1h": this._calcDamage("1h"),
+      "2h": this._calcDamage("2h")
+    };
+  }
+
+  _calcDamage(grip) {
+    const baseDmg = this.system.baseDmg?.[grip] || 0;
+    const statModBonus = this._powerModBonus;
+    const enhanceBonus = this._enhanceBonus;
+
+    return baseDmg + statModBonus + enhanceBonus;
+  }
+
+  get _powerModBonus() {
+    const powerMods = Object.values(this.system?.powerMods ?? {});
+    const playerStats = this.actor?.system?.stats;
+
+    return powerMods?.reduce?.((total, stat) => total + (playerStats?.[stat]?.mod || 0), 0) || 0;
+  }
+
+  get _enhanceBonus() {
+    const weaponSize = this.system?.size;
+    
+    const enhanceLevel = this.system?.enhanceLevel || 0;
+
+    const enhanceMultiplier = CONFIG.DARKSOULS.weaponSizes?.[weaponSize]?.enhanceMultiplier || 0;
+
+    return enhanceLevel * enhanceMultiplier;
   }
 
   /**

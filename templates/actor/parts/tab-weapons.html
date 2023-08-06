@@ -4,9 +4,9 @@
       <div class="item-name">{{localize "DARKSOULS.Name"}}</div>
       <div class="item-equipped">{{localize "DARKSOULS.Equipped"}}</div>
       <div class="qty">{{localize "DARKSOULS.Qty"}}</div>
-      <div class="category-size">{{localize "DARKSOULS.Category"}}/{{localize "DARKSOULS.Size"}}</div>
+      <div class="category-size">{{localize "DARKSOULS.Category"}}</div>
       <div class="atk-cost">{{localize "DARKSOULS.AtkCost"}}</div>
-      <div class="dmg">{{localize "DARKSOULS.Dmg1H"}}/{{localize "DARKSOULS.Dmg2H"}}</div>
+      <div class="dmg">{{localize "DARKSOULS.Dmg"}}</div>
       <div class="wgt">{{localize "DARKSOULS.Wgt"}}</div>
       <div class="item-controls">
         <a class="item-control item-create" title="Create item" data-type="weapon"><i class="fas fa-plus"></i> Add item</a>
@@ -27,7 +27,7 @@
       </div>
       {{!-- Qty --}}
       <div class="qty item-prop">
-        <input type="number" class="qty-field" name="item.system.qty" min="0" value="{{item.system.qty}}" data-dtype="Number" disabled/>
+        <input type="number" class="qty-field" value="{{item.system.qty}}" data-dtype="Number" disabled/>
       </div>
       {{!-- Category/Size --}}
       <div class="category-size item-prop">
@@ -38,7 +38,7 @@
       {{!-- 1H/2H damage --}}
       <div class="dmg item-prop">
         {{!-- TODO: Calculate 1HIT damage in JS --}}
-        -/-
+        {{#if item.system.baseDmg.1h}}{{item.system.totalDmg.1h}}{{else}}—{{/if}}/{{#if item.system.baseDmg.2h}}{{item.system.totalDmg.2h}}{{else}}—{{/if}}
       </div>
       {{!-- Wgt --}}
       <div class="wgt item-prop">{{system.weight}}</div>

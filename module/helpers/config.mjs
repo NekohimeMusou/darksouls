@@ -65,27 +65,20 @@ DARKSOULS.equipmentCaps = {
 DARKSOULS.weaponSizes = {
   small: {
     name: "DARKSOULS.Small",
-    enhanceBonus: 2
+    enhanceMultiplier: 2
   },
   medium: {
     name: "DARKSOULS.Medium",
-    enhanceBonus: 3
+    enhanceMultiplier: 3
   },
   large: {
     name: "DARKSOULS.Large",
-    enhanceBonus: 4
+    enhanceMultiplier: 4
   },
   special: {
     name: "DARKSOULS.Special",
-    enhanceBonus: 5
+    enhanceMultiplier: 5
   }
-};
-
-DARKSOULS.baseEnhanceBonus = {
-  small: 2,
-  medium: 3,
-  large: 4,
-  special: 5
 };
 
 DARKSOULS.weaponCategories = {
