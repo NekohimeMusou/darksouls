@@ -1,5 +1,8 @@
 {
     "files.associations": {
         "*.html": "handlebars"
+    },
+    "[html][handlebars]": {
+        "editor.tabSize": 2
     }
 }
