@@ -101,7 +101,7 @@
     },
     "Item":
     {
-        "types": ["armor", "ring", "consumable"],
+        "types": ["weapon", "armor", "ring", "consumable"],
         "templates": {
             "base": {
                 "description": "",
@@ -118,7 +118,23 @@
             },
             "quantity": {
                 "qty": 1
+            },
+            "attack": {
+                "attackCost": "",
+                "chain": false,
+                "baseDmg": {
+                    "1h": 0,
+                    "2h": 0
+                },
+                "powerMods": ["---", "---", "---"]
             }
+        },
+        "weapon": {
+            "templates": ["base", "equippable", "weight", "value", "quantity", "attack"],
+            "category": "dagger",
+            "size": "small",
+            "reqs": "",
+            "enhanceLevel": 0
         },
         "armor": {
             "templates": ["base", "equippable", "weight", "value", "quantity"],

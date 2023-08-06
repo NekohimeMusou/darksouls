@@ -51,3 +51,40 @@ DARKSOULS.equipmentCaps = {
   consumable: 3,
   ring: 2
 };
+
+DARKSOULS.weaponSizes = {
+  small: "DARKSOULS.Small",
+  medium: "DARKSOULS.Medium",
+  large: "DARKSOULS.Large",
+  special: "DARKSOULS.Special",
+};
+
+DARKSOULS.baseEnhanceBonus = {
+  small: 2,
+  medium: 3,
+  large: 4,
+  special: 5
+};
+
+DARKSOULS.weaponCategories = {
+  dagger: "DARKSOULS.Dagger",
+  straightSword: "DARKSOULS.StraightSword",
+  greatsword: "DARKSOULS.Greatsword",
+  curvedSword: "DARKSOULS.CurvedSword",
+  thrustingSword: "DARKSOULS.ThrustingSword",
+  katana: "DARKSOULS.Katana",
+  axe: "DARKSOULS.Axe",
+  hammer: "DARKSOULS.Hammer",
+  greatHammer: "DARKSOULS.GreatHammer",
+  spear: "DARKSOULS.Spear",
+  halberd: "DARKSOULS.Halberd",
+  reaper: "DARKSOULS.Reaper",
+  whip: "DARKSOULS.Whip",
+  fist: "DARKSOULS.Fist",
+  catalyst: "DARKSOULS.Catalyst",
+  shield: "DARKSOULS.Shield"
+};
+
+const validPowerMods = ["str", "dex", "int", "fth", "luc"];
+
+DARKSOULS.powerMods = Object.fromEntries(validPowerMods.map(s => [s, s.toLocaleUpperCase()]));

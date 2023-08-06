@@ -83,6 +83,40 @@
     "DARKSOULS.Talisman": "Talisman",
     "DARKSOULS.Currency": "Currency",
 
+    "DARKSOULS.Prerequisites": "Prerequisites",
+
+    "DARKSOULS.Size": "Size",
+
+    "DARKSOULS.Small": "Small",
+    "DARKSOULS.Medium": "Medium",
+    "DARKSOULS.Large": "Large",
+
+    "DARKSOULS.Category": "Category",
+
+    "DARKSOULS.Dagger": "Dagger",
+    "DARKSOULS.StraightSword": "Straight Sword",
+    "DARKSOULS.CurvedSword": "Curved Sword",
+    "DARKSOULS.ThrustingSword": "Thrusting Sword",
+    "DARKSOULS.Katana": "Katana",
+    "DARKSOULS.Axe": "Axe",
+    "DARKSOULS.Hammer": "Hammer",
+    "DARKSOULS.GreatHammer": "Great Hammer",
+    "DARKSOULS.Spear": "Spear",
+    "DARKSOULS.Halberd": "Halberd",
+    "DARKSOULS.Reaper": "Reaper",
+    "DARKSOULS.Whip": "Whip",
+    "DARKSOULS.Fist": "Fist",
+    "DARKSOULS.Catalyst": "Catalyst",
+    "DARKSOULS.Shield": "Shield",
+
+    "DARKSOULS.AttackCost": "Attack Cost",
+    "DARKSOULS.Damage": "Damage",
+    "DARKSOULS.Dmg1H": "1H",
+    "DARKSOULS.Dmg2H": "2H",
+    "DARKSOULS.Chain": "Chain",
+    "DARKSOULS.PowerMods": "Power Mods",
+    "DARKSOULS.EnhancementLevel": "Enhancement Level",
+
     "DARKSOULS.EffectCreate": "Create Effect",
     "DARKSOULS.EffectToggle": "Toggle Effect",
     "DARKSOULS.EffectEdit": "Edit Effect",

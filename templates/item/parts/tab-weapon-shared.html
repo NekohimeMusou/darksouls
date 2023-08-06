@@ -1,0 +1,38 @@
+<div class="grid grid-2col">
+  {{!-- Row 1 --}}
+  <div class="resource">
+    <label class="resource-label">{{localize "DARKSOULS.Quantity"}}</label>
+    <input type="text" name="system.qty" value="{{system.qty}}" data-dtype="Number"/>
+  </div>
+  <div class="resource">
+    <label class="resource-label">{{localize "DARKSOULS.Prerequisites"}}</label>
+    <input type="text" name="system.reqs" value="{{system.reqs}}" data-dtype="String" {{disabled editLocked}}/>
+  </div>
+  {{!-- Row 2 --}}
+  <div class="resource">
+    <label class="resource-label">{{localize "DARKSOULS.Size"}}</label>
+    <select name="system.size" {{disabled editLocked}}>
+      {{selectOptions DARKSOULS.weaponSizes selected=system.size blank="---" localize=true}}
+    </select>
+  </div>
+  <div class="resource">
+    <label class="resource-label">{{localize "DARKSOULS.Category"}}</label>
+    <select name="system.category" {{disabled editLocked}}>
+      {{selectOptions DARKSOULS.weaponCategories selected=system.category blank="---" localize=true}}
+    </select>
+  </div>
+  {{!-- Row 3 --}}
+  <div class="resource">
+    <label class="resource-label">{{localize "DARKSOULS.Weight"}}</label>
+    <input type="text" name="system.weight" value="{{system.weight}}" data-dtype="Number" {{disabled editLocked}}/>
+  </div>
+  <div class="resource">
+    <label class="resource-label">{{localize "DARKSOULS.Value"}}</label>
+    <input type="text" name="system.value" value="{{system.value}}" data-dtype="Number" {{disabled editLocked}}/>
+  </div>
+  {{!-- Row 4 --}}
+  <div class="resource">
+    <label class="resource-label">{{localize "DARKSOULS.EnhancementLevel"}}</label>
+    <input type="number" name="system.enhanceLevel" value="{{system.enhanceLevel}}" min="0" max="5" data-dtype="Number" {{disabled editLocked}}/>
+  </div>
+</div>
