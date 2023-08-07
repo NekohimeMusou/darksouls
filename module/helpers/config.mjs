@@ -103,3 +103,5 @@ DARKSOULS.weaponCategories = {
 const validPowerMods = ["str", "dex", "int", "fth", "luc"];
 
 DARKSOULS.powerMods = Object.fromEntries(validPowerMods.map(s => [s, s.toLocaleUpperCase()]));
+
+DARKSOULS.chainHits = Object.fromEntries([1, 2, 3, 4].map(i => [i, `${i}HIT`]));

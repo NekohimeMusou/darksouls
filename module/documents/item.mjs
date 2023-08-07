@@ -26,6 +26,10 @@ export default class DarkSoulsItem extends Item {
       "1h": this._calcDamage("1h"),
       "2h": this._calcDamage("2h")
     };
+
+    if (!systemData.chain) {
+      systemData.chainHits = 1;
+    }
   }
 
   _calcDamage(grip) {

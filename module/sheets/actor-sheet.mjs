@@ -128,6 +128,10 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     html.find(".roll-stat").click(this.#onStatRoll.bind(this));
     // Damage calculation
     html.find(".click-damage").click(this.#onDamageCalc.bind(this));
+    // Weapon attack
+    html.find(".click-weapon-attack").click(this.#onWeaponAttack.bind(this));
+    // Weapon chain hits
+    html.find(".item-chain-hits").change(this.#onChainSelect.bind(this));
     // Equip armor
     html.find(".item-select").change(this.#onItemSelect.bind(this));
     // Equip consumables
@@ -308,5 +312,33 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     }
 
     return await item.showChatCard({itemConsumed});
+  }
+
+  async #onWeaponAttack(event) {
+    event.preventDefault();
+
+    // Get the item this event is attached to
+    const element = event.currentTarget;
+    const dataset = element.closest(".item").dataset;
+    const itemId = dataset.itemId;
+    const item = this.actor.items.get(itemId) || null;
+
+    // If it's not a valid item, don't do anything else
+    if (!item) return;
+  }
+
+  async #onChainSelect(event) {
+    event.preventDefault();
+
+    // Get the item this event is attached to
+    const element = event.currentTarget;
+    const dataset = element.closest(".item").dataset;
+    const itemId = dataset.itemId;
+    const item = this.actor.items.get(itemId) || null;
+
+    // If it's not a valid item, don't do anything else
+    if (!item) return;
+
+    return await item.update({"system.chainHits": element.value});
   }
 }

@@ -122,6 +122,7 @@
             "attack": {
                 "attackCost": "",
                 "chain": false,
+                "chainHits": 1,
                 "baseDmg": {
                     "1h": 0,
                     "2h": 0
