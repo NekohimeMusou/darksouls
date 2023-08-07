@@ -1,0 +1,20 @@
+<div class="weapons-pane">
+  <div class="resource-label flex-group-center flex0">{{localize "DARKSOULS.Weapons"}}</div>
+  <div class="items-list flexcol">
+    <ol class="items-list">
+      <li class="item flexrow items-header">
+        <div class="item-name">{{localize "DARKSOULS.Name"}}</div>
+      </li>
+      {{#each system.equippedItems.weapon as |item|}}
+      <li class="item flexrow" data-item-id="{{item._id}}">
+        <div class="item-name">
+          <div class="item-image">
+            <a class="use-item"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></a>
+          </div>
+          <h4>{{name}}</h4>
+        </div>
+      </li>
+      {{/each}}
+    </ol>
+  </div>
+</div>
