@@ -5,11 +5,11 @@
       <li class="item flexrow items-header">
         <div class="item-name">{{localize "DARKSOULS.Name"}}</div>
         {{!-- Wielded --}}
-        <div class="item-wielded">{{localize "DARKSOULS.Wielded"}}</div>
+        <div class="item-grip">{{localize "DARKSOULS.Grip"}}</div>
         {{!-- Dmg Dropdown --}}
         <div class="item-chain-hits">{{localize "DARKSOULS.Dmg"}}</div>
         {{!-- Atk Cost --}}
-        <div class="item-atk-cost">{{localize "DARKSOULS.AttackCost"}}</div>
+        <div class="item-atk-cost">{{localize "DARKSOULS.AtkCost"}}</div>
         {{!-- Category/size --}}
         <div class="category-size">{{localize "DARKSOULS.Category"}}</div>
         {{!-- Wgt --}}
@@ -21,12 +21,14 @@
           <div class="item-image">
             <a class="click-weapon-attack" id="weapon-attack-button"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></a>
           </div>
-          <h4><label for="weapon-attack-button">{{name}}</label></h4>
+          <h4>{{name}}</h4>
         </div>
         {{!-- Wielded --}}
         {{!-- Update this with logic to use hands --}}
-        <div class="item-wielded item-prop">
-          <input type="checkbox" class="wield-checkbox" {{checked item.system.wielded}}/>
+        <div class="item-grip item-prop">
+          <select class="wield-item">
+            {{selectOptions item.system.grips selected=item.system.currentGrip blank="———" localize=true}}
+          </select>
         </div>
         {{!-- Dmg Dropdown --}}
         {{!-- See if an event handler works w/o template.json? --}}
@@ -41,7 +43,7 @@
         </div>
         {{!-- Category/size --}}
         <div class="category-size item-prop">
-          {{localize (lookup ../DARKSOULS.weaponCategories item.system.category)}}/{{#with (lookup ../DARKSOULS.weaponSizes item.system.size) as |size|}}{{localize size.name}}{{/with}}
+          {{localize (lookup ../DARKSOULS.weaponCategories item.system.category)}} / {{#with (lookup ../DARKSOULS.weaponSizes item.system.size) as |size|}}{{localize size.name}}{{/with}}
         </div>
         {{!-- Wgt --}}
         <div class="wgt item-prop">{{item.system.weight}}</div>

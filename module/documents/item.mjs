@@ -30,6 +30,13 @@ export default class DarkSoulsItem extends Item {
     if (!systemData.chain) {
       systemData.chainHits = 1;
     }
+
+    const grips = [];
+
+    if (this.has1hGrip) grips.push(["1h", "DARKSOULS.1H"]);
+    if (this.has2hGrip) grips.push(["2h", "DARKSOULS.2H"]);
+
+    systemData.grips = Object.fromEntries(grips);
   }
 
   _calcDamage(grip) {

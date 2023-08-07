@@ -99,6 +99,7 @@
     "DARKSOULS.Dagger": "Dagger",
     "DARKSOULS.StraightSword": "Straight Sword",
     "DARKSOULS.CurvedSword": "Curved Sword",
+    "DARKSOULS.Greatsword": "Greatsword",
     "DARKSOULS.ThrustingSword": "Thrusting Sword",
     "DARKSOULS.Katana": "Katana",
     "DARKSOULS.Axe": "Axe",
@@ -122,7 +123,7 @@
     "DARKSOULS.PowerMods": "Power Mods",
     "DARKSOULS.EnhancementLevel": "Enhancement Level",
 
-    "DARKSOULS.Wielded": "Wielded",
+    "DARKSOULS.Grip": "Grip",
 
     "DARKSOULS.EffectCreate": "Create Effect",
     "DARKSOULS.EffectToggle": "Toggle Effect",
