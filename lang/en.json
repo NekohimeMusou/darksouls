@@ -32,6 +32,7 @@
     "DARKSOULS.Faith": "Faith",
     "DARKSOULS.Luck": "Luck",
 
+    "DARKSOULS.Physical": "Physical",
     "DARKSOULS.Poison": "Poison",
     "DARKSOULS.Bleeding": "Bleeding",
     "DARKSOULS.Dark": "Dark",
@@ -115,8 +116,8 @@
     "DARKSOULS.AtkCost": "Atk Cost",
     "DARKSOULS.Damage": "Damage",
     "DARKSOULS.Dmg": "Dmg",
-    "DARKSOULS.Dmg1H": "1H",
-    "DARKSOULS.Dmg2H": "2H",
+    "DARKSOULS.1H": "1H",
+    "DARKSOULS.2H": "2H",
     "DARKSOULS.Chain": "Chain",
     "DARKSOULS.PowerMods": "Power Mods",
     "DARKSOULS.EnhancementLevel": "Enhancement Level",
@@ -132,6 +133,7 @@
     "DARKSOULS.TooManyConsumablesMsg": "Can't equip more than 3 consumables.",
     "DARKSOULS.TooManyWeaponsMsg": "Can't equip more than 3 weapons.",
     "DARKSOULS.TooManyRingsMsg": "Can't equip more than 2 rings.",
+    "DARKSOULS.TooManyWieldedMsg": "Your hands are full!",
 
     "DARKSOULS.ItemConsumedMsg": "Item consumed.",
 
