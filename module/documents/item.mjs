@@ -57,6 +57,18 @@ export default class DarkSoulsItem extends Item {
     return enhanceLevel * enhanceMultiplier;
   }
 
+  get has1hGrip() {
+    const systemData = this.system;
+
+    return this.type === "weapon" && (Boolean(systemData?.baseDmg?.["1h"]) || systemData.category === "catalyst" || systemData.category === "shield");
+  }
+
+  get has2hGrip() {
+    const systemData = this.system;
+
+    return Boolean(systemData?.baseDmg?.["2h"]);
+  }
+
   /**
      * Prepare a data object which is passed to any Roll formulas which are created related to this Item
      * @override

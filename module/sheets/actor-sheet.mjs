@@ -136,6 +136,8 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     html.find(".item-select").change(this.#onItemSelect.bind(this));
     // Equip consumables
     html.find(".item-equip-checkbox").change(this.#onItemEquip.bind(this));
+    // Wield weapons
+    html.find(".wield-checkbox").change(this.#onWield.bind(this));
     // Use item
     html.find(".use-item").click(this.#onItemUse.bind(this));
   }
@@ -314,6 +316,21 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     return await item.showChatCard({itemConsumed});
   }
 
+  async #onWield(event) {
+    event.preventDefault();
+
+    // Get the item this event is attached to
+    const element = event.currentTarget;
+    const dataset = element.closest(".item").dataset;
+    const itemId = dataset.itemId;
+    const item = this.actor.items.get(itemId) || null;
+
+    // If it's not a valid item, don't do anything else
+    if (!item) return;
+
+    // TODO: Weapon wielding logic
+  }
+
   async #onWeaponAttack(event) {
     event.preventDefault();
 
@@ -325,6 +342,19 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
     // If it's not a valid item, don't do anything else
     if (!item) return;
+
+    const wieldedWeapons = this.actor.items.filter(i => i.system.wielded);
+
+    // If this has a 2h grip and is the only weapon wielded, use the 2h damage
+    const grip = wieldedWeapons.length === 1 && item.has2hGrip ? "2h" : "1h";
+
+    const baseDmg = item.system.totalDmg?.[grip] || 0;
+
+    const chain = item.system?.chainHits || 1;
+
+    const chainDmg = baseDmg * chain;
+
+    // TODO: Show the chat card, etc; refer to the damage event handler
   }
 
   async #onChainSelect(event) {
