@@ -11,15 +11,15 @@
       </li>
       {{#each system.equippedItems.armor as |item slot|}}
       <li class="item flexrow" data-item-id="{{item._id}}">
-        <div class="item-prop">
+        <div class="item-prop flexlarge">
           <select class="item-select" name="system.equippedItems.armor.{{slot}}">
             {{selectOptions (lookup ../armorBySlot slot) selected=item._id nameAttr="_id" labelAttr="name" blank="---"}}
           </select>
         </div>
         <div class="armor-slot item-prop">{{localize (lookup ../DARKSOULS.armorSlots slot)}}</div>
-        <div class="armor-physdef item-prop">{{system.physDef}}</div>
-        <div class="armor-magdef item-prop">{{system.magDef}}</div>
-        <div class="item-weight item-prop">{{system.weight}}</div>
+        <div class="armor-physdef item-prop">{{ifThen system.physDef system.physDef "—"}}</div>
+        <div class="armor-magdef item-prop">{{ifThen system.magDef system.magDef "—"}}</div>
+        <div class="item-weight item-prop">{{ifThen system.weight system.weight "—"}}</div>
       </li>
       {{/each}}
     </ol>

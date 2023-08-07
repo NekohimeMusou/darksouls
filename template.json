@@ -128,7 +128,7 @@
             "setId": ""
         },
         "consumable": {
-            "templates": ["base", "equippable", "value"],
+            "templates": ["base", "equippable", "value", "quantity"],
             "consumableType": "",
             "set": 1
         },
