@@ -29,6 +29,7 @@ DARKSOULS.evasion = [
 ];
 
 DARKSOULS.damageTypes = {
+  physical: "DARKSOULS.Physical",
   poison: "DARKSOULS.Poison",
   bleeding: "DARKSOULS.Bleeding",
   dark: "DARKSOULS.Dark",
@@ -36,6 +37,11 @@ DARKSOULS.damageTypes = {
   magic: "DARKSOULS.Magic",
   fire: "DARKSOULS.Fire",
   lightning: "DARKSOULS.Lightning"
+};
+
+DARKSOULS.damageCategories = {
+  phys: "DARKSOULS.Phys",
+  mag: "DARKSOULS.Mag"
 };
 
 DARKSOULS.consumableTypes = {

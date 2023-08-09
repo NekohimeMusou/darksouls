@@ -136,6 +136,8 @@
     "DARKSOULS.TooManyWeaponsMsg": "Can't equip more than 3 weapons.",
     "DARKSOULS.TooManyRingsMsg": "Can't equip more than 2 rings.",
     "DARKSOULS.HandsFullMsg": "Your hands are full!",
+    "DARKSOULS.NoTargetMsg": "You have no target.",
+    "DARKSOULS.HitYourselfMsg": "Why are you hitting yourself?!",
 
     "DARKSOULS.ItemConsumedMsg": "Item consumed.",
 

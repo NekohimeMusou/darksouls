@@ -36,11 +36,12 @@
   <div class="resource">
     <label class="resource-label">{{localize "DARKSOULS.DamageType"}}</label>
     <select name="system.damageType" {{disabled editLocked}}>
-      {{selectOptions ../DARKSOULS.damageTypes selected=system.damageType localize=true}}
+      {{selectOptions DARKSOULS.damageTypes selected=system.damageType localize=true}}
     </select>
   </div>
   <div class="resource">
     <label class="resource-label">{{localize "DARKSOULS.Magical"}}</label>
-    <input type="checkbox" {{checked system.magical}} {{disabled editLocked}}/>
+    {{!-- FIXTHIS: Disable the checkbox if editing is locked. --}}
+    <input type="checkbox" {{checked system.magical}} {{disabled attackIsPhysical}}/>
   </div>
 </div>

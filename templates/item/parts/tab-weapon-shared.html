@@ -10,15 +10,15 @@
   </div>
   {{!-- Row 2 --}}
   <div class="resource">
-    <label class="resource-label">{{localize "DARKSOULS.Size"}}</label>
-    <select name="system.size" {{disabled editLocked}}>
-      {{selectOptions DARKSOULS.weaponSizes selected=system.size labelAttr="name" localize=true}}
-    </select>
-  </div>
-  <div class="resource">
     <label class="resource-label">{{localize "DARKSOULS.Category"}}</label>
     <select name="system.category" {{disabled editLocked}}>
       {{selectOptions DARKSOULS.weaponCategories selected=system.category blank="---" localize=true}}
+    </select>
+  </div>
+  <div class="resource">
+    <label class="resource-label">{{localize "DARKSOULS.Size"}}</label>
+    <select name="system.size" {{disabled editLocked}}>
+      {{selectOptions DARKSOULS.weaponSizes selected=system.size labelAttr="name" localize=true}}
     </select>
   </div>
   {{!-- Row 3 --}}

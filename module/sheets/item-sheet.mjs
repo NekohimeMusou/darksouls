@@ -40,9 +40,11 @@ export default class DarkSoulsItemSheet extends ItemSheet {
       context.rollData = actor.getRollData();
     }
 
+    // Sort active effects into categories
     context.effects = prepareActiveEffectCategories(this.item.effects);
 
     context.editLocked = itemData.system.editLocked;
+    context.attackIsPhysical = itemData.system?.damageType === "physical";
 
     context.isTorsoArmor = itemData.type === "armor" && itemData.system.slot === "torso";
 

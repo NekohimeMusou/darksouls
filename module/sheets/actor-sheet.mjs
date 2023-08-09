@@ -269,7 +269,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     if (item.system.equipped) {
       const updates = {"_id": item.id, "system.equipped": false};
       if (item.type === "weapon") updates["system.wielded"] = false;
-      return await this.actor.updateEmbeddedDocuments("Item", updates);
+      return await this.actor.updateEmbeddedDocuments("Item", [updates]);
     } 
 
     // Otherwise, check that we haven't exceeded the cap
@@ -360,15 +360,60 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     // If it's not a valid item, don't do anything else
     if (!item || !item.type === "weapon") return;
 
-    const wieldedItems = this.actor.system.wieldedItems;
+    const targets = game.user.targets;
+
+    if (targets.size < 1) {
+      return await ui.notifications.info(game.i18n.localize("DARKSOULS.NoTargetMsg"));
+    }
 
     // If 2 weapons are wielded OR there's no 2H damage, use the 1H damage
-    const weaponDmg = item.system.totalDmg;
-    const dmg = (wieldedItems.length > 1 || !weaponDmg?.["2h"] ? weaponDmg?.["1h"] : weaponDmg?.["2h"]) || 0;
+    const wieldedItems = this.actor.system.wieldedItems;
+    const dmgValues = item.system.totalDmg;
+    const weaponDmg = (wieldedItems.length > 1 || !dmgValues?.["2h"] ? dmgValues?.["1h"] : dmgValues?.["2h"]) || 0;
+    const chainHits = item.system.chainHits;
+    const totalDmg = weaponDmg * chainHits;
 
-    const defenseType = item.system.magical ? "mag" : "phys";
+    const damageCategory = item.system.magical ? "mag" : "phys";
+    const damageType = item.system?.damageType ?? "unknown";
 
-    // Get target etc.
+    const damageStrings = [];
+
+    for (const target of targets) {
+      // If they have themselves targeted, make fun of 'em
+      if (Object.is(target.actor, this.actor)) {
+        ui.notifications.info(game.i18n.localize("DARKSOULS.HitYourselfMsg"));
+        continue;
+      }
+
+      const targetName = target.actor.name;
+      const targetData = target.actor.system;
+
+      const defense = targetData?.defense?.[damageCategory] || 0;
+      const resist = targetData?.resist?.[damageType] || 0;
+      const weakness = targetData?.weakness?.[damageType] || 0;
+
+      const HpDmg = Math.min(Math.ceil((totalDmg - defense) / 10), 7) + weakness - resist;
+
+      damageStrings.push(`<div>${targetName}: ${HpDmg} Damage</div>`);
+    }
+
+    // Build chat card
+    const damageTypeName = game.i18n.localize(CONFIG.DARKSOULS.damageTypes[damageType]);
+    const physOrMag = game.i18n.localize(CONFIG.DARKSOULS.damageCategories[damageCategory]);
+    // Don't attach a tag to "plain" physical damage
+    const damageTypeString = damageType === "physical" ? `${damageTypeName}` : `${damageTypeName} (${physOrMag})`;
+
+    const speaker = ChatMessage.getSpeaker();
+    const type = CONST.CHAT_MESSAGE_TYPES.OTHER;
+    const flavor = `${item.name}: ${totalDmg} ${damageTypeString}`;
+    const content = `<div>${this.actor.name} attacks! (${chainHits}HIT)</div>${damageStrings.join("")}`;
+
+    return ChatMessage.create({
+      speaker,
+      type,
+      flavor,
+      content
+    });
   }
 
   async #onChainSelect(event) {
