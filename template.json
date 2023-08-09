@@ -128,7 +128,9 @@
                     "2h": 0
                 },
                 "powerMods": [null, null, null],
-                "enhanceLevel": 0
+                "enhanceLevel": 0,
+                "magical": false,
+                "damageType": "physical"
             }
         },
         "weapon": {

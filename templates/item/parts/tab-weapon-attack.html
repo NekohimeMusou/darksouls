@@ -26,10 +26,21 @@
     <label class="resource-label">{{localize "DARKSOULS.PowerMods"}}</label>
     <div class="flexrow">
       {{#each system.powerMods as |mod|}}
-      <select name="system.powerMods.{{@index}}">
+      <select name="system.powerMods.{{@index}}" {{disabled editLocked}}>
         {{selectOptions ../DARKSOULS.powerMods selected=mod blank="---"}}
       </select>
       {{/each}}
     </div>
+  </div>
+  {{!-- Row 3 Damage Type, Magic --}}
+  <div class="resource">
+    <label class="resource-label">{{localize "DARKSOULS.DamageType"}}</label>
+    <select name="system.damageType" {{disabled editLocked}}>
+      {{selectOptions ../DARKSOULS.damageTypes selected=system.damageType localize=true}}
+    </select>
+  </div>
+  <div class="resource">
+    <label class="resource-label">{{localize "DARKSOULS.Magical"}}</label>
+    <input type="checkbox" {{checked system.magical}} {{disabled editLocked}}/>
   </div>
 </div>

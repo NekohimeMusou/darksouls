@@ -358,22 +358,15 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     const item = this.actor.items.get(itemId) || null;
 
     // If it's not a valid item, don't do anything else
-    if (!item) return;
+    if (!item || !item.type === "weapon") return;
 
     const wieldedItems = this.actor.system.wieldedItems;
 
-    // If this has a 2h grip and is the only weapon wielded, use the 2h damage
-    const grip = wieldedItems.length === 1 && item.has2hGrip ? "2h" : "1h";
-
-    const baseDmg = item.system.totalDmg?.[grip] || 0;
-
-    const chain = item.system?.chainHits || 1;
-
-    const chainDmg = baseDmg * chain;
-
-    // TODO: Show the chat card, etc; refer to the damage event handler
-
-    this.#onItemUse(event);
+    // If 2 weapons are wielded OR there's no 2H damage, use the 1H damage
+    const weaponDmg = item.system.totalDmg;
+    const dmg = (wieldedItems.length > 1 || !weaponDmg?.["2h"] ? weaponDmg?.["1h"] : weaponDmg?.["2h"]) || 0;
+    
+    
   }
 
   async #onChainSelect(event) {

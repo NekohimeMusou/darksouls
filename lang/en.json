@@ -46,7 +46,7 @@
 
     "DARKSOULS.DamagePaneHeader": "Damage Calculator",
     "DARKSOULS.DamageValue": "Damage Value",
-    "DARKSOULS.AttackIsMagical": "Magical?",
+    "DARKSOULS.Magical": "Magical",
     "DARKSOULS.Attack": "Attack",
 
     "DARKSOULS.PhysicalDefense": "Physical Defense",
@@ -122,6 +122,7 @@
     "DARKSOULS.Chain": "Chain",
     "DARKSOULS.PowerMods": "Power Mods",
     "DARKSOULS.EnhancementLevel": "Enhancement Level",
+    "DARKSOULS.DamageType": "Damage Type",
 
     "DARKSOULS.Wielded": "Wielded",
 
