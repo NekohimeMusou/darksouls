@@ -82,6 +82,6 @@ export default class DarkSoulsItemSheet extends ItemSheet {
 
     await item.update({"system.qty": qty});
 
-    if (item.parent instanceof Actor) item.parent.sheet.render(false);
+    if (item.parent instanceof Actor) await item.parent.sheet.render(false);
   }
 }

@@ -279,7 +279,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     if (equipCap && equippedItems.length >= equipCap) {
       element.checked = false;
       const msg = CONFIG.DARKSOULS.equipmentCaps[item.type]?.msg || "Unknown Item Equip Error";
-      return ui.notifications.notify(game.i18n.localize(msg), "warning");
+      return ui.notifications.notify(game.i18n.localize(msg), "info");
     }
 
     return await item.update({"system.equipped": true});
