@@ -5,7 +5,7 @@
       <li class="item flexrow items-header">
         <div class="item-name">{{localize "DARKSOULS.Name"}}</div>
         {{!-- Wielded --}}
-        <div class="item-grip">{{localize "DARKSOULS.Grip"}}</div>
+        <div class="item-wielded">{{localize "DARKSOULS.Wielded"}}</div>
         {{!-- Dmg Dropdown --}}
         <div class="item-chain-hits">{{localize "DARKSOULS.Dmg"}}</div>
         {{!-- Atk Cost --}}
@@ -24,11 +24,8 @@
           <h4>{{name}}</h4>
         </div>
         {{!-- Wielded --}}
-        {{!-- Update this with logic to use hands --}}
-        <div class="item-grip item-prop">
-          <select class="wield-item">
-            {{selectOptions item.system.grips selected=item.system.currentGrip blank="———" localize=true}}
-          </select>
+        <div class="item-wielded item-prop">
+          <input type="checkbox" class="item-wielded-control" {{checked item.system.wielded}}/>
         </div>
         {{!-- Dmg Dropdown --}}
         {{!-- See if an event handler works w/o template.json? --}}

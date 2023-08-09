@@ -113,7 +113,7 @@ export default class DarkSoulsActor extends Actor {
   _prepareWeapons() {
     const equippedWeapons = this.items.filter(i => i.type === "weapon" && i.system.equipped);
 
-    const wieldedItems = equippedWeapons.filter(i => i.system?.currentGrip);
+    const wieldedItems = equippedWeapons.filter(i => i.system?.wielded);
 
     this.system.wieldedItems = wieldedItems;
     this.system.equippedItems["weapon"] = equippedWeapons;
@@ -150,37 +150,5 @@ export default class DarkSoulsActor extends Actor {
     }
 
     return data;
-  }
-
-  // FIXTHIS: Doesn't work right
-  async wield(item, oldGrip, newGrip) {
-    const wieldedItems = this.system?.wieldedItems;
-    // If the grip didn't actually change, or we don't own the item, we're done
-    if (oldGrip === newGrip || !this.items.toObject().some(i => i._id === item._id) || !(wieldedItems instanceof Array)) return oldGrip;
-
-    // If new grip is 1h and both wielded items are 1h, complain and don't wield
-    if (newGrip === "1h" && wieldedItems.length > 1) {
-      ui.notifications.info(game.i18n.localize("DARKSOULS.TooManyWieldedMsg"));
-      return oldGrip;
-    }
-
-    // Previously wielded item(s) (filter out this one)
-    const otherWieldedItems = wieldedItems.filter(i => !Object.is(i, item));
-
-    const updates = [{"_id": item.id, "system.currentGrip": newGrip}];
-
-    if (newGrip === "2h") {
-      // If the new grip is 2h: unequip other items
-      updates.concat(otherWieldedItems.map(i => ({"_id": i.id, "system.currentGrip": ""})));
-    }
-    else if (newGrip === "1h") {
-      // If new grip is 1h, swap other item to 1h if possible, otherwise unequip
-      // don't need to check if other item is 2h due to first two checks
-      updates.concat(otherWieldedItems.map(i => ({"_id": i.id, "system.currentGrip": i.has1hGrip ? "1h" : ""})));
-    }
-
-    // Update the documents and return the new grip so the caller knows
-    await this.updateEmbeddedDocuments("Item", updates);
-    return newGrip;
   }
 }

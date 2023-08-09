@@ -133,9 +133,9 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     // Equip armor
     html.find(".item-select").change(this.#onItemSelect.bind(this));
     // Equip consumables
-    html.find(".item-equip-checkbox").change(this.#onItemEquip.bind(this));
+    html.find(".item-equip-control").change(this.#onItemEquip.bind(this));
     // Wield weapons
-    html.find(".wield-item").change(this.#onWield.bind(this));
+    html.find(".item-wielded-control").change(this.#onWield.bind(this));
     // Use item
     html.find(".use-item").click(this.#onItemUse.bind(this));
   }
@@ -267,7 +267,9 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
     // If it's already equipped, we don't have to check anything
     if (item.system.equipped) {
-      return await item.update({"system.equipped": false});
+      const updates = {"_id": item.id, "system.equipped": false};
+      if (item.type === "weapon") updates["system.wielded"] = false;
+      return await this.actor.updateEmbeddedDocuments("Item", updates);
     } 
 
     // Otherwise, check that we haven't exceeded the cap
@@ -321,14 +323,29 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     const element = event.currentTarget;
     const dataset = element.closest(".item").dataset;
     const itemId = dataset.itemId;
-    const item = this.actor.items.get(itemId) || null;
-    const oldGrip = item.system.currentGrip;
-    const newGrip = element.value;
+    const newItem = this.actor.items.get(itemId) || null;
 
-    // If it's not a valid item, don't do anything else
-    if (!item) return;
+    // Array of wielded items
+    const wieldedItems = this.actor.system?.wieldedItems;
 
-    element.value = this.actor.wield(item, oldGrip, newGrip);
+    if (!newItem || !(wieldedItems instanceof Array)) return;
+
+    // If the new item has a 1h grip and 2 items are already wielded, do nothing and complain
+    if (element.checked && newItem.has1hGrip && wieldedItems.length > 1) {
+      element.checked = false;
+      return await ui.notifications.info(game.i18n.localize("DARKSOULS.HandsFullMsg"));
+    }
+
+    const updates = [{"_id": newItem.id, "system.wielded": element.checked}];
+
+    // If the new item is 2h only or the old item was 2h only, un-wield all old items
+    if (element.checked && (newItem.is2hOnly || wieldedItems.some(i => i.is2hOnly))) {
+      const wieldedMap = wieldedItems.map(i => ({"_id": i.id, "system.wielded": false}));
+      updates.push(...wieldedMap);
+    }
+
+    // Update the items
+    this.actor.updateEmbeddedDocuments("Item", updates);
   }
 
   async #onWeaponAttack(event) {

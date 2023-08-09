@@ -123,7 +123,7 @@
     "DARKSOULS.PowerMods": "Power Mods",
     "DARKSOULS.EnhancementLevel": "Enhancement Level",
 
-    "DARKSOULS.Grip": "Grip",
+    "DARKSOULS.Wielded": "Wielded",
 
     "DARKSOULS.EffectCreate": "Create Effect",
     "DARKSOULS.EffectToggle": "Toggle Effect",
@@ -134,7 +134,7 @@
     "DARKSOULS.TooManyConsumablesMsg": "Can't equip more than 3 consumables.",
     "DARKSOULS.TooManyWeaponsMsg": "Can't equip more than 3 weapons.",
     "DARKSOULS.TooManyRingsMsg": "Can't equip more than 2 rings.",
-    "DARKSOULS.TooManyWieldedMsg": "Your hands are full!",
+    "DARKSOULS.HandsFullMsg": "Your hands are full!",
 
     "DARKSOULS.ItemConsumedMsg": "Item consumed.",
 

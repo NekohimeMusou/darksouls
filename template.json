@@ -136,7 +136,7 @@
             "category": "dagger",
             "size": "small",
             "reqs": "",
-            "currentGrip": ""
+            "wielded": false
         },
         "armor": {
             "templates": ["base", "equippable", "weight", "value", "quantity"],

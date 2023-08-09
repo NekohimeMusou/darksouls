@@ -30,13 +30,6 @@ export default class DarkSoulsItem extends Item {
     if (!systemData.chain) {
       systemData.chainHits = 1;
     }
-
-    const grips = [];
-
-    if (this.has1hGrip) grips.push(["1h", "DARKSOULS.1H"]);
-    if (this.has2hGrip) grips.push(["2h", "DARKSOULS.2H"]);
-
-    systemData.grips = Object.fromEntries(grips);
   }
 
   _calcDamage(grip) {
@@ -67,13 +60,19 @@ export default class DarkSoulsItem extends Item {
   get has1hGrip() {
     const systemData = this.system;
 
-    return this.type === "weapon" && (Boolean(systemData?.baseDmg?.["1h"]) || systemData.category === "catalyst" || systemData.category === "shield");
+    // It can be equipped in 1 hand if it has 1h base damage or if it's a catalyst or shield
+    return Boolean(systemData?.baseDmg?.["1h"]) || systemData.category === "catalyst" || systemData.category === "shield";
   }
 
   get has2hGrip() {
     const systemData = this.system;
 
+    // It can be equipped in 2 hands if it has 2h base damage
     return Boolean(systemData?.baseDmg?.["2h"]);
+  }
+
+  get is2hOnly() {
+    return this.has2hGrip && !this.has1hGrip;
   }
 
   /**
