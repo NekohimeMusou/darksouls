@@ -66,6 +66,8 @@
     "DARKSOULS.EquipLoadOver": "Over",
     "DARKSOULS.EvasionCost": "Evasion Cost",
 
+    "DARKSOULS.Cost": "Cost",
+
     "DARKSOULS.Value": "Value",
 
     "DARKSOULS.ArmorSlot": "Slot",
@@ -95,6 +97,7 @@
     "DARKSOULS.Special": "Special",
 
     "DARKSOULS.Category": "Category",
+    "DARKSOULS.CategoryShort": "Cat.",
 
     "DARKSOULS.Dagger": "Dagger",
     "DARKSOULS.StraightSword": "Straight Sword",
@@ -124,7 +127,7 @@
     "DARKSOULS.EnhancementLevel": "Enhancement Level",
     "DARKSOULS.DamageType": "Damage Type",
 
-    "DARKSOULS.Wielded": "Wielded",
+    "DARKSOULS.Ready": "Ready",
 
     "DARKSOULS.EffectCreate": "Create Effect",
     "DARKSOULS.EffectToggle": "Toggle Effect",

@@ -22,7 +22,7 @@ export default class DarkSoulsItem extends Item {
     const systemData = this.system;
 
     // Calculate modified damage
-    systemData.totalDmg = {
+    const totalDmg = {
       "1h": this._calcDamage("1h"),
       "2h": this._calcDamage("2h")
     };
@@ -30,6 +30,16 @@ export default class DarkSoulsItem extends Item {
     if (!systemData.chain) {
       systemData.chainHits = 1;
     }
+
+    const chainDmg = Object.fromEntries(
+      Object.keys(totalDmg).map(grip => [
+        grip,
+        Object.fromEntries([0, 1, 2, 3, 4]
+          .map(i => [i, i * totalDmg[grip]]))
+      ]));
+
+    systemData.totalDmg = totalDmg;
+    systemData.chainDmg = chainDmg;
   }
 
   _calcDamage(grip) {

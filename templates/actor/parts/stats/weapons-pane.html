@@ -3,21 +3,23 @@
   <div class="items-list flexcol">
     <ol class="items-list">
       <li class="item flexrow items-header">
-        <div class="item-name">{{localize "DARKSOULS.Name"}}</div>
+        <div class="item-name flex2">{{localize "DARKSOULS.Name"}}</div>
         {{!-- Wielded --}}
-        <div class="item-wielded">{{localize "DARKSOULS.Wielded"}}</div>
+        <div class="item-wielded">{{localize "DARKSOULS.Ready"}}</div>
         {{!-- Dmg Dropdown --}}
-        <div class="item-chain-hits">{{localize "DARKSOULS.Dmg"}}</div>
+        <div class="item-chain-hits">{{localize "DARKSOULS.Chain"}}</div>
+        {{!-- Damage (at selected chain) --}}
+        <div class="dmg">{{localize "DARKSOULS.Dmg"}}</div>
         {{!-- Atk Cost --}}
-        <div class="item-atk-cost">{{localize "DARKSOULS.AtkCost"}}</div>
+        <div class="item-atk-cost">{{localize "DARKSOULS.Cost"}}</div>
         {{!-- Category/size --}}
-        <div class="category-size">{{localize "DARKSOULS.Category"}}</div>
+        <div class="category-size">{{localize "DARKSOULS.CategoryShort"}}</div>
         {{!-- Wgt --}}
         <div class="wgt">{{localize "DARKSOULS.Wgt"}}</div>
       </li>
       {{#each system.equippedItems.weapon as |item|}}
       <li class="item flexrow" data-item-id="{{item._id}}">
-        <div class="item-name">
+        <div class="item-name flex2">
           <div class="item-image">
             <a class="click-weapon-attack" id="weapon-attack-button"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></a>
           </div>
@@ -33,6 +35,10 @@
           <select class="item-chain-hits" {{#unless item.system.chain}}disabled{{/unless}}>
             {{selectOptions ../DARKSOULS.chainHits  selected=item.system.chainHits}}
           </select>
+        </div>
+        {{!-- 1H/2H damage --}}
+        <div class="dmg item-prop">
+          {{#if item.system.baseDmg.1h}}{{lookup item.system.chainDmg.1h item.system.chainHits}}{{else}}—{{/if}}/{{#if item.system.baseDmg.2h}}{{lookup item.system.chainDmg.2h item.system.chainHits}}{{else}}—{{/if}}
         </div>
         {{!-- Atk Cost --}}
         <div class="item-atk-cost item-prop">

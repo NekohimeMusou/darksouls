@@ -328,7 +328,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     // Array of wielded items
     const wieldedItems = this.actor.system?.wieldedItems;
 
-    if (!newItem || !(wieldedItems instanceof Array)) return;
+    if (!newItem || !(Array.isArray(wieldedItems))) return;
 
     // If the new item has a 1h grip and 2 items are already wielded, do nothing and complain
     if (element.checked && newItem.has1hGrip && wieldedItems.length > 1) {
