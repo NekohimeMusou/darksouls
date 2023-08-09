@@ -6,25 +6,27 @@
   "img": "icons/svg/item-bag.svg",
   "system": {
     "description": "",
-    "locked": false,
+    "editLocked": true,
     "equipped": false,
     "weight": 0,
     "value": 300,
     "qty": 1,
     "slot": "head",
-    "physDef": 0,
-    "magDef": 1,
+    "defense": {
+      "phys": 0,
+      "mag": 1
+    },
     "setId": "master",
-    "editLocked": true
+    "locked": false
   },
   "effects": [],
   "flags": {},
   "_stats": {
     "systemId": "darksouls",
-    "systemVersion": "0.5.1",
+    "systemVersion": "0.6.1",
     "coreVersion": "11.307",
     "createdTime": 1691216895065,
-    "modifiedTime": 1691217374040,
+    "modifiedTime": 1691562974570,
     "lastModifiedBy": "tQQSVABlIfWe88A9"
   },
   "sort": 0,

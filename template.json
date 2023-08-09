@@ -143,8 +143,10 @@
         "armor": {
             "templates": ["base", "equippable", "weight", "value", "quantity"],
             "slot": "head",
-            "physDef": 0,
-            "magDef": 0,
+            "defense": {
+                "phys": 0,
+                "mag": 0
+            },
             "setId": ""
         },
         "consumable": {

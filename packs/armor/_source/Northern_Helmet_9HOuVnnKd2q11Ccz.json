@@ -3,18 +3,20 @@
   "type": "armor",
   "system": {
     "description": "",
-    "locked": false,
+    "editLocked": true,
     "equipped": true,
     "weight": 3,
     "value": 300,
     "qty": 1,
     "slot": "head",
-    "physDef": 3,
-    "magDef": 1,
+    "defense": {
+      "phys": 3,
+      "mag": 1
+    },
     "setId": "northern",
+    "locked": false,
     "setBonus": "Resistance (Cold 1)",
-    "soulValue": 0,
-    "editLocked": true
+    "soulValue": 0
   },
   "img": "icons/svg/item-bag.svg",
   "effects": [],
@@ -23,10 +25,10 @@
   },
   "_stats": {
     "systemId": "darksouls",
-    "systemVersion": "0.5.1",
+    "systemVersion": "0.6.1",
     "coreVersion": "11.307",
     "createdTime": 1688527745047,
-    "modifiedTime": 1691217374040,
+    "modifiedTime": 1691562974570,
     "lastModifiedBy": "tQQSVABlIfWe88A9"
   },
   "_id": "9HOuVnnKd2q11Ccz",

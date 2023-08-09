@@ -208,7 +208,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
       const targetName = targetToken.actor.name;
       const targetData = targetToken.actor.system;
 
-      const defensePower = (attackIsMagical ? (targetData.magDef) : (targetData.physDef)) || 0;
+      const defensePower = (attackIsMagical ? (targetData.defense["mag"]) : (targetData.defense["phys"])) || 0;
 
       const damage = Math.min(Math.ceil((attackPower - defensePower) / 10), 7);
 
@@ -365,8 +365,10 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     // If 2 weapons are wielded OR there's no 2H damage, use the 1H damage
     const weaponDmg = item.system.totalDmg;
     const dmg = (wieldedItems.length > 1 || !weaponDmg?.["2h"] ? weaponDmg?.["1h"] : weaponDmg?.["2h"]) || 0;
-    
-    
+
+    const defenseType = item.system.magical ? "mag" : "phys";
+
+    // Get target etc.
   }
 
   async #onChainSelect(event) {

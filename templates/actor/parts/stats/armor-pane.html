@@ -17,8 +17,8 @@
           </select>
         </div>
         <div class="armor-slot item-prop">{{localize (lookup ../DARKSOULS.armorSlots slot)}}</div>
-        <div class="armor-physdef item-prop">{{ifThen system.physDef system.physDef "—"}}</div>
-        <div class="armor-magdef item-prop">{{ifThen system.magDef system.magDef "—"}}</div>
+        <div class="armor-physdef item-prop">{{ifThen system.defense.phys system.defense.phys "—"}}</div>
+        <div class="armor-magdef item-prop">{{ifThen system.defense.mag system.defense.mag "—"}}</div>
         <div class="item-weight item-prop">{{ifThen system.weight system.weight "—"}}</div>
       </li>
       {{/each}}

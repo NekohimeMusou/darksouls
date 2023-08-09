@@ -23,8 +23,8 @@
         <input type="number" class="qty-field" name="item.system.qty" min="0" value="{{item.system.qty}}" data-dtype="Number" disabled/>
       </div>
       <div class="armor-slot item-prop">{{localize (lookup ../DARKSOULS.armorSlots item.system.slot)}}</div>
-      <div class="armor-physdef item-prop">{{system.physDef}}</div>
-      <div class="armor-magdef item-prop">{{system.magDef}}</div>
+      <div class="armor-physdef item-prop">{{system.defense.phys}}</div>
+      <div class="armor-magdef item-prop">{{system.defense.mag}}</div>
       <div class="item-weight item-prop">{{system.weight}}</div>
       <div class="item-controls">
         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
