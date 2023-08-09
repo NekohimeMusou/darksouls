@@ -25,6 +25,12 @@
     ],
     "packs": [
         {
+            "name": "weapons",
+            "label": "Weapons",
+            "system": "darksouls",
+            "type": "Item"
+        },
+        {
             "name": "armor",
             "label": "Armor",
             "system": "darksouls",
