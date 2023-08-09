@@ -141,6 +141,7 @@
     "DARKSOULS.HandsFullMsg": "Your hands are full!",
     "DARKSOULS.NoTargetMsg": "You have no target.",
     "DARKSOULS.HitYourselfMsg": "Why are you hitting yourself?!",
+    "DARKSOULS.NotWieldedMsg": "You aren't holding this weapon!",
 
     "DARKSOULS.ItemConsumedMsg": "Item consumed.",
 

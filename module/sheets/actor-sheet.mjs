@@ -360,6 +360,10 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     // If it's not a valid item, don't do anything else
     if (!item || !item.type === "weapon") return;
 
+    if (!item.system.wielded) {
+      return await ui.notifications.info(game.i18n.localize("DARKSOULS.NotWieldedMsg"));
+    }
+
     const targets = game.user.targets;
 
     if (targets.size < 1) {
