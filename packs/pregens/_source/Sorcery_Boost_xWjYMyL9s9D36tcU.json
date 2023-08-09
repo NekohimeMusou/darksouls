@@ -1,0 +1,30 @@
+{
+  "name": "Sorcery Boost",
+  "icon": "icons/svg/aura.svg",
+  "origin": "Item.4WTWL0eQMIywa8L9",
+  "duration": {
+    "startTime": 0,
+    "seconds": null,
+    "combat": null,
+    "rounds": null,
+    "turns": null,
+    "startRound": null,
+    "startTurn": null
+  },
+  "disabled": false,
+  "_id": "xWjYMyL9s9D36tcU",
+  "changes": [
+    {
+      "key": "system.spellPower.sorcery",
+      "mode": 2,
+      "value": "3",
+      "priority": null
+    }
+  ],
+  "description": "",
+  "transfer": true,
+  "statuses": [],
+  "flags": {},
+  "tint": null,
+  "_key": "!actors.items.effects!Ou4x2OfnSHjodB1m.gNae8az7wrnX3CtB.xWjYMyL9s9D36tcU"
+}

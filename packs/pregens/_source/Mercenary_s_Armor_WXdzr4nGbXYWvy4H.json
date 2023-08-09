@@ -1,0 +1,44 @@
+{
+  "folder": "n1BmXdyRUtX4bySB",
+  "name": "Mercenary's Armor",
+  "type": "armor",
+  "_id": "WXdzr4nGbXYWvy4H",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "editLocked": true,
+    "equipped": true,
+    "weight": 5,
+    "value": 1000,
+    "qty": 1,
+    "slot": "torso",
+    "defense": {
+      "phys": 4,
+      "mag": 3
+    },
+    "setId": "mercenary",
+    "physDef": 4,
+    "magDef": 3,
+    "locked": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Item.yB5O5waFBV65WeSe"
+    }
+  },
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.7.0",
+    "coreVersion": "11.307",
+    "createdTime": 1691214217568,
+    "modifiedTime": 1691623150942,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "_key": "!actors.items!yPI1SmIqB7CWOwQ7.WXdzr4nGbXYWvy4H"
+}

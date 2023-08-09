@@ -1,0 +1,44 @@
+{
+  "folder": "svyGI0JRbeEe20eM",
+  "name": "Thief Mask",
+  "type": "armor",
+  "_id": "LU1nIytJ9bRVQxEH",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "editLocked": true,
+    "equipped": true,
+    "weight": 1,
+    "value": 400,
+    "qty": 1,
+    "slot": "head",
+    "defense": {
+      "phys": 2,
+      "mag": 1
+    },
+    "setId": "fugitive",
+    "physDef": 2,
+    "magDef": 1,
+    "locked": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Item.yYa6oTdKg4hzjPFJ"
+    }
+  },
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.7.0",
+    "coreVersion": "11.307",
+    "createdTime": 1691215125418,
+    "modifiedTime": 1691623435003,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "_key": "!actors.items!5afPkDyef22pcxGw.LU1nIytJ9bRVQxEH"
+}

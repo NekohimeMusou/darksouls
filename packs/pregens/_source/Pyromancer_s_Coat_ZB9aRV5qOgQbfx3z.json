@@ -1,0 +1,46 @@
+{
+  "folder": "A7Qtq0dCW1opbPJD",
+  "name": "Pyromancer's Coat",
+  "type": "armor",
+  "_id": "ZB9aRV5qOgQbfx3z",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "editLocked": true,
+    "equipped": true,
+    "weight": 3,
+    "value": 1200,
+    "qty": 1,
+    "slot": "torso",
+    "defense": {
+      "phys": 1,
+      "mag": 4
+    },
+    "setId": "pyromancer",
+    "physDef": 1,
+    "magDef": 4,
+    "locked": false
+  },
+  "effects": [
+    "hawa8HLnhF4oess6"
+  ],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Item.Zm1DykVKlcDjGTis"
+    }
+  },
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.7.0",
+    "coreVersion": "11.307",
+    "createdTime": 1691217130606,
+    "modifiedTime": 1691623286475,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "_key": "!actors.items!wo5EdTNgtV6F6odH.ZB9aRV5qOgQbfx3z"
+}

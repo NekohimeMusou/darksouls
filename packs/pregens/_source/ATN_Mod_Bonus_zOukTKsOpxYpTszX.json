@@ -1,0 +1,30 @@
+{
+  "name": "ATN Mod Bonus",
+  "icon": "icons/svg/aura.svg",
+  "origin": "Item.enrBA9IPyJJ3R80O",
+  "duration": {
+    "startTime": 0,
+    "seconds": null,
+    "combat": null,
+    "rounds": null,
+    "turns": null,
+    "startRound": null,
+    "startTurn": null
+  },
+  "disabled": false,
+  "_id": "zOukTKsOpxYpTszX",
+  "changes": [
+    {
+      "key": "system.stats.atn.mod",
+      "mode": 2,
+      "value": "1",
+      "priority": null
+    }
+  ],
+  "description": "",
+  "transfer": true,
+  "statuses": [],
+  "flags": {},
+  "tint": null,
+  "_key": "!actors.items.effects!lNW5g0TPUbckttAt.WnUDHWXx3q1GK01a.zOukTKsOpxYpTszX"
+}

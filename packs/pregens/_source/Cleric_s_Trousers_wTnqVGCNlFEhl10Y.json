@@ -1,0 +1,44 @@
+{
+  "folder": "lzoPzxkE49sW0FXQ",
+  "name": "Cleric's Trousers",
+  "type": "armor",
+  "_id": "wTnqVGCNlFEhl10Y",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "editLocked": true,
+    "equipped": true,
+    "weight": 5,
+    "value": 600,
+    "qty": 1,
+    "slot": "legs",
+    "defense": {
+      "phys": 3,
+      "mag": 4
+    },
+    "setId": "cleric",
+    "physDef": 3,
+    "magDef": 4,
+    "locked": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Item.lQUxH0gVjzu32mOV"
+    }
+  },
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.7.0",
+    "coreVersion": "11.307",
+    "createdTime": 1691215100946,
+    "modifiedTime": 1691622900673,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "_key": "!actors.items!Zn8ZxYLbNIhFB8On.wTnqVGCNlFEhl10Y"
+}

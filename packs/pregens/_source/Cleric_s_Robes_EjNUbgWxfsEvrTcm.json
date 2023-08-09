@@ -1,0 +1,46 @@
+{
+  "folder": "lzoPzxkE49sW0FXQ",
+  "name": "Cleric's Robes",
+  "type": "armor",
+  "_id": "EjNUbgWxfsEvrTcm",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "editLocked": true,
+    "equipped": true,
+    "weight": 4,
+    "value": 700,
+    "qty": 1,
+    "slot": "torso",
+    "defense": {
+      "phys": 3,
+      "mag": 2
+    },
+    "setId": "cleric",
+    "physDef": 3,
+    "magDef": 2,
+    "locked": false
+  },
+  "effects": [
+    "p8K8Z24UWhLa0snk"
+  ],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Item.z0B4xc21vMv8morC"
+    }
+  },
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.7.0",
+    "coreVersion": "11.307",
+    "createdTime": 1691214976209,
+    "modifiedTime": 1691622899958,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "_key": "!actors.items!Zn8ZxYLbNIhFB8On.EjNUbgWxfsEvrTcm"
+}

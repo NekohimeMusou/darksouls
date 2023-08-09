@@ -1,0 +1,44 @@
+{
+  "folder": "A7Qtq0dCW1opbPJD",
+  "name": "Pyromancer's Hood",
+  "type": "armor",
+  "_id": "fDTAWJ8L8AkhKkIv",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "editLocked": true,
+    "equipped": true,
+    "weight": 3,
+    "value": 400,
+    "qty": 1,
+    "slot": "head",
+    "defense": {
+      "phys": 2,
+      "mag": 2
+    },
+    "setId": "pyromancer",
+    "physDef": 2,
+    "magDef": 2,
+    "locked": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Item.pppDDu8Q1qNaqvtg"
+    }
+  },
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.7.0",
+    "coreVersion": "11.307",
+    "createdTime": 1691217112228,
+    "modifiedTime": 1691623285401,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "_key": "!actors.items!wo5EdTNgtV6F6odH.fDTAWJ8L8AkhKkIv"
+}

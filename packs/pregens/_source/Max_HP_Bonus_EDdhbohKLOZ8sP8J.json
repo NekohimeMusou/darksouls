@@ -1,0 +1,30 @@
+{
+  "name": "Max HP Bonus",
+  "icon": "icons/svg/aura.svg",
+  "origin": "Item.DhVAiFeXHwiODrlQ",
+  "duration": {
+    "startTime": 0,
+    "seconds": null,
+    "combat": null,
+    "rounds": null,
+    "turns": null,
+    "startRound": null,
+    "startTurn": null
+  },
+  "disabled": false,
+  "_id": "EDdhbohKLOZ8sP8J",
+  "changes": [
+    {
+      "key": "system.hp.max",
+      "mode": 2,
+      "value": "1",
+      "priority": null
+    }
+  ],
+  "description": "",
+  "transfer": true,
+  "statuses": [],
+  "flags": {},
+  "tint": null,
+  "_key": "!actors.items.effects!yPI1SmIqB7CWOwQ7.OCp7LaqPWRTBJjUv.EDdhbohKLOZ8sP8J"
+}

@@ -1,0 +1,44 @@
+{
+  "folder": "svyGI0JRbeEe20eM",
+  "name": "Fugitive's Armor",
+  "type": "armor",
+  "_id": "ebPsr5ZHQYfVNeOG",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "editLocked": true,
+    "equipped": true,
+    "weight": 5,
+    "value": 700,
+    "qty": 1,
+    "slot": "torso",
+    "defense": {
+      "phys": 5,
+      "mag": 1
+    },
+    "setId": "fugitive",
+    "physDef": 5,
+    "magDef": 1,
+    "locked": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Item.JdsoUI1mV5kK3Ct0"
+    }
+  },
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.7.0",
+    "coreVersion": "11.307",
+    "createdTime": 1691215146459,
+    "modifiedTime": 1691623435884,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "_key": "!actors.items!5afPkDyef22pcxGw.ebPsr5ZHQYfVNeOG"
+}

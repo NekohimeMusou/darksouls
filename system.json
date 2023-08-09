@@ -41,6 +41,12 @@
             "label": "Rings",
             "system": "darksouls",
             "type": "Item"
+        },
+        {
+            "name": "pregens",
+            "label": "Sample PCs",
+            "system": "darksouls",
+            "type": "Actor"
         }
     ],
     "languages": [

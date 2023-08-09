@@ -1,0 +1,44 @@
+{
+  "folder": "MJexsJb5P1B2rweF",
+  "name": "Knight's Helm",
+  "type": "armor",
+  "_id": "Bee5xMv4rPHmA5pU",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "editLocked": true,
+    "equipped": true,
+    "weight": 3,
+    "value": 300,
+    "qty": 1,
+    "slot": "head",
+    "defense": {
+      "phys": 4,
+      "mag": 0
+    },
+    "setId": "knight",
+    "physDef": 4,
+    "magDef": 0,
+    "locked": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Item.qFujlOn9t6odh5vh"
+    }
+  },
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.6.1",
+    "coreVersion": "11.307",
+    "createdTime": 1691214696263,
+    "modifiedTime": 1691610527606,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "_key": "!actors.items!aMiOfPopZwtSOKD0.Bee5xMv4rPHmA5pU"
+}

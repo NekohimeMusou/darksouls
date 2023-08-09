@@ -1,0 +1,44 @@
+{
+  "folder": "WwHy4yYQ7eGeobwJ",
+  "name": "Mage's Crown",
+  "type": "armor",
+  "_id": "7MxbUVzg2o9mvPdx",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "editLocked": true,
+    "equipped": true,
+    "weight": 1,
+    "value": 200,
+    "qty": 1,
+    "slot": "head",
+    "defense": {
+      "phys": 1,
+      "mag": 2
+    },
+    "setId": "sorcerer",
+    "physDef": 1,
+    "magDef": 2,
+    "locked": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Item.AOUKGTk2gVKeEbZL"
+    }
+  },
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.7.0",
+    "coreVersion": "11.307",
+    "createdTime": 1691217288070,
+    "modifiedTime": 1691623363320,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "_key": "!actors.items!Ou4x2OfnSHjodB1m.7MxbUVzg2o9mvPdx"
+}

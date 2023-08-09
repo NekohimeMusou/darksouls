@@ -1,0 +1,54 @@
+{
+  "folder": "DbSPKxmcnOZUd5ik",
+  "name": "Battle Axe",
+  "type": "weapon",
+  "_id": "nkCfmWUfi9mozuoN",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "editLocked": false,
+    "equipped": true,
+    "weight": 3,
+    "value": 1000,
+    "qty": 1,
+    "attackCost": "[5] CHAIN",
+    "chain": true,
+    "chainHits": "2",
+    "baseDmg": {
+      "1h": 19,
+      "2h": 31
+    },
+    "powerMods": {
+      "0": "str",
+      "1": "",
+      "2": ""
+    },
+    "enhanceLevel": 0,
+    "magical": false,
+    "damageType": "physical",
+    "category": "axe",
+    "size": "medium",
+    "reqs": "Str 12, Dex 8",
+    "wielded": true
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Item.4mRRdluO0etMRYC3"
+    }
+  },
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.6.1",
+    "coreVersion": "11.307",
+    "createdTime": 1691609531634,
+    "modifiedTime": 1691620616263,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "_key": "!actors.items!co8C6NoeUy0X9pLv.nkCfmWUfi9mozuoN"
+}

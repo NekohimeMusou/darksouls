@@ -1,0 +1,44 @@
+{
+  "folder": "7Yr9oiOoBEEhunWZ",
+  "name": "Assassin's Hood",
+  "type": "armor",
+  "_id": "c4rHj9mETg7Fw6vq",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "editLocked": true,
+    "equipped": true,
+    "weight": 1,
+    "value": 1500,
+    "qty": 1,
+    "slot": "head",
+    "defense": {
+      "phys": 1,
+      "mag": 1
+    },
+    "setId": "assassin",
+    "physDef": 1,
+    "magDef": 1,
+    "locked": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Item.aKuAKqaBFq7ItdYu"
+    }
+  },
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.7.0",
+    "coreVersion": "11.307",
+    "createdTime": 1691214458743,
+    "modifiedTime": 1691622763177,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "_key": "!actors.items!lNW5g0TPUbckttAt.c4rHj9mETg7Fw6vq"
+}

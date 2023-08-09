@@ -1,0 +1,44 @@
+{
+  "folder": "WwHy4yYQ7eGeobwJ",
+  "name": "Mage's Robe",
+  "type": "armor",
+  "_id": "R7BMFXlKKet7VOKA",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "editLocked": true,
+    "equipped": true,
+    "weight": 4,
+    "value": 800,
+    "qty": 1,
+    "slot": "torso",
+    "defense": {
+      "phys": 2,
+      "mag": 4
+    },
+    "setId": "sorcerer",
+    "physDef": 2,
+    "magDef": 4,
+    "locked": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Item.X8DEILo8drg2S6s9"
+    }
+  },
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.7.0",
+    "coreVersion": "11.307",
+    "createdTime": 1691217307060,
+    "modifiedTime": 1691623364097,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "_key": "!actors.items!Ou4x2OfnSHjodB1m.R7BMFXlKKet7VOKA"
+}

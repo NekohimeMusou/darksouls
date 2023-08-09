@@ -1,0 +1,30 @@
+{
+  "name": "DEX Mod Bonus",
+  "icon": "icons/svg/aura.svg",
+  "origin": "Item.aLWsUdalrk0dJcov",
+  "duration": {
+    "startTime": 0,
+    "seconds": null,
+    "combat": null,
+    "rounds": null,
+    "turns": null,
+    "startRound": null,
+    "startTurn": null
+  },
+  "disabled": false,
+  "_id": "7BqKPdToeH6qrjmF",
+  "changes": [
+    {
+      "key": "system.stats.dex.mod",
+      "mode": 2,
+      "value": "1",
+      "priority": null
+    }
+  ],
+  "description": "",
+  "transfer": true,
+  "statuses": [],
+  "flags": {},
+  "tint": null,
+  "_key": "!actors.items.effects!H2WtQTb0X3fqbGKO.avNEdE7Fyd8UqcNl.7BqKPdToeH6qrjmF"
+}

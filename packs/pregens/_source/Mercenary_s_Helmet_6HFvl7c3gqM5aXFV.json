@@ -1,0 +1,44 @@
+{
+  "folder": "n1BmXdyRUtX4bySB",
+  "name": "Mercenary's Helmet",
+  "type": "armor",
+  "_id": "6HFvl7c3gqM5aXFV",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "editLocked": true,
+    "equipped": true,
+    "weight": 2,
+    "value": 300,
+    "qty": 1,
+    "slot": "head",
+    "defense": {
+      "phys": 3,
+      "mag": 1
+    },
+    "setId": "mercenary",
+    "physDef": 3,
+    "magDef": 1,
+    "locked": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Item.PrBmu8lwKJRNVthl"
+    }
+  },
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.7.0",
+    "coreVersion": "11.307",
+    "createdTime": 1691214178544,
+    "modifiedTime": 1691623150031,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "_key": "!actors.items!yPI1SmIqB7CWOwQ7.6HFvl7c3gqM5aXFV"
+}

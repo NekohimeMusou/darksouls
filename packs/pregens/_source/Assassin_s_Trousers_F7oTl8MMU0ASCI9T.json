@@ -1,0 +1,44 @@
+{
+  "folder": "7Yr9oiOoBEEhunWZ",
+  "name": "Assassin's Trousers",
+  "type": "armor",
+  "_id": "F7oTl8MMU0ASCI9T",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "editLocked": true,
+    "equipped": true,
+    "weight": 3,
+    "value": 600,
+    "qty": 1,
+    "slot": "legs",
+    "defense": {
+      "phys": 2,
+      "mag": 2
+    },
+    "setId": "assassin",
+    "physDef": 2,
+    "magDef": 2,
+    "locked": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Item.6Dz8aD9Xpf1mO8PI"
+    }
+  },
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.7.0",
+    "coreVersion": "11.307",
+    "createdTime": 1691214658406,
+    "modifiedTime": 1691622765223,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "_key": "!actors.items!lNW5g0TPUbckttAt.F7oTl8MMU0ASCI9T"
+}

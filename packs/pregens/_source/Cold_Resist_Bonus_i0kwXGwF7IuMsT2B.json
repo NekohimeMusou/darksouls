@@ -1,0 +1,30 @@
+{
+  "name": "Cold Resist Bonus",
+  "icon": "icons/svg/aura.svg",
+  "origin": "Item.cVb72VPpL4pEjtpm",
+  "duration": {
+    "startTime": 0,
+    "seconds": null,
+    "combat": null,
+    "rounds": null,
+    "turns": null,
+    "startRound": null,
+    "startTurn": null
+  },
+  "disabled": false,
+  "_id": "i0kwXGwF7IuMsT2B",
+  "changes": [
+    {
+      "key": "system.resist.cold",
+      "mode": 2,
+      "value": "1",
+      "priority": null
+    }
+  ],
+  "description": "",
+  "transfer": true,
+  "statuses": [],
+  "flags": {},
+  "tint": null,
+  "_key": "!actors.items.effects!co8C6NoeUy0X9pLv.Slyue85kth2tJoYO.i0kwXGwF7IuMsT2B"
+}

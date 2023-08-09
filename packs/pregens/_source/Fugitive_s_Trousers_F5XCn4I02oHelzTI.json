@@ -1,0 +1,44 @@
+{
+  "folder": "svyGI0JRbeEe20eM",
+  "name": "Fugitive's Trousers",
+  "type": "armor",
+  "_id": "F5XCn4I02oHelzTI",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "editLocked": true,
+    "equipped": true,
+    "weight": 5,
+    "value": 600,
+    "qty": 1,
+    "slot": "legs",
+    "defense": {
+      "phys": 5,
+      "mag": 1
+    },
+    "setId": "fugitive",
+    "physDef": 5,
+    "magDef": 1,
+    "locked": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Item.dFRWZpzkOvVWzytP"
+    }
+  },
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.7.0",
+    "coreVersion": "11.307",
+    "createdTime": 1691215170090,
+    "modifiedTime": 1691623436613,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "_key": "!actors.items!5afPkDyef22pcxGw.F5XCn4I02oHelzTI"
+}

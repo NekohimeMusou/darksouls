@@ -1,0 +1,54 @@
+{
+  "folder": "DbSPKxmcnOZUd5ik",
+  "name": "Spear",
+  "type": "weapon",
+  "_id": "FDde3AQFItk8t68H",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "editLocked": true,
+    "equipped": true,
+    "weight": 4,
+    "value": 600,
+    "qty": 1,
+    "attackCost": "[5] CHAIN",
+    "chain": true,
+    "chainHits": 1,
+    "baseDmg": {
+      "1h": 19,
+      "2h": 29
+    },
+    "powerMods": {
+      "0": "str",
+      "1": "",
+      "2": ""
+    },
+    "enhanceLevel": 0,
+    "magical": false,
+    "damageType": "physical",
+    "category": "spear",
+    "size": "medium",
+    "reqs": "Str 11, Dex 10",
+    "wielded": true
+  },
+  "effects": [],
+  "sort": 500000,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Item.yqtT6cgYBQRM2VRV"
+    }
+  },
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.7.0",
+    "coreVersion": "11.307",
+    "createdTime": 1691609534738,
+    "modifiedTime": 1691623080863,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "_key": "!actors.items!H2WtQTb0X3fqbGKO.FDde3AQFItk8t68H"
+}
