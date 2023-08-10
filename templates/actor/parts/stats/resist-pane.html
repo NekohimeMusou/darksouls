@@ -1,0 +1,14 @@
+<div class="resist flexcol">
+  <div class="flexrow">
+    <div></div>
+    <div class="resource-label align-center">{{localize "DARKSOULS.Resist"}}</div>
+    <div class="resource-label align-center">{{localize "DARKSOULS.Weak"}}</div>
+  </div>
+  {{#each system.resistances as |element name|}}
+  <div class="resist flexrow flex-group-center">
+    <div class="resource-label align-center">{{localize (lookup ../DARKSOULS.damageTypes name)}}</div>
+    <input type="text" value="{{element.resistance}}" disabled/>
+    <input type="text" value="{{element.weakness}}" disabled/>
+  </div>
+  {{/each}}
+</div>

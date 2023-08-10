@@ -11,23 +11,35 @@
       "value": 8,
       "max": 5
     },
-    "resist": {
-      "poison": 0,
-      "bleeding": 0,
-      "dark": 0,
-      "cold": 0,
-      "magic": 0,
-      "fire": 0,
-      "lightning": 0
-    },
-    "weakness": {
-      "poison": 0,
-      "bleeding": 0,
-      "dark": 0,
-      "cold": 0,
-      "magic": 0,
-      "fire": 0,
-      "lightning": 0
+    "resistances": {
+      "poison": {
+          "resistance": 0,
+          "weakness": 0
+      },
+      "bleeding": {
+          "resistance": 0,
+          "weakness": 0
+      },
+      "dark": {
+          "resistance": 0,
+          "weakness": 0
+      },
+      "cold": {
+          "resistance": 0,
+          "weakness": 0
+      },
+      "magic": {
+          "resistance": 0,
+          "weakness": 0
+      },
+      "fire": {
+          "resistance": 0,
+          "weakness": 0
+      },
+      "lightning": {
+          "resistance": 0,
+          "weakness": 0
+      }
     },
     "damage": 0,
     "attackIsMagical": false,

@@ -393,8 +393,8 @@ export default class DarkSoulsActorSheet extends ActorSheet {
       const targetData = target.actor.system;
 
       const defense = targetData?.defense?.[damageCategory] || 0;
-      const resist = targetData?.resist?.[damageType] || 0;
-      const weakness = targetData?.weakness?.[damageType] || 0;
+      const resist = targetData?.resistances?.resistance?.[damageType] || 0;
+      const weakness = targetData?.resistances?.weakness?.[damageType] || 0;
 
       const HpDmg = Math.min(Math.ceil((totalDmg - defense) / 10), 7) + weakness - resist;
 
