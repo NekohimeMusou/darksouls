@@ -3,7 +3,7 @@
   <div class="items-list flexcol">
     <ol class="items-list">
       <li class="item flexrow items-header">
-        <div class="item-name">{{localize "DARKSOULS.Name"}}</div>
+        <div class="item-name flex2">{{localize "DARKSOULS.Name"}}</div>
         <div class="armor-slot">{{localize "DARKSOULS.ArmorSlot"}}</div>
         <div class="armor-physdef">{{localize "DARKSOULS.Phys"}}</div>
         <div class="armor-magdef">{{localize "DARKSOULS.Mag"}}</div>
@@ -11,7 +11,7 @@
       </li>
       {{#each system.equippedItems.armor as |item slot|}}
       <li class="item flexrow" data-item-id="{{item._id}}">
-        <div class="item-prop flexlarge">
+        <div class="item-prop flex2">
           <select class="item-select" name="system.equippedItems.armor.{{slot}}">
             {{selectOptions (lookup ../armorBySlot slot) selected=item._id nameAttr="_id" labelAttr="name" blank="---"}}
           </select>
@@ -22,6 +22,12 @@
         <div class="item-weight item-prop">{{ifThen system.weight system.weight "—"}}</div>
       </li>
       {{/each}}
+      <li class="item flexrow items-header">
+        <div class="item-prop flex3">{{localize "DARKSOULS.Total"}}</div>
+        <div class="item-prop">{{system.defense.phys}}</div>
+        <div class="item-prop">{{system.defense.mag}}</div>
+        <div class="item-prop">{{system.totalWeight}}</div>
+      </li>
     </ol>
   </div>
 </div>
