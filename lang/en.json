@@ -82,7 +82,7 @@
     "DARKSOULS.Resist": "Resist",
     "DARKSOULS.Weak": "Weak",
 
-    "DARKSOULS.Type": "Type",
+    "DARKSOULS.ConsumableType": "Type",
 
     "DARKSOULS.Set": "Set",
     "DARKSOULS.Medicine": "Medicine",
@@ -91,6 +91,12 @@
     "DARKSOULS.PineResin": "Pine Resin",
     "DARKSOULS.Talisman": "Talisman",
     "DARKSOULS.Currency": "Currency",
+
+    "DARKSOULS.Ammunition": "Ammunition",
+    "DARKSOULS.AmmoType": "Ammo Type",
+    "DARKSOULS.Arrow": "Arrow",
+    "DARKSOULS.Bolt": "Bolt",
+    "DARKSOULS.DamageBonus": "Damage Bonus",
 
     "DARKSOULS.Prerequisites": "Prerequisites",
 

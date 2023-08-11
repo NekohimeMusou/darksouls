@@ -53,6 +53,11 @@ DARKSOULS.consumableTypes = {
   currency: "DARKSOULS.Currency"
 };
 
+DARKSOULS.ammoTypes = {
+  arrow: "DARKSOULS.Arrow",
+  bolt: "DARKSOULS.Bolt"
+};
+
 DARKSOULS.equipmentCaps = {
   consumable: {
     cap: 3,
@@ -65,6 +70,10 @@ DARKSOULS.equipmentCaps = {
   ring: {
     cap: 2,
     msg: "DARKSOULS.TooManyRingsMsg"
+  },
+  ammunition: {
+    cap: 1,
+    msg: "DARKSOULS.TooManyAmmoMsg"
   }
 };
 

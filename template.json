@@ -113,7 +113,7 @@
     },
     "Item":
     {
-        "types": ["weapon", "armor", "ring", "consumable"],
+        "types": ["weapon", "armor", "ring", "consumable", "ammunition"],
         "templates": {
             "base": {
                 "description": "",
@@ -129,7 +129,8 @@
                 "value": 0
             },
             "quantity": {
-                "qty": 1
+                "qty": 1,
+                "set": 1
             },
             "attack": {
                 "attackCost": "",
@@ -141,12 +142,14 @@
                 },
                 "powerMods": [null, null, null],
                 "enhanceLevel": 0,
-                "magical": false,
+                "magical": false
+            },
+            "damageType": {
                 "damageType": "physical"
             }
         },
         "weapon": {
-            "templates": ["base", "equippable", "weight", "value", "quantity", "attack"],
+            "templates": ["base", "equippable", "weight", "value", "quantity", "attack", "damageType"],
             "category": "dagger",
             "size": "small",
             "reqs": "",
@@ -163,11 +166,15 @@
         },
         "consumable": {
             "templates": ["base", "equippable", "value", "quantity"],
-            "consumableType": "",
-            "set": 1
+            "consumableType": ""
         },
         "ring": {
             "templates": ["base", "equippable", "quantity", "value"]
+        },
+        "ammunition": {
+            "templates": ["base", "equippable", "quantity", "value", "damageType"],
+            "ammoType": "arrow",
+            "damageBonus": 0
         }
     }
 }

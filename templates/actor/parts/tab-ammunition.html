@@ -2,14 +2,15 @@
   <ol class="items-list">
     <li class="item flexrow items-header">
       <div class="item-name">{{localize "DARKSOULS.Name"}}</div>
-      <div class="item-equipped">{{localize "DARKSOULS.Equipped"}}</div>
-      <div class="item-consumable-type">{{localize "DARKSOULS.ConsumableType"}}</div>
+      <div class="item-ammo-type">{{localize "DARKSOULS.AmmoType"}}</div>
+      <div class="item-damage-bonus">{{localize "DARKSOULS.DamageBonus"}}</div>
+      <div class="item-damage-type">{{localize "DARKSOULS.DamageType"}}</div>
       <div class="item-qty">{{localize "DARKSOULS.Qty"}}</div>
       <div class="item-controls">
-        <a class="item-control item-create" title="Create item" data-type="consumable"><i class="fas fa-plus"></i> Add item</a>
+        <a class="item-control item-create" title="Create item" data-type="ammunition"><i class="fas fa-plus"></i> Add item</a>
       </div>
     </li>
-    {{#each consumables as |item|}}
+    {{#each ammunition as |item|}}
     <li class="item flexrow" data-item-id="{{item._id}}">
       <div class="item-name">
         <div class="item-image">
@@ -17,10 +18,11 @@
         </div>
         <h4>{{name}}</h4>
       </div>
-      <div class="item-equipped item-prop">
-        <input type="checkbox" class="item-equip-control" {{checked item.system.equipped}}/>
+      <div class="item-ammo-type item-prop">{{localize (lookup ../DARKSOULS.ammoTypes item.system.ammoType)}}</div>
+      <div class="item-damage-bonus item-prop">
+        <input type="number" value="{{item.system.damageBonus}}" data-dtype="Number" disabled/>
       </div>
-      <div class="item-consumable-type item-prop">{{localize (lookup ../DARKSOULS.consumableTypes item.system.consumableType)}}</div>
+      <div class="item-damage-type item-prop">{{localize (lookup ../DARKSOULS.damageTypes item.system.damageType)}}</div>
       <div class="item-qty item-prop">
         <input type="number" value="{{item.system.qty}}" data-dtype="Number" disabled/>
       </div>

@@ -25,6 +25,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     // Prepare character data and items
     DarkSoulsActorSheet.#prepareArmor(context);
     DarkSoulsActorSheet.#prepareConsumables(context);
+    DarkSoulsActorSheet.#prepareAmmunition(context);
     DarkSoulsActorSheet.#prepareRings(context);
     DarkSoulsActorSheet.#prepareWeapons(context);
 
@@ -61,6 +62,12 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     const consumables = context.items.filter(i => i.type === "consumable");
 
     context.consumables = consumables;
+  }
+
+  static #prepareAmmunition(context) {
+    const ammunition = context.items.filter(i => i.type === "ammunition");
+
+    context.ammunition = ammunition;
   }
 
   static #prepareRings(context) {
@@ -276,6 +283,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     const equippedItems = this.actor.system.equippedItems[item.type];
     const equipCap = CONFIG.DARKSOULS.equipmentCaps[item.type]?.cap || 0;
 
+    // FIXTHIS: Add logic to equip 1 arrow and 1 bolt
     if (equipCap && equippedItems.length >= equipCap) {
       element.checked = false;
       const msg = CONFIG.DARKSOULS.equipmentCaps[item.type]?.msg || "Unknown Item Equip Error";

@@ -4,7 +4,7 @@
     <ol class="items-list">
       <li class="item flexrow items-header">
         <div class="item-name">{{localize "DARKSOULS.Name"}}</div>
-        <div class="item-consumable-type">{{localize "DARKSOULS.Type"}}</div>
+        <div class="item-consumable-type">{{localize "DARKSOULS.ConsumableType"}}</div>
         <div class="item-qty">{{localize "DARKSOULS.Qty"}}</div>
       </li>
       {{#each system.equippedItems.consumable as |item|}}
@@ -16,7 +16,7 @@
           <h4>{{name}}</h4>
         </div>
         <div class="item-consumable-type item-prop">{{localize (lookup ../DARKSOULS.consumableTypes item.system.consumableType)}}</div>
-        <div class="consumable-qty item-prop">
+        <div class="item-qty item-prop">
           <input type="text" value="{{item.system.qty}}" data-dtype="Number" readonly/>
         </div>
       </li>
