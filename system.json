@@ -47,6 +47,12 @@
             "label": "Sample PCs",
             "system": "darksouls",
             "type": "Actor"
+        },
+        {
+            "name": "consumables",
+            "label": "Consumables",
+            "system": "darksouls",
+            "type": "Item"
         }
     ],
     "languages": [

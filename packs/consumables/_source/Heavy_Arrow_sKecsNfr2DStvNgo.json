@@ -1,0 +1,34 @@
+{
+  "folder": "Q94WnsQRx3GbzDVW",
+  "name": "Heavy Arrow",
+  "type": "consumable",
+  "_id": "sKecsNfr2DStvNgo",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "editLocked": false,
+    "equipped": false,
+    "value": 500,
+    "qty": 5,
+    "set": 5,
+    "damageType": "physical",
+    "consumableType": "arrow",
+    "damageBonus": 5
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.7.2",
+    "coreVersion": "11.307",
+    "createdTime": 1691812388897,
+    "modifiedTime": 1691812618036,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "_key": "!items!sKecsNfr2DStvNgo"
+}
