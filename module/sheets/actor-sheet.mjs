@@ -73,7 +73,6 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     const weapons = context.items.filter(i => i.type === "weapon");
 
     context.weapons = weapons;
-    context.wieldedItems = context.system.wieldedItems;
   }
 
   static #addStatLabels(context) {
@@ -268,7 +267,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     // If it's already equipped, we don't have to check anything
     if (item.system.equipped) {
       const updates = {"_id": item.id, "system.equipped": false};
-      if (item.type === "weapon") updates["system.wielded"] = false;
+      if (item.type === "weapon" || item.type === "consumable") updates["system.wielded"] = false;
       return await this.actor.updateEmbeddedDocuments("Item", [updates]);
     }
 
@@ -279,17 +278,6 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     }
 
     const equippedItems = this.actor.system.equippedItems[item.type];
-
-    // Handle ammunition
-    if (item.type === "ammunition") {
-      const newAmmoType = item.system.ammoType;
-
-      // Unequip ammo of the same type
-      const updates = equippedItems.filter(i => i.system.ammoType === newAmmoType)
-        .map(i => [{"_id": i.id, "system.equipped": false}]);
-
-      this.actor.updateEmbeddedDocuments("Item", updates);
-    }
 
     const equipCap = CONFIG.DARKSOULS.equipmentCaps[item.type]?.cap || 0;
 
@@ -344,25 +332,36 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     const newItem = this.actor.items.get(itemId) || null;
 
     // Array of wielded items
-    const wieldedItems = this.actor.system?.wieldedItems;
+    const itemType = newItem?.type;
+    const wieldedItems = this.actor.system?.wieldedItems?.[itemType];
 
-    if (!newItem || !(Array.isArray(wieldedItems))) return;
-
-    // If the new item has a 1h grip and 2 items are already wielded, do nothing and complain
-    if (element.checked && newItem.has1hGrip && wieldedItems.length > 1) {
-      element.checked = false;
-      return await ui.notifications.info(game.i18n.localize("DARKSOULS.HandsFullMsg"));
-    }
+    if (!(Array.isArray(wieldedItems))) return;
 
     const updates = [{"_id": newItem.id, "system.wielded": element.checked}];
 
-    // If the new item is 2h only or the old item was 2h only, un-wield all old items
-    if (element.checked && (newItem.is2hOnly || wieldedItems.some(i => i.is2hOnly))) {
-      const wieldedMap = wieldedItems.map(i => ({"_id": i.id, "system.wielded": false}));
-      updates.push(...wieldedMap);
+    // Extra logic if we're equipping something
+    if (element.checked) {
+      if (itemType === "weapon") {
+        // If it's 1H and two 1H weapons are already wielded, stop and complain
+        if (newItem.has1hGrip && wieldedItems.length > 1) {
+          element.checked = false;
+          return await ui.notifications.info(game.i18n.localize("DARKSOULS.HandsFullMsg"));
+        }
+
+        // If the new item is 2h only or the old item was 2h only, un-wield all old items
+        if (newItem.is2hOnly || wieldedItems.some(i => i.is2hOnly)) {
+          const wieldedMap = wieldedItems.map(i => ({"_id": i.id, "system.wielded": false}));
+          updates.push(...wieldedMap);
+        }
+      }
+
+      // If the new item is ammunition, un-wield other ammo of the same type
+      // if (itemType === "consumable" && newItem.system?.consumableType === "ammunition") {
+      //   const 
+      // }
     }
 
-    // Update the items
+    // Update the item(s)
     this.actor.updateEmbeddedDocuments("Item", updates);
   }
 
@@ -389,7 +388,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     }
 
     // If 2 weapons are wielded OR there's no 2H damage, use the 1H damage
-    const wieldedItems = this.actor.system.wieldedItems;
+    const wieldedItems = this.actor.system.wieldedItems["weapon"];
     const dmgValues = item.system.totalDmg;
     const weaponDmg = (wieldedItems.length > 1 || !dmgValues?.["2h"] ? dmgValues?.["1h"] : dmgValues?.["2h"]) || 0;
     const chainHits = item.system.chainHits;

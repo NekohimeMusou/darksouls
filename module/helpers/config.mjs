@@ -105,7 +105,9 @@ DARKSOULS.weaponCategories = {
   whip: "DARKSOULS.Whip",
   fist: "DARKSOULS.Fist",
   catalyst: "DARKSOULS.Catalyst",
-  shield: "DARKSOULS.Shield"
+  shield: "DARKSOULS.Shield",
+  bow: "DARKSOULS.Bow",
+  crossbow: "DARKSOULS.Crossbow"
 };
 
 const validPowerMods = ["str", "dex", "int", "fth", "luc"];

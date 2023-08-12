@@ -146,14 +146,16 @@
             },
             "damageType": {
                 "damageType": "physical"
+            },
+            "wield": {
+                "wielded": false
             }
         },
         "weapon": {
-            "templates": ["base", "equippable", "weight", "value", "quantity", "attack", "damageType"],
+            "templates": ["base", "equippable", "weight", "value", "quantity", "attack", "damageType", "wield"],
             "category": "dagger",
             "size": "small",
-            "reqs": "",
-            "wielded": false
+            "reqs": ""
         },
         "armor": {
             "templates": ["base", "equippable", "weight", "value", "quantity"],
@@ -165,7 +167,7 @@
             "setId": ""
         },
         "consumable": {
-            "templates": ["base", "equippable", "value", "quantity", "damageType"],
+            "templates": ["base", "equippable", "value", "quantity", "damageType", "wield"],
             "consumableType": "",
             "damageBonus": 0
         },

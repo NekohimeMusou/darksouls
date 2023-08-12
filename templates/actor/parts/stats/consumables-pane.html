@@ -4,6 +4,7 @@
     <ol class="items-list">
       <li class="item flexrow items-header">
         <div class="item-name">{{localize "DARKSOULS.Name"}}</div>
+        <div class="item-equipped">{{localize "DARKSOULS.Equipped"}}</div>
         <div class="item-consumable-type">{{localize "DARKSOULS.ConsumableType"}}</div>
         <div class="item-qty">{{localize "DARKSOULS.Qty"}}</div>
       </li>
@@ -15,9 +16,13 @@
           </div>
           <h4>{{name}}</h4>
         </div>
+        {{!-- FIXTHIS: Fix event handler so it works with wielding and not just equipping, or something --}}
+        <div class="item-wielded item-prop">
+          <input type="checkbox" class="item-wielded-control" {{checked item.system.wielded}} {{#unless item.system.isAmmunition}}disabled{{/unless}}/>
+        </div>
         <div class="item-consumable-type item-prop">{{localize (lookup ../DARKSOULS.consumableTypes item.system.consumableType)}}</div>
         <div class="item-qty item-prop">
-          <input type="text" value="{{item.system.qty}}" data-dtype="Number" readonly/>
+          <input type="text" value="{{item.system.qty}}" data-dtype="Number" disabled/>
         </div>
       </li>
       {{/each}}

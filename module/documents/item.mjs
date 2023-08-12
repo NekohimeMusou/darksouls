@@ -14,6 +14,7 @@ export default class DarkSoulsItem extends Item {
     const flags = this.flags.darksouls || {};
 
     this._prepareQty();
+    this._prepareConsumables();
     this._prepareWeaponData();
   }
 
@@ -29,6 +30,17 @@ export default class DarkSoulsItem extends Item {
 
       this.update(updates);
     }
+  }
+
+  _prepareConsumables() {
+    if (!this.type === "consumable") return;
+
+    const systemData = this.system;
+
+    // Is this ammunition?
+    const consumableType = systemData.consumableType || "";
+
+    systemData.isAmmunition = consumableType === "arrow" || consumableType === "bolt";
   }
 
   _prepareWeaponData() {
@@ -86,24 +98,18 @@ export default class DarkSoulsItem extends Item {
     const systemData = this.system;
 
     // It can be equipped in 1 hand if it has 1h base damage or if it's a catalyst or shield
-    return Boolean(systemData?.baseDmg?.["1h"]) || systemData.category === "catalyst" || systemData.category === "shield";
+    return this.type !== "consumable" && (Boolean(systemData?.baseDmg?.["1h"]) || systemData.category === "catalyst" || systemData.category === "shield");
   }
 
   get has2hGrip() {
     const systemData = this.system;
 
     // It can be equipped in 2 hands if it has 2h base damage
-    return Boolean(systemData?.baseDmg?.["2h"]);
+    return this.type !== "consumable" && Boolean(systemData?.baseDmg?.["2h"]);
   }
 
   get is2hOnly() {
     return this.has2hGrip && !this.has1hGrip;
-  }
-
-  get isAmmunition() {
-    const consumableType = this.system?.consumableType || "";
-
-    return consumableType === "arrow" || consumableType === "bolt";
   }
 
   /**

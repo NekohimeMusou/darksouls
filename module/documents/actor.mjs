@@ -24,6 +24,7 @@ export default class DarkSoulsActor extends Actor {
     const flags = this.flags.darksouls || {};
 
     this.system.equippedItems = {};
+    this.system.wieldedItems = {};
 
     this._prepareWeapons();
     this._prepareArmor();
@@ -104,9 +105,12 @@ export default class DarkSoulsActor extends Actor {
   }
 
   _prepareConsumables() {
-    const equippedConsumables = this.items.filter(i => i.type === "consumable" && i.system.equipped && i.system.qty >= 1);
+    const equipped = this.items.filter(i => i.type === "consumable" && i.system.equipped && i.system.qty >= 1);
 
-    this.system.equippedItems["consumable"] = equippedConsumables;
+    const wielded = equipped.filter(i => i.system?.wielded);
+
+    this.system.wieldedItems["consumable"] = wielded;
+    this.system.equippedItems["consumable"] = equipped;
   }
 
   _prepareRings() {
@@ -118,9 +122,9 @@ export default class DarkSoulsActor extends Actor {
   _prepareWeapons() {
     const equippedWeapons = this.items.filter(i => i.type === "weapon" && i.system.equipped);
 
-    const wieldedItems = equippedWeapons.filter(i => i.system?.wielded);
+    const wielded = equippedWeapons.filter(i => i.system?.wielded);
 
-    this.system.wieldedItems = wieldedItems;
+    this.system.wieldedItems["weapon"] = wielded;
     this.system.equippedItems["weapon"] = equippedWeapons;
   }
 

@@ -76,7 +76,7 @@
     "DARKSOULS.Head": "Head",
     "DARKSOULS.Torso": "Torso",
     "DARKSOULS.Legs": "Legs",
-    "DARKSOULS.Equipped": "Equipped?",
+    "DARKSOULS.Equipped": "Eq?",
     "DARKSOULS.SetId": "Set ID",
 
     "DARKSOULS.Resist": "Resist",
@@ -125,6 +125,8 @@
     "DARKSOULS.Fist": "Fist",
     "DARKSOULS.Catalyst": "Catalyst",
     "DARKSOULS.Shield": "Shield",
+    "DARKSOULS.Bow": "Bow",
+    "DARKSOULS.Crossbow": "Crossbow",
 
     "DARKSOULS.AttackCost": "Attack Cost",
     "DARKSOULS.AtkCost": "Atk Cost",

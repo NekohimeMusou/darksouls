@@ -29,7 +29,7 @@
           </select>
         </div>
         {{!-- Column 2 --}}
-        {{#if isAmmunition}}
+        {{#if system.isAmmunition}}
         <div class="resource">
           <label class="resource-label">{{localize "DARKSOULS.DamageBonus"}}</label>
           <input type="number" name="system.damageBonus" value="{{system.damageBonus}}" data-dtype="Number" {{disabled editLocked}}/>

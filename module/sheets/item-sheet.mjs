@@ -55,10 +55,9 @@ export default class DarkSoulsItemSheet extends ItemSheet {
 
     const editLocked = item.system.editLocked;
     const attackIsPhysical = item.system?.damageType === "physical";
-    const isAmmunition = item.isAmmunition;
     const isTorsoArmor = item.type === "armor" && item.system.slot === "torso";
 
-    return { editLocked, attackIsPhysical, isAmmunition, isTorsoArmor };
+    return { editLocked, attackIsPhysical, isTorsoArmor };
   }
 
   /** @override */
