@@ -113,7 +113,7 @@
     },
     "Item":
     {
-        "types": ["weapon", "armor", "ring", "consumable", "ammunition"],
+        "types": ["weapon", "armor", "ring", "consumable"],
         "templates": {
             "base": {
                 "description": "",
@@ -165,16 +165,12 @@
             "setId": ""
         },
         "consumable": {
-            "templates": ["base", "equippable", "value", "quantity"],
-            "consumableType": ""
+            "templates": ["base", "equippable", "value", "quantity", "damageType"],
+            "consumableType": "",
+            "damageBonus": 0
         },
         "ring": {
             "templates": ["base", "equippable", "quantity", "value"]
-        },
-        "ammunition": {
-            "templates": ["base", "equippable", "quantity", "value", "damageType"],
-            "ammoType": "arrow",
-            "damageBonus": 0
         }
     }
 }

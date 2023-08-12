@@ -43,14 +43,22 @@ export default class DarkSoulsItemSheet extends ItemSheet {
     // Sort active effects into categories
     context.effects = prepareActiveEffectCategories(this.item.effects);
 
-    context.editLocked = itemData.system.editLocked;
-    context.attackIsPhysical = itemData.system?.damageType === "physical";
-
-    context.isTorsoArmor = itemData.type === "armor" && itemData.system.slot === "torso";
+    Object.assign(context, this.#getItemInfo(itemData));
 
     context.DARKSOULS = CONFIG.DARKSOULS;
 
     return context;
+  }
+
+  #getItemInfo() {
+    const item = this.item;
+
+    const editLocked = item.system.editLocked;
+    const attackIsPhysical = item.system?.damageType === "physical";
+    const isAmmunition = item.isAmmunition;
+    const isTorsoArmor = item.type === "armor" && item.system.slot === "torso";
+
+    return { editLocked, attackIsPhysical, isAmmunition, isTorsoArmor };
   }
 
   /** @override */

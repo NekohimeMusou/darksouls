@@ -50,10 +50,7 @@ DARKSOULS.consumableTypes = {
   throwingJar: "DARKSOULS.ThrowingJar",
   pineResin: "DARKSOULS.PineResin",
   talisman: "DARKSOULS.Talisman",
-  currency: "DARKSOULS.Currency"
-};
-
-DARKSOULS.ammoTypes = {
+  currency: "DARKSOULS.Currency",
   arrow: "DARKSOULS.Arrow",
   bolt: "DARKSOULS.Bolt"
 };
@@ -70,10 +67,6 @@ DARKSOULS.equipmentCaps = {
   ring: {
     cap: 2,
     msg: "DARKSOULS.TooManyRingsMsg"
-  },
-  ammunition: {
-    cap: 1,
-    msg: "DARKSOULS.TooManyAmmoMsg"
   }
 };
 

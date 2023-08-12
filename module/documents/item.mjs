@@ -24,8 +24,10 @@ export default class DarkSoulsItem extends Item {
       const updates = {"system.equipped": false};
 
       if (Object.hasOwn(this.system, "wielded")) {
-        updates["system."]
+        updates["system.wielded"] = false;
       }
+
+      this.update(updates);
     }
   }
 
@@ -96,6 +98,12 @@ export default class DarkSoulsItem extends Item {
 
   get is2hOnly() {
     return this.has2hGrip && !this.has1hGrip;
+  }
+
+  get isAmmunition() {
+    const consumableType = this.system?.consumableType || "";
+
+    return consumableType === "arrow" || consumableType === "bolt";
   }
 
   /**
