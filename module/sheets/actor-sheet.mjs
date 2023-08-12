@@ -277,10 +277,27 @@ export default class DarkSoulsActorSheet extends ActorSheet {
       const updates = {"_id": item.id, "system.equipped": false};
       if (item.type === "weapon") updates["system.wielded"] = false;
       return await this.actor.updateEmbeddedDocuments("Item", [updates]);
-    } 
+    }
 
-    // Otherwise, check that we haven't exceeded the cap
+    // If the item doesn't exist, don't equip it
+    if (item.system.qty < 1) {
+      element.checked = false;
+      return ui.notifications.notify(game.i18n.localize("DARKSOULS.ZeroQtyMsg"), "info");
+    }
+
     const equippedItems = this.actor.system.equippedItems[item.type];
+
+    // Handle ammunition
+    if (item.type === "ammunition") {
+      const newAmmoType = item.system.ammoType;
+
+      // Unequip ammo of the same type
+      const updates = equippedItems.filter(i => i.system.ammoType === newAmmoType)
+        .map(i => [{"_id": i.id, "system.equipped": false}]);
+
+      this.actor.updateEmbeddedDocuments("Item", updates);
+    }
+
     const equipCap = CONFIG.DARKSOULS.equipmentCaps[item.type]?.cap || 0;
 
     // FIXTHIS: Add logic to equip 1 arrow and 1 bolt

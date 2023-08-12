@@ -13,7 +13,20 @@ export default class DarkSoulsItem extends Item {
   prepareDerivedData() {
     const flags = this.flags.darksouls || {};
 
+    this._prepareQty();
     this._prepareWeaponData();
+  }
+
+  _prepareQty() {
+    if (!Object.hasOwn(this.system, "qty")) return;
+
+    if (this.system.qty < 1) {
+      const updates = {"system.equipped": false};
+
+      if (Object.hasOwn(this.system, "wielded")) {
+        updates["system."]
+      }
+    }
   }
 
   _prepareWeaponData() {
