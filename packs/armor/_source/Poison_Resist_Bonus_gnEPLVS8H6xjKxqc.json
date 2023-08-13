@@ -15,10 +15,9 @@
   "_id": "gnEPLVS8H6xjKxqc",
   "changes": [
     {
-      "key": "system.resist.poison",
+      "key": "system.resistances.poison.resist",
       "mode": 2,
-      "value": "1",
-      "priority": null
+      "value": "1"
     }
   ],
   "description": "",

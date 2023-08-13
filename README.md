@@ -33,10 +33,11 @@ Create a piece of armor, add it to your character sheet, and a fugly little row 
 
 ## Known Issues
 
-- Cleric armor set bonus does nothing as of yet
+- Ranged weapon damage on character sheet doesn't account for ammo
+- Attacks don't account for dual damage types (mostly relevant for special arrows)
+- Ranged weapons don't account for headshot mechanic (use CHAIN for now)
+- Cleric armor set bonus is only a reminder
 - Quantity field for consumable items doesn't update correctly if you close the sheet immediately after changing it. You have to click outside of the box or otherwise make it lose focus
-- Weapons don't exist yet
-- The equip load section is inaccurate because weapons don't exist yet
 - Ugly as hell
   - I am not very good at layouts or CSS. I took an entry-level course one time and I forget 2/3 of what I learned and 1/3 of that is out of date. please I need an adult
 

@@ -8,6 +8,7 @@
     "weight": 6,
     "value": 1000,
     "qty": 1,
+    "set": 1,
     "slot": "torso",
     "defense": {
       "phys": 6,
@@ -27,10 +28,10 @@
   },
   "_stats": {
     "systemId": "darksouls",
-    "systemVersion": "0.6.1",
+    "systemVersion": "0.7.2",
     "coreVersion": "11.307",
     "createdTime": 1688528138298,
-    "modifiedTime": 1691562974570,
+    "modifiedTime": 1691956740116,
     "lastModifiedBy": "tQQSVABlIfWe88A9"
   },
   "_id": "cVb72VPpL4pEjtpm",

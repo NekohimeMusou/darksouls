@@ -15,10 +15,9 @@
   "_id": "hawa8HLnhF4oess6",
   "changes": [
     {
-      "key": "system.resist.fire",
+      "key": "system.resistances.fire.resist",
       "mode": 2,
-      "value": "1",
-      "priority": null
+      "value": "1"
     }
   ],
   "description": "",
