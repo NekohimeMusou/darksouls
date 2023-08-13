@@ -71,6 +71,8 @@ export default class DarkSoulsItem extends Item {
 
   _calcDamage(grip) {
     const baseDmg = this.system.baseDmg?.[grip] || 0;
+    if (!baseDmg) return 0;
+    
     const statModBonus = this._powerModBonus;
     const enhanceBonus = this._enhanceBonus;
 

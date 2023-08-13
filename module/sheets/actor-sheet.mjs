@@ -395,7 +395,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
       return await ui.notifications.info(game.i18n.localize("DARKSOULS.NoAmmunitionMsg"));
     }
 
-    const ammoBonus = ammunition.system?.damageBonus || 0;
+    const ammoBonus = ammunition?.system?.damageBonus || 0;
 
     // If 2 weapons are wielded OR there's no 2H damage, use the 1H damage
     const wieldedItems = this.actor.system.wieldedItems["weapon"];
@@ -405,7 +405,13 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     const totalDmg = weaponDmg * chainHits;
 
     const damageCategory = item.system.magical ? "mag" : "phys";
-    const damageType = item.system?.damageType ?? "unknown";
+    const damageTypes = new Set([item.system?.damageType ?? "physical"]);
+    // const damageType = item.system?.damageType ?? "physical";
+    const ammoDamageType = ammunition?.system?.damageType;
+
+    if (ammoDamageType && ammoDamageType !== "physical") {
+      damageTypes.add(ammoDamageType);
+    }
 
     const damageStrings = [];
 
@@ -420,10 +426,12 @@ export default class DarkSoulsActorSheet extends ActorSheet {
       const targetData = target.actor.system;
 
       const defense = targetData?.defense?.[damageCategory] || 0;
-      const resist = targetData?.resistances?.resistance?.[damageType] || 0;
-      const weakness = targetData?.resistances?.weakness?.[damageType] || 0;
+      const resist = damageTypes.reduce(
+        (total, damageType) => total + (targetData?.resistances?.resistance?.[damageType] || 0), 0);
+      const weakness = damageTypes.reduce(
+        (total, damageType) => total + (targetData?.resistances?.weakness?.[damageType] || 0), 0);
 
-      const HpDmg = Math.min(Math.ceil((totalDmg - defense) / 10), 7) + weakness - resist;
+      const HpDmg = Math.min(Math.max(Math.ceil((totalDmg - defense) / 10), 0), 7) + weakness - resist;
 
       damageStrings.push(`<div>${targetName}: ${HpDmg} Damage</div>`);
     }
@@ -440,10 +448,11 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     }
 
     // Build chat card
-    const damageTypeName = game.i18n.localize(CONFIG.DARKSOULS.damageTypes[damageType]);
-    const physOrMag = game.i18n.localize(CONFIG.DARKSOULS.damageCategories[damageCategory]);
-    // Don't attach a tag to "plain" physical damage
-    const damageTypeString = damageType === "physical" ? `${damageTypeName}` : `${damageTypeName} (${physOrMag})`;
+    const physOrMag = damageTypes.size === 1 && damageTypes.has("physical") 
+      ? ""
+      : ` (${game.i18n.localize(CONFIG.DARKSOULS.damageCategories[damageCategory])})`;
+    const damageTypeString = `${Array.from(damageTypes.map(t => game.i18n.localize(CONFIG.DARKSOULS.damageTypes[t])))
+      .join(" / ")}${physOrMag}`;
 
     const speaker = ChatMessage.getSpeaker();
     const type = CONST.CHAT_MESSAGE_TYPES.OTHER;
