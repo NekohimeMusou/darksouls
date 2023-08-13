@@ -112,6 +112,12 @@ export default class DarkSoulsItem extends Item {
     return this.has2hGrip && !this.has1hGrip;
   }
 
+  get isRangedWeapon() {
+    const systemData = this.system;
+
+    return systemData.category === "bow" || systemData.category === "crossbow";
+  }
+
   /**
      * Prepare a data object which is passed to any Roll formulas which are created related to this Item
      * @override

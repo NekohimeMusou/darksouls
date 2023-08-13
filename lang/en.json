@@ -155,6 +155,7 @@
     "DARKSOULS.HitYourselfMsg": "Why are you hitting yourself?!",
     "DARKSOULS.NotWieldedMsg": "You aren't holding this weapon!",
     "DARKSOULS.ZeroQtyMsg": "Can't equip an item with 0 quantity!",
+    "DARKSOULS.NoAmmunitionMsg": "No ammunition readied!",
 
     "DARKSOULS.ItemConsumedMsg": "Item consumed.",
 

@@ -313,9 +313,9 @@ export default class DarkSoulsActorSheet extends ActorSheet {
       const newQty = item.system.qty - 1;
 
       if (newQty < 1) {
-        await item.delete();
+        await this.actor.deleteEmbeddedDocuments("Item", [item.id]);
       } else {
-        await item.update({"system.qty": newQty});
+        await this.actor.updateEmbeddedDocuments("Item", [{_id: item.id, "system.qty": newQty}]);
       }
     }
 
@@ -387,10 +387,20 @@ export default class DarkSoulsActorSheet extends ActorSheet {
       return await ui.notifications.info(game.i18n.localize("DARKSOULS.NoTargetMsg"));
     }
 
+    // If this weapon uses ammo, get the user's currently wielded ammo of that type, if any
+    const ammoType = CONFIG.DARKSOULS.ammoTypes?.[item.system?.category];
+    const ammunition = this.actor.wieldedAmmunition?.[ammoType];
+
+    if (ammoType && !ammunition) {
+      return await ui.notifications.info(game.i18n.localize("DARKSOULS.NoAmmunitionMsg"));
+    }
+
+    const ammoBonus = ammunition.system?.damageBonus || 0;
+
     // If 2 weapons are wielded OR there's no 2H damage, use the 1H damage
     const wieldedItems = this.actor.system.wieldedItems["weapon"];
     const dmgValues = item.system.totalDmg;
-    const weaponDmg = (wieldedItems.length > 1 || !dmgValues?.["2h"] ? dmgValues?.["1h"] : dmgValues?.["2h"]) || 0;
+    const weaponDmg = (wieldedItems.length > 1 || !dmgValues?.["2h"] ? dmgValues?.["1h"] : dmgValues?.["2h"]) + ammoBonus || 0;
     const chainHits = item.system.chainHits;
     const totalDmg = weaponDmg * chainHits;
 
@@ -402,7 +412,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     for (const target of targets) {
       // If they have themselves targeted, make fun of 'em
       if (Object.is(target.actor, this.actor)) {
-        ui.notifications.info(game.i18n.localize("DARKSOULS.HitYourselfMsg"));
+        await ui.notifications.info(game.i18n.localize("DARKSOULS.HitYourselfMsg"));
         continue;
       }
 
@@ -418,6 +428,17 @@ export default class DarkSoulsActorSheet extends ActorSheet {
       damageStrings.push(`<div>${targetName}: ${HpDmg} Damage</div>`);
     }
 
+    // Subtract ammunition if it's a ranged weapon
+    if (ammunition) {
+      const newQty = ammunition.system.qty - 1;
+
+      if (newQty < 1) {
+        await this.actor.deleteEmbeddedDocuments("Item", [ammunition.id]);
+      } else {
+        await this.actor.updateEmbeddedDocuments("Item", [{_id: ammunition.id, "system.qty": newQty}]);
+      }
+    }
+
     // Build chat card
     const damageTypeName = game.i18n.localize(CONFIG.DARKSOULS.damageTypes[damageType]);
     const physOrMag = game.i18n.localize(CONFIG.DARKSOULS.damageCategories[damageCategory]);
@@ -429,7 +450,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     const flavor = `${item.name}: ${totalDmg} ${damageTypeString}`;
     const content = `<div>${this.actor.name} attacks! (${chainHits}HIT)</div>${damageStrings.join("")}`;
 
-    return ChatMessage.create({
+    return await ChatMessage.create({
       speaker,
       type,
       flavor,

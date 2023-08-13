@@ -160,4 +160,13 @@ export default class DarkSoulsActor extends Actor {
 
     return data;
   }
+
+  get wieldedAmmunition() {
+    const wieldedAmmunition = {
+      bolt: this.items.find(i => i.system?.consumableType === "bolt" && i.system?.wielded),
+      arrow: this.items.find(i => i.system?.consumableType === "arrow" && i.system?.wielded)
+    };
+
+    return wieldedAmmunition;
+  }
 }

@@ -110,6 +110,11 @@ DARKSOULS.weaponCategories = {
   crossbow: "DARKSOULS.Crossbow"
 };
 
+DARKSOULS.ammoTypes = {
+  bow: "arrow",
+  crossbow: "bolt"
+};
+
 const validPowerMods = ["str", "dex", "int", "fth", "luc"];
 
 DARKSOULS.powerMods = Object.fromEntries(validPowerMods.map(s => [s, s.toLocaleUpperCase()]));
