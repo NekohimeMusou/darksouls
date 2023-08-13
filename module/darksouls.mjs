@@ -8,6 +8,7 @@ import DarkSoulsItemSheet from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants
 import { DARKSOULS } from "./helpers/config.mjs";
 import preloadHandlebarsTemplates from "./helpers/templates.mjs";
+import { registerHooks } from "./helpers/hooks.mjs";
 
 Hooks.once("init", async function() {
   console.log("DARKSOULS | Initializing Dark Souls Game System");
@@ -29,6 +30,7 @@ Hooks.once("init", async function() {
   registerSettings();
   registerDocumentClasses();
   registerSheetApplications();
+  registerHooks();
   registerHandlebarsHelpers();
   preloadHandlebarsTemplates();
 });
@@ -40,7 +42,7 @@ function registerHandlebarsHelpers() {
 function handleLegacyBehavior() {
   const foundryMajorVersion = Math.floor(Number(game.version));
 
-  if (foundryMajorVersion <= 11) {
+  if (foundryMajorVersion <= 12) {
     // Disable legacy active effect transferral
     CONFIG.ActiveEffect.legacyTransferral = false;
   }

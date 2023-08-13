@@ -124,6 +124,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     // Ability checks
     html.find(".roll-stat").click(this.#onStatRoll.bind(this));
     // Damage calculation
+    // NOTE: Only used on temporary damage pane
     html.find(".click-damage").click(this.#onDamageCalc.bind(this));
     // Weapon attack
     html.find(".click-weapon-attack").click(this.#onWeaponAttack.bind(this));
@@ -223,7 +224,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     const flavor = `Attack Power: ${attackPower} (${attackIsMagical ? "Magical" : "Physical"})`;
     const content = `${this.actor.name} attacks!\n${damageStrings.join("\n")}`;
 
-    return ChatMessage.create({
+    return await ChatMessage.create({
       speaker,
       type,
       flavor,
@@ -243,7 +244,6 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     const newItem = this.actor.items.get(element.value) || null;
 
     // Toggle equip attributes if necessary
-    // Will need to change this for armor sets
     if (oldItem) {
       await oldItem.update({"system.equipped": false});
     }
@@ -274,7 +274,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     // If the item doesn't exist, don't equip it
     if (item.system.qty < 1) {
       element.checked = false;
-      return ui.notifications.notify(game.i18n.localize("DARKSOULS.ZeroQtyMsg"), "info");
+      return await ui.notifications.notify(game.i18n.localize("DARKSOULS.ZeroQtyMsg"), "info");
     }
 
     const equippedItems = this.actor.system.equippedItems[item.type];
@@ -285,7 +285,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     if (equipCap && equippedItems.length >= equipCap) {
       element.checked = false;
       const msg = CONFIG.DARKSOULS.equipmentCaps[item.type]?.msg || "Unknown Item Equip Error";
-      return ui.notifications.notify(game.i18n.localize(msg), "info");
+      return await ui.notifications.notify(game.i18n.localize(msg), "info");
     }
 
     return await item.update({"system.equipped": true});
@@ -312,11 +312,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     if (itemConsumed) {
       const newQty = item.system.qty - 1;
 
-      if (newQty < 1) {
-        await this.actor.deleteEmbeddedDocuments("Item", [item.id]);
-      } else {
-        await this.actor.updateEmbeddedDocuments("Item", [{_id: item.id, "system.qty": newQty}]);
-      }
+      await this.actor.updateEmbeddedDocuments("Item", [{_id: item.id, "system.qty": newQty}]);
     }
 
     return await item.showChatCard({itemConsumed});
@@ -438,11 +434,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     if (ammunition) {
       const newQty = ammunition.system.qty - 1;
 
-      if (newQty < 1) {
-        await this.actor.deleteEmbeddedDocuments("Item", [ammunition.id]);
-      } else {
-        await this.actor.updateEmbeddedDocuments("Item", [{_id: ammunition.id, "system.qty": newQty}]);
-      }
+      await this.actor.updateEmbeddedDocuments("Item", [{_id: ammunition.id, "system.qty": newQty}]);
     }
 
     // Build chat card

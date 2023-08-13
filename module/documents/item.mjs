@@ -179,7 +179,7 @@ export default class DarkSoulsItem extends Item {
       rollMode
     };
 
-    return createMessage ? ChatMessage.create(chatData) : chatData;
+    return createMessage ? await ChatMessage.create(chatData) : chatData;
   }
 
   // TODO: Fix this so consumable effects aren't auto-activated

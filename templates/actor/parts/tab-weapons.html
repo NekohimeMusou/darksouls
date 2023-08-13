@@ -3,7 +3,7 @@
     <li class="item flexrow items-header">
       <div class="item-name">{{localize "DARKSOULS.Name"}}</div>
       <div class="item-equipped">{{localize "DARKSOULS.Equipped"}}</div>
-      <div class="qty">{{localize "DARKSOULS.Qty"}}</div>
+      <div class="item-qty">{{localize "DARKSOULS.Qty"}}</div>
       <div class="category-size">{{localize "DARKSOULS.Category"}}</div>
       <div class="atk-cost">{{localize "DARKSOULS.AtkCost"}}</div>
       <div class="dmg">{{localize "DARKSOULS.Dmg"}}</div>
@@ -26,8 +26,8 @@
         <input type="checkbox" class="item-equip-control" {{checked item.system.equipped}}/>
       </div>
       {{!-- Qty --}}
-      <div class="qty item-prop">
-        <input type="number" class="qty-field" value="{{item.system.qty}}" data-dtype="Number" disabled/>
+      <div class="item-qty item-prop">
+        <input type="number" value="{{item.system.qty}}" data-dtype="Number" disabled/>
       </div>
       {{!-- Category/Size --}}
       <div class="category-size item-prop">
