@@ -54,7 +54,7 @@ export default class DarkSoulsItem extends Item {
       "2h": this._calcDamage("2h")
     };
 
-    if (!systemData.chain) {
+    if (!systemData.chain && !this.isRangedWeapon) {
       systemData.chainHits = 1;
     }
 
@@ -65,6 +65,8 @@ export default class DarkSoulsItem extends Item {
           .map(i => [i, i * totalDmg[grip]]))
       ]));
 
+    systemData.noChain = this.noChain;
+    systemData.isRangedWeapon = this.isRangedWeapon;
     systemData.totalDmg = totalDmg;
     systemData.chainDmg = chainDmg;
   }
@@ -72,11 +74,12 @@ export default class DarkSoulsItem extends Item {
   _calcDamage(grip) {
     const baseDmg = this.system.baseDmg?.[grip] || 0;
     if (!baseDmg) return 0;
-    
+
+    const ammoBonus = this.actor?.wieldedAmmunition?.[this.ammoType]?.system?.damageBonus || 0;
     const statModBonus = this._powerModBonus;
     const enhanceBonus = this._enhanceBonus;
 
-    return baseDmg + statModBonus + enhanceBonus;
+    return baseDmg + statModBonus + enhanceBonus + ammoBonus;
   }
 
   get _powerModBonus() {
@@ -118,6 +121,29 @@ export default class DarkSoulsItem extends Item {
     const systemData = this.system;
 
     return systemData.category === "bow" || systemData.category === "crossbow";
+  }
+
+  get isAmmunition() {
+    const systemData = this.system;
+
+    return (systemData?.consumableType === "arrow" || systemData?.consumableType === "bolt");
+  }
+
+  get noChain() {
+    return !this.system.chain && !this.isRangedWeapon;
+  }
+
+  get ammoType() {
+    const systemData = this.system;
+
+    switch (systemData?.category) {
+    case "bow":
+      return "arrow";
+    case "crossbow":
+      return "bolt";
+    default:
+      return null;
+    }
   }
 
   /**

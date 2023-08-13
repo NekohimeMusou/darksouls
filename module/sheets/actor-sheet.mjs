@@ -332,8 +332,8 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     const newItem = this.actor.items.get(itemId) || null;
 
     // Array of wielded items
-    const itemType = newItem?.type;
-    const wieldedItems = this.actor.system?.wieldedItems?.[itemType];
+    const newItemType = newItem?.type;
+    const wieldedItems = this.actor.system?.wieldedItems?.[newItemType];
 
     if (!(Array.isArray(wieldedItems))) return;
 
@@ -341,7 +341,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
     // Extra logic if we're equipping something
     if (element.checked) {
-      if (itemType === "weapon") {
+      if (newItemType === "weapon") {
         // If it's 1H and two 1H weapons are already wielded, stop and complain
         if (newItem.has1hGrip && wieldedItems.length > 1) {
           element.checked = false;
@@ -350,15 +350,16 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
         // If the new item is 2h only or the old item was 2h only, un-wield all old items
         if (newItem.is2hOnly || wieldedItems.some(i => i.is2hOnly)) {
-          const wieldedMap = wieldedItems.map(i => ({"_id": i.id, "system.wielded": false}));
-          updates.push(...wieldedMap);
+          updates.push(...wieldedItems.map(i => ({"_id": i.id, "system.wielded": false})));
         }
       }
 
       // If the new item is ammunition, un-wield other ammo of the same type
-      // if (itemType === "consumable" && newItem.system?.consumableType === "ammunition") {
-      //   const 
-      // }
+      if (newItem.isAmmunition) {
+        const ammoType = newItem.system.consumableType;
+        const wieldedAmmo = wieldedItems.filter(i => i.system.consumableType === ammoType);
+        updates.push(...wieldedAmmo.map(i => ({_id: i.id, "system.wielded": false})));
+      }
     }
 
     // Update the item(s)
@@ -395,21 +396,18 @@ export default class DarkSoulsActorSheet extends ActorSheet {
       return await ui.notifications.info(game.i18n.localize("DARKSOULS.NoAmmunitionMsg"));
     }
 
-    const ammoBonus = ammunition?.system?.damageBonus || 0;
-
     // If 2 weapons are wielded OR there's no 2H damage, use the 1H damage
     const wieldedItems = this.actor.system.wieldedItems["weapon"];
     const dmgValues = item.system.totalDmg;
-    const weaponDmg = (wieldedItems.length > 1 || !dmgValues?.["2h"] ? dmgValues?.["1h"] : dmgValues?.["2h"]) + ammoBonus || 0;
+    const weaponDmg = (wieldedItems.length > 1 || !dmgValues?.["2h"] ? dmgValues?.["1h"] : dmgValues?.["2h"]) || 0;
     const chainHits = item.system.chainHits;
     const totalDmg = weaponDmg * chainHits;
 
     const damageCategory = item.system.magical ? "mag" : "phys";
     const damageTypes = new Set([item.system?.damageType ?? "physical"]);
-    // const damageType = item.system?.damageType ?? "physical";
     const ammoDamageType = ammunition?.system?.damageType;
 
-    if (ammoDamageType && ammoDamageType !== "physical") {
+    if (ammoDamageType) {
       damageTypes.add(ammoDamageType);
     }
 

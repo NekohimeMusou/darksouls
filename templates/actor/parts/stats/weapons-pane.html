@@ -32,8 +32,8 @@
         {{!-- Dmg Dropdown --}}
         {{!-- See if an event handler works w/o template.json? --}}
         <div class="item-chain-hits item-prop">
-          <select class="item-chain-hits" {{#unless item.system.chain}}disabled{{/unless}}>
-            {{selectOptions ../DARKSOULS.chainHits  selected=item.system.chainHits}}
+          <select class="item-chain-hits" {{#if item.system.noChain}}disabled{{/if}}>
+            {{selectOptions (ifThen item.system.isRangedWeapon ../DARKSOULS.chainHits.ranged ../DARKSOULS.chainHits.melee) selected=item.system.chainHits localize=true}}
           </select>
         </div>
         {{!-- 1H/2H damage --}}
