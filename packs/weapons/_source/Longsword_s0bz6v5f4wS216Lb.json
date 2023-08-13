@@ -11,7 +11,8 @@
     "weight": 3,
     "value": 1000,
     "qty": 1,
-    "attackCost": "[5] CHAIN",
+    "set": 1,
+    "attackCost": "[5]",
     "chain": false,
     "chainHits": 1,
     "baseDmg": {
@@ -35,10 +36,10 @@
   "flags": {},
   "_stats": {
     "systemId": "darksouls",
-    "systemVersion": "0.6.1",
+    "systemVersion": "0.7.2",
     "coreVersion": "11.307",
     "createdTime": 1691609513268,
-    "modifiedTime": 1691621905313,
+    "modifiedTime": 1691880160573,
     "lastModifiedBy": "tQQSVABlIfWe88A9"
   },
   "sort": 0,

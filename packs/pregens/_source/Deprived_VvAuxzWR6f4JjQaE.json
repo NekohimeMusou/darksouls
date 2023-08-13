@@ -13,32 +13,32 @@
     },
     "resistances": {
       "poison": {
-          "resistance": 0,
-          "weakness": 0
+        "resistance": 0,
+        "weakness": 0
       },
       "bleeding": {
-          "resistance": 0,
-          "weakness": 0
+        "resistance": 0,
+        "weakness": 0
       },
       "dark": {
-          "resistance": 0,
-          "weakness": 0
+        "resistance": 0,
+        "weakness": 0
       },
       "cold": {
-          "resistance": 0,
-          "weakness": 0
+        "resistance": 0,
+        "weakness": 0
       },
       "magic": {
-          "resistance": 0,
-          "weakness": 0
+        "resistance": 0,
+        "weakness": 0
       },
       "fire": {
-          "resistance": 0,
-          "weakness": 0
+        "resistance": 0,
+        "weakness": 0
       },
       "lightning": {
-          "resistance": 0,
-          "weakness": 0
+        "resistance": 0,
+        "weakness": 0
       }
     },
     "damage": 0,
