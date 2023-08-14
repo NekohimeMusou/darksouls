@@ -1,0 +1,16 @@
+<div class="flexrow">
+  <div class="resource flexcol">
+    <label class="resource-label">{{localize "DARKSOULS.GuardCost"}}</label>
+    <input type="text" name="system.guardCost" value="{{system.guardCost}}" data-dtype="String" {{disabled editLocked}}/>
+  </div>
+  <div class="flexcol">
+    <div class="resource flexrow">
+      <label class="resource-label">{{localize "DARKSOULS.PhysBlock"}}</label>
+      <input type="text" name="system.blockValue.phys" value="{{system.blockValue.phys}}" data-dtype="Number" {{disabled editLocked}}/>
+    </div>
+    <div class="resource flexrow">
+      <label class="resource-label">{{localize "DARKSOULS.MagBlock"}}</label>
+      <input type="text" name="system.blockValue.mag" value="{{system.blockValue.mag}}" data-dtype="Number" {{disabled editLocked}}/>
+    </div>
+  </div>
+</div>

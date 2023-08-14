@@ -11,9 +11,13 @@
         {{!-- Damage (at selected chain) --}}
         <div class="dmg">{{localize "DARKSOULS.Dmg"}}</div>
         {{!-- Atk Cost --}}
-        <div class="item-atk-cost">{{localize "DARKSOULS.Cost"}}</div>
+        <div class="item-atk-cost">{{localize "DARKSOULS.AtkCost"}}</div>
         {{!-- Category/size --}}
         <div class="category-size">{{localize "DARKSOULS.CategoryShort"}}</div>
+        {{!-- Blk Cost --}}
+        <div class="item-block-cost">{{localize "DARKSOULS.BlkCost"}}</div>
+        {{!-- Phys/Mag Blk --}}
+        <div class="item-block-values">{{localize "DARKSOULS.PhysMagBlk"}}</div>
         {{!-- Wgt --}}
         <div class="wgt">{{localize "DARKSOULS.Wgt"}}</div>
       </li>
@@ -30,24 +34,33 @@
           <input type="checkbox" class="item-wielded-control" {{checked item.system.wielded}}/>
         </div>
         {{!-- Dmg Dropdown --}}
-        {{!-- See if an event handler works w/o template.json? --}}
         <div class="item-chain-hits item-prop">
+          {{#if item.system.canAttack}}
           <select class="item-chain-hits" {{#if item.system.noChain}}disabled{{/if}}>
             {{selectOptions (ifThen item.system.isRangedWeapon ../DARKSOULS.chainHits.ranged ../DARKSOULS.chainHits.melee) selected=item.system.chainHits localize=true}}
           </select>
+          {{/if}}
         </div>
         {{!-- 1H/2H damage --}}
         <div class="dmg item-prop">
+          {{#if item.system.canAttack}}
           {{#if item.system.baseDmg.1h}}{{lookup item.system.chainDmg.1h item.system.chainHits}}{{else}}—{{/if}}/{{#if item.system.baseDmg.2h}}{{lookup item.system.chainDmg.2h item.system.chainHits}}{{else}}—{{/if}}
+          {{/if}}
         </div>
         {{!-- Atk Cost --}}
         <div class="item-atk-cost item-prop">
+          {{#if item.system.canAttack}}
           <input type="text" value="{{item.system.attackCost}}" data-dtype="String" disabled/>
+          {{/if}}
         </div>
         {{!-- Category/size --}}
         <div class="category-size item-prop">
           {{localize (lookup ../DARKSOULS.weaponCategories item.system.category)}} / {{#with (lookup ../DARKSOULS.weaponSizes item.system.size) as |size|}}{{localize size.name}}{{/with}}
         </div>
+        {{!-- Blk Cost --}}
+        <div class="item-block-cost item-prop">{{item.system.guardCost}}</div>
+        {{!-- Phys/Mag Def --}}
+        <div class="item-block-values item-prop">{{#if item.system.canGuard}}{{item.system.blockValue.phys}} / {{item.system.blockValue.mag}}{{/if}}</div>
         {{!-- Wgt --}}
         <div class="wgt item-prop">{{item.system.weight}}</div>
       </li>

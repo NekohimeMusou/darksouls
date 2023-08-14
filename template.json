@@ -149,10 +149,17 @@
             },
             "wield": {
                 "wielded": false
+            },
+            "guard": {
+                "guardCost": "",
+                "blockValue": {
+                    "phys": 0,
+                    "mag": 0
+                }
             }
         },
         "weapon": {
-            "templates": ["base", "equippable", "weight", "value", "quantity", "attack", "damageType", "wield"],
+            "templates": ["base", "equippable", "weight", "value", "quantity", "attack", "guard", "damageType", "wield"],
             "category": "dagger",
             "size": "small",
             "reqs": ""

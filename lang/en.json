@@ -101,10 +101,10 @@
 
     "DARKSOULS.Size": "Size",
 
-    "DARKSOULS.Small": "Small",
-    "DARKSOULS.Medium": "Medium",
-    "DARKSOULS.Large": "Large",
-    "DARKSOULS.Special": "Special",
+    "DARKSOULS.Small": "Sm",
+    "DARKSOULS.Medium": "Med",
+    "DARKSOULS.Large": "Lg",
+    "DARKSOULS.Special": "Spc",
 
     "DARKSOULS.Category": "Category",
     "DARKSOULS.CategoryShort": "Cat.",
@@ -130,6 +130,8 @@
 
     "DARKSOULS.AttackCost": "Attack Cost",
     "DARKSOULS.AtkCost": "Atk Cost",
+    "DARKSOULS.BlkCost": "Blk Cost",
+    "DARKSOULS.PhysMagBlk": "Phys/Mag Blk",
     "DARKSOULS.Damage": "Damage",
     "DARKSOULS.Dmg": "Dmg",
     "DARKSOULS.1H": "1H",
@@ -138,6 +140,11 @@
     "DARKSOULS.PowerMods": "Power Mods",
     "DARKSOULS.EnhancementLevel": "Enhancement Level",
     "DARKSOULS.DamageType": "Damage Type",
+
+    "DARKSOULS.Guard": "Guard",
+    "DARKSOULS.GuardCost": "Guard Cost",
+    "DARKSOULS.PhysBlock": "Phys Block",
+    "DARKSOULS.MagBlock": "Mag Block",
 
     "DARKSOULS.Ready": "Ready",
 

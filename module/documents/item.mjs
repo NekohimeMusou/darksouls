@@ -65,6 +65,9 @@ export default class DarkSoulsItem extends Item {
           .map(i => [i, i * totalDmg[grip]]))
       ]));
 
+    // FIXTHIS: Come up with a more elegant solution for this BS
+    systemData.canAttack = this.canAttack;
+    systemData.canGuard = this.canGuard;
     systemData.noChain = this.noChain;
     systemData.isRangedWeapon = this.isRangedWeapon;
     systemData.totalDmg = totalDmg;
@@ -144,6 +147,14 @@ export default class DarkSoulsItem extends Item {
     default:
       return null;
     }
+  }
+
+  get canGuard() {
+    return Boolean(this.system?.guardCost);
+  }
+
+  get canAttack() {
+    return Boolean(this.system?.attackCost);
   }
 
   /**

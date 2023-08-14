@@ -7,6 +7,8 @@
       <div class="category-size">{{localize "DARKSOULS.Category"}}</div>
       <div class="atk-cost">{{localize "DARKSOULS.AtkCost"}}</div>
       <div class="dmg">{{localize "DARKSOULS.Dmg"}}</div>
+      <div class="item-block-cost">{{localize "DARKSOULS.BlkCost"}}</div>
+      <div class="item-block-values">{{localize "DARKSOULS.PhysMagBlk"}}</div>
       <div class="wgt">{{localize "DARKSOULS.Wgt"}}</div>
       <div class="item-controls">
         <a class="item-control item-create" title="Create item" data-type="weapon"><i class="fas fa-plus"></i> Add item</a>
@@ -31,14 +33,18 @@
       </div>
       {{!-- Category/Size --}}
       <div class="category-size item-prop">
-        {{localize (lookup ../DARKSOULS.weaponCategories item.system.category)}}/{{#with (lookup ../DARKSOULS.weaponSizes item.system.size) as |size|}}{{localize size.name}}{{/with}}
+        {{localize (lookup ../DARKSOULS.weaponCategories item.system.category)}} / {{#with (lookup ../DARKSOULS.weaponSizes item.system.size) as |size|}}{{localize size.name}}{{/with}}
       </div>
       {{!-- AttackCost --}}
       <div class="atk-cost item-prop">{{system.attackCost}}</div>
       {{!-- 1H/2H damage --}}
       <div class="dmg item-prop">
+        {{#if item.system.canAttack}}
         {{#if item.system.baseDmg.1h}}{{item.system.totalDmg.1h}}{{else}}—{{/if}}/{{#if item.system.baseDmg.2h}}{{item.system.totalDmg.2h}}{{else}}—{{/if}}
+        {{/if}}
       </div>
+      <div class="item-block-cost item-prop">{{item.system.guardCost}}</div>
+      <div class="item-block-values item-prop">{{#if item.system.canGuard}}{{item.system.blockValue.phys}} / {{item.system.blockValue.mag}}{{/if}}</div>
       {{!-- Wgt --}}
       <div class="wgt item-prop">{{system.weight}}</div>
       <div class="item-controls">
