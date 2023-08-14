@@ -6,7 +6,7 @@
   "img": "icons/svg/item-bag.svg",
   "system": {
     "description": "",
-    "editLocked": false,
+    "editLocked": true,
     "equipped": false,
     "value": 50,
     "qty": 10,
