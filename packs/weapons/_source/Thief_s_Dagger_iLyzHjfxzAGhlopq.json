@@ -26,23 +26,28 @@
     },
     "enhanceLevel": 0,
     "magical": false,
+    "guardCost": "3",
+    "blockValue": {
+      "phys": 1,
+      "mag": 0
+    },
     "damageType": "bleeding",
+    "wielded": false,
     "category": "dagger",
     "size": "small",
-    "reqs": "Str 6, Dex 12",
-    "wielded": false
+    "reqs": "Str 6, Dex 12"
   },
   "effects": [],
   "flags": {},
   "_stats": {
     "systemId": "darksouls",
-    "systemVersion": "0.7.2",
+    "systemVersion": "0.7.4",
     "coreVersion": "11.307",
     "createdTime": 1691609538767,
-    "modifiedTime": 1691880205659,
+    "modifiedTime": 1692064856209,
     "lastModifiedBy": "tQQSVABlIfWe88A9"
   },
-  "sort": 0,
+  "sort": 1000000,
   "ownership": {
     "default": 0,
     "tQQSVABlIfWe88A9": 3

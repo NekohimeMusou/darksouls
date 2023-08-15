@@ -1,0 +1,39 @@
+{
+  "name": "Throwing Knives",
+  "type": "consumable",
+  "_id": "2w5coLWdF7aolVL1",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>One enemy must reroll their initiative values with a -1 to the total result.</p>",
+    "editLocked": true,
+    "equipped": true,
+    "value": 500,
+    "qty": 5,
+    "set": 5,
+    "damageType": "physical",
+    "wielded": false,
+    "consumableType": "throwingKnives",
+    "damageBonus": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.darksouls.consumables.Item.OdH6nsBbRYK3LT3v"
+    }
+  },
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.7.4",
+    "coreVersion": "11.307",
+    "createdTime": 1692067118962,
+    "modifiedTime": 1692067208520,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "_key": "!actors.items!5afPkDyef22pcxGw.2w5coLWdF7aolVL1"
+}

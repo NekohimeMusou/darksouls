@@ -1,23 +1,23 @@
 {
   "folder": "DbSPKxmcnOZUd5ik",
-  "name": "Longsword",
+  "name": "Handaxe",
   "type": "weapon",
-  "_id": "s0bz6v5f4wS216Lb",
+  "_id": "ylE7plFLHxgVvZv3",
   "img": "icons/svg/item-bag.svg",
   "system": {
     "description": "",
     "editLocked": true,
-    "equipped": false,
-    "weight": 3,
-    "value": 1000,
+    "equipped": true,
+    "weight": 2,
+    "value": 400,
     "qty": 1,
     "set": 1,
     "attackCost": "[5]",
-    "chain": false,
+    "chain": true,
     "chainHits": 1,
     "baseDmg": {
-      "1h": 20,
-      "2h": 30
+      "1h": 17,
+      "2h": 29
     },
     "powerMods": {
       "0": "str",
@@ -32,25 +32,29 @@
       "mag": 0
     },
     "damageType": "physical",
-    "wielded": false,
-    "category": "straightSword",
+    "wielded": true,
+    "category": "axe",
     "size": "medium",
-    "reqs": "Str 10, Dex 10"
+    "reqs": "Str 9, Dex 8"
   },
   "effects": [],
-  "flags": {},
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.darksouls.weapons.Item.qAyGNxJgqnGcQgvH"
+    }
+  },
   "_stats": {
     "systemId": "darksouls",
     "systemVersion": "0.7.4",
     "coreVersion": "11.307",
-    "createdTime": 1691609513268,
-    "modifiedTime": 1692064852278,
+    "createdTime": 1691609550229,
+    "modifiedTime": 1692066656386,
     "lastModifiedBy": "tQQSVABlIfWe88A9"
   },
-  "sort": 500000,
+  "sort": 400000,
   "ownership": {
     "default": 0,
     "tQQSVABlIfWe88A9": 3
   },
-  "_key": "!items!s0bz6v5f4wS216Lb"
+  "_key": "!actors.items!wo5EdTNgtV6F6odH.ylE7plFLHxgVvZv3"
 }

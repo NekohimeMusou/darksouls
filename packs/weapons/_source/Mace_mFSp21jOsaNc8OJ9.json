@@ -26,23 +26,28 @@
     },
     "enhanceLevel": 0,
     "magical": false,
+    "guardCost": "3",
+    "blockValue": {
+      "phys": 1,
+      "mag": 1
+    },
     "damageType": "physical",
+    "wielded": false,
     "category": "hammer",
     "size": "medium",
-    "reqs": "Str 10",
-    "wielded": false
+    "reqs": "Str 10"
   },
   "effects": [],
   "flags": {},
   "_stats": {
     "systemId": "darksouls",
-    "systemVersion": "0.7.2",
+    "systemVersion": "0.7.4",
     "coreVersion": "11.307",
     "createdTime": 1691609552442,
-    "modifiedTime": 1691880169696,
+    "modifiedTime": 1692064852837,
     "lastModifiedBy": "tQQSVABlIfWe88A9"
   },
-  "sort": 0,
+  "sort": 600000,
   "ownership": {
     "default": 0,
     "tQQSVABlIfWe88A9": 3

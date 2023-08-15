@@ -1,0 +1,56 @@
+{
+  "folder": "TG5fezih636ZnUrB",
+  "name": "Blue Wooden Shield",
+  "type": "weapon",
+  "_id": "LVwqhcg99G826yXw",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p><span class=\"fontstyle0\"><strong>Magic Warding</strong> </span><span class=\"fontstyle2\">&mdash; When you successfully Guard, gain Resistance (Magic </span><span class=\"fontstyle3\">▢▢</span><span class=\"fontstyle2\">) until you finish resolving the Guard.</span></p>",
+    "editLocked": true,
+    "equipped": false,
+    "weight": 5,
+    "value": 800,
+    "qty": 1,
+    "set": 1,
+    "attackCost": "",
+    "chain": false,
+    "chainHits": 1,
+    "baseDmg": {
+      "1h": 0,
+      "2h": 0
+    },
+    "powerMods": {
+      "0": "",
+      "1": "",
+      "2": ""
+    },
+    "enhanceLevel": 0,
+    "magical": false,
+    "guardCost": "5",
+    "blockValue": {
+      "phys": 2,
+      "mag": 3
+    },
+    "damageType": "physical",
+    "wielded": false,
+    "category": "shield",
+    "size": "medium",
+    "reqs": "Str 8"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.7.4",
+    "coreVersion": "11.307",
+    "createdTime": 1692065428719,
+    "modifiedTime": 1692065507552,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "_key": "!items!LVwqhcg99G826yXw"
+}

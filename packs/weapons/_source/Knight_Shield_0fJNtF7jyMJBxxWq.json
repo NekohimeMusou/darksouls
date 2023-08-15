@@ -1,54 +1,56 @@
 {
-  "folder": "DbSPKxmcnOZUd5ik",
-  "name": "Spear",
+  "folder": "TG5fezih636ZnUrB",
+  "name": "Knight Shield",
   "type": "weapon",
-  "_id": "FDde3AQFItk8t68H",
+  "_id": "0fJNtF7jyMJBxxWq",
   "img": "icons/svg/item-bag.svg",
   "system": {
     "description": "",
     "editLocked": true,
-    "equipped": true,
+    "equipped": false,
     "weight": 4,
-    "value": 600,
+    "value": 1000,
     "qty": 1,
-    "attackCost": "[5] CHAIN",
-    "chain": true,
+    "set": 1,
+    "attackCost": "",
+    "chain": false,
     "chainHits": 1,
     "baseDmg": {
-      "1h": 19,
-      "2h": 29
+      "1h": 0,
+      "2h": 0
     },
     "powerMods": {
-      "0": "str",
+      "0": "",
       "1": "",
       "2": ""
     },
     "enhanceLevel": 0,
     "magical": false,
+    "guardCost": "5",
+    "blockValue": {
+      "phys": 4,
+      "mag": 1
+    },
     "damageType": "physical",
-    "category": "spear",
+    "wielded": false,
+    "category": "shield",
     "size": "medium",
-    "reqs": "Str 11, Dex 10",
-    "wielded": true
+    "reqs": "Str 13"
   },
   "effects": [],
-  "sort": 500000,
+  "sort": 100000,
   "ownership": {
     "default": 0,
     "tQQSVABlIfWe88A9": 3
   },
-  "flags": {
-    "core": {
-      "sourceId": "Item.yqtT6cgYBQRM2VRV"
-    }
-  },
+  "flags": {},
   "_stats": {
     "systemId": "darksouls",
-    "systemVersion": "0.7.0",
+    "systemVersion": "0.7.4",
     "coreVersion": "11.307",
-    "createdTime": 1691609534738,
-    "modifiedTime": 1691623080863,
+    "createdTime": 1692064885197,
+    "modifiedTime": 1692065136105,
     "lastModifiedBy": "tQQSVABlIfWe88A9"
   },
-  "_key": "!actors.items!H2WtQTb0X3fqbGKO.FDde3AQFItk8t68H"
+  "_key": "!items!0fJNtF7jyMJBxxWq"
 }

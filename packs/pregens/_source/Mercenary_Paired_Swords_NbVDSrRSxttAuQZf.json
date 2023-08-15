@@ -2,7 +2,7 @@
   "folder": "DbSPKxmcnOZUd5ik",
   "name": "Mercenary Paired Swords",
   "type": "weapon",
-  "_id": "PWo9ktcSLsAuZfkC",
+  "_id": "NbVDSrRSxttAuQZf",
   "img": "icons/svg/item-bag.svg",
   "system": {
     "description": "<p>Dual Strike <span class=\"fontstyle0\">&mdash; Attack Cost is [5] when wielding one sword, or [4] when wielding two (use 2H damage).</span></p>",
@@ -11,7 +11,8 @@
     "weight": 5,
     "value": 1000,
     "qty": 1,
-    "attackCost": "[5]/[4] CHAIN",
+    "set": 1,
+    "attackCost": "[5]/[4]",
     "chain": true,
     "chainHits": 1,
     "baseDmg": {
@@ -25,30 +26,35 @@
     },
     "enhanceLevel": 0,
     "magical": false,
+    "guardCost": "",
+    "blockValue": {
+      "phys": 0,
+      "mag": 0
+    },
     "damageType": "physical",
+    "wielded": true,
     "category": "curvedSword",
     "size": "medium",
-    "reqs": "Str 10, Dex 16",
-    "wielded": true
+    "reqs": "Str 10, Dex 16"
   },
   "effects": [],
-  "sort": 0,
-  "ownership": {
-    "default": 0,
-    "tQQSVABlIfWe88A9": 3
-  },
   "flags": {
     "core": {
-      "sourceId": "Item.bCAcBSImyZRyLtZy"
+      "sourceId": "Compendium.darksouls.weapons.Item.bCAcBSImyZRyLtZy"
     }
   },
   "_stats": {
     "systemId": "darksouls",
-    "systemVersion": "0.7.0",
+    "systemVersion": "0.7.4",
     "coreVersion": "11.307",
     "createdTime": 1691609518217,
-    "modifiedTime": 1691623154064,
+    "modifiedTime": 1692066694676,
     "lastModifiedBy": "tQQSVABlIfWe88A9"
   },
-  "_key": "!actors.items!yPI1SmIqB7CWOwQ7.PWo9ktcSLsAuZfkC"
+  "sort": 800000,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
+  "_key": "!actors.items!yPI1SmIqB7CWOwQ7.NbVDSrRSxttAuQZf"
 }

@@ -1,0 +1,19 @@
+{
+  "name": "Shields",
+  "sorting": "a",
+  "folder": "DbSPKxmcnOZUd5ik",
+  "type": "Item",
+  "_id": "TG5fezih636ZnUrB",
+  "sort": 100000,
+  "color": null,
+  "flags": {},
+  "_stats": {
+    "systemId": "darksouls",
+    "systemVersion": "0.7.4",
+    "coreVersion": "11.307",
+    "createdTime": 1692064951597,
+    "modifiedTime": 1692064953550,
+    "lastModifiedBy": "tQQSVABlIfWe88A9"
+  },
+  "_key": "!folders!TG5fezih636ZnUrB"
+}

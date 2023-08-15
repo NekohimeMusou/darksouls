@@ -26,23 +26,28 @@
     },
     "enhanceLevel": 0,
     "magical": false,
+    "guardCost": "",
+    "blockValue": {
+      "phys": 0,
+      "mag": 0
+    },
     "damageType": "physical",
+    "wielded": false,
     "category": "curvedSword",
     "size": "medium",
-    "reqs": "Str 10, Dex 16",
-    "wielded": false
+    "reqs": "Str 10, Dex 16"
   },
   "effects": [],
   "flags": {},
   "_stats": {
     "systemId": "darksouls",
-    "systemVersion": "0.7.2",
+    "systemVersion": "0.7.4",
     "coreVersion": "11.307",
     "createdTime": 1691609518217,
-    "modifiedTime": 1691880185758,
+    "modifiedTime": 1692064853995,
     "lastModifiedBy": "tQQSVABlIfWe88A9"
   },
-  "sort": 0,
+  "sort": 800000,
   "ownership": {
     "default": 0,
     "tQQSVABlIfWe88A9": 3

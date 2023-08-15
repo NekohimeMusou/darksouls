@@ -1,56 +1,56 @@
 {
-  "folder": "DbSPKxmcnOZUd5ik",
-  "name": "Longsword",
+  "folder": "TG5fezih636ZnUrB",
+  "name": "Round Shield",
   "type": "weapon",
-  "_id": "s0bz6v5f4wS216Lb",
+  "_id": "ScT0D7PQmhaKsSnp",
   "img": "icons/svg/item-bag.svg",
   "system": {
     "description": "",
     "editLocked": true,
     "equipped": false,
-    "weight": 3,
-    "value": 1000,
+    "weight": 0,
+    "value": 0,
     "qty": 1,
     "set": 1,
-    "attackCost": "[5]",
+    "attackCost": "",
     "chain": false,
     "chainHits": 1,
     "baseDmg": {
-      "1h": 20,
-      "2h": 30
+      "1h": 0,
+      "2h": 0
     },
     "powerMods": {
-      "0": "str",
+      "0": "",
       "1": "",
       "2": ""
     },
     "enhanceLevel": 0,
     "magical": false,
-    "guardCost": "2",
+    "guardCost": "5",
     "blockValue": {
-      "phys": 1,
-      "mag": 0
+      "phys": 3,
+      "mag": 2
     },
     "damageType": "physical",
     "wielded": false,
-    "category": "straightSword",
+    "category": "shield",
     "size": "medium",
-    "reqs": "Str 10, Dex 10"
+    "reqs": "Str 8"
   },
   "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "tQQSVABlIfWe88A9": 3
+  },
   "flags": {},
   "_stats": {
     "systemId": "darksouls",
     "systemVersion": "0.7.4",
     "coreVersion": "11.307",
-    "createdTime": 1691609513268,
-    "modifiedTime": 1692064852278,
+    "createdTime": 1692065008416,
+    "modifiedTime": 1692065115001,
     "lastModifiedBy": "tQQSVABlIfWe88A9"
   },
-  "sort": 500000,
-  "ownership": {
-    "default": 0,
-    "tQQSVABlIfWe88A9": 3
-  },
-  "_key": "!items!s0bz6v5f4wS216Lb"
+  "_key": "!items!ScT0D7PQmhaKsSnp"
 }

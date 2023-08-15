@@ -1,8 +1,8 @@
 {
-  "folder": "DbSPKxmcnOZUd5ik",
-  "name": "Club",
+  "folder": "TG5fezih636ZnUrB",
+  "name": "Plank Shield",
   "type": "weapon",
-  "_id": "AgXk6T5BiO2xEEPC",
+  "_id": "FOniTTCmQpTzl8Aa",
   "img": "icons/svg/item-bag.svg",
   "system": {
     "description": "",
@@ -11,44 +11,50 @@
     "weight": 3,
     "value": 100,
     "qty": 1,
-    "attackCost": "[5] CHAIN",
-    "chain": true,
+    "set": 1,
+    "attackCost": "[4]",
+    "chain": false,
     "chainHits": 1,
     "baseDmg": {
       "1h": 15,
-      "2h": 25
+      "2h": 0
     },
     "powerMods": {
       "0": "str",
-      "1": "str",
+      "1": "",
       "2": ""
     },
     "enhanceLevel": 0,
     "magical": false,
+    "guardCost": "3",
+    "blockValue": {
+      "phys": 2,
+      "mag": 1
+    },
     "damageType": "physical",
-    "category": "hammer",
-    "size": "medium",
-    "reqs": "Str 10",
-    "wielded": true
+    "wielded": true,
+    "category": "shield",
+    "size": "small",
+    "reqs": "Str 8"
   },
   "effects": [],
-  "sort": 300000,
+  "sort": 0,
   "ownership": {
     "default": 0,
     "tQQSVABlIfWe88A9": 3
   },
   "flags": {
     "core": {
-      "sourceId": "Item.41AlSPfZ5fsYExeq"
+      "sourceId": "Compendium.darksouls.weapons.Item.iAHQD9lm9TVUaTLg"
     }
   },
   "_stats": {
     "systemId": "darksouls",
-    "systemVersion": "0.7.0",
+    "systemVersion": "0.7.4",
     "coreVersion": "11.307",
-    "createdTime": 1691609554583,
-    "modifiedTime": 1691622968137,
+    "createdTime": 1692065534647,
+    "modifiedTime": 1692066855374,
     "lastModifiedBy": "tQQSVABlIfWe88A9"
   },
-  "_key": "!actors.items!VvAuxzWR6f4JjQaE.AgXk6T5BiO2xEEPC"
+  "_key": "!actors.items!VvAuxzWR6f4JjQaE.FOniTTCmQpTzl8Aa"
 }
