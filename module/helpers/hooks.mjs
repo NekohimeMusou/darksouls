@@ -21,7 +21,7 @@ async function _onConsumableAdd(newItem, options, userId) {
 
   const oldItem = newItem.actor.items.find(i => i.name === newItem.name);
 
-  if (oldItem instanceof Item) {
+  if (oldItem instanceof Item && !Object.is(oldItem, newItem)) {
     const newQty = newItem.system?.qty || 0;
     const oldQty = oldItem.system?.qty || 0;
 
