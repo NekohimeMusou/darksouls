@@ -177,22 +177,22 @@
     "randomImg": false
   },
   "items": [
-    "Xq3wcvnWbVkTjKOP",
     "Slyue85kth2tJoYO",
     "rVQFetw5qusE9vN1",
     "fA67eFlBXEkehJsY",
-    "nkCfmWUfi9mozuoN"
+    "nkCfmWUfi9mozuoN",
+    "NqcnuipfiacqVkRx"
   ],
   "effects": [],
   "folder": null,
   "flags": {},
   "_stats": {
     "systemId": "darksouls",
-    "systemVersion": "0.7.0",
+    "systemVersion": "0.7.4",
     "coreVersion": "11.307",
     "createdTime": 1691609941255,
-    "modifiedTime": 1691623739476,
-    "lastModifiedBy": "tQQSVABlIfWe88A9"
+    "modifiedTime": 1692051939943,
+    "lastModifiedBy": "yVQDAthvumPf450l"
   },
   "sort": 0,
   "ownership": {
