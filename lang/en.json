@@ -23,6 +23,17 @@
     "DARKSOULS.EstusFlasks": "Estus",
     "DARKSOULS.AshenEstusFlasks": "Ashen Estus",
 
+    "DARKSOULS.Assassin": "Assassin",
+    "DARKSOULS.Cleric": "Cleric",
+    "DARKSOULS.Deprived": "Deprived",
+    "DARKSOULS.Herald": "Herald",
+    "DARKSOULS.Knight": "Knight",
+    "DARKSOULS.Mercenary": "Mercenary",
+    "DARKSOULS.Pyromancer": "Pyromancer",
+    "DARKSOULS.Sorcerer": "Sorcerer",
+    "DARKSOULS.Thief": "Thief",
+    "DARKSOULS.Warrior": "Warrior",
+
     "DARKSOULS.Vigor": "Vigor",
     "DARKSOULS.Attunement": "Attunement",
     "DARKSOULS.Vitality": "Vitality",

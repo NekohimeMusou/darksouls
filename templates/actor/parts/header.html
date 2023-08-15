@@ -9,7 +9,9 @@
       <div class="resource flex-group-center">
         <label for="system.class" class="resource-label">{{localize "DARKSOULS.Class"}}</label>
         <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="system.class" value="{{system.class}}" />
+          <select name="system.class">
+            {{selectOptions DARKSOULS.classes selected=system.class localize=true}}
+          </select>
         </div>
       </div>
 

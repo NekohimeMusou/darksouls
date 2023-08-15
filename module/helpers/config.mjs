@@ -2,6 +2,19 @@ export const DARKSOULS = {};
 
 DARKSOULS.moduleID = "DARKSOULS",
 
+DARKSOULS.classes = {
+  assassin: "DARKSOULS.Assassin",
+  cleric: "DARKSOULS.Cleric",
+  deprived: "DARKSOULS.Deprived",
+  herald: "DARKSOULS.Herald",
+  knight: "DARKSOULS.Knight",
+  mercenary: "DARKSOULS.Mercenary",
+  pyromancer: "DARKSOULS.Pyromancer",
+  sorcerer: "DARKSOULS.Sorcerer",
+  thief: "DARKSOULS.Thief",
+  warrior: "DARKSOULS.Warrior"
+};
+
 DARKSOULS.stats = {
   vig: "DARKSOULS.Vigor",
   atn: "DARKSOULS.Attunement",
