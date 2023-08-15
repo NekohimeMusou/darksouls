@@ -56,8 +56,10 @@ export default class DarkSoulsItemSheet extends ItemSheet {
     const editLocked = item.system.editLocked;
     const attackIsPhysical = item.system?.damageType === "physical";
     const isTorsoArmor = item.type === "armor" && item.system.slot === "torso";
+    // FIXTHIS: This is a hack until/unless I figure out a better solution
+    const disableChainControl = editLocked || item.isRangedWeapon;
 
-    return { editLocked, attackIsPhysical, isTorsoArmor };
+    return { editLocked, attackIsPhysical, isTorsoArmor, disableChainControl };
   }
 
   /** @override */

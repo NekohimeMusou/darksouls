@@ -36,9 +36,11 @@
         {{!-- Dmg Dropdown --}}
         <div class="item-chain-hits item-prop">
           {{#if item.system.canAttack}}
+          {{#unless item.system.noChain}}
           <select class="item-chain-hits" {{#if item.system.noChain}}disabled{{/if}}>
             {{selectOptions (ifThen item.system.isRangedWeapon ../DARKSOULS.chainHits.ranged ../DARKSOULS.chainHits.melee) selected=item.system.chainHits localize=true}}
           </select>
+          {{/unless}}
           {{/if}}
         </div>
         {{!-- 1H/2H damage --}}
