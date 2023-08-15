@@ -130,7 +130,11 @@ DARKSOULS.ammoTypes = {
 
 const validPowerMods = ["str", "dex", "int", "fth", "luc"];
 
+const validPrereqStats = ["str", "dex", "int", "fth"];
+
 DARKSOULS.powerMods = Object.fromEntries(validPowerMods.map(s => [s, s.toLocaleUpperCase()]));
+
+DARKSOULS.prereqStats = Object.fromEntries(validPrereqStats.map(s => [s, s.toLocaleUpperCase()]));
 
 DARKSOULS.chainHits = {
   melee: Object.fromEntries([1, 2, 3, 4].map(i => [i, `${i}HIT`])),

@@ -156,10 +156,13 @@
                     "phys": 0,
                     "mag": 0
                 }
+            },
+            "prereqs": {
+                "prereqs": {}
             }
         },
         "weapon": {
-            "templates": ["base", "equippable", "weight", "value", "quantity", "attack", "guard", "damageType", "wield"],
+            "templates": ["base", "equippable", "weight", "value", "quantity", "attack", "guard", "damageType", "wield", "prereqs"],
             "category": "dagger",
             "size": "small",
             "reqs": ""
