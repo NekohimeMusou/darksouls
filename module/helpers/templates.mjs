@@ -19,6 +19,7 @@ export default async function preloadHandlebarsTemplates() {
     "systems/darksouls/templates/item/parts/tab-weapon-shared.html",
     "systems/darksouls/templates/item/parts/tab-weapon-attack.html",
     "systems/darksouls/templates/item/parts/tab-weapon-guard.html",
+    "systems/darksouls/templates/item/parts/stats/prereqs-pane.html",
     "systems/darksouls/templates/shared/tab-effects.html"
   ];
 

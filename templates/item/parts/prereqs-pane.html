@@ -1,0 +1,39 @@
+<div class="prereqs-pane">
+  <div class="resource-label flex-group-center flex0">{{localize "DARKSOULS.Prerequisites"}}</div>
+  <div class="items-list flexcol">
+    <ol class="items-list">
+      <li class="item flexrow items-header">
+        <div class="item-name flex2">{{localize "DARKSOULS.Name"}}</div>
+        <div class="armor-slot">{{localize "DARKSOULS.ArmorSlot"}}</div>
+        <div class="armor-physdef">{{localize "DARKSOULS.Phys"}}</div>
+        <div class="armor-magdef">{{localize "DARKSOULS.Mag"}}</div>
+        <div class="item-weight">{{localize "DARKSOULS.Wgt"}}</div>
+        <div class="item-controls">
+          <a class="item-control item-create" title="Create item" data-type="ring"><i class="fas fa-plus"></i> Add item</a>
+        </div>
+      </li>
+      {{#each system.equippedItems.armor as |item slot|}}
+      <li class="item flexrow" data-item-id="{{item._id}}">
+        <div class="item-prop flex2">
+          <select class="item-select" name="system.equippedItems.armor.{{slot}}">
+            {{selectOptions (lookup ../armorBySlot slot) selected=item._id nameAttr="_id" labelAttr="name" blank="---"}}
+          </select>
+        </div>
+        <div class="armor-slot item-prop">{{localize (lookup ../DARKSOULS.armorSlots slot)}}</div>
+        <div class="armor-physdef item-prop">{{ifThen system.defense.phys system.defense.phys "—"}}</div>
+        <div class="armor-magdef item-prop">{{ifThen system.defense.mag system.defense.mag "—"}}</div>
+        <div class="item-weight item-prop">{{ifThen system.weight system.weight "—"}}</div>
+        <div class="item-controls">
+          <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+        </div>
+      </li>
+      {{/each}}
+      <li class="item flexrow items-header">
+        <div class="item-prop flex3">{{localize "DARKSOULS.Total"}}</div>
+        <div class="item-prop">{{system.defense.phys}}</div>
+        <div class="item-prop">{{system.defense.mag}}</div>
+        <div class="item-prop">{{system.totalWeight}}</div>
+      </li>
+    </ol>
+  </div>
+</div>

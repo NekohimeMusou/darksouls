@@ -5,8 +5,7 @@
     <input type="text" name="system.qty" value="{{system.qty}}" data-dtype="Number"/>
   </div>
   <div class="resource">
-    <label class="resource-label">{{localize "DARKSOULS.Prerequisites"}}</label>
-    <input type="text" name="system.reqs" value="{{system.reqs}}" data-dtype="String" {{disabled editLocked}}/>
+    {{> "systems/darksouls/templates/item/parts/stats/prereqs-pane.html"}}
   </div>
   {{!-- Row 2 --}}
   <div class="resource">
