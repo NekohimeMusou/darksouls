@@ -66,6 +66,8 @@ export default class DarkSoulsItem extends Item {
       ]));
 
     // FIXTHIS: Come up with a more elegant solution for this BS
+    // Move to context?
+    systemData.isSkill = this.isSkill;
     systemData.canAttack = this.canAttack;
     systemData.canGuard = this.canGuard;
     systemData.noChain = this.noChain;
@@ -100,6 +102,10 @@ export default class DarkSoulsItem extends Item {
     const enhanceMultiplier = CONFIG.DARKSOULS.weaponSizes?.[weaponSize]?.enhanceMultiplier || 0;
 
     return enhanceLevel * enhanceMultiplier;
+  }
+
+  get isSkill() {
+    return this.type === "skill";
   }
 
   get has1hGrip() {
