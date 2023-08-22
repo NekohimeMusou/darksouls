@@ -277,10 +277,17 @@ export default class DarkSoulsActorSheet extends ActorSheet {
       return await ui.notifications.notify(game.i18n.localize("DARKSOULS.ZeroQtyMsg"), "info");
     }
 
-    /* TODO: If the item has prerequisites, check them */
-    // if (item.system.prereqs) {
+    if (item.system.prereqs) {
+      const prereqs = Object.values(item.system.prereqs).filter(p => p.stat);
+      const pcStats = this.actor.system.stats;
 
-    // }
+      const canEquip = prereqs.every(p => pcStats[p.stat].value >= p.value);
+
+      if (!canEquip) {
+        element.checked = false;
+        return await ui.notifications.notify(game.i18n.localize("DARKSOULS.PrereqsNotMetMsg"), "info");
+      }
+    }
 
     const equippedItems = this.actor.system.equippedItems[item.type];
 
