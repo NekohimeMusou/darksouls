@@ -42,7 +42,10 @@
         "stat": "dex",
         "value": "8"
       },
-      "class": ""
+      "2": {
+        "stat": "",
+        "value": 0
+      }
     },
     "category": "axe",
     "size": "medium"

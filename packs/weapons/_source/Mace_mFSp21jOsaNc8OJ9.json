@@ -42,7 +42,10 @@
         "stat": "",
         "value": 0
       },
-      "class": ""
+      "2": {
+        "stat": "",
+        "value": 0
+      }
     },
     "category": "hammer",
     "size": "medium"

@@ -42,7 +42,10 @@
         "stat": "dex",
         "value": "16"
       },
-      "class": ""
+      "2": {
+        "stat": "",
+        "value": 0
+      }
     },
     "category": "curvedSword",
     "size": "medium"

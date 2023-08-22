@@ -277,6 +277,11 @@ export default class DarkSoulsActorSheet extends ActorSheet {
       return await ui.notifications.notify(game.i18n.localize("DARKSOULS.ZeroQtyMsg"), "info");
     }
 
+    /* TODO: If the item has prerequisites, check them */
+    // if (item.system.prereqs) {
+
+    // }
+
     const equippedItems = this.actor.system.equippedItems[item.type];
 
     const equipCap = CONFIG.DARKSOULS.equipmentCaps[item.type]?.cap || 0;

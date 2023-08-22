@@ -5,21 +5,40 @@
       <select name="system.prereqs.0.stat" {{disabled editLocked}}>
         {{selectOptions DARKSOULS.prereqStats selected=system.prereqs.0.stat blank="---"}}
       </select>
+      {{#if (eq system.prereqs.0.stat "class")}}
+      <select name="system.prereqs.0.value" {{disabled editLocked}}>
+        {{selectOptions DARKSOULS.classes selected=system.prereqs.0.value blank="---" localize=true}}
+      </select>
+      {{else}}
       <input type="number" name="system.prereqs.0.value" value="{{system.prereqs.0.value}}" data-dtype="Number" {{disabled editLocked}}/>
+      {{/if}}
     </div>
-    {{#if system.prereqs.0.value}}
+    {{#if system.prereqs.0.stat}}
     <div class="flexrow">
       <select name="system.prereqs.1.stat" {{disabled editLocked}}>
         {{selectOptions DARKSOULS.prereqStats selected=system.prereqs.1.stat blank="---"}}
       </select>
+      {{#if (eq system.prereqs.1.stat "class")}}
+      <select name="system.prereqs.1.value" {{disabled editLocked}}>
+        {{selectOptions DARKSOULS.classes selected=system.prereqs.1.value blank="---" localize=true}}
+      </select>
+      {{else}}
       <input type="number" name="system.prereqs.1.value" value="{{system.prereqs.1.value}}" data-dtype="Number" {{disabled editLocked}}/>
+      {{/if}}
     </div>
     {{/if}}
-    {{#if system.isSkill}}
+    {{#if system.prereqs.1.stat}}
     <div class="flexrow">
-      <select name="system.prereqs.class" {{disabled editLocked}}>
-        {{selectOptions DARKSOULS.classes selected=system.prereqs.class blank="---"}}
+      <select name="system.prereqs.2.stat" {{disabled editLocked}}>
+        {{selectOptions DARKSOULS.prereqStats selected=system.prereqs.2.stat blank="---"}}
       </select>
+      {{#if (eq system.prereqs.2.stat "class")}}
+      <select name="system.prereqs.2.value" {{disabled editLocked}}>
+        {{selectOptions DARKSOULS.classes selected=system.prereqs.2.value blank="---" localize=true}}
+      </select>
+      {{else}}
+      <input type="number" name="system.prereqs.2.value" value="{{system.prereqs.2.value}}" data-dtype="Number" {{disabled editLocked}}/>
+      {{/if}}
     </div>
     {{/if}}
   </div>

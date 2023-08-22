@@ -42,7 +42,10 @@
         "stat": "dex",
         "value": "10"
       },
-      "class": ""
+      "2": {
+        "stat": "",
+        "value": 0
+      }
     },
     "category": "straightSword",
     "size": "medium"

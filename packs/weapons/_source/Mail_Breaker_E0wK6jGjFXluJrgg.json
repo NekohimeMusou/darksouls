@@ -42,7 +42,10 @@
         "stat": "dex",
         "value": "12"
       },
-      "class": ""
+      "2": {
+        "stat": "",
+        "value": 0
+      }
     },
     "category": "dagger",
     "size": "small"
