@@ -17,7 +17,7 @@ This is *extremely* in a **prerelease** state. I originally threw it together in
 
 ### Damage Calculator
 
-The main time-saving feature right now is the damage calculator. It's a placeholder until I finish the code and UI for equippable weapons and shields.
+The main time-saving feature right now is the damage calculator. Weapons can calculate their damage automatically now, but you can use this for spells and the like until skills are in.
 
 1. Calculate your attack's final damage value, *after* all stat and chain modifiers, magic bonuses, etc.
 2. Type it in the "Damage Value" box
@@ -40,7 +40,7 @@ Create a piece of armor, add it to your character sheet, and a fugly little row 
 
 ## To-do List
 
-- Add weapon functionality
+- Add skill functionality
 - Better flask tracking
 - Clean up UI
 
