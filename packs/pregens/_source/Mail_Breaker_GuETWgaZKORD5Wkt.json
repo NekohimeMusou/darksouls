@@ -34,8 +34,7 @@
     "damageType": "physical",
     "wielded": true,
     "category": "dagger",
-    "size": "small",
-    "reqs": "Str 7, Dex 12"
+    "size": "small"
   },
   "effects": [],
   "flags": {

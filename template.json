@@ -174,8 +174,7 @@
         "weapon": {
             "templates": ["base", "equippable", "weight", "value", "quantity", "attack", "guard", "damageType", "wield", "prereqs"],
             "category": "dagger",
-            "size": "small",
-            "reqs": ""
+            "size": "small"
         },
         "armor": {
             "templates": ["base", "equippable", "weight", "value", "quantity"],

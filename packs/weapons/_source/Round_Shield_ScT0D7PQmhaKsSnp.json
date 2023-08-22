@@ -33,9 +33,19 @@
     },
     "damageType": "physical",
     "wielded": false,
+    "prereqs": {
+      "0": {
+        "stat": "str",
+        "value": "8"
+      },
+      "1": {
+        "stat": "",
+        "value": 0
+      },
+      "class": ""
+    },
     "category": "shield",
-    "size": "medium",
-    "reqs": "Str 8"
+    "size": "medium"
   },
   "effects": [],
   "sort": 0,
@@ -46,10 +56,10 @@
   "flags": {},
   "_stats": {
     "systemId": "darksouls",
-    "systemVersion": "0.7.4",
+    "systemVersion": "0.7.5",
     "coreVersion": "11.307",
     "createdTime": 1692065008416,
-    "modifiedTime": 1692065115001,
+    "modifiedTime": 1692671661061,
     "lastModifiedBy": "tQQSVABlIfWe88A9"
   },
   "_key": "!items!ScT0D7PQmhaKsSnp"

@@ -34,8 +34,7 @@
     "damageType": "physical",
     "wielded": false,
     "category": "bow",
-    "size": "medium",
-    "reqs": "Str 5, Dex 12"
+    "size": "medium"
   },
   "effects": [],
   "sort": 0,

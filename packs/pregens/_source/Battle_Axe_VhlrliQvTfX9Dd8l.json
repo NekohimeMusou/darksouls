@@ -34,8 +34,7 @@
     "damageType": "physical",
     "wielded": true,
     "category": "axe",
-    "size": "medium",
-    "reqs": "Str 12, Dex 8"
+    "size": "medium"
   },
   "effects": [],
   "flags": {

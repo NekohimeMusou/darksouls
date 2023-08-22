@@ -34,8 +34,7 @@
     "damageType": "physical",
     "wielded": true,
     "category": "spear",
-    "size": "medium",
-    "reqs": "Str 11, Dex 10"
+    "size": "medium"
   },
   "effects": [],
   "flags": {

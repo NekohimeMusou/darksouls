@@ -34,8 +34,7 @@
     "damageType": "physical",
     "wielded": true,
     "category": "thrustingSword",
-    "size": "medium",
-    "reqs": "Str 10, Dex 12"
+    "size": "medium"
   },
   "effects": [],
   "flags": {

@@ -34,8 +34,7 @@
     "damageType": "bleeding",
     "wielded": true,
     "category": "dagger",
-    "size": "small",
-    "reqs": "Str 6, Dex 12"
+    "size": "small"
   },
   "effects": [],
   "flags": {

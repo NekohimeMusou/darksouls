@@ -34,8 +34,7 @@
     "damageType": "physical",
     "wielded": true,
     "category": "curvedSword",
-    "size": "medium",
-    "reqs": "Str 10, Dex 16"
+    "size": "medium"
   },
   "effects": [],
   "flags": {

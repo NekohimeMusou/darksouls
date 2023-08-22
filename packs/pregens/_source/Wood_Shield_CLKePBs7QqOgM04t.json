@@ -34,8 +34,7 @@
     "damageType": "physical",
     "wielded": true,
     "category": "shield",
-    "size": "medium",
-    "reqs": "Str 8"
+    "size": "medium"
   },
   "effects": [],
   "sort": 0,

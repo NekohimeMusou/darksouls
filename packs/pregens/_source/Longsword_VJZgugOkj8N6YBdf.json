@@ -34,8 +34,7 @@
     "damageType": "physical",
     "wielded": true,
     "category": "straightSword",
-    "size": "medium",
-    "reqs": "Str 10, Dex 10"
+    "size": "medium"
   },
   "effects": [],
   "flags": {

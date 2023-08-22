@@ -34,8 +34,7 @@
     "damageType": "physical",
     "wielded": true,
     "category": "hammer",
-    "size": "medium",
-    "reqs": "Str 10"
+    "size": "medium"
   },
   "effects": [],
   "flags": {
