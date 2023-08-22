@@ -40,7 +40,7 @@
       {{!-- 1H/2H damage --}}
       <div class="dmg item-prop">
         {{#if item.system.canAttack}}
-        {{#if item.system.baseDmg.1h}}{{item.system.totalDmg.1h}}{{else}}—{{/if}}/{{#if item.system.baseDmg.2h}}{{item.system.totalDmg.2h}}{{else}}—{{/if}}
+        {{#if item.system.baseDmg.[1]}}{{item.system.totalDmg.[1]}}{{else}}—{{/if}}/{{#if item.system.baseDmg.[2]}}{{item.system.totalDmg.[2]}}{{else}}—{{/if}}
         {{/if}}
       </div>
       <div class="item-block-cost item-prop">{{item.system.guardCost}}</div>

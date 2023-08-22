@@ -46,7 +46,7 @@
         {{!-- 1H/2H damage --}}
         <div class="dmg item-prop">
           {{#if item.system.canAttack}}
-          {{#if item.system.baseDmg.1h}}{{lookup item.system.chainDmg.1h item.system.chainHits}}{{else}}—{{/if}}/{{#if item.system.baseDmg.2h}}{{lookup item.system.chainDmg.2h item.system.chainHits}}{{else}}—{{/if}}
+          {{#if item.system.baseDmg.[1]}}{{lookup item.system.chainDmg.[1] item.system.chainHits}}{{else}}—{{/if}}/{{#if item.system.baseDmg.[2]}}{{lookup item.system.chainDmg.[2] item.system.chainHits}}{{else}}—{{/if}}
           {{/if}}
         </div>
         {{!-- Atk Cost --}}

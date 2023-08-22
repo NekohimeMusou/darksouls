@@ -50,8 +50,8 @@ export default class DarkSoulsItem extends Item {
 
     // Calculate modified damage
     const totalDmg = {
-      "1h": this._calcDamage("1h"),
-      "2h": this._calcDamage("2h")
+      "1": this._calcDamage("1"),
+      "2": this._calcDamage("2")
     };
 
     if (!systemData.chain && !this.isRangedWeapon) {
@@ -67,7 +67,6 @@ export default class DarkSoulsItem extends Item {
 
     // FIXTHIS: Come up with a more elegant solution for this BS
     // Move to context?
-    systemData.isSkill = this.isSkill;
     systemData.canAttack = this.canAttack;
     systemData.canGuard = this.canGuard;
     systemData.noChain = this.noChain;
@@ -104,22 +103,18 @@ export default class DarkSoulsItem extends Item {
     return enhanceLevel * enhanceMultiplier;
   }
 
-  get isSkill() {
-    return this.type === "skill";
-  }
-
   get has1hGrip() {
     const systemData = this.system;
 
     // It can be equipped in 1 hand if it has 1h base damage or if it's a catalyst or shield
-    return this.type !== "consumable" && (Boolean(systemData?.baseDmg?.["1h"]) || systemData.category === "catalyst" || systemData.category === "shield");
+    return this.type !== "consumable" && (Boolean(systemData?.baseDmg?.["1"]) || systemData.category === "catalyst" || systemData.category === "shield");
   }
 
   get has2hGrip() {
     const systemData = this.system;
 
     // It can be equipped in 2 hands if it has 2h base damage
-    return this.type !== "consumable" && Boolean(systemData?.baseDmg?.["2h"]);
+    return this.type !== "consumable" && Boolean(systemData?.baseDmg?.["2"]);
   }
 
   get is2hOnly() {
@@ -161,6 +156,14 @@ export default class DarkSoulsItem extends Item {
 
   get canAttack() {
     return Boolean(this.system?.attackCost);
+  }
+
+  get currentGrip() {
+    const wieldedItems = this?.actor?.system?.wieldedItems?.["weapon"] ?? null;
+
+    if (this.type !== "weapon" || !this.system.wielded || !wieldedItems) return 0;
+
+    return this.has2hGrip && wieldedItems.length < 2 ? 2 : 1;
   }
 
   /**

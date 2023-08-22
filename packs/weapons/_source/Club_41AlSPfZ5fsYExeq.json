@@ -16,8 +16,8 @@
     "chain": true,
     "chainHits": 1,
     "baseDmg": {
-      "1h": 15,
-      "2h": 25
+      "1": 15,
+      "2": 25
     },
     "powerMods": {
       "0": "str",

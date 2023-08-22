@@ -407,7 +407,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     // If 2 weapons are wielded OR there's no 2H damage, use the 1H damage
     const wieldedItems = this.actor.system.wieldedItems["weapon"];
     const dmgValues = item.system.totalDmg;
-    const weaponDmg = (wieldedItems.length > 1 || !dmgValues?.["2h"] ? dmgValues?.["1h"] : dmgValues?.["2h"]) || 0;
+    const weaponDmg = (wieldedItems.length > 1 || !dmgValues?.["2"] ? dmgValues?.["1"] : dmgValues?.["2"]) || 0;
     const chainHits = item.system.chainHits;
     const totalDmg = weaponDmg * chainHits;
 
