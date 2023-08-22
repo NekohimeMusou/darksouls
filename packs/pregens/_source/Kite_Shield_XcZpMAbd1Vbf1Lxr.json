@@ -1,15 +1,15 @@
 {
   "folder": "TG5fezih636ZnUrB",
-  "name": "Buckler",
+  "name": "Kite Shield",
   "type": "weapon",
-  "_id": "afBwPDXdr5T3tcs2",
+  "_id": "XcZpMAbd1Vbf1Lxr",
   "img": "icons/svg/item-bag.svg",
   "system": {
     "description": "",
     "editLocked": true,
     "equipped": true,
-    "weight": 2,
-    "value": 500,
+    "weight": 5,
+    "value": 1500,
     "qty": 1,
     "set": 1,
     "attackCost": "",
@@ -26,15 +26,29 @@
     },
     "enhanceLevel": 0,
     "magical": false,
-    "guardCost": "2",
+    "guardCost": "5",
     "blockValue": {
-      "phys": 1,
-      "mag": 1
+      "phys": 3,
+      "mag": 3
     },
     "damageType": "physical",
     "wielded": true,
+    "prereqs": {
+      "0": {
+        "stat": "str",
+        "value": "12"
+      },
+      "1": {
+        "stat": "",
+        "value": 0
+      },
+      "2": {
+        "stat": "",
+        "value": 0
+      }
+    },
     "category": "shield",
-    "size": "small"
+    "size": "medium"
   },
   "effects": [],
   "sort": 0,
@@ -44,16 +58,16 @@
   },
   "flags": {
     "core": {
-      "sourceId": "Compendium.darksouls.weapons.Item.CksmrxYkm3BHyNTI"
+      "sourceId": "Compendium.darksouls.weapons.Item.E9QM1pxIEzHM4j8u"
     }
   },
   "_stats": {
     "systemId": "darksouls",
-    "systemVersion": "0.7.4",
+    "systemVersion": "0.7.5",
     "coreVersion": "11.307",
-    "createdTime": 1692065235759,
-    "modifiedTime": 1692067026795,
+    "createdTime": 1692065175886,
+    "modifiedTime": 1692674904914,
     "lastModifiedBy": "tQQSVABlIfWe88A9"
   },
-  "_key": "!actors.items!lNW5g0TPUbckttAt.afBwPDXdr5T3tcs2"
+  "_key": "!actors.items!H2WtQTb0X3fqbGKO.XcZpMAbd1Vbf1Lxr"
 }

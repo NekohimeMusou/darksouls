@@ -1,40 +1,54 @@
 {
   "folder": "TG5fezih636ZnUrB",
-  "name": "Plank Shield",
+  "name": "Round Shield",
   "type": "weapon",
-  "_id": "FOniTTCmQpTzl8Aa",
+  "_id": "7af8OsbqRKTVZx7c",
   "img": "icons/svg/item-bag.svg",
   "system": {
     "description": "",
     "editLocked": true,
     "equipped": true,
-    "weight": 3,
-    "value": 100,
+    "weight": 0,
+    "value": 0,
     "qty": 1,
     "set": 1,
-    "attackCost": "[4]",
+    "attackCost": "",
     "chain": false,
     "chainHits": 1,
     "baseDmg": {
-      "1h": 15,
+      "1h": 0,
       "2h": 0
     },
     "powerMods": {
-      "0": "str",
+      "0": "",
       "1": "",
       "2": ""
     },
     "enhanceLevel": 0,
     "magical": false,
-    "guardCost": "3",
+    "guardCost": "5",
     "blockValue": {
-      "phys": 2,
-      "mag": 1
+      "phys": 3,
+      "mag": 2
     },
     "damageType": "physical",
     "wielded": true,
+    "prereqs": {
+      "0": {
+        "stat": "str",
+        "value": "8"
+      },
+      "1": {
+        "stat": "",
+        "value": 0
+      },
+      "2": {
+        "stat": "",
+        "value": 0
+      }
+    },
     "category": "shield",
-    "size": "small"
+    "size": "medium"
   },
   "effects": [],
   "sort": 0,
@@ -44,16 +58,16 @@
   },
   "flags": {
     "core": {
-      "sourceId": "Compendium.darksouls.weapons.Item.iAHQD9lm9TVUaTLg"
+      "sourceId": "Compendium.darksouls.weapons.Item.ScT0D7PQmhaKsSnp"
     }
   },
   "_stats": {
     "systemId": "darksouls",
-    "systemVersion": "0.7.4",
+    "systemVersion": "0.7.5",
     "coreVersion": "11.307",
-    "createdTime": 1692065534647,
-    "modifiedTime": 1692066855374,
+    "createdTime": 1692065008416,
+    "modifiedTime": 1692675008173,
     "lastModifiedBy": "tQQSVABlIfWe88A9"
   },
-  "_key": "!actors.items!VvAuxzWR6f4JjQaE.FOniTTCmQpTzl8Aa"
+  "_key": "!actors.items!co8C6NoeUy0X9pLv.7af8OsbqRKTVZx7c"
 }

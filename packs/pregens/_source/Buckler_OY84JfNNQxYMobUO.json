@@ -1,15 +1,15 @@
 {
   "folder": "TG5fezih636ZnUrB",
-  "name": "Round Shield",
+  "name": "Buckler",
   "type": "weapon",
-  "_id": "wV7thGGdHlG57lYt",
+  "_id": "OY84JfNNQxYMobUO",
   "img": "icons/svg/item-bag.svg",
   "system": {
     "description": "",
     "editLocked": true,
     "equipped": true,
-    "weight": 0,
-    "value": 0,
+    "weight": 2,
+    "value": 500,
     "qty": 1,
     "set": 1,
     "attackCost": "",
@@ -26,15 +26,29 @@
     },
     "enhanceLevel": 0,
     "magical": false,
-    "guardCost": "5",
+    "guardCost": "2",
     "blockValue": {
-      "phys": 3,
-      "mag": 2
+      "phys": 1,
+      "mag": 1
     },
     "damageType": "physical",
     "wielded": true,
+    "prereqs": {
+      "0": {
+        "stat": "str",
+        "value": "7"
+      },
+      "1": {
+        "stat": "dex",
+        "value": "13"
+      },
+      "2": {
+        "stat": "",
+        "value": 0
+      }
+    },
     "category": "shield",
-    "size": "medium"
+    "size": "small"
   },
   "effects": [],
   "sort": 0,
@@ -44,16 +58,16 @@
   },
   "flags": {
     "core": {
-      "sourceId": "Compendium.darksouls.weapons.Item.ScT0D7PQmhaKsSnp"
+      "sourceId": "Compendium.darksouls.weapons.Item.CksmrxYkm3BHyNTI"
     }
   },
   "_stats": {
     "systemId": "darksouls",
-    "systemVersion": "0.7.4",
+    "systemVersion": "0.7.5",
     "coreVersion": "11.307",
-    "createdTime": 1692065008416,
-    "modifiedTime": 1692065758806,
+    "createdTime": 1692065235759,
+    "modifiedTime": 1692674991814,
     "lastModifiedBy": "tQQSVABlIfWe88A9"
   },
-  "_key": "!actors.items!co8C6NoeUy0X9pLv.wV7thGGdHlG57lYt"
+  "_key": "!actors.items!5afPkDyef22pcxGw.OY84JfNNQxYMobUO"
 }

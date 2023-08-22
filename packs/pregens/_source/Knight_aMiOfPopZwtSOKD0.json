@@ -42,7 +42,7 @@
     },
     "damage": 0,
     "attackIsMagical": false,
-    "class": "Knight",
+    "class": "knight",
     "souls": "0",
     "fp": {
       "min": 0,
@@ -181,18 +181,18 @@
     "IaX47qtUjpT9ozGG",
     "Bee5xMv4rPHmA5pU",
     "mrOXHqWbyL83R3KN",
-    "96Y7KOWvfcrrRYae",
-    "VJZgugOkj8N6YBdf"
+    "x0L4ya0xYAYFW59V",
+    "d5wCWrDgyQRBYmLJ"
   ],
   "effects": [],
   "folder": null,
   "flags": {},
   "_stats": {
     "systemId": "darksouls",
-    "systemVersion": "0.7.4",
+    "systemVersion": "0.7.5",
     "coreVersion": "11.307",
     "createdTime": 1691610452017,
-    "modifiedTime": 1692066719282,
+    "modifiedTime": 1692675167345,
     "lastModifiedBy": "tQQSVABlIfWe88A9"
   },
   "sort": 0,
