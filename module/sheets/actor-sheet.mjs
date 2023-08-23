@@ -42,6 +42,9 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     return context;
   }
 
+  /**
+   * Sort armor by slot and add to context
+   */
   static #prepareArmor(context) {
     const armor = context.items.filter(i => i.type === "armor");
 
@@ -51,22 +54,30 @@ export default class DarkSoulsActorSheet extends ActorSheet {
       legs: armor.filter(i => i.system.slot === "legs")
     };
 
-    context.armor = armor;
-    context.armorBySlot = armorBySlot;
+    [context.armor, context.armorBySlot] = [armor, armorBySlot];
   }
 
+  /**
+   * Add consumables to context
+   */
   static #prepareConsumables(context) {
     const consumables = context.items.filter(i => i.type === "consumable");
 
     context.consumables = consumables;
   }
 
+  /**
+   * Add rings to context
+   */
   static #prepareRings(context) {
     const rings = context.items.filter(i => i.type === "ring");
 
     context.rings = rings;
   }
 
+  /**
+   * Add weapons to context
+   */
   static #prepareWeapons(context) {
     const weapons = context.items.filter(i => i.type === "weapon");
 
@@ -157,17 +168,31 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     return await Item.create(itemData, {parent: this.actor});
   }
 
+  /**
+   * Make a stat check.
+   * Stat checks are 2d6 + (stat mod).
+   * On active checks, lose 1 FP for each 1 rolled.
+   */
   async #onStatRoll(event) {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
 
-    if (dataset.roll) {
-      const label = dataset.label ? `${dataset.label} Check:` : "";
-      const roll = await new Roll(dataset.roll, this.actor.getRollData()).roll();
+    const stat = dataset.stat;
+
+    if (stat) {
+      const flavor = dataset.label ? `${dataset.label} Check:` : "";
+
+      if (!Object.hasOwn(this.actor.system.stats, `${stat}`)) {
+        return await ui.notifications.error("Stat roll: Invalid stat.");
+      }
+
+      const rollString = `2d6+@${stat}Mod`;
+      const roll = await new Roll(rollString, this.actor.getRollData()).roll();
+
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        flavor: label,
+        flavor,
         rollMode: game.settings.get("core", "rollMode")
       });
 

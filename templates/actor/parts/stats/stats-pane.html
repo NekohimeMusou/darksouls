@@ -3,9 +3,11 @@
 
   {{#each system.stats as |stat key|}}
   <div class="stat flexrow flex-group-center">
-    <a class="resource-label align-center roll-stat" data-label="{{localize (lookup ../DARKSOULS.stats key)}}" data-roll="2d6+@{{key}}Mod"><label for="system.stats.{{key}}.base">{{upperCase key}}</label></a>
+    <a class="resource-label align-center roll-stat" data-label="{{localize (lookup ../DARKSOULS.stats key)}}"
+      data-stat="{{key}}"><label for="system.stats.{{key}}.base">{{upperCase key}}</label></a>
     <input type="text" name="system.stats.{{key}}.base" value="{{stat.base}}" data-dtype="Number" />
-    <a class="stat-mod roll-stat" data-label="{{localize (lookup ../DARKSOULS.stats key)}}" data-roll="2d6+@{{key}}Mod"><span>{{numberFormat stat.mod decimals=0 sign=true}}</span></a>
+    <a class="stat-mod roll-stat" data-label="{{localize (lookup ../DARKSOULS.stats key)}}"
+      data-stat="{{key}}"><span>{{numberFormat stat.mod decimals=0 sign=true}}</span></a>
   </div>
   {{/each}}
 </div>
