@@ -1,5 +1,8 @@
 export default class DarkSoulsActor extends Actor {
-  /** @override */
+  /** 
+   * @override
+   * @inheritdoc
+   * */
   prepareData() {
     // Prepare data for the actor. Calling the super version of this executes
     // the following, in order: data reset (to clear active effects),
@@ -8,21 +11,25 @@ export default class DarkSoulsActor extends Actor {
     super.prepareData();
   }
 
-  /** @override */
+  /** 
+   * @override
+   * @inheritdoc
+   *  */
   prepareBaseData() {
     // Data modifications in this step occur before processing embedded documents or derived data
     this._prepareStats();
     this._prepareResources();
-    
   }
 
   /**
-     * @override
      * Augment actor data with additional dynamic data.
+     * @override
+     * @inheritdoc
      */
   prepareDerivedData() {
     const flags = this.flags.darksouls || {};
 
+    // Containers for equipped/wielded items
     this.system.equippedItems = {};
     this.system.wieldedItems = {};
 
@@ -33,6 +40,15 @@ export default class DarkSoulsActor extends Actor {
     this._prepareRings();
   }
 
+  /**
+   * Calculate the base data for a PC. This includes:
+   * 
+   * - Stat totals and modifiers
+   * - Level and level modifier
+   * - Base spell power
+   * - Initiative mod
+   * @protected
+   */
   _prepareStats () {
     // Calculate stat totals and modifiers
     const stats = Object.values(this.system.stats);
@@ -69,18 +85,27 @@ export default class DarkSoulsActor extends Actor {
     this.system.initiative = stats.dex?.mod || 0;
   }
 
+  /**
+   * Calculate base HP, FP, and Luck Point caps.
+   * @protected
+   */
   _prepareResources() {
-    const stats = this.system.stats;
+    const systemData = this.system;
+    const stats = systemData.stats;
 
-    this.system.hp.max = 5 + stats.vig?.mod || 0;
-    this.system.fp.max = 5 + stats.atn?.mod || 0;
-    this.system.luckPts.max = 5 + stats.luc?.mod || 0;
+    systemData.hp.max = 5 + stats.vig?.mod || 0;
+    systemData.fp.max = 5 + stats.atn?.mod || 0;
+    systemData.luckPts.max = 5 + stats.luc?.mod || 0;
   }
 
+  /**
+   * Sort equipped armor and calculate defense values.
+   * @protected
+   */
   _prepareArmor() {
     const systemData = this.system;
 
-    // Filter out all unequipped armor
+    // Sort equipped armor by slot for ease of access
     const equipped = this.items.filter(i => i.type === "armor" && i.system.equipped);
 
     const equippedArmor = {
@@ -89,10 +114,9 @@ export default class DarkSoulsActor extends Actor {
       legs: equipped.find(i => i.system.slot === "legs") || null
     };
 
-    const levelMod = systemData.level.mod;
+    // Calculate physical and magical defense
+    const levelMod = systemData?.level?.mod || 0;
 
-    // Calculate physical and magical defense and weight
-    // Level bonus has been calculated in _calculatePcStats
     const defense = {
       phys: Object.values(equippedArmor)
         .reduce((total, armor) => total + (armor?.system.defense["phys"] || 0), 0) + levelMod,
@@ -104,8 +128,12 @@ export default class DarkSoulsActor extends Actor {
     systemData.equippedItems["armor"] = equippedArmor;
   }
 
+  /**
+   * Sort equipped consumables.
+   * Ammunition is "wielded" to indicate that it's the current type in use.
+   */
   _prepareConsumables() {
-    const equipped = this.items.filter(i => i.type === "consumable" && i.system.equipped && i.system.qty >= 1);
+    const equipped = this.items.filter(i => i.type === "consumable" && i.system?.equipped && i.system?.qty >= 1);
 
     const wielded = equipped.filter(i => i.system?.wielded);
 
@@ -113,12 +141,19 @@ export default class DarkSoulsActor extends Actor {
     this.system.equippedItems["consumable"] = equipped;
   }
 
+  /**
+   * Sort equipped rings.
+   */
   _prepareRings() {
     const equippedRings = this.items.filter(i => i.type === "ring" && i.system.equipped);
 
     this.system.equippedItems["ring"] = equippedRings;
   }
 
+  /**
+   * Sort items into "equipped" (one of the 3 equipped items on the main page)
+   * and "wielded" (actually held in hand)
+   *  */
   _prepareWeapons() {
     const equippedWeapons = this.items.filter(i => i.type === "weapon" && i.system.equipped);
 
@@ -128,16 +163,20 @@ export default class DarkSoulsActor extends Actor {
     this.system.equippedItems["weapon"] = equippedWeapons;
   }
 
+  /**
+   * Calculate weight, equip load, and evade cost.
+   */
   _prepareEquipLoad() {
     const systemData = this.system;
 
-    // Get a list of everything that contributes to equip load
+    // Get everything that contributes to equip load
     const equipment = this.items.filter(i => (i.type ==="armor" || i.type === "weapon") && i.system.equipped);
 
     // Calculate total weight and add to system data
     const totalWeight = equipment.reduce((wgt, i) => wgt + (i?.system.weight || 0), 0);
     systemData.totalWeight = totalWeight;
 
+    // Find the load level and evade cost for the current weight
     const vit = systemData.stats[CONFIG.DARKSOULS.equipLoadStat].value;
 
     const evadeIndex = Math.min(Math.max(Math.floor((totalWeight-1)/vit), 0), 3);
@@ -145,7 +184,10 @@ export default class DarkSoulsActor extends Actor {
     [systemData.equipLoadLevel, systemData.evadeCost] = CONFIG.DARKSOULS.evasion[evadeIndex];
   }
 
-  /** @override */
+  /** 
+   * @override
+   * @inheritdoc
+   */
   getRollData() {
     const data = foundry.utils.deepClone(super.getRollData());
 
@@ -161,6 +203,9 @@ export default class DarkSoulsActor extends Actor {
     return data;
   }
 
+  /**
+   * @returns an Object containing the wielded bolts and arrows, if any
+   */
   get wieldedAmmunition() {
     const wieldedAmmunition = {
       bolt: this.items.find(i => i.system?.consumableType === "bolt" && i.system?.wielded),

@@ -30,8 +30,6 @@ export default class DarkSoulsActorSheet extends ActorSheet {
 
     context.equippedItems = actorData.system.equippedItems;
 
-    DarkSoulsActorSheet.#addStatLabels(context);
-
     // Add global data to context
     context.DARKSOULS = CONFIG.DARKSOULS;
 
@@ -73,14 +71,6 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     const weapons = context.items.filter(i => i.type === "weapon");
 
     context.weapons = weapons;
-  }
-
-  static #addStatLabels(context) {
-    // Add labels for ability scores
-    // There's probably a smoother way to do this
-    for (const [k, v] of Object.entries(context.system.stats)) {
-      v.label = game.i18n.localize(CONFIG.DARKSOULS.stats[k]) ?? k;
-    }
   }
 
   /** @override */
