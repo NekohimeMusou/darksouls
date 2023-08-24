@@ -19,9 +19,9 @@ export default class DarkSoulsItem extends Item {
   }
 
   _prepareQty() {
-    if (!Object.hasOwn(this.system, "qty")) return;
+    const qty = this.system?.qty || 0;
 
-    if (this.system.qty < 1) {
+    if (qty < 1) {
       const updates = {"system.equipped": false};
 
       if (Object.hasOwn(this.system, "wielded")) {
@@ -164,6 +164,17 @@ export default class DarkSoulsItem extends Item {
     if (this.type !== "weapon" || !this.system.wielded || !wieldedItems) return 0;
 
     return this.has2hGrip && wieldedItems.length < 2 ? 2 : 1;
+  }
+
+  /**
+   * If this item type has no prereqs, return true.
+   * If no actor is associated with the item, return false.
+   */
+  get prereqsMet() {
+    const prereqs = Object.values(this.system?.prereqs).filter?.(p => p.stat);
+    const pcStats = this.actor?.system?.stats;
+
+    return !prereqs || (Boolean(pcStats) && prereqs.every(p => pcStats[p.stat].value >= p.value));
   }
 
   /**

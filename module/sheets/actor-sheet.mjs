@@ -200,6 +200,9 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     }
   }
 
+  /**
+   * Legacy damage calculator that takes a flat attack value.
+   */
   async #onDamageCalc(event) {
     event.preventDefault();
 
@@ -247,6 +250,9 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     });
   }
 
+  /**
+   * Handle dropdowns that change equipment, such as the armor pane.
+   */
   async #onItemSelect(event) {
     event.preventDefault();
 
@@ -279,29 +285,24 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     // If it's not a valid item, don't do anything else
     if (!item) return;
 
+    const itemData = item.system;
+
     // If it's already equipped, we don't have to check anything
-    if (item.system.equipped) {
+    if (itemData.equipped) {
       const updates = {"_id": item.id, "system.equipped": false};
       if (item.type === "weapon" || item.type === "consumable") updates["system.wielded"] = false;
       return await this.actor.updateEmbeddedDocuments("Item", [updates]);
     }
 
     // If the item doesn't exist, don't equip it
-    if (item.system.qty < 1) {
+    if (itemData.qty < 1) {
       element.checked = false;
       return await ui.notifications.notify(game.i18n.localize("DARKSOULS.ZeroQtyMsg"), "info");
     }
 
-    if (item.system.prereqs) {
-      const prereqs = Object.values(item.system.prereqs).filter(p => p.stat);
-      const pcStats = this.actor.system.stats;
-
-      const canEquip = prereqs.every(p => pcStats[p.stat].value >= p.value);
-
-      if (!canEquip) {
-        element.checked = false;
-        return await ui.notifications.notify(game.i18n.localize("DARKSOULS.PrereqsNotMetMsg"), "info");
-      }
+    if (!item.prereqsMet) {
+      element.checked = false;
+      return await ui.notifications.notify(game.i18n.localize("DARKSOULS.PrereqsNotMetMsg"), "info");
     }
 
     const equippedItems = this.actor.system.equippedItems[item.type];
@@ -422,7 +423,7 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     // If 2 weapons are wielded OR there's no 2H damage, use the 1H damage
     const wieldedItems = this.actor.system.wieldedItems["weapon"];
     const dmgValues = item.system.totalDmg;
-    const weaponDmg = (wieldedItems.length > 1 || !dmgValues?.["2"] ? dmgValues?.["1"] : dmgValues?.["2"]) || 0;
+    const weaponDmg = (wieldedItems.length > 1 || !dmgValues?.[2] ? dmgValues?.[1] : dmgValues?.[2]) || 0;
     const chainHits = item.system.chainHits;
     const totalDmg = weaponDmg * chainHits;
 
