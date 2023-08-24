@@ -50,8 +50,8 @@ export default class DarkSoulsItem extends Item {
 
     // Calculate modified damage
     const totalDmg = {
-      "1": this._calcDamage("1"),
-      "2": this._calcDamage("2")
+      1: this._calcDamage(1),
+      2: this._calcDamage(2)
     };
 
     if (!systemData.chain && !this.isRangedWeapon) {
@@ -76,14 +76,14 @@ export default class DarkSoulsItem extends Item {
   }
 
   _calcDamage(grip) {
-    const baseDmg = this.system.baseDmg?.[grip] || 0;
-    if (!baseDmg) return 0;
+    const baseDmg = this.system?.baseDmg?.[grip] || 0;
 
     const ammoBonus = this.actor?.wieldedAmmunition?.[this.ammoType]?.system?.damageBonus || 0;
     const statModBonus = this._powerModBonus;
     const enhanceBonus = this._enhanceBonus;
 
-    return baseDmg + statModBonus + enhanceBonus + ammoBonus;
+    // If there's no base damage, don't add bonuses and just return 0
+    return baseDmg ? baseDmg + statModBonus + enhanceBonus + ammoBonus : 0;
   }
 
   get _powerModBonus() {
@@ -107,14 +107,14 @@ export default class DarkSoulsItem extends Item {
     const systemData = this.system;
 
     // It can be equipped in 1 hand if it has 1h base damage or if it's a catalyst or shield
-    return this.type !== "consumable" && (Boolean(systemData?.baseDmg?.["1"]) || systemData.category === "catalyst" || systemData.category === "shield");
+    return this.type !== "consumable" && (Boolean(systemData?.baseDmg?.[1]) || systemData.category === "catalyst" || systemData.category === "shield");
   }
 
   get has2hGrip() {
     const systemData = this.system;
 
     // It can be equipped in 2 hands if it has 2h base damage
-    return this.type !== "consumable" && Boolean(systemData?.baseDmg?.["2"]);
+    return this.type !== "consumable" && Boolean(systemData?.baseDmg?.[2]);
   }
 
   get is2hOnly() {
@@ -164,6 +164,13 @@ export default class DarkSoulsItem extends Item {
     if (this.type !== "weapon" || !this.system.wielded || !wieldedItems) return 0;
 
     return this.has2hGrip && wieldedItems.length < 2 ? 2 : 1;
+  }
+
+  /**
+   * Return the weapon damage with the current grip.
+   */
+  get damage() {
+    return this.system?.totalDmg?.[this.currentGrip] || 0;
   }
 
   /**

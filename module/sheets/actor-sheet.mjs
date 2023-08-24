@@ -236,7 +236,6 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     if (damageStrings.length < 1) return;
 
     // Build chat card
-
     const speaker = ChatMessage.getSpeaker();
     const type = CONST.CHAT_MESSAGE_TYPES.OTHER;
     const flavor = `Attack Power: ${attackPower} (${attackIsMagical ? "Magical" : "Physical"})`;
@@ -498,5 +497,19 @@ export default class DarkSoulsActorSheet extends ActorSheet {
     if (!item) return;
 
     return await item.update({"system.chainHits": element.value});
+  }
+
+  async #dealDamage(item) {
+    const itemData = item.system;
+
+    if (!item.system.wielded) {
+      return await ui.notifications.info(game.i18n.localize("DARKSOULS.NotWieldedMsg"));
+    }
+
+    const targets = game.user.targets;
+
+    if (targets.size < 1) {
+      return await ui.notifications.info(game.i18n.localize("DARKSOULS.NoTargetMsg"));
+    }
   }
 }
